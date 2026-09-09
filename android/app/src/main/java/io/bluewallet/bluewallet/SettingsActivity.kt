@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package org.bitcoinpurity.puritywallet
 
 import android.os.Bundle
 import android.util.Log
@@ -83,4 +83,3 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 }
-

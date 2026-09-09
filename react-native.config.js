@@ -23,7 +23,7 @@ module.exports = {
     type: 'all',
     jsSrcsDir: './codegen',
     android: {
-      javaPackageName: 'io.bluewallet.bluewallet',
+      javaPackageName: 'org.bitcoinpurity.puritywallet',
     },
   },
 };

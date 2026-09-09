@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package org.bitcoinpurity.puritywallet
 
 import android.content.Context
 import android.net.ConnectivityManager

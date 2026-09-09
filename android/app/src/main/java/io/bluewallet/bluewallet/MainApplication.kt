@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package org.bitcoinpurity.puritywallet
 
 import android.app.Application
 import android.content.Context
@@ -17,7 +17,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.react.modules.fresco.FrescoModule
 import com.facebook.react.modules.i18nmanager.I18nUtil
-import io.bluewallet.bluewallet.components.segmentedcontrol.SegmentedControlPackage
+import org.bitcoinpurity.puritywallet.components.segmentedcontrol.SegmentedControlPackage
 
 class MainApplication : Application(), ReactApplication {
 

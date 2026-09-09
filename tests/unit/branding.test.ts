@@ -60,8 +60,15 @@ describe('PurityWallet visible branding', () => {
     expect(sha256('img/puritywallet-logo.png')).toBe('4c77b0cf5d54172a5194ba6f97c616f6848e0f52e3ac3e916630c24a906f0111');
   });
 
-  it('preserves compatibility identifiers and native module names', () => {
-    expect(read('android/app/build.gradle')).toContain('applicationId "io.bluewallet.bluewallet"');
+  it('uses an independent Android application identity while preserving iOS compatibility', () => {
+    expect(read('android/app/build.gradle')).toContain('namespace "org.bitcoinpurity.puritywallet"');
+    expect(read('android/app/build.gradle')).toContain('applicationId "org.bitcoinpurity.puritywallet"');
+    expect(read('android/app/google-services.json')).toContain('"package_name": "org.bitcoinpurity.puritywallet"');
+    expect(read('package.json')).toContain('"javaPackageName": "org.bitcoinpurity.puritywallet"');
+    expect(read('react-native.config.js')).toContain("javaPackageName: 'org.bitcoinpurity.puritywallet'");
+    expect(read('package.json')).toContain('am force-stop org.bitcoinpurity.puritywallet');
+    expect(read('package.json')).toContain('adb uninstall org.bitcoinpurity.puritywallet');
+    expect(read('screen/settings/About.tsx')).toContain('details?id=org.bitcoinpurity.puritywallet');
     expect(read('ios/BlueWallet/Info.plist')).toContain('<string>bluewallet</string>');
     expect(read('ios/BlueWallet/AppDelegate.swift')).toContain('self.moduleName = "BlueWallet"');
     expect(read('index.js')).toContain("AppRegistry.registerComponent('BlueWallet'");

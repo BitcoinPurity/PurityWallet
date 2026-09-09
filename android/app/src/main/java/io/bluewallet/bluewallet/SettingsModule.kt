@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package org.bitcoinpurity.puritywallet
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,7 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Promise
 import com.facebook.react.module.annotations.ReactModule
-import io.bluewallet.bluewallet.NativeSettingsModuleSpec
+import org.bitcoinpurity.puritywallet.NativeSettingsModuleSpec
 
 @ReactModule(name = SettingsModule.NAME)
 class SettingsModule(reactContext: ReactApplicationContext) : NativeSettingsModuleSpec(reactContext) {

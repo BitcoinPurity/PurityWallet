@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package org.bitcoinpurity.puritywallet
 
 import android.content.BroadcastReceiver
 import android.content.Context

@@ -53,7 +53,7 @@ const About: React.FC = () => {
       if (Platform.OS === 'ios') {
         await Linking.openURL('https://itunes.apple.com/app/bluewallet-bitcoin-wallet/id1376878040');
       } else {
-        await Linking.openURL('https://play.google.com/store/apps/details?id=io.bluewallet.bluewallet');
+        await Linking.openURL('https://play.google.com/store/apps/details?id=org.bitcoinpurity.puritywallet');
       }
     } catch (error: any) {
       console.error('Rate app failed:', error.message);

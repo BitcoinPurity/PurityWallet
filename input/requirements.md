@@ -4,7 +4,7 @@
 
 - Replace user-visible `BlueWallet` branding with `PurityWallet` across the app and store metadata.
 - Use a PurityWallet-specific blue colorway of the Bitcoin Purity logo so the wallet is visually distinct from Purity Node.
-- Preserve all internal compatibility identifiers, including bundle IDs, Android application IDs, app groups, URL schemes, native project/target/module names, storage keys, service endpoints, and dependency coordinates.
+- Preserve existing iOS bundle IDs, iOS app groups, URL schemes, native project/target/module names, storage keys, service endpoints, and dependency coordinates. The Android application identity is defined separately by REQ-005.
 
 ## REQ-002: Purity network defaults
 
@@ -24,3 +24,10 @@
 - PurityWallet does not currently offer Lightning wallet creation or Lightning network settings in the user interface.
 - Hide the Lightning and Ark wallet-type choices, including advanced wallet-type menus.
 - Preserve the underlying Lightning implementation and persisted wallet data for future re-enablement and compatibility.
+
+## REQ-005: Independent Android application identity
+
+- Use `org.bitcoinpurity.puritywallet` as the Android `applicationId` and code namespace.
+- Keep iOS bundle identifiers, iOS app groups, URL schemes, and shared storage keys unchanged.
+- Update Android native package references, React Native codegen configuration, Firebase package metadata, and Android install/test scripts to the new identity.
+- Allow the Android PurityWallet build to coexist with BlueWallet as a separate application. Existing BlueWallet app data is not migrated automatically; users must use the wallet backup/import flow.

@@ -5,3 +5,4 @@
 - [TASK-003: Route Donate to the on-chain Send flow](TASK-003.md)
 - [TASK-004: Temporarily hide Lightning UI entry points](TASK-004.md)
 - [TASK-005: Differentiate PurityWallet with a blue icon colorway](TASK-005.md)
+- [TASK-006: Use an independent Android application identity](TASK-006.md)

@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package org.bitcoinpurity.puritywallet
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -13,7 +13,7 @@ import androidx.work.WorkManager
 import kotlinx.coroutines.delay
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
-import io.bluewallet.bluewallet.ElectrumClient.ElectrumServer
+import org.bitcoinpurity.puritywallet.ElectrumClient.ElectrumServer
 
 class MarketWidget : AppWidgetProvider() {
 

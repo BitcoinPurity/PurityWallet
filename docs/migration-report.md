@@ -2,7 +2,9 @@
 
 ## BlueWallet to PurityWallet visible brand
 
-This migration changes presentation only. It updates platform display labels, localized product references, distribution metadata, and artwork. It deliberately avoids renaming internal projects, targets, modules, identifiers, schemes, storage namespaces, endpoints, and dependency references so existing installs and integrations remain compatible.
+This migration updates presentation, distribution metadata, and artwork. iOS/macOS internal projects, targets, modules, identifiers, schemes, storage namespaces, endpoints, and dependency references remain compatible. Android is intentionally published as the separate application `org.bitcoinpurity.puritywallet` so it can coexist with BlueWallet.
+
+The Android package split creates a new application data directory and does not automatically migrate an existing BlueWallet installation. Users must restore through the wallet backup/import flow. Android native code packages, codegen metadata, package-dependent scripts, and the Firebase package selector are aligned with the new identity; the complete Firebase client file still needs to be regenerated for this package before production. Shared preference key strings remain unchanged for JavaScript/native interoperability.
 
 The wallet artwork now uses a blue colorway of the Bitcoin Purity mark. The geometry and silver faceted center are retained, while the gold accents are replaced with cobalt/electric blue to distinguish PurityWallet from the gold Purity Node identity.
 

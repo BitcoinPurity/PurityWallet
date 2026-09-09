@@ -14,7 +14,7 @@
     "type": "all",
     "jsSrcsDir": "./codegen",
     "android": {
-      "javaPackageName": "io.bluewallet.bluewallet"
+      "javaPackageName": "org.bitcoinpurity.puritywallet"
     }
   },
   "devDependencies": {
@@ -68,11 +68,11 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "android:internal-test": "cd android && ./gradlew :app:assembleRelease -PpuritywalletInternalTestSigning=true",
-    "android:relaunch": "adb shell am force-stop io.bluewallet.bluewallet; adb shell monkey -p io.bluewallet.bluewallet -c android.intent.category.LAUNCHER 1",
-    "android:uninstall": "adb uninstall io.bluewallet.bluewallet",
+    "android:relaunch": "adb shell am force-stop org.bitcoinpurity.puritywallet; adb shell monkey -p org.bitcoinpurity.puritywallet -c android.intent.category.LAUNCHER 1",
+    "android:uninstall": "adb uninstall org.bitcoinpurity.puritywallet",
     "adb": "adb reverse tcp:8081 tcp:8081",
     "android:clean": "cd android;  ./gradlew clean ; cd .. ; rm -r -f android/app/.cxx; npm run android",
-    "android:restart": "adb shell am force-stop io.bluewallet.bluewallet; adb shell monkey -p io.bluewallet.bluewallet -c android.intent.category.LAUNCHER 1",
+    "android:restart": "adb shell am force-stop org.bitcoinpurity.puritywallet; adb shell monkey -p org.bitcoinpurity.puritywallet -c android.intent.category.LAUNCHER 1",
     "ios": "react-native run-ios",
     "postinstall": "npm run releasenotes2json; npm run branch2json; npm run patches",
     "patches": "npx patch-package",

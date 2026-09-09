@@ -1,6 +1,10 @@
 # API compatibility
 
-The PurityWallet visible-brand rebrand makes no API or protocol changes. Existing deep-link schemes, activity types, bundle/application identifiers, app groups, native bridge module names, Electrum endpoints, and serialized formats remain unchanged.
+The PurityWallet visible-brand rebrand makes no API or protocol changes. iOS/macOS deep-link schemes, activity types, bundle identifiers, app groups, native bridge module names, Electrum endpoints, and serialized formats remain unchanged. Android now uses the independent application ID and code namespace `org.bitcoinpurity.puritywallet`.
+
+## Android identity and service compatibility
+
+The Android application ID change creates a separate Android app data directory. Existing BlueWallet data is not copied automatically; wallet backup/import remains the supported migration path. Android Firebase package metadata must match `org.bitcoinpurity.puritywallet`.
 
 ## Configurable service compatibility
 

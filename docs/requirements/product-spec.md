@@ -4,7 +4,7 @@
 
 The product is presented to users as **PurityWallet** on iOS, Android, macOS Catalyst, launch surfaces, in-app localized copy, and app-store metadata. Its app, splash, and in-app brand artwork uses a PurityWallet-specific blue colorway of the Bitcoin Purity mark so it is visually distinct from the gold Purity Node identity.
 
-This is a presentation-only rebrand. Existing installation identity and interoperability remain unchanged: platform identifiers, shared containers, deep links, native target/module names, storage keys, service endpoints, and upstream dependency references retain their current values.
+The iOS and macOS rebrand remains presentation-only, while Android uses an independent PurityWallet application identity so it can be installed alongside BlueWallet. iOS bundle identifiers, shared containers, deep links, native target/module names, storage keys, service endpoints, and upstream dependency references retain their current values.
 
 ### Acceptance criteria
 
@@ -12,7 +12,13 @@ This is a presentation-only rebrand. Existing installation identity and interope
 - User-facing localized strings no longer display `BlueWallet` or `Blue Wallet`.
 - iOS, macOS Catalyst, Android, splash, in-app, and store icon assets derive from one 1024 px PurityWallet blue master icon.
 - The mark geometry and silver/white faceted center remain recognizable while gold accents are replaced by a saturated cobalt/electric-blue palette.
-- Existing package, bundle, app-group, URL-scheme, native module, storage, and network compatibility identifiers are unchanged.
+- Android uses `org.bitcoinpurity.puritywallet` for its application ID and code namespace.
+- iOS and macOS package/bundle, app-group, URL-scheme, native module, storage, and network compatibility identifiers remain unchanged.
+- Android shared storage key strings remain unchanged for JavaScript/native preference interoperability; changing the Android application ID creates a separate app data directory, so old BlueWallet data is restored through backup/import rather than automatic migration.
+
+### Android application identity
+
+PurityWallet is a separate Android application under `org.bitcoinpurity.puritywallet`. Package-dependent Android metadata and service configuration must use this identity. The checked-in Firebase package selector is aligned for local builds, but the complete Firebase Android client configuration must be generated for this package before production distribution.
 
 ## Purity network defaults
 
