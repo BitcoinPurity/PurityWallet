@@ -5,4 +5,4 @@ v8.0.1
 * ADD: Tap to copy values in transaction details
 * ADD: Highlight first and last segments of a Bitcoin address
 * FIX: Editing cosigners in multisig vaults
-* REF: Prefer BlueWallet Electrum server for faster, more reliable connectivity
+* REF: Prefer PurityWallet Electrum server for faster, more reliable connectivity

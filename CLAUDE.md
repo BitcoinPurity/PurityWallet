@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BlueWallet is a Bitcoin & Lightning Network wallet built with React Native and Electrum. Cross-platform mobile app (iOS/Android/macOS via Catalyst).
+PurityWallet is a Bitcoin & Lightning Network wallet built with React Native and Electrum. Cross-platform mobile app (iOS/Android/macOS via Catalyst).
 
 ## Common Commands
 

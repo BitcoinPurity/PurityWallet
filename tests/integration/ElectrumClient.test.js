@@ -9,9 +9,7 @@ const tls = require('tls');
 jest.setTimeout(150 * 1000);
 
 const hardcodedPeers = [
-  { host: 'electrum1.bluewallet.io', ssl: '443' },
-  { host: 'electrum2.bluewallet.io', ssl: '443' },
-  { host: 'electrum3.bluewallet.io', ssl: '443' },
+  { host: 'electrum.bitcoinpurity.org', ssl: '50002' },
 ];
 
 function bitcoinjs_crypto_sha256(buffer /*: Buffer */) /*: Buffer */ {

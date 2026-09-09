@@ -1,4 +1,4 @@
-BlueWallet là một ví Bitcoin cực kỳ đơn giản, mạnh mẽ và an toàn. Lưu trữ, gửi và nhận Bitcoin trong khi vẫn nắm toàn quyền kiểm soát — khóa của bạn, coin của bạn.
+PurityWallet là một ví Bitcoin cực kỳ đơn giản, mạnh mẽ và an toàn. Lưu trữ, gửi và nhận Bitcoin trong khi vẫn nắm toàn quyền kiểm soát — khóa của bạn, coin của bạn.
 
 Miễn phí và mã nguồn mở, được tạo bởi người dùng Bitcoin cho cộng đồng. Giao dịch với bất kỳ ai trên thế giới và làm chủ tiền của bạn, ngay từ trong túi của bạn. Tạo không giới hạn số ví miễn phí hoặc nhập một ví hiện có — nhanh chóng và đơn giản.
 
@@ -53,4 +53,4 @@ _____
 
 Có sẵn trên iOS, Android và macOS. Nhiều loại tiền tệ và ngôn ngữ. Chế độ tối. Không tài khoản và không theo dõi — chỉ có Bitcoin.
 
-BlueWallet — sở hữu Bitcoin của bạn.
+PurityWallet — sở hữu Bitcoin của bạn.

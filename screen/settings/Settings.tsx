@@ -1,26 +1,51 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useMemo, useLayoutEffect, useCallback } from 'react';
-import { View, StyleSheet, Linking, Image } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import loc from '../../loc';
 import { SettingsSection, SettingsListItem, SettingsScrollView } from '../../components/SettingsSection';
 import { useSettings } from '../../hooks/context/useSettings';
+import { Chain } from '../../models/bitcoinUnits';
+import { TWallet } from '../../class/wallets/types';
+
+export const PURITY_WALLET_DONATION_ADDRESS = 'REPLACE_WITH_PURITYWALLET_DONATION_ADDRESS';
 
 const Settings = () => {
-  const { navigate, setOptions } = useNavigation();
+  const navigation = useNavigation();
+  const { navigate, setOptions } = navigation;
   const { language } = useSettings(); // Subscribe to language changes to trigger re-render
   useLayoutEffect(() => {
     // Only the title needs refreshing on language change; header styling comes from the route options
     setOptions({ title: loc.settings.header });
   }, [setOptions, language]);
 
+  const handleDonationWalletSelect = useCallback(
+    (selectedWallet: TWallet) => {
+      navigation.goBack();
+      setTimeout(() => {
+        navigate('SendDetailsRoot', {
+          screen: 'SendDetails',
+          params: {
+            address: PURITY_WALLET_DONATION_ADDRESS,
+            walletID: selectedWallet.getID(),
+          },
+        });
+      }, 100);
+    },
+    [navigate, navigation],
+  );
+
   const handleDonatePress = useCallback(() => {
-    Linking.openURL('https://donate.bluewallet.io/');
-  }, []);
+    navigate('SelectWallet', {
+      chainType: Chain.ONCHAIN,
+      onChainRequireSend: true,
+      onWalletSelect: handleDonationWalletSelect,
+    });
+  }, [handleDonationWalletSelect, navigate]);
 
   const donateIcon = useMemo(
     () => (
       <View style={styles.donateIconContainer}>
-        <Image source={require('../../img/bluebeast.png')} style={styles.donateIconImage} resizeMode="contain" />
+        <Image source={require('../../img/puritywallet-logo.png')} style={styles.donateIconImage} resizeMode="contain" />
       </View>
     ),
     [],

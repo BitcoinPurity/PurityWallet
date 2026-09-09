@@ -1,4 +1,4 @@
-BlueWallet este un portofel Bitcoin radical de simplu, puternic și securizat. Stochează, trimite și primește Bitcoin păstrând controlul total — cheile tale, monedele tale.
+PurityWallet este un portofel Bitcoin radical de simplu, puternic și securizat. Stochează, trimite și primește Bitcoin păstrând controlul total — cheile tale, monedele tale.
 
 Gratuit și open source, creat de utilizatori Bitcoin pentru comunitate. Fă tranzacții cu oricine din lume și preia controlul banilor tăi, direct din buzunar. Creează portofele nelimitate gratuit sau importă unul existent — e rapid și simplu.
 
@@ -53,4 +53,4 @@ _____
 
 Disponibil pe iOS, Android și macOS. Mai multe valute și limbi. Mod întunecat. Fără conturi și fără urmărire — doar Bitcoin.
 
-BlueWallet — deține-ți Bitcoinul.
+PurityWallet — deține-ți Bitcoinul.

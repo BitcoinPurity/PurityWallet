@@ -1,4 +1,4 @@
-A BlueWallet egy rendkívül egyszerű, hatékony és biztonságos Bitcoin tárca. Tárold, küldd és fogadd a Bitcoint úgy, hogy közben végig te irányítasz — a te kulcsaid, a te érméid.
+A PurityWallet egy rendkívül egyszerű, hatékony és biztonságos Bitcoin tárca. Tárold, küldd és fogadd a Bitcoint úgy, hogy közben végig te irányítasz — a te kulcsaid, a te érméid.
 
 Ingyenes és nyílt forráskódú, Bitcoin felhasználók készítették a közösségnek. Bonyolíts tranzakciókat bárkivel a világon, és vedd kézbe a pénzed, egyenesen a zsebedből. Hozz létre korlátlan számú tárcát ingyen, vagy importálj egy meglévőt — gyors és egyszerű.
 
@@ -53,4 +53,4 @@ _____
 
 Elérhető iOS-en, Androidon és macOS-en. Több pénznem és nyelv. Sötét mód. Nincsenek fiókok és nincs nyomkövetés — csak Bitcoin.
 
-BlueWallet — birtokold a Bitcoinodat.
+PurityWallet — birtokold a Bitcoinodat.

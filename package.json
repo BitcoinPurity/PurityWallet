@@ -2,6 +2,9 @@
   "name": "bluewallet",
   "version": "8.0.2",
   "license": "MIT",
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/BlueWallet/BlueWallet.git"

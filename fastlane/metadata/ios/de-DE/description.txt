@@ -1,4 +1,4 @@
-BlueWallet ist eine radikal einfache, leistungsstarke und sichere Bitcoin-Wallet. Bewahre Bitcoin auf, sende und empfange ihn und behalte die volle Kontrolle — deine Schlüssel, deine Coins.
+PurityWallet ist eine radikal einfache, leistungsstarke und sichere Bitcoin-Wallet. Bewahre Bitcoin auf, sende und empfange ihn und behalte die volle Kontrolle — deine Schlüssel, deine Coins.
 
 Kostenlos und quelloffen, von Bitcoin-Nutzern für die Community entwickelt. Mache Geschäfte mit jedem auf der Welt und übernimm die Kontrolle über dein Geld, direkt aus deiner Tasche. Erstelle kostenlos unbegrenzt viele Wallets oder importiere eine bestehende — schnell und einfach.
 
@@ -53,4 +53,4 @@ _____
 
 Verfügbar für iOS, Android und macOS. Mehrere Währungen und Sprachen. Dark Mode. Keine Konten und kein Tracking — nur Bitcoin.
 
-BlueWallet — besitze deinen Bitcoin.
+PurityWallet — besitze deinen Bitcoin.

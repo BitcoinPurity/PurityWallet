@@ -27,14 +27,9 @@ class ElectrumClient {
         private const val MAX_RETRIES = 3
         private const val RETRY_DELAY_MS = 1000L // 1 second delay between retries
         
-        // Default list of Electrum servers to try
+        // Default Electrum server
         val hardcodedPeers = listOf(
-            ElectrumServer("electrum1.bluewallet.io", 50001, false),
-            ElectrumServer("electrum2.bluewallet.io", 50001, false),
-            ElectrumServer("electrum3.bluewallet.io", 50001, false),
-            ElectrumServer("electrum1.bluewallet.io", 443, true),
-            ElectrumServer("electrum2.bluewallet.io", 443, true),
-            ElectrumServer("electrum3.bluewallet.io", 443, true)
+            ElectrumServer("electrum.bitcoinpurity.org", 50002, true)
         )
     }
 

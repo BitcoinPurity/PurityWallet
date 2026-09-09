@@ -99,7 +99,7 @@
         <!-- Settings Activity alias for System Settings -->
         <activity-alias
             android:name=".SettingsActivityAlias"
-            android:label="BlueWallet Settings"
+            android:label="PurityWallet Settings"
             android:exported="true"
             android:targetActivity=".SettingsActivity">
             <intent-filter>

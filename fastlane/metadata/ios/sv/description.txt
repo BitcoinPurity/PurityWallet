@@ -1,4 +1,4 @@
-BlueWallet är en radikalt enkel, kraftfull och säker Bitcoin-plånbok. Lagra, skicka och ta emot Bitcoin med full kontroll — dina nycklar, dina mynt.
+PurityWallet är en radikalt enkel, kraftfull och säker Bitcoin-plånbok. Lagra, skicka och ta emot Bitcoin med full kontroll — dina nycklar, dina mynt.
 
 Gratis och öppen källkod, byggd av Bitcoin-användare för gemenskapen. Handla med vem som helst i världen och ta kontroll över dina pengar, direkt från fickan. Skapa obegränsat med plånböcker gratis eller importera en befintlig — det är snabbt och enkelt.
 
@@ -53,4 +53,4 @@ _____
 
 Tillgänglig på iOS, Android och macOS. Flera valutor och språk. Mörkt läge. Inga konton och ingen spårning — bara Bitcoin.
 
-BlueWallet — äg din Bitcoin.
+PurityWallet — äg din Bitcoin.

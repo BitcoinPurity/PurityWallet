@@ -1,4 +1,4 @@
-BlueWallet er en radikalt enkel, kraftig og sikker Bitcoin-lommebok. Oppbevar, send og motta Bitcoin mens du beholder full kontroll — dine nøkler, dine mynter.
+PurityWallet er en radikalt enkel, kraftig og sikker Bitcoin-lommebok. Oppbevar, send og motta Bitcoin mens du beholder full kontroll — dine nøkler, dine mynter.
 
 Gratis og åpen kildekode, laget av Bitcoin-brukere for fellesskapet. Handle med hvem som helst i verden og ta kontroll over pengene dine, rett fra lommen. Opprett ubegrenset antall lommebøker gratis eller importer en eksisterende — det er raskt og enkelt.
 
@@ -53,4 +53,4 @@ _____
 
 Tilgjengelig på iOS, Android og macOS. Flere valutaer og språk. Mørk modus. Ingen kontoer og ingen sporing — bare Bitcoin.
 
-BlueWallet — eie din egen Bitcoin.
+PurityWallet — eie din egen Bitcoin.

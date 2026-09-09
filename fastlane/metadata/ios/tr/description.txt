@@ -1,4 +1,4 @@
-BlueWallet, radikal şekilde basit, güçlü ve güvenli bir Bitcoin cüzdanıdır. Bitcoin'inizi saklayın, gönderin ve alın — tam kontrol sizde, anahtarlarınız, paranız sizin.
+PurityWallet, radikal şekilde basit, güçlü ve güvenli bir Bitcoin cüzdanıdır. Bitcoin'inizi saklayın, gönderin ve alın — tam kontrol sizde, anahtarlarınız, paranız sizin.
 
 Ücretsiz ve açık kaynak, Bitcoin kullanıcıları tarafından topluluk için geliştirildi. Dünyadaki herkesle işlem yapın ve paranızı doğrudan cebinizden yönetin. Ücretsiz olarak sınırsız cüzdan oluşturun veya mevcut bir cüzdanı içe aktarın — hızlı ve basit.
 
@@ -53,4 +53,4 @@ _____
 
 iOS, Android ve macOS'ta kullanılabilir. Birden fazla para birimi ve dil. Karanlık mod. Hesap yok, takip yok — sadece Bitcoin.
 
-BlueWallet — Bitcoin'iniz size ait.
+PurityWallet — Bitcoin'iniz size ait.

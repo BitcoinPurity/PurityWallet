@@ -3,6 +3,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import loc from '../../loc';
 import { SettingsSection, SettingsListItem, SettingsScrollView } from '../../components/SettingsSection';
+import { isLightningUiEnabled } from '../../blue_modules/features';
 
 const NetworkSettings: React.FC = () => {
   const navigation = useNavigation();
@@ -40,16 +41,19 @@ const NetworkSettings: React.FC = () => {
           onPress={navigateToElectrumSettings}
           testID="ElectrumSettings"
           chevron
+          bottomDivider={isLightningUiEnabled || isNotificationsCapable}
         />
 
-        <SettingsListItem
-          title={loc.settings.lightning_settings}
-          iconName="lightning"
-          onPress={navigateToLightningSettings}
-          testID="LightningSettings"
-          chevron
-          bottomDivider={isNotificationsCapable}
-        />
+        {isLightningUiEnabled && (
+          <SettingsListItem
+            title={loc.settings.lightning_settings}
+            iconName="lightning"
+            onPress={navigateToLightningSettings}
+            testID="LightningSettings"
+            chevron
+            bottomDivider={isNotificationsCapable}
+          />
+        )}
 
         {isNotificationsCapable && (
           <SettingsListItem

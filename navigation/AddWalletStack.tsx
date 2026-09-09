@@ -7,6 +7,7 @@ import { createEllipsisHeaderMenuOptions } from '../components/headerMenuOptions
 import { Action } from '../components/types';
 import navigationStyle, { CloseButtonPosition, withRouteParamHeaderOptions } from '../components/navigationStyle';
 import { isIOS26OrHigher } from '../blue_modules/environment';
+import { isLightningUiEnabled } from '../blue_modules/features';
 import { useTheme } from '../components/themes';
 import { HDLegacyP2PKHWallet } from '../class/wallets/hd-legacy-p2pkh-wallet';
 import { HDSegwitBech32Wallet } from '../class/wallets/hd-segwit-bech32-wallet';
@@ -157,11 +158,15 @@ const addWalletTypes = [
     text: 'Taproot',
     subtitle: 'p2tr/HD',
   },
-  {
-    id: LightningCustodianWallet.type,
-    text: LightningCustodianWallet.typeReadable,
-    subtitle: LightningCustodianWallet.subtitleReadable,
-  },
+  ...(isLightningUiEnabled
+    ? [
+        {
+          id: LightningCustodianWallet.type,
+          text: LightningCustodianWallet.typeReadable,
+          subtitle: LightningCustodianWallet.subtitleReadable,
+        },
+      ]
+    : []),
 ];
 
 const createAddWalletOptions = (theme: ReturnType<typeof useTheme>) =>

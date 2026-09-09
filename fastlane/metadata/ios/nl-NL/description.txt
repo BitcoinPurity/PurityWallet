@@ -1,4 +1,4 @@
-BlueWallet is een radicaal eenvoudige, krachtige en veilige Bitcoin-wallet. Bewaar, verzend en ontvang Bitcoin terwijl je volledig de controle houdt — jouw sleutels, jouw munten.
+PurityWallet is een radicaal eenvoudige, krachtige en veilige Bitcoin-wallet. Bewaar, verzend en ontvang Bitcoin terwijl je volledig de controle houdt — jouw sleutels, jouw munten.
 
 Gratis en open source, gebouwd door Bitcoin-gebruikers voor de gemeenschap. Doe transacties met iedereen ter wereld en neem de controle over je geld, direct vanuit je broekzak. Maak gratis onbeperkt wallets aan of importeer een bestaande — het is snel en eenvoudig.
 
@@ -53,4 +53,4 @@ _____
 
 Beschikbaar op iOS, Android en macOS. Meerdere valuta's en talen. Donkere modus. Geen accounts en geen tracking — gewoon Bitcoin.
 
-BlueWallet — bezit je eigen Bitcoin.
+PurityWallet — bezit je eigen Bitcoin.

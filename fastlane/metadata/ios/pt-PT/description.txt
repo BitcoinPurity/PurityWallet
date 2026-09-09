@@ -1,4 +1,4 @@
-A BlueWallet é uma carteira de Bitcoin radicalmente simples, poderosa e segura. Guarda, envia e recebe Bitcoin mantendo o controlo total — as tuas chaves, as tuas moedas.
+A PurityWallet é uma carteira de Bitcoin radicalmente simples, poderosa e segura. Guarda, envia e recebe Bitcoin mantendo o controlo total — as tuas chaves, as tuas moedas.
 
 Gratuita e de código aberto, criada por utilizadores de Bitcoin para a comunidade. Faz transações com qualquer pessoa no mundo e assume o controlo do teu dinheiro, diretamente do teu bolso. Cria carteiras ilimitadas gratuitamente ou importa uma já existente — é rápido e simples.
 
@@ -53,4 +53,4 @@ _____
 
 Disponível em iOS, Android e macOS. Várias moedas e idiomas. Modo escuro. Sem contas e sem rastreio — apenas Bitcoin.
 
-BlueWallet — sê dono do teu Bitcoin.
+PurityWallet — sê dono do teu Bitcoin.

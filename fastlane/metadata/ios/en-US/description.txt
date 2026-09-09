@@ -1,4 +1,4 @@
-BlueWallet is a radically simple, powerful and secure Bitcoin wallet. Store, send and receive Bitcoin while staying in full control — your keys, your coins.
+PurityWallet is a radically simple, powerful and secure Bitcoin wallet. Store, send and receive Bitcoin while staying in full control — your keys, your coins.
 
 Free and open source, built by Bitcoin users for the community. Transact with anyone in the world and take charge of your money, right from your pocket. Create unlimited wallets for free or import an existing one — it's fast and simple.
 
@@ -53,4 +53,4 @@ _____
 
 Available on iOS, Android and macOS. Multiple currencies and languages. Dark mode. No accounts and no tracking — just Bitcoin.
 
-BlueWallet — own your Bitcoin.
+PurityWallet — own your Bitcoin.

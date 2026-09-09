@@ -1,4 +1,4 @@
-BlueWallet on äärimmäisen yksinkertainen, tehokas ja turvallinen Bitcoin-lompakko. Säilytä, lähetä ja vastaanota bitcoineja säilyttäen täyden hallinnan — sinun avaimesi, sinun kolikkosi.
+PurityWallet on äärimmäisen yksinkertainen, tehokas ja turvallinen Bitcoin-lompakko. Säilytä, lähetä ja vastaanota bitcoineja säilyttäen täyden hallinnan — sinun avaimesi, sinun kolikkosi.
 
 Ilmainen ja avoimen lähdekoodin sovellus, jonka Bitcoin-käyttäjät ovat rakentaneet yhteisölle. Tee siirtoja kenen tahansa kanssa ympäri maailman ja hallitse rahojasi suoraan taskustasi. Luo rajattomasti lompakoita ilmaiseksi tai tuo olemassa oleva — se on nopeaa ja yksinkertaista.
 
@@ -53,4 +53,4 @@ _____
 
 Saatavilla iOS:lle, Androidille ja macOS:lle. Useita valuuttoja ja kieliä. Tumma tila. Ei tilejä eikä seurantaa — pelkkää Bitcoinia.
 
-BlueWallet — omista Bitcoinisi.
+PurityWallet — omista Bitcoinisi.

@@ -1,4 +1,4 @@
-BlueWallet est un portefeuille Bitcoin radicalement simple, puissant et sécuritaire. Stockez, envoyez et recevez des Bitcoin tout en gardant le plein contrôle — vos clés, vos bitcoins.
+PurityWallet est un portefeuille Bitcoin radicalement simple, puissant et sécuritaire. Stockez, envoyez et recevez des Bitcoin tout en gardant le plein contrôle — vos clés, vos bitcoins.
 
 Gratuit et à code ouvert, conçu par des utilisateurs de Bitcoin pour la communauté. Effectuez des transactions avec n'importe qui dans le monde et prenez le contrôle de votre argent, directement depuis votre poche. Créez gratuitement un nombre illimité de portefeuilles ou importez-en un existant — c'est rapide et simple.
 
@@ -53,4 +53,4 @@ _____
 
 Offert sur iOS, Android et macOS. Plusieurs devises et langues. Mode sombre. Aucun compte et aucun pistage — seulement du Bitcoin.
 
-BlueWallet — possédez votre Bitcoin.
+PurityWallet — possédez votre Bitcoin.

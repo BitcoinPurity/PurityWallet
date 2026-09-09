@@ -28,6 +28,7 @@ import { BlueSpacing20, BlueSpacing40 } from '../../components/BlueSpacing';
 import { hexToUint8Array } from '../../blue_modules/uint8array-extras';
 import { LightningArkWallet } from '../../class/wallets/lightning-ark-wallet.ts';
 import { resetScanWasBBQR } from '../../helpers/scan-qr.ts';
+import { isLightningUiEnabled } from '../../blue_modules/features';
 
 enum ButtonSelected {
   // @ts-ignore: Return later to update
@@ -123,13 +124,13 @@ const WalletsAdd: React.FC = () => {
   } = route.params || {};
   const selectedIndex = typeof routeSelectedIndex === 'number' ? routeSelectedIndex : state.selectedIndex;
   const selectedWalletType: ButtonSelected =
-    routeSelectedWalletType === Chain.OFFCHAIN
+    isLightningUiEnabled && routeSelectedWalletType === Chain.OFFCHAIN
       ? ButtonSelected.OFFCHAIN
       : routeSelectedWalletType === Chain.ONCHAIN
         ? ButtonSelected.ONCHAIN
         : routeSelectedWalletType === ButtonSelected.VAULT
           ? ButtonSelected.VAULT
-          : routeSelectedWalletType === ButtonSelected.ARK
+          : isLightningUiEnabled && routeSelectedWalletType === ButtonSelected.ARK
             ? ButtonSelected.ARK
             : state.selectedWalletType;
   const entropy = entropyHex ? hexToUint8Array(entropyHex) : undefined;
@@ -425,7 +426,7 @@ const WalletsAdd: React.FC = () => {
             onPress={handleOnVaultButtonPressed}
             size={styles.button}
           />
-          {backdoorPressed >= 20 ? (
+          {isLightningUiEnabled && backdoorPressed >= 20 ? (
             <WalletButton
               buttonType="LightningArk"
               testID="ActivateLightningArkButton"
@@ -434,7 +435,7 @@ const WalletsAdd: React.FC = () => {
               size={styles.button}
             />
           ) : null}
-          {(selectedWalletType === ButtonSelected.OFFCHAIN || hasStoredLndHub) && LightningButtonMemo}
+          {isLightningUiEnabled && (selectedWalletType === ButtonSelected.OFFCHAIN || hasStoredLndHub) && LightningButtonMemo}
         </View>
         {entropy && entropyBytesProvided > 0 && selectedWalletType === ButtonSelected.ONCHAIN ? (
           <View style={styles.entropyMixed} testID="EntropyMixedIndicator">
@@ -445,7 +446,7 @@ const WalletsAdd: React.FC = () => {
           </View>
         ) : null}
         <View style={styles.advanced}>
-          {selectedWalletType === ButtonSelected.OFFCHAIN && (
+          {isLightningUiEnabled && selectedWalletType === ButtonSelected.OFFCHAIN && (
             <>
               <BlueSpacing20 />
               <View style={styles.lndhubTitle}>

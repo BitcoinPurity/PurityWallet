@@ -1,4 +1,4 @@
-BlueWallet er en radikalt enkel, kraftfuld og sikker Bitcoin-wallet. Opbevar, send og modtag Bitcoin, mens du bevarer fuld kontrol — dine nøgler, dine coins.
+PurityWallet er en radikalt enkel, kraftfuld og sikker Bitcoin-wallet. Opbevar, send og modtag Bitcoin, mens du bevarer fuld kontrol — dine nøgler, dine coins.
 
 Gratis og open source, bygget af Bitcoin-brugere for fællesskabet. Handl med hvem som helst i verden og tag styringen over dine penge, direkte fra lommen. Opret ubegrænsede wallets gratis eller importér en eksisterende — det er hurtigt og enkelt.
 
@@ -53,4 +53,4 @@ _____
 
 Tilgængelig på iOS, Android og macOS. Flere valutaer og sprog. Mørk tilstand. Ingen konti og ingen sporing — bare Bitcoin.
 
-BlueWallet — ej din Bitcoin.
+PurityWallet — ej din Bitcoin.

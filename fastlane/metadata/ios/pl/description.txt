@@ -1,4 +1,4 @@
-BlueWallet to radykalnie prosty, potężny i bezpieczny portfel Bitcoin. Przechowuj, wysyłaj i odbieraj Bitcoin, zachowując pełną kontrolę — Twoje klucze, Twoje monety.
+PurityWallet to radykalnie prosty, potężny i bezpieczny portfel Bitcoin. Przechowuj, wysyłaj i odbieraj Bitcoin, zachowując pełną kontrolę — Twoje klucze, Twoje monety.
 
 Darmowy i otwartoźródłowy, stworzony przez użytkowników Bitcoina dla społeczności. Dokonuj transakcji z każdym na świecie i przejmij kontrolę nad swoimi pieniędzmi, prosto z kieszeni. Twórz nieograniczoną liczbę portfeli za darmo lub zaimportuj istniejący — to szybkie i proste.
 
@@ -53,4 +53,4 @@ _____
 
 Dostępny na iOS, Androidzie i macOS. Wiele walut i języków. Tryb ciemny. Bez kont i bez śledzenia — po prostu Bitcoin.
 
-BlueWallet — bądź właścicielem swojego Bitcoina.
+PurityWallet — bądź właścicielem swojego Bitcoina.

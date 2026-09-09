@@ -82,7 +82,7 @@ const ensureAndroidNotificationChannel = () => {
 
   Notifications.setNotificationChannel({
     channelId: ANDROID_NOTIFICATION_CHANNEL_ID,
-    name: 'BlueWallet notifications',
+    name: 'PurityWallet notifications',
     description: 'Notifications about incoming payments',
     importance: 4,
     enableVibration: true,

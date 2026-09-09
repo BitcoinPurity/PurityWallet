@@ -41,15 +41,11 @@ const About: React.FC = () => {
   }, [navigate]);
 
   const handleOnXPress = useCallback(() => {
-    Linking.openURL('https://x.com/bluewalletio');
-  }, []);
-
-  const handleOnTelegramPress = useCallback(() => {
-    Linking.openURL('https://t.me/bluewallethat');
+    Linking.openURL('https://x.com/Bitcoin_Purity');
   }, []);
 
   const handleOnGithubPress = useCallback(() => {
-    Linking.openURL('https://github.com/BlueWallet/BlueWallet');
+    Linking.openURL('https://github.com/BitcoinPurity/PurityWallet');
   }, []);
 
   const handleOnRatePress = useCallback(async () => {
@@ -84,7 +80,7 @@ const About: React.FC = () => {
   return (
     <SafeAreaScrollView testID="AboutScrollView">
       <View style={styles.center}>
-        <Image style={styles.logo} source={require('../../img/bluebeast.png')} />
+        <Image style={styles.logo} source={require('../../img/puritywallet-logo.png')} />
         <Text style={[styles.textFree, { color: colors.foregroundColor }]}>{loc.settings.about_free}</Text>
         <Text style={[styles.textBackup, { color: colors.alternativeTextColor }]}>
           {formatStringAddTwoWhiteSpaces(loc.settings.about_backup)}
@@ -98,14 +94,9 @@ const About: React.FC = () => {
 
       <SettingsSection>
         <SettingsListItem
-          title="@bluewalletio"
+          title="@Bitcoin_Purity"
           leftAvatar={<Text style={[styles.xIcon, { color: colors.foregroundColor }]}>𝕏</Text>}
           onPress={handleOnXPress}
-        />
-        <SettingsListItem
-          title={loc.settings.about_sm_telegram}
-          leftAvatar={<Icon name="telegram" size={24} color={colors.foregroundColor} iconStyle="brand" />}
-          onPress={handleOnTelegramPress}
         />
         <SettingsListItem
           title={loc.settings.about_sm_github}

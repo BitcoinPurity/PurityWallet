@@ -1,4 +1,4 @@
-BlueWallet es una billetera de Bitcoin radicalmente simple, potente y segura. Guarda, envía y recibe Bitcoin manteniendo el control total: tus claves, tus monedas.
+PurityWallet es una billetera de Bitcoin radicalmente simple, potente y segura. Guarda, envía y recibe Bitcoin manteniendo el control total: tus claves, tus monedas.
 
 Gratis y de código abierto, creada por usuarios de Bitcoin para la comunidad. Haz transacciones con cualquier persona del mundo y toma el control de tu dinero, directamente desde tu bolsillo. Crea billeteras ilimitadas gratis o importa una existente: es rápido y sencillo.
 
@@ -53,4 +53,4 @@ _____
 
 Disponible en iOS, Android y macOS. Múltiples monedas e idiomas. Modo oscuro. Sin cuentas y sin rastreo: solo Bitcoin.
 
-BlueWallet: posee tu Bitcoin.
+PurityWallet: posee tu Bitcoin.

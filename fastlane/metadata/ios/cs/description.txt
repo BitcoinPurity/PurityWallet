@@ -1,4 +1,4 @@
-BlueWallet je radikálně jednoduchá a bezpečná bitcoinová peněženka. Ukládejte, odesílejte a přijímejte bitcoin a mějte nad ním plnou kontrolu – vaše klíče, vaše mince.
+PurityWallet je radikálně jednoduchá a bezpečná bitcoinová peněženka. Ukládejte, odesílejte a přijímejte bitcoin a mějte nad ním plnou kontrolu – vaše klíče, vaše mince.
 
 Je zdarma a s otevřeným kódem, vytvořena uživateli bitcoinu pro bitcoinovou komunitu. Provádějte transakce s kýmkoliv na světě a převezměte kontrolu nad svými penězi – vše máte na dosah ruky. Vytvářejte bezplatně neomezený počet peněženek, nebo importujte existující – rychle a jednoduše.
 
@@ -53,4 +53,4 @@ _____
 
 Dostupné na iOS, Androidu a macOS. Vícero měn a podporovaných jazyků. Tmavý motiv. Žádné účty a sledování – čistě bitcoin.
 
-BlueWallet – vlastněte svůj bitcoin.
+PurityWallet – vlastněte svůj bitcoin.

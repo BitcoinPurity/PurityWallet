@@ -1,4 +1,4 @@
-BlueWallet adalah dompet Bitcoin yang sangat sederhana, andal, dan aman. Simpan, kirim, dan terima Bitcoin sambil tetap memegang kendali penuh — kunci Anda, koin Anda.
+PurityWallet adalah dompet Bitcoin yang sangat sederhana, andal, dan aman. Simpan, kirim, dan terima Bitcoin sambil tetap memegang kendali penuh — kunci Anda, koin Anda.
 
 Gratis dan open source, dibuat oleh pengguna Bitcoin untuk komunitas. Bertransaksilah dengan siapa pun di dunia dan kendalikan uang Anda, langsung dari saku Anda. Buat dompet tanpa batas secara gratis atau impor dompet yang sudah ada — cepat dan sederhana.
 
@@ -53,4 +53,4 @@ _____
 
 Tersedia di iOS, Android, dan macOS. Beragam mata uang dan bahasa. Mode gelap. Tanpa akun dan tanpa pelacakan — hanya Bitcoin.
 
-BlueWallet — miliki Bitcoin Anda.
+PurityWallet — miliki Bitcoin Anda.
