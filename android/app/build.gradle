@@ -59,6 +59,25 @@ react {
  */
 def enableProguardInReleaseBuilds = false
 
+def internalTestSigningEnabled = (project.findProperty("puritywalletInternalTestSigning") ?: "false").toString().toBoolean()
+def internalTestStoreFile = project.findProperty("puritywalletInternalTestStoreFile")?.toString()
+def internalTestStorePassword = project.findProperty("puritywalletInternalTestStorePassword")?.toString()
+def internalTestKeyAlias = project.findProperty("puritywalletInternalTestKeyAlias")?.toString()
+def internalTestKeyPassword = project.findProperty("puritywalletInternalTestKeyPassword")?.toString()
+
+if (internalTestSigningEnabled) {
+    def signingProperties = [
+        puritywalletInternalTestStoreFile: internalTestStoreFile,
+        puritywalletInternalTestStorePassword: internalTestStorePassword,
+        puritywalletInternalTestKeyAlias: internalTestKeyAlias,
+        puritywalletInternalTestKeyPassword: internalTestKeyPassword,
+    ]
+    def missingSigningProperties = signingProperties.findAll { name, value -> !value }.keySet()
+    if (!missingSigningProperties.isEmpty()) {
+        throw new GradleException("Missing internal test signing properties: ${missingSigningProperties.join(', ')}")
+    }
+}
+
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
  *
@@ -106,11 +125,25 @@ android {
         }
     }
 
+    signingConfigs {
+        if (internalTestSigningEnabled) {
+            internalTest {
+                storeFile file(internalTestStoreFile)
+                storePassword internalTestStorePassword
+                keyAlias internalTestKeyAlias
+                keyPassword internalTestKeyPassword
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
+            if (internalTestSigningEnabled) {
+                signingConfig signingConfigs.internalTest
+            }
         }
     }
 

@@ -25,6 +25,7 @@ DerivedData
 *.hprof
 .cxx/
 *.keystore
+*.jks
 !debug.keystore
 # Android/IntelliJ
 #
