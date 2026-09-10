@@ -28,7 +28,7 @@ import { BlueSpacing20, BlueSpacing40 } from '../../components/BlueSpacing';
 import { hexToUint8Array } from '../../blue_modules/uint8array-extras';
 import { LightningArkWallet } from '../../class/wallets/lightning-ark-wallet.ts';
 import { resetScanWasBBQR } from '../../helpers/scan-qr.ts';
-import { isLightningUiEnabled } from '../../blue_modules/features';
+import { isLightningUiEnabled, isWalletTypeSelectionEnabled } from '../../blue_modules/features';
 
 enum ButtonSelected {
   // @ts-ignore: Return later to update
@@ -410,8 +410,8 @@ const WalletsAdd: React.FC = () => {
             underlineColorAndroid="transparent"
           />
         </View>
-        <BlueFormLabel>{loc.wallets.add_wallet_type}</BlueFormLabel>
-        <View style={styles.buttons}>
+        {isWalletTypeSelectionEnabled && <BlueFormLabel>{loc.wallets.add_wallet_type}</BlueFormLabel>}
+        <View style={[styles.buttons, !isWalletTypeSelectionEnabled && styles.hidden]}>
           <WalletButton
             buttonType="Bitcoin"
             testID="ActivateBitcoinButton"
@@ -556,6 +556,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 16,
     borderRadius: 4,
+  },
+  hidden: {
+    display: 'none',
   },
   import: {
     marginVertical: 24,

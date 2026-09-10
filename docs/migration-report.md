@@ -21,3 +21,7 @@ The Settings Donate action is migrated from the legacy `https://donate.bluewalle
 ## Temporary Lightning UI gate
 
 Lightning and Ark creation choices and the Lightning Network settings row are hidden behind a disabled feature flag. No Lightning implementation or persisted data is removed, allowing the feature to be restored later without a wallet-data migration.
+
+## Standard Bitcoin wallet creation
+
+New-wallet creation no longer exposes a wallet-type choice. A disabled presentation flag leaves the upstream selection state, constructors, route parameters, and multisig screens intact; the unchanged default creates a native SegWit (`p2wpkh/HD`) Bitcoin wallet. Existing persisted wallets and import formats are not migrated or removed.

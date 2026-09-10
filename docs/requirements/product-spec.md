@@ -50,7 +50,21 @@ This is a reversible presentation gate. The underlying implementation, navigatio
 
 ### Acceptance criteria
 
-- Add Wallet shows only supported on-chain and multisig choices.
+- Add Wallet does not expose Lightning wallet creation.
 - Advanced wallet-type menus do not expose Lightning wallet creation.
 - Network settings does not expose Lightning settings.
-- One disabled feature flag controls these UI entry points.
+- Network settings and wallet-type selection remain controlled by disabled presentation flags.
+
+## Standard Bitcoin wallet creation
+
+The Add Wallet flow asks only for the wallet name and optional entropy. Its wallet-type controls are hidden, so the existing default state produces a native SegWit (`p2wpkh/HD`) Bitcoin wallet and proceeds to the standard backup screen.
+
+The existing type-selection state, route parameters, wallet constructors, multisig screens, and import formats remain in the source for upstream compatibility. This is a presentation-only change.
+
+### Acceptance criteria
+
+- The Add Wallet screen does not show Bitcoin, multisig Vault, Lightning, or Ark type buttons.
+- The Add Wallet header menu does not offer alternative wallet types.
+- Without an explicit internal route override, Create follows the existing index `0` / on-chain default and instantiates `HDSegwitBech32Wallet`.
+- Existing alternative wallet constructors, route parameters, and multisig screens are retained.
+- Import Wallet remains available.

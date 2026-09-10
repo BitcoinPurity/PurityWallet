@@ -31,3 +31,9 @@
 - Keep iOS bundle identifiers, iOS app groups, URL schemes, and shared storage keys unchanged.
 - Update Android native package references, React Native codegen configuration, Firebase package metadata, and Android install/test scripts to the new identity.
 - Allow the Android PurityWallet build to coexist with BlueWallet as a separate application. Existing BlueWallet app data is not migrated automatically; users must use the wallet backup/import flow.
+
+## REQ-006: Create one standard Bitcoin wallet type
+
+- Hide wallet-type selection in the new-wallet interface so the unchanged default creates a native SegWit Bitcoin wallet.
+- Keep the existing multisig, legacy, Taproot, Lightning, and Ark creation implementations and navigation contracts in place for upstream compatibility.
+- Keep wallet import and compatibility with existing wallets unchanged.

@@ -17,3 +17,7 @@ Donate uses the existing internal `SelectWallet` and `SendDetailsRoot` routes. I
 ## Lightning compatibility
 
 Disabling `isLightningUiEnabled` changes only visible feature entry points. Existing Lightning classes, route names, backup formats, and persisted wallet records remain compatible and are not migrated or deleted.
+
+## Wallet creation compatibility
+
+The `AddWallet` route retains its wallet-type and type-index parameters. Only the visible selector is disabled, leaving navigation contracts, wallet constructors, persisted serialization, import formats, and existing-wallet behavior unchanged. With no internal override, the upstream default remains native SegWit.
