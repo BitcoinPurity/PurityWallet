@@ -119,6 +119,10 @@
     "bip47_explanation": "Codurile de plată sunt o adresă universală care evită dezvăluirea adreselor portofelului tău. Nu toate serviciile le suportă."
   },
   "send": {
+    "legacy_replay_title": "Risc de repetare pe Bitcoin Core",
+    "legacy_replay_warning": "Toate intrările există și ca ieșiri necheltuite pe lanțul Bitcoin Core. Această tranzacție poate fi repetată acolo și poate cheltui BTC corespunzători. Continuă doar dacă înțelegi și accepți acest risc.",
+    "legacy_replay_accept": "Înțeleg și accept riscul — continuă",
+    "legacy_check_failed": "Nu s-au putut verifica toate intrările de pe lanțul Bitcoin Core prin mempool.space. Riscul de repetare este necunoscut; această tranzacție poate cheltui BTC corespunzători și pe acel lanț. Poți încerca din nou sau poți continua doar dacă înțelegi și accepți acest risc.",
     "provided_address_is_invoice": "Această adresă pare să fie pentru o factură Lightning. Te rugăm să mergi la portofelul tău Lightning pentru a efectua o plată pentru această factură.",
     "broadcastButton": "Difuzează",
     "broadcastError": "Eroare",
@@ -621,6 +625,9 @@
     "error": "Datele introduse nu reprezintă o frază mnemonică parțială de 11 sau 23 cuvinte. Te rugăm să încerci din nou."
   },
   "cc": {
+    "legacy_shared": "⚠ Risc de repetare: necheltuit și pe Bitcoin Core",
+    "legacy_checking": "Se verifică lanțul Bitcoin Core…",
+    "legacy_unknown": "⚠ Verificarea Bitcoin Core a eșuat",
     "change": "Rest",
     "coins_selected": "Monede selectate ({number})",
     "selected_summ": "{value} selectat",

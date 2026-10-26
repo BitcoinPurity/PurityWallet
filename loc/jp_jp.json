@@ -119,6 +119,10 @@
     "bip47_explanation": "支払いコードは、ウォレットアドレスを開示せずに済む汎用のアドレスです。すべてのサービスがサポートしているわけではありません。"
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Coreでのリプレイリスク",
+    "legacy_replay_warning": "すべての入力は、Bitcoin Coreのチェーン上にも未使用の出力として存在します。この取引がそのチェーンで再実行され、対応するBTCが使われる可能性があります。このリスクを理解し、受け入れる場合にのみ続行してください。",
+    "legacy_replay_accept": "リスクを理解し、受け入れて続行",
+    "legacy_check_failed": "mempool.spaceを通じてBitcoin Coreのチェーン上のすべての入力を確認できませんでした。リプレイリスクは不明です。この取引により、そのチェーンでも対応するBTCが使われる可能性があります。再試行するか、このリスクを理解し、受け入れる場合にのみ続行してください。",
     "provided_address_is_invoice": "これはライトニングインボイスのようです。ライトニングウォレットを使って請求書に対する支払いを行ってください。",
     "broadcastButton": "ブロードキャスト",
     "broadcastError": "エラー",
@@ -630,6 +634,9 @@
     "error": "入力されたのは11または23語の部分的なニーモニックではありません！"
   },
   "cc": {
+    "legacy_shared": "⚠ リプレイリスク：Bitcoin Coreでも未使用",
+    "legacy_checking": "Bitcoin Coreのチェーンを確認中…",
+    "legacy_unknown": "⚠ Bitcoin Coreの確認に失敗しました",
     "change": "チェンジ",
     "coins_selected": "選択済コイン ({number})",
     "selected_summ": "{value}を選択",

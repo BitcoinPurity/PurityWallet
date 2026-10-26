@@ -119,6 +119,10 @@
     "bip47_explanation": "Betalingskodes is 'n universele adres wat verhoed dat jou beursie-adresse bekend gemaak word. Nie alle dienste ondersteun hulle nie."
   },
   "send": {
+    "legacy_replay_title": "Risiko van herhaling op Bitcoin Core",
+    "legacy_replay_warning": "Alle insette bestaan ook as onbestede uitsette op die Bitcoin Core-ketting. Hierdie transaksie kan daar herhaal word en die ooreenstemmende BTC bestee. Gaan slegs voort as jy hierdie risiko verstaan en aanvaar.",
+    "legacy_replay_accept": "Ek verstaan en aanvaar die risiko — gaan voort",
+    "legacy_check_failed": "Nie alle insette op die Bitcoin Core-ketting kon deur mempool.space nagegaan word nie. Die risiko van herhaling is onbekend; hierdie transaksie kan ook die ooreenstemmende BTC op daardie ketting bestee. Probeer weer, of gaan slegs voort as jy hierdie risiko verstaan en aanvaar.",
     "provided_address_is_invoice": "Hierdie adres lyk soos 'n Lightning faktuur. Gaan asseblief na jou Lightning beursie om hierdie faktuur te betaal.",
     "broadcastButton": "Saai uit",
     "broadcastError": "Probleem",
@@ -621,6 +625,9 @@
     "error": "Die invoer is nie 'n 11- of 23-woord gedeeltelike mnemoniek nie. Probeer asseblief weer."
   },
   "cc": {
+    "legacy_shared": "⚠ Risiko van herhaling: ook onbesteed op Bitcoin Core",
+    "legacy_checking": "Gaan die Bitcoin Core-ketting na…",
+    "legacy_unknown": "⚠ Bitcoin Core-kontrole het misluk",
     "change": "Kleingeld",
     "coins_selected": "Munte gekies ({number})",
     "selected_summ": "{value} gekies",

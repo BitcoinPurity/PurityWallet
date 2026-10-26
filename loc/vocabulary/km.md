@@ -77,6 +77,7 @@ Note: Khmer (ខ្មែរ) is written in the Khmer script and runs left-to-ri
 | Coin Control | ការគ្រប់គ្រងកាក់ | noun · "coin management" (no upstream wallet citation). |
 | Frozen | បានបង្កក | adj/state · "frozen". ⚠️ NOT verb "to freeze" (no upstream wallet citation). |
 | **_Security & storage_** | | |
+| Replay risk | ហានិភ័យនៃការចាក់ឡើងវិញ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ការផ្ទុកដែលបានអ៊ិនគ្រីប | noun · "storage that has been encrypted" (no upstream wallet citation). |
 | Plausible Deniability | ការបដិសេធដែលអាចជឿបាន | noun · "believable denial" — abstract privacy concept, uncertain idiomatic Khmer rendering (no upstream wallet citation). |
 | Biometrics | ជីវមាត្រ | noun · standard Khmer "biometrics" (no upstream wallet citation). |

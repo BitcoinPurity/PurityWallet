@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | ควบคุมเหรียญ / จัดการ UTXO | noun · mainstream / technical · ⚠️ NOT Title Case · Bitcoin Core th ("การควบคุมเหรียญ") + Electrum th_TH. |
 | Frozen | ถูกระงับ / ระงับ | adj/state · ⚠️ NOT verb "ระงับ" alone in active sense; prefer `ถูกระงับ`. |
 | **_Security & storage_** | | |
+| Replay risk | ความเสี่ยงจากการเล่นซ้ำ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ที่เก็บข้อมูลเข้ารหัส | noun · ⚠️ NOT Title Case · derived from shipped `ที่เก็บข้อมูลของคุณถูกเข้ารหัส`. |
 | Plausible Deniability | การปฏิเสธที่เป็นไปได้ / การปฏิเสธอย่างมีเหตุผล | noun · short / full. |
 | Biometrics | ไบโอเมตริก / การยืนยันตัวตนทางชีวภาพ | noun · th.wikipedia.org/wiki/ไบโอเมตริกซ์. |

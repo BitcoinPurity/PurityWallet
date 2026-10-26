@@ -75,7 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | 幣的控制 / UTXO 控制 | noun · mainstream / technical · ⚠️ NOT Title Case · shipped `币的控制` mixes Simplified `币`; fix to 幣. Bitcoin Core zh_TW uses `錢幣控制`. |
 | Frozen | 已凍結 / 凍結 | adj / verb · state form preferred · ⚠️ NOT verb "凍結"; for adj/state prefer `已凍結`. |
 | **_Security & storage_** | | |
-| Replay risk | 重放風險 | A transaction may also spend the corresponding BTC on the Bitcoin Core chain. |
+| Replay risk | 重放風險 | A transaction may also spend the corresponding BTC on the Bitcoin Core chain; failed checks require acknowledgement of this uncertainty before continuing. |
 | Encrypted storage | 加密儲存空間 / 加密儲存 | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | 合理推諉 | noun · ⚠️ NOT Title Case · zh.wikipedia.org/wiki/合理推諉. |
 | Biometrics | 生物辨識 / 生物識別 | noun · Zeus zh-TW `生物辨識` (more idiomatic in zh-TW). |

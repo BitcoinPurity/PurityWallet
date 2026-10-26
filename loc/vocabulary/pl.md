@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | kontrola UTXO / kontrola monet | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case · Bitcoin Core pl + Electrum pl + Bisq pl. |
 | Frozen | zamrożona / zamrożone | adj · feminine / neuter agreement · ⚠️ NOT verb "zamrozić" · Electrum pl + Bisq pl + Cake pl |
 | **_Security & storage_** | | |
+| Replay risk | ryzyko powtórzenia transakcji | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | zaszyfrowane dane / szyfrowanie danych | noun, lowercase · ⚠️ NOT Title Case · shipped UI uses `Włącz szyfrowanie danych` for the toggle. |
 | Plausible Deniability | wiarygodna zaprzeczalność / wiarygodne zaprzeczenie | noun, lowercase · ⚠️ NOT Title Case · shipped UI uses `Wiarygodna zaprzeczalność`. |
 | Biometrics | biometria | noun, lowercase · Zeus pl. |

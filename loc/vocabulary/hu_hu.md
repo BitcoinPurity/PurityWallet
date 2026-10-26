@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | érmekezelés / UTXO-kezelés | noun, lowercase · Electrum hu_HU (`Érmekezelés`) · ⚠️ NOT Title Case. |
 | Frozen | fagyasztva / befagyasztott | adj · state / adjective-agreement · Electrum hu_HU · ⚠️ NOT verb `fagyasztani`. |
 | **_Security & storage_** | | |
+| Replay risk | újrajátszási kockázat | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | titkosított tárhely / tárhely titkosítása | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | elfogadható tagadhatóság | noun, lowercase · ⚠️ NOT Title Case. |
 | Biometrics | biometrikus azonosítás | noun, lowercase. |

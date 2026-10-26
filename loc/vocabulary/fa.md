@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | مدیریت UTXO / مدیریت کوین‌ها | noun · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | مسدودشده / مسدود | adj/state · ⚠️ NOT verb "مسدودکردن". |
 | **_Security & storage_** | | |
+| Replay risk | خطر بازپخش | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | فضای ذخیره‌سازی رمزگذاری‌شده | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | انکار موجه / امکان انکار موجه | noun · short / explanatory · ⚠️ NOT Title Case. |
 | Biometrics | بیومتریک / احراز هویت بیومتریک | noun · short / explanatory. |

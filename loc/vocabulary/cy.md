@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | rheoli UTXO / rheoli darnau arian | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | wedi'i rewi | adj/state · ⚠️ NOT verb `rhewi` (= to freeze). |
 | **_Security & storage_** | | |
+| Replay risk | risg ailchwarae | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | storfa wedi'i hamgryptio | noun, lowercase · ⚠️ NOT Title Case. Shipped string `Creu storfa wedi encryptio` mixes Welsh + English-derived `encryptio`; prefer `amgryptio` · Bitcoin Core cy. |
 | Plausible Deniability | gwadu credadwy | noun, lowercase. |
 | Biometrics | biometreg | noun, lowercase. |

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | kontroll i UTXO-ve / kontroll i monedhave | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. Fix: shipped `Kontrollo Xhetonin` is verb imperative ("control the chip") with wrong noun. |
 | Frozen | i ngrirë / e ngrirë | adj · masc / fem agreement · ⚠️ NOT verb `ngrije` ("freeze it") · Fix: shipped `Ngrije` is the imperative button label, not the adjective state. |
 | **_Security & storage_** | | |
+| Replay risk | rrezik përsëritjeje | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | memorie e enkriptuar | noun, lowercase · Bitcoin Core sq uses `enkriptim` for encryption · ⚠️ NOT Title Case. |
 | Plausible Deniability | mohim i besueshëm | noun, lowercase · matches shipped form (drop Title Case if any). |
 | Biometrics | biometri / të dhëna biometrike | noun, lowercase · short / explanatory · Fix: shipped `Te dhenat Biometrike` is missing `ë` and uses Title Case. |

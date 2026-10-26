@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | kawalan UTXO / kawalan duit | noun, lowercase · `kawalan UTXO` technical (preferred per glossary); `kawalan duit` mainstream/shipped. |
 | Frozen | dibekukan / beku | adj · ⚠️ NOT `bekukan` (= verb "freeze!"); must be adj/state form. |
 | **_Security & storage_** | | |
+| Replay risk | risiko ulang siar | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | simpanan disulitkan | noun, lowercase · shipped. |
 | Plausible Deniability | penafian munasabah | noun, lowercase · shipped form. |
 | Biometrics | biometrik | noun, lowercase · shipped. |

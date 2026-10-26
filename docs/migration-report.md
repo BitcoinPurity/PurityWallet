@@ -1,8 +1,12 @@
 # Migration report
 
+## Replay-warning localization coverage
+
+Extend the seven replay-check messages from English and simplified/traditional Chinese to all 71 supported app locales. Retain the existing keys and language loaders, and add coverage checks that read each loaded dictionary before fallback. Locale vocabularies record replay-risk terminology; the signing and failed-check acknowledgement behavior is unchanged.
+
 ## Legacy Bitcoin chain replay warnings
 
-Add a read-only mempool.space mainnet check without migrating wallet data or changing Purity Electrum/broadcast configuration. Coin Control labels shared UTXOs, including frozen outputs. Send warns for shared selected inputs and repeats the check for actual coin-selected inputs before signing. All-shared transactions require explicit risk acknowledgement; unknown checks and cancellation stop signing. English and simplified/traditional Chinese copy cover checking, failure, replay risk, and acknowledgement. Existing signing and transaction review continue after the gate succeeds. API availability and accuracy bound this online warning; it is not protocol-level replay protection.
+Add a read-only mempool.space mainnet check without migrating wallet data or changing Purity Electrum/broadcast configuration. Coin Control labels shared UTXOs, including frozen outputs. Send warns for shared selected inputs and repeats the check for actual coin-selected inputs before signing. Both all-shared transactions and unknown checks require explicit risk acknowledgement; cancellation stops signing. Failed checks explain the uncertainty and allow an informed user to proceed. English and simplified/traditional Chinese copy cover checking, failure, replay risk, and acknowledgement. Existing signing and transaction review continue after the gate succeeds. API availability and accuracy bound this online warning; it is not protocol-level replay protection.
 
 ## BlueWallet to PurityWallet visible brand
 

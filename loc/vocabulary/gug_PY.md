@@ -77,6 +77,7 @@ Note: upstream wallet projects (Bitcoin Core, Electrum, Phoenix, Zeus, Trezor, C
 | Coin Control | viru ñangareko | noun · "coin management" (*viru* = coin + *ñangareko* = care/management). ⚠️ NOT title case (Guaraní has no such convention). |
 | Frozen | jokopyre | adj/state · "held/blocked" (*joko* = to hold back). ⚠️ NOT verb "to freeze" (*joko*). |
 | **_Security & storage_** | | |
+| Replay risk | ñemoĩjey rehegua riesgo | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ñongatuha encriptado | noun · *ñongatuha* = storage (Guaraní) + *encriptado* (Sp.) · Jopará. ⚠️ NOT title case. |
 | Plausible Deniability | ñembotove ikatúva | noun · "deniability that is possible/plausible" (*mbotove* = to deny); uncertain idiomatic rendering. ⚠️ NOT title case. |
 | Biometrics | biometría | noun · Sp. loanword · Jopará. |

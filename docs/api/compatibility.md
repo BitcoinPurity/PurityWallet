@@ -6,6 +6,10 @@ Replay checks use Bitcoin mainnet `https://mempool.space/api/tx/:txid` and `/tx/
 
 Only transaction IDs are disclosed to this third-party service; no keys or signed transactions are sent. Purity Electrum preferences, transaction/broadcast protocols, wallet storage, and navigation parameters remain unchanged.
 
+An unknown result requires a distinct replay-risk acknowledgement before signing, while still allowing an informed user to continue. It does not permanently block sending or imply that the output is absent.
+
+All supported app locales provide the same seven replay-check localization keys. This changes translated presentation only; API responses and transaction/navigation contracts are unchanged.
+
 The PurityWallet visible-brand rebrand makes no API or protocol changes. iOS/macOS deep-link schemes, activity types, bundle identifiers, app groups, native bridge module names, Electrum endpoints, and serialized formats remain unchanged. Android now uses the independent application ID and code namespace `org.bitcoinpurity.puritywallet`.
 
 ## Android identity and service compatibility

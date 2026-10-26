@@ -119,6 +119,10 @@
     "bip47_explanation": "Os Payment Codes são um tipo de endereço universal que evita a divulgação dos endereços da sua carteira. Nem todos os serviços irão suportar envio."
   },
   "send": {
+    "legacy_replay_title": "Risco de repetição no Bitcoin Core",
+    "legacy_replay_warning": "Todas as entradas também existem como saídas não gastas na cadeia do Bitcoin Core. Esta transação pode ser repetida nessa cadeia e gastar os BTC correspondentes. Continue somente se entender e aceitar esse risco.",
+    "legacy_replay_accept": "Entendo e aceito o risco — continuar",
+    "legacy_check_failed": "Não foi possível verificar todas as entradas na cadeia do Bitcoin Core usando o mempool.space. O risco de repetição é desconhecido; esta transação também pode gastar os BTC correspondentes nessa cadeia. Você pode tentar novamente ou continuar somente se entender e aceitar esse risco.",
     "provided_address_is_invoice": "Esse tipo de endereço se parece com uma fatura da Lightning. Por favor, acesse a sua carteira Lightning para realizar o pagamento dessa fatura.",
     "broadcastButton": "Transmitir",
     "broadcastError": "Erro",
@@ -621,6 +625,9 @@
     "error": "Não foi fornecida seed mnemônica parcial no formato de 11 OU 23 palavras. Por favor, tente novamente."
   },
   "cc": {
+    "legacy_shared": "⚠ Risco de repetição: também não gasto no Bitcoin Core",
+    "legacy_checking": "Verificando a cadeia do Bitcoin Core…",
+    "legacy_unknown": "⚠ Falha na verificação do Bitcoin Core",
     "change": "Troco",
     "coins_selected": "Moedas selecionadas ({number})",
     "selected_summ": "{value} selecionado",

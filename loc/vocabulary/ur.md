@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | کوائن کنٹرول / UTXO کنٹرول | noun · ⚠️ NOT Title Case (Urdu has no casing) · mainstream / technical. |
 | Frozen | منجمد | adj/state · ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | دوبارہ چلائے جانے کا خطرہ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | خفیہ کردہ اسٹوریج | noun · ⚠️ NOT Title Case · whole-app encryption. |
 | Plausible Deniability | قابلِ یقین انکار | noun · ⚠️ NOT Title Case · deniable fake storage. |
 | Biometrics | بایومیٹرکس | noun · Face ID / Touch ID / fingerprint (transliteration). |

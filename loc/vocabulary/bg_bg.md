@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | управление на UTXO / управление на монетите | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | замразена / замразен | adj · feminine (транзакция/монета) / masculine · ⚠️ NOT verb "замрази" · Electrum bg_BG. |
 | **_Security & storage_** | | |
+| Replay risk | риск от повторение | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | криптирано хранилище | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | правдоподобно отричане | noun, lowercase · currently English-passthrough in shipped strings. |
 | Biometrics | биометрични данни | noun, lowercase. |

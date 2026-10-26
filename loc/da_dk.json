@@ -119,6 +119,10 @@
     "bip47_explanation": "Payment Codes er en universel adresse, der undgår at afsløre dine wallet-adresser. Ikke alle tjenester understøtter dem."
   },
   "send": {
+    "legacy_replay_title": "Risiko for genafspilning på Bitcoin Core",
+    "legacy_replay_warning": "Alle input findes også som ubrugte output på Bitcoin Core-kæden. Denne transaktion kan blive genafspillet dér og bruge de tilsvarende BTC. Fortsæt kun, hvis du forstår og accepterer denne risiko.",
+    "legacy_replay_accept": "Jeg forstår og accepterer risikoen — fortsæt",
+    "legacy_check_failed": "Ikke alle input på Bitcoin Core-kæden kunne kontrolleres via mempool.space. Risikoen for genafspilning er ukendt; denne transaktion kan også bruge de tilsvarende BTC på den kæde. Du kan prøve igen eller fortsætte, hvis du forstår og accepterer denne risiko.",
     "provided_address_is_invoice": "Denne adresse ser ud til at være en Lightning-faktura. Gå venligst til din Lightning-wallet for at betale denne faktura.",
     "broadcastButton": "Transmitter",
     "broadcastError": "Fejl",
@@ -621,6 +625,9 @@
     "error": "Inputtet er ikke en delvis mnemonic med 11 eller 23 ord. Prøv venligst igen."
   },
   "cc": {
+    "legacy_shared": "⚠ Risiko for genafspilning: også ubrugt på Bitcoin Core",
+    "legacy_checking": "Kontrollerer Bitcoin Core-kæden…",
+    "legacy_unknown": "⚠ Kontrol af Bitcoin Core mislykkedes",
     "change": "Byttepenge",
     "coins_selected": "Coins valgt ({number})",
     "selected_summ": "{value} valgt",

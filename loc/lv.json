@@ -119,6 +119,10 @@
     "bip47_explanation": "Maksājuma kodi ir universāla adrese, kas neatklāj jūsu maka adreses. Ne visi pakalpojumi tos atbalstīs."
   },
   "send": {
+    "legacy_replay_title": "Atkārtotas izpildes risks Bitcoin Core ķēdē",
+    "legacy_replay_warning": "Visas ievades ir arī neiztērētas izvades Bitcoin Core ķēdē. Šo darījumu var atkārtoti izpildīt arī tur un iztērēt atbilstošos BTC. Turpiniet tikai tad, ja saprotat un pieņemat šo risku.",
+    "legacy_replay_accept": "Saprotu un pieņemu risku — turpināt",
+    "legacy_check_failed": "Neizdevās pārbaudīt visas ievades Bitcoin Core ķēdē, izmantojot mempool.space. Atkārtotas izpildes risks nav zināms; šis darījums var iztērēt atbilstošos BTC arī tajā ķēdē. Mēģiniet vēlreiz vai turpiniet tikai tad, ja saprotat un pieņemat šo risku.",
     "provided_address_is_invoice": "Šī adrese, šķiet, ir Lightning rēķins. Lūdzu, dodieties uz savu Lightning maku, lai veiktu maksājumu par šo rēķinu.",
     "broadcastButton": "Izsūtīt",
     "broadcastError": "Kļūda",
@@ -621,6 +625,9 @@
     "error": "Ievade nav 11 vai 23 vārdu daļēja mnemoniskā frāze. Lūdzu, mēģiniet vēlreiz."
   },
   "cc": {
+    "legacy_shared": "⚠ Atkārtotas izpildes risks: neiztērēts arī Bitcoin Core ķēdē",
+    "legacy_checking": "Pārbauda Bitcoin Core ķēdi…",
+    "legacy_unknown": "⚠ Bitcoin Core pārbaude neizdevās",
     "change": "Atlikums",
     "coins_selected": "Atlasītās monētas ({number})",
     "selected_summ": "{value} atlasīts",

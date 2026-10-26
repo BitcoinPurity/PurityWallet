@@ -77,6 +77,7 @@ Note: upstream wallet projects have limited Basque coverage. Bitcoin Core ships 
 | Coin Control | txanponen kontrola | noun · "coin control". ⚠️ NOT Title Case in Basque. |
 | Frozen | izoztuta | adj/state · "frozen". ⚠️ NOT the verb "to freeze" (izoztu). |
 | **_Security & storage_** | | |
+| Replay risk | transakzioa errepikatzeko arriskua | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | biltegiratze zifratua | noun · "encrypted storage". ⚠️ NOT Title Case in Basque. |
 | Plausible Deniability | ukapen sinesgarria | noun · "believable denial". ⚠️ NOT Title Case in Basque. |
 | Biometrics | biometria | noun · "biometrics". |

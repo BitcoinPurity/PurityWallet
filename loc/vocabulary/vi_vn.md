@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | kiểm soát UTXO / kiểm soát coin | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | đã đóng băng | adj/state · ⚠️ NOT verb `đóng băng`. Zeus vi `Đóng băng`. |
 | **_Security & storage_** | | |
+| Replay risk | rủi ro phát lại | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | lưu trữ được mã hóa | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | khả năng phủ nhận hợp lý / sự từ chối hợp lý | noun, lowercase · short / full. |
 | Biometrics | sinh trắc học | noun, lowercase · Zeus vi `Sinh trắc học`. |

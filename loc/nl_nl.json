@@ -119,6 +119,10 @@
     "bip47_explanation": "Payment codes zijn een universeel adres dat voorkomt dat je wallet-adressen worden onthuld. Niet alle diensten ondersteunen ze."
   },
   "send": {
+    "legacy_replay_title": "Replayrisico op Bitcoin Core",
+    "legacy_replay_warning": "Alle inputs bestaan ook als onbestede outputs op de Bitcoin Core-keten. Deze transactie kan daar worden herhaald en de bijbehorende BTC uitgeven. Ga alleen verder als je dit risico begrijpt en aanvaardt.",
+    "legacy_replay_accept": "Ik begrijp en aanvaard het risico — doorgaan",
+    "legacy_check_failed": "Niet alle inputs op de Bitcoin Core-keten konden via mempool.space worden gecontroleerd. Het replayrisico is onbekend; deze transactie kan de bijbehorende BTC ook op die keten uitgeven. Probeer het opnieuw of ga alleen verder als je dit risico begrijpt en aanvaardt.",
     "provided_address_is_invoice": "Dit adres lijkt te zijn voor een Lightning factuur, Ga naar je Lightning wallet om een betaling voor deze factuur te maken.",
     "broadcastButton": "Verzenden",
     "broadcastError": "fout",
@@ -621,6 +625,9 @@
     "error": "De invoer is geen gedeeltelijke mnemonische zin van 11 of 23 woorden. Probeer het opnieuw."
   },
   "cc": {
+    "legacy_shared": "⚠ Replayrisico: ook onbesteed op Bitcoin Core",
+    "legacy_checking": "Bitcoin Core-keten controleren…",
+    "legacy_unknown": "⚠ Controle van Bitcoin Core mislukt",
     "change": "Veranderen",
     "coins_selected": "Geselecteerde coins ({number})",
     "selected_summ": "{value} geselecteerd",

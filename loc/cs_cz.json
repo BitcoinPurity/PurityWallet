@@ -119,6 +119,10 @@
     "bip47_explanation": "Platební kódy jsou univerzální adresy, které zabraňují prozrazení adres vaší peněženky. Ne všechny služby je však podporují."
   },
   "send": {
+    "legacy_replay_title": "Riziko opakování transakce na Bitcoin Core",
+    "legacy_replay_warning": "Všechny vstupy existují také jako neutracené výstupy v řetězci Bitcoin Core. Tato transakce může být zopakována i tam a utratit odpovídající BTC. Pokračujte pouze tehdy, pokud tomuto riziku rozumíte a přijímáte ho.",
+    "legacy_replay_accept": "Rozumím riziku a přijímám ho — pokračovat",
+    "legacy_check_failed": "Pomocí mempool.space se nepodařilo ověřit všechny vstupy v řetězci Bitcoin Core. Riziko opakování nelze určit; tato transakce může utratit odpovídající BTC i v tomto řetězci. Zkuste kontrolu znovu nebo pokračujte, pouze pokud riziku rozumíte a přijímáte ho.",
     "provided_address_is_invoice": "Zdá se, že tato adresa je určena pro Lightning fakturu. Přejděte prosím do své Lightning peněženky, abyste mohli provést platbu této faktury.",
     "broadcastButton": "Odeslat do sítě",
     "broadcastError": "Chyba",
@@ -632,6 +636,9 @@
     "error": "Zadaný vstup není 11 či 23slovná částečná mnemotechnická fráze. Zkuste to prosím znovu."
   },
   "cc": {
+    "legacy_shared": "⚠ Riziko opakování: neutraceno také na Bitcoin Core",
+    "legacy_checking": "Ověřování řetězce Bitcoin Core…",
+    "legacy_unknown": "⚠ Kontrola Bitcoin Core selhala",
     "change": "Změnit",
     "coins_selected": "Vybrané mince ({number})",
     "selected_summ": "{value} vybráno",

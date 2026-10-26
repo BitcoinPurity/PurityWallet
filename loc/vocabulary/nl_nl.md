@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | Coin Control | noun · English loanword canonical · ⚠️ NOT "muntbeheer". Shipped already keeps English. |
 | Frozen | bevroren | adj · ⚠️ NOT verb "bevriezen" · Electrum nl_NL + Zeus nl. Shipped "Bevriezen" is the verb — flag, fix for state labels. |
 | **_Security & storage_** | | |
+| Replay risk | replayrisico | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | versleutelde opslag | noun, lowercase · ⚠️ NOT Title Case · Electrum nl_NL. |
 | Plausible Deniability | plausibele ontkenning | noun, lowercase · ⚠️ NOT Title Case. Shipped matches. |
 | Biometrics | biometrische beveiliging / biometrie | noun, lowercase. Shipped uses long form. |

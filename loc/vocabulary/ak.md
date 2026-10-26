@@ -77,6 +77,7 @@ Note: Akan (Twi/Fante) is a Niger-Congo Kwa language written in the Latin script
 | Coin Control | sika so banbɔ | noun · "control over coins" / `coin control` · ⚠️ Akan has no Title Case for ordinary nouns (no upstream wallet citation). |
 | Frozen | wɔakyekyere | adj/state · "has been tied/locked" · ⚠️ NOT verb "to freeze" (no upstream wallet citation). |
 | **_Security & storage_** | | |
+| Replay risk | asiane a ɛwɔ nsesaeɛ no san yɛ mu | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | koraeɛ a wɔakyekyere mu | noun · "storage that is locked/secured" · ⚠️ Akan has no Title Case (no upstream wallet citation). |
 | Plausible Deniability | atoroɔ banbɔ a ɛyɛ nokwasɛm | noun · "protection that plausibly appears true" · ⚠️ Akan has no Title Case; abstract concept, uncertain rendering (no upstream wallet citation). |
 | Biometrics | honam nsɛnkyerɛnne | noun · "body markers" / also transliterated `biometrics` (no upstream wallet citation). |

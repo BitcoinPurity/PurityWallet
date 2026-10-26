@@ -119,6 +119,10 @@
     "bip47_explanation": "Ödeme kodları, cüzdan adreslerinizi açığa çıkarmaktan kaçınan evrensel bir adrestir. Tüm hizmetler bunları desteklemeyebilir."
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core zincirinde tekrar riski",
+    "legacy_replay_warning": "Tüm girdiler, Bitcoin Core zincirinde de harcanmamış çıktılar olarak bulunmaktadır. Bu işlem orada tekrarlanabilir ve karşılık gelen BTC'leri harcayabilir. Yalnızca bu riski anlıyor ve kabul ediyorsanız devam edin.",
+    "legacy_replay_accept": "Riski anlıyor ve kabul ediyorum — devam et",
+    "legacy_check_failed": "mempool.space üzerinden Bitcoin Core zincirindeki tüm girdiler kontrol edilemedi. Tekrar riski bilinmiyor; bu işlem ilgili BTC'leri o zincirde de harcayabilir. Yeniden deneyebilir veya yalnızca bu riski anlıyor ve kabul ediyorsanız devam edebilirsiniz.",
     "provided_address_is_invoice": "Bu adres bir Lightning faturasına ait gibi görünüyor. Lütfen bu fatura için ödeme yapmak üzere Lightning cüzdanınıza gidin.",
     "broadcastButton": "Yayınla",
     "broadcastError": "Hata",
@@ -621,6 +625,9 @@
     "error": "Girdi 11 veya 23 kelimelik bir kısmi mnemonik değil. Lütfen tekrar deneyin."
   },
   "cc": {
+    "legacy_shared": "⚠ Tekrar riski: Bitcoin Core zincirinde de harcanmamış",
+    "legacy_checking": "Bitcoin Core zinciri kontrol ediliyor…",
+    "legacy_unknown": "⚠ Bitcoin Core kontrolü başarısız oldu",
     "change": "Para üstü",
     "coins_selected": "Seçilen Coinler ({number})",
     "selected_summ": "{value} seçildi",

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | コイン管理 / コインコントロール | noun · mainstream / technical · ⚠️ NOT Title Case · shipped uses コイン管理. |
 | Frozen | フリーズ済み / フリーズ | adj/state · shipped uses bare フリーズ (verb-leaning); prefer フリーズ済み for adjective state · ⚠️ NOT verb フリーズする. |
 | **_Security & storage_** | | |
+| Replay risk | リプレイリスク | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ストレージ暗号化 | noun · ⚠️ NOT Title Case · shipped + Bitcoin Core ja. |
 | Plausible Deniability | 隠匿設定 | noun · ⚠️ NOT Title Case · lit. "concealment setting" · shipped. |
 | Biometrics | 生体認証 | noun · shipped + standard. |

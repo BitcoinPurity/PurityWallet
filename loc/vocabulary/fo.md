@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | myntval | noun, lowercase · lit. "coin selection" · shipped `cc.header`. ⚠️ NOT Title Case, and NOT hyphenated (`myntval`, not `mynt-val`) — Faroese compounds are written closed unless an element is an abbreviation. |
 | Frozen | læstur / læs | adj · "locked" — **preferred** (the locked sense describes the UTXO state better than "frozen") · shipped `cc.freezeLabel`, `send.details_frozen`; `frystur` = literal "frozen" (less preferred). ⚠️ NOT verb "læsa/frysta". |
 | **_Security & storage_** | | |
+| Replay risk | vandi fyri endurspæling | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | bronglað goymsla | noun, lowercase · lit. "encrypted storage" · shipped `_.storage_is_encrypted` and `settings.encrypt_storage_explanation_*` use `goymslubronglan` (the encryption action) and `bronglað goymsla` (the encrypted store). ⚠️ NOT Title Case. |
 | Plausible Deniability | haldgóð avsannan | noun, lowercase · lit. "credible denial" · shipped `plausibledeniability.title` + `settings.plausible_deniability`. |
 | Biometrics | lívmátilig atgongd | noun, lowercase · lit. "biometric access" · shipped `settings.biometrics`. |

@@ -119,6 +119,10 @@
     "bip47_explanation": "Kod pembayaran ialah alamat universal yang mengelakkan pendedahan alamat dompet anda. Tidak semua perkhidmatan akan menyokongnya."
   },
   "send": {
+    "legacy_replay_title": "Risiko ulang siar pada Bitcoin Core",
+    "legacy_replay_warning": "Semua masukan juga wujud sebagai keluaran yang belum dibelanjakan pada rantaian Bitcoin Core. Transaksi ini boleh diulang siar di situ dan membelanjakan BTC yang sepadan. Teruskan hanya jika anda memahami dan menerima risiko ini.",
+    "legacy_replay_accept": "Saya memahami dan menerima risiko — teruskan",
+    "legacy_check_failed": "Tidak semua masukan pada rantaian Bitcoin Core dapat diperiksa melalui mempool.space. Risiko ulang siar tidak diketahui; transaksi ini juga boleh membelanjakan BTC yang sepadan pada rantaian tersebut. Anda boleh cuba lagi atau teruskan hanya jika anda memahami dan menerima risiko ini.",
     "provided_address_is_invoice": "Alamat ini kelihatan untuk invois Lightning. Sila pergi ke dompet Lightning anda untuk membuat bayaran bagi invois ini.",
     "broadcastButton": "Siar",
     "broadcastError": "Ralat",
@@ -621,6 +625,9 @@
     "error": "Input bukanlah mnemonik separa 11 atau 23 perkataan. Sila cuba lagi."
   },
   "cc": {
+    "legacy_shared": "⚠ Risiko ulang siar: juga belum dibelanjakan pada Bitcoin Core",
+    "legacy_checking": "Memeriksa rantaian Bitcoin Core…",
+    "legacy_unknown": "⚠ Pemeriksaan Bitcoin Core gagal",
     "change": "Ubah",
     "coins_selected": "Duit yang Dipilih ({number})",
     "selected_summ": "{value} dipilih",

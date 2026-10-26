@@ -119,6 +119,10 @@
     "bip47_explanation": "Kodet e pagesës janë një adresë universale që shmang zbulimin e adresave të portofolit tuaj. Jo të gjitha shërbimet do t'i mbështesin ato."
   },
   "send": {
+    "legacy_replay_title": "Rrezik përsëritjeje në Bitcoin Core",
+    "legacy_replay_warning": "Të gjitha hyrjet ekzistojnë edhe si dalje të pashpenzuara në zinxhirin Bitcoin Core. Ky transaksion mund të përsëritet atje dhe të shpenzojë BTC-të përkatëse. Vazhdoni vetëm nëse e kuptoni dhe e pranoni këtë rrezik.",
+    "legacy_replay_accept": "E kuptoj dhe e pranoj rrezikun — vazhdo",
+    "legacy_check_failed": "Nuk u verifikuan dot të gjitha hyrjet në zinxhirin Bitcoin Core përmes mempool.space. Rreziku i përsëritjes nuk dihet; ky transaksion mund të shpenzojë BTC-të përkatëse edhe në atë zinxhir. Provoni përsëri ose vazhdoni vetëm nëse e kuptoni dhe e pranoni këtë rrezik.",
     "provided_address_is_invoice": "Kjo adresë duket të jetë për një faturë Lightning. Ju lutemi, shkoni te portofoli juaj Lightning për të bërë një pagesë për këtë faturë.",
     "broadcastButton": "Transmetim",
     "broadcastError": "Gabim",
@@ -621,6 +625,9 @@
     "error": "Hyrja nuk është një frazë mnemonike e pjesshme me 11 ose 23 fjalë. Ju lutemi provoni përsëri."
   },
   "cc": {
+    "legacy_shared": "⚠ Rrezik përsëritjeje: e pashpenzuar edhe në Bitcoin Core",
+    "legacy_checking": "Po verifikohet zinxhiri Bitcoin Core…",
+    "legacy_unknown": "⚠ Verifikimi i Bitcoin Core dështoi",
     "change": "Ndrysho",
     "coins_selected": "Monedha të zgjedhura ({number})",
     "selected_summ": "{value} të zgjedhura",

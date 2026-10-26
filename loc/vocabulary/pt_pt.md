@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | controlo de moedas / gestão de UTXO | noun, lowercase · technical / mainstream · Electrum pt_PT (`Controlo da moeda`) + Bitcoin Core pt. ⚠️ NOT Title Case. PT-PT uses `controlo` (BR uses `controle`). |
 | Frozen | congelado / congelada | adj · masculine / feminine agreement · ⚠️ NOT verb "congelar" · Electrum pt_PT. App ships `Congelado` / `congeladas`. |
 | **_Security & storage_** | | |
+| Replay risk | risco de repetição | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | encriptação de armazenamento | noun, lowercase · ⚠️ NOT Title Case. App ships `Ativar Encriptação de Armazenamento` as headline. PT-PT spelling `encriptação` (Electrum pt_PT). |
 | Plausible Deniability | negação plausível | noun, lowercase · app ships sentence-case `Negação plausível` in body, `Negação Plausível` in headlines. |
 | Biometrics | biometria | noun, lowercase · app ships `Biometria`. |

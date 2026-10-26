@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | UTXO 관리 / 코인 관리 | noun · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | 동결됨 | adj/state · ⚠️ NOT verb "동결하다". Prefer "-됨" state form over bare "동결". |
 | **_Security & storage_** | | |
+| Replay risk | 리플레이 위험 | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | 저장소 암호화 | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | 그럴듯한 부인 / 당위적 거부 | noun · ⚠️ NOT Title Case · standard CS / shipped variant · ko.wikipedia.org/wiki/그럴듯한_부인 |
 | Biometrics | 생체 인증 / 바이오메트릭 | noun · mainstream / transliteration · shipped `biom_no_passcode` uses 생체 인식. |

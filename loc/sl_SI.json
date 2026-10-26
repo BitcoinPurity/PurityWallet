@@ -119,6 +119,10 @@
     "bip47_explanation": "Plačilne kode so univerzalni naslov, ki ne razkriva naslovov vaše denarnice. Vse storitve jih ne podpirajo."
   },
   "send": {
+    "legacy_replay_title": "Tveganje ponovitve v Bitcoin Core",
+    "legacy_replay_warning": "Vsi vhodi obstajajo tudi kot neporabljeni izhodi v verigi Bitcoin Core. Ta transakcija se lahko tam ponovi in porabi ustrezne BTC. Nadaljujte le, če razumete in sprejemate to tveganje.",
+    "legacy_replay_accept": "Razumem in sprejemam tveganje — nadaljuj",
+    "legacy_check_failed": "Prek mempool.space ni bilo mogoče preveriti vseh vhodov v verigi Bitcoin Core. Tveganje ponovitve ni znano; ta transakcija lahko porabi ustrezne BTC tudi v tej verigi. Poskusite znova ali nadaljujte le, če razumete in sprejemate to tveganje.",
     "provided_address_is_invoice": "Zdi se, da je ta naslov za Lightning račun. Za izvedbo plačila pojdite v svojo Lightning denarnico.",
     "broadcastButton": "Objavi v omrežju",
     "broadcastError": "Napaka",
@@ -621,6 +625,9 @@
     "error": "Vnos ni 11- ali 23-besedna delna mnemonična fraza. Poskusite znova."
   },
   "cc": {
+    "legacy_shared": "⚠ Tveganje ponovitve: neporabljeno tudi v Bitcoin Core",
+    "legacy_checking": "Preverjanje verige Bitcoin Core…",
+    "legacy_unknown": "⚠ Preverjanje Bitcoin Core ni uspelo",
     "change": "Vračilo",
     "coins_selected": "Izbrani kovanci ({number})",
     "selected_summ": "{value} izbrano",

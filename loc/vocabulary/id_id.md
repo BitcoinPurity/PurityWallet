@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | kontrol koin / kelola UTXO | noun, lowercase · mainstream / technical · ⚠️ NOT Title Case · Bitcoin Core id (`pengaturan koin`). |
 | Frozen | dibekukan | adj/state · ⚠️ shipped `Bekukan` is the verb "to freeze"; for state label use `dibekukan` · Electrum id + Zeus id + Cake id. |
 | **_Security & storage_** | | |
+| Replay risk | risiko pemutaran ulang | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | penyimpanan terenkripsi | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | penyangkalan yang masuk akal | noun, lowercase · ⚠️ NOT Title Case. |
 | Biometrics | biometrik | noun, lowercase. |

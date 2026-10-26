@@ -119,8 +119,8 @@ it('checks actual chosen inputs and waits for acknowledgement before the signing
   expect(mockNavigation.navigate).toHaveBeenCalledWith('Confirm', expect.objectContaining({ tx: 'signed-hex' }));
 });
 
-it('does not sign or navigate after cancelling the replay warning', async () => {
-  mockCheck.mockResolvedValue({ [key]: 'shared' });
+it.each(['shared', 'unknown'] as const)('does not sign or navigate after cancelling the %s warning', async status => {
+  mockCheck.mockResolvedValue({ [key]: status });
   const screen = await startSend();
   await act(async () => mockAlert.mock.calls[0][0].buttons?.find(button => button.style === 'cancel')?.onPress?.());
   expect(mockWallet.createTransaction).not.toHaveBeenCalled();
@@ -128,12 +128,17 @@ it('does not sign or navigate after cancelling the replay warning', async () => 
   expect(screen.getByTestId('CreateTransactionButton')).toBeTruthy();
 });
 
-it('blocks signing on check failure', async () => {
+it('allows signing after explicit risk acknowledgement when the check fails', async () => {
   mockCheck.mockResolvedValue({ [key]: 'unknown' });
   await startSend();
   await waitFor(() => expect(mockAlert).toHaveBeenCalledWith(expect.objectContaining({ message: loc.send.legacy_check_failed })));
   expect(mockWallet.createTransaction).not.toHaveBeenCalled();
   expect(mockNavigation.navigate).not.toHaveBeenCalled();
+  const alert = mockAlert.mock.calls[0][0];
+  expect(alert.options?.cancelable).toBe(false);
+  await act(async () => alert.buttons?.find(button => button.text === loc.send.legacy_replay_accept)?.onPress?.());
+  expect(mockWallet.createTransaction).toHaveBeenCalledTimes(1);
+  expect(mockNavigation.navigate).toHaveBeenCalledWith('Confirm', expect.objectContaining({ tx: 'signed-hex' }));
 });
 
 it('checks automatically selected inputs too', async () => {
@@ -172,8 +177,8 @@ it('does not sign after the screen is unmounted during the check', async () => {
   expect(mockWallet.createTransaction).not.toHaveBeenCalled();
 });
 
-it('discards acknowledgement when the recipient changed while the alert was open', async () => {
-  mockCheck.mockResolvedValue({ [key]: 'shared' });
+it.each(['shared', 'unknown'] as const)('discards %s acknowledgement when the recipient changed while the alert was open', async status => {
+  mockCheck.mockResolvedValue({ [key]: status });
   const screen = await startSend();
   fireEvent.changeText(screen.getByTestId('recipient'), '1BoatSLRHtKNngkdXEeobR76b53LETtpyT');
   await act(async () => mockAlert.mock.calls[0][0].buttons?.find(button => button.text === loc.send.legacy_replay_accept)?.onPress?.());

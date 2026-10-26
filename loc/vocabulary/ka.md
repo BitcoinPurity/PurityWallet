@@ -77,6 +77,7 @@ Note: Georgian uses the Mkhedruli script and has **no letter casing** (no upper/
 | Coin Control | UTXO-ს მართვა / მონეტების მართვა | noun · technical "UTXO management" / "coin management" (no upstream wallet citation). Georgian has no casing. |
 | Frozen | გაყინული | adj/state · "frozen". ⚠️ NOT the verb "to freeze" (no upstream wallet citation). |
 | **_Security & storage_** | | |
+| Replay risk | გამეორების რისკი | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | დაშიფრული საცავი | noun · "encrypted storage" (Bitcoin Core ka დაშიფვრა "encrypt"). Georgian has no casing. |
 | Plausible Deniability | დამაჯერებელი უარყოფა | noun · "plausible denial" (no upstream wallet citation). Georgian has no casing. |
 | Biometrics | ბიომეტრია | noun · standard Georgian "biometrics" (no upstream wallet citation). |

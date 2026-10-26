@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | UTXO haldus / müntide haldus | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | külmutatud | adj · state form · ⚠️ NOT verb "külmutada". |
 | **_Security & storage_** | | |
+| Replay risk | tehingu taasesitamise oht | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | krüpteeritud hoidla | noun, lowercase · shipped · ⚠️ NOT Title Case. |
 | Plausible Deniability | usutav eitatavus / usutava eitamise võimalus | noun, lowercase · short / full · constructed. |
 | Biometrics | biomeetria | noun, lowercase. |

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | muntbeheer / UTXO-beheer | noun, lowercase · mainstream / technical · ⚠️ NOT Title Case (no upstream wallet citation). |
 | Frozen | gevries | adjective/state form. ⚠️ NOT the verb "vries / bevries". |
 | **_Security & storage_** | | |
+| Replay risk | risiko van herhaling | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ge-enkripteer (geheue spasie) | ⚠️ NOT Title Case. |
 | Plausible Deniability | geloofwaardige ontkenbaarheid | ⚠️ NOT Title Case. |
 | Biometrics | biometrie | common noun, lowercase. |

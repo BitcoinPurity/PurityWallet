@@ -119,6 +119,10 @@
     "bip47_explanation": "Ordainketa-kodeak helbide unibertsalak dira, eta zure diru-zorroaren helbideak ezagutaraztea saihesten dute. Zerbitzu guztiek ez dituzte onartzen."
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core katean transakzioa errepikatzeko arriskua",
+    "legacy_replay_warning": "Sarrera guztiak Bitcoin Core katean ere badaude, gastatu gabeko irteera gisa. Transakzio hau han errepika daiteke eta dagozkion BTCak gastatu. Jarraitu soilik arrisku hori ulertu eta onartzen baduzu.",
+    "legacy_replay_accept": "Arriskua ulertu eta onartzen dut — jarraitu",
+    "legacy_check_failed": "Ezin izan dira Bitcoin Core kateko sarrera guztiak egiaztatu mempool.space bidez. Errepikatzeko arriskua ezezaguna da; transakzio honek dagozkion BTCak kate horretan ere gasta ditzake. Saiatu berriro, edo jarraitu soilik arrisku hori ulertu eta onartzen baduzu.",
     "provided_address_is_invoice": "Helbide hau Lightning faktura batena dela dirudi. Mesedez, joan zure Lightning diru-zorrora faktura hau ordaintzeko.",
     "broadcastButton": "Igorri",
     "broadcastError": "Errorea",
@@ -621,6 +625,9 @@
     "error": "Sarrera ez da 11 edo 23 hitzeko esaldi mnemoniko partziala. Saiatu berriro."
   },
   "cc": {
+    "legacy_shared": "⚠ Errepikatzeko arriskua: Bitcoin Core katean ere gastatu gabe",
+    "legacy_checking": "Bitcoin Core katea egiaztatzen…",
+    "legacy_unknown": "⚠ Ezin izan da Bitcoin Core egiaztatu",
     "change": "Bueltakoa",
     "coins_selected": "Hautatutako txanponak ({number})",
     "selected_summ": "{value} hautatuta",

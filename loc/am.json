@@ -119,6 +119,10 @@
     "bip47_explanation": "የክፍያ ኮዶች የቦርሳ አድራሻዎችዎን ከመግለጽ የሚቆጠብ ሁለንተናዊ አድራሻ ናቸው። ሁሉም አገልግሎቶች አይደግፏቸውም።"
   },
   "send": {
+    "legacy_replay_title": "በBitcoin Core ላይ የድጋሚ አፈጻጸም አደጋ",
+    "legacy_replay_warning": "ሁሉም ግብዓቶች በBitcoin Core ሰንሰለት ላይም ያልተወጡ ውጤቶች ሆነው ይገኛሉ። ይህ ግብይት በዚያ እንደገና ተፈጽሞ ተዛማጁን BTC ሊያወጣ ይችላል። ይህን አደጋ ከተረዱና ከተቀበሉ ብቻ ይቀጥሉ።",
+    "legacy_replay_accept": "አደጋውን ተረድቻለሁ እና እቀበላለሁ — ቀጥል",
+    "legacy_check_failed": "በmempool.space በኩል በBitcoin Core ሰንሰለት ላይ ያሉትን ሁሉንም ግብዓቶች ማረጋገጥ አልተቻለም። የድጋሚ አፈጻጸም አደጋው ያልታወቀ ነው፤ ይህ ግብይት በዚያ ሰንሰለት ላይም ተዛማጁን BTC ሊያወጣ ይችላል። እንደገና ይሞክሩ፣ ወይም ይህን አደጋ ከተረዱና ከተቀበሉ ብቻ ይቀጥሉ።",
     "provided_address_is_invoice": "ይህ አድራሻ ለLightning ደረሰኝ የሚሆን ይመስላል። ለዚህ ደረሰኝ ክፍያ ለማድረግ እባክዎ ወደ Lightning ቦርሳዎ ይሂዱ።",
     "broadcastButton": "አሰራጭ",
     "broadcastError": "ስህተት",
@@ -621,6 +625,9 @@
     "error": "ግብዓቱ የ11- ወይም የ23-ቃል ያልተሟላ የመልሶ ማግኛ ሐረግ አይደለም። እባክዎ እንደገና ይሞክሩ።"
   },
   "cc": {
+    "legacy_shared": "⚠ የድጋሚ አፈጻጸም አደጋ፦ በBitcoin Core ላይም አልወጣም",
+    "legacy_checking": "የBitcoin Core ሰንሰለትን በማረጋገጥ ላይ…",
+    "legacy_unknown": "⚠ የBitcoin Core ማረጋገጫ አልተሳካም",
     "change": "መልስ",
     "coins_selected": "የተመረጡ ኮይኖች ({number})",
     "selected_summ": "{value} ተመርጧል",

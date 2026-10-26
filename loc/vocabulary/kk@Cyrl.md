@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | UTXO басқару / тиындарды басқару | noun, target-locale lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | қатырылған | adj/state · ⚠️ NOT verb "қатыру" — must be adjective/state form. |
 | **_Security & storage_** | | |
+| Replay risk | қайталану қаупі | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | шифрланған сақтау орны | noun, target-locale lowercase · ⚠️ NOT Title Case (no upstream wallet citation). |
 | Plausible Deniability | TODO | uncertain Kazakh idiomatic rendering for the privacy concept. |
 | Biometrics | биометрия | noun, target-locale lowercase · kk.wikipedia.org/wiki/Биометрия. |

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | सिक्का नियन्त्रण | noun; shipped UI · ⚠️ source English uses Title Case but Devanagari has no casing. |
 | Frozen | फ्रिज गरिएको | adj · ⚠️ NOT verb "फ्रिज गर्नुहोस्". shipped UI inconsistent (`फ्रिज` / `फ्रोजन`) — pick `फ्रिज गरिएको` (state). |
 | **_Security & storage_** | | |
+| Replay risk | पुनः चलाइने जोखिम | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | इन्क्रिप्टेड स्टोरेज | noun; shipped UI · ⚠️ source English uses Title Case but Devanagari has no casing. |
 | Plausible Deniability | विश्वसनीय इन्कार | noun · `विश्वसनीय` (plausible/credible) + `इन्कार` (denial). ⚠️ shipped UI uses `व्यावहारिक अस्वीकार्यता` ("practical unacceptability") which is awkward and shifts meaning. |
 | Biometrics | बायोमेट्रिक्स | noun; shipped UI. |

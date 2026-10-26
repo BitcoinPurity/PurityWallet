@@ -119,6 +119,10 @@
     "bip47_explanation": "Platobné kódy sú univerzálna adresa, ktorá neodhaľuje adresy vašej peňaženky. Nie všetky služby ich podporujú."
   },
   "send": {
+    "legacy_replay_title": "Riziko opakovania v Bitcoin Core",
+    "legacy_replay_warning": "Všetky vstupy existujú aj ako neminuté výstupy v reťazci Bitcoin Core. Táto transakcia sa tam môže zopakovať a minúť zodpovedajúce BTC. Pokračujte iba vtedy, ak tomuto riziku rozumiete a prijímate ho.",
+    "legacy_replay_accept": "Rozumiem riziku a prijímam ho — pokračovať",
+    "legacy_check_failed": "Pomocou mempool.space sa nepodarilo overiť všetky vstupy v reťazci Bitcoin Core. Riziko opakovania nie je známe; táto transakcia môže minúť zodpovedajúce BTC aj v tomto reťazci. Skúste kontrolu znova alebo pokračujte iba vtedy, ak riziku rozumiete a prijímate ho.",
     "provided_address_is_invoice": "Táto adresa vyzerá ako faktúra Lightning. Prosím prejdite do svojej peňaženky Lightning, aby ste túto faktúru zaplatili.",
     "broadcastButton": "Odoslať",
     "broadcastError": "chyba",
@@ -621,6 +625,9 @@
     "error": "Vstup nie je 11- alebo 23-slovná čiastočná mnemonická fráza. Prosím skúste znova."
   },
   "cc": {
+    "legacy_shared": "⚠ Riziko opakovania: neminuté aj v Bitcoin Core",
+    "legacy_checking": "Overovanie reťazca Bitcoin Core…",
+    "legacy_unknown": "⚠ Kontrola Bitcoin Core zlyhala",
     "change": "Drobné",
     "coins_selected": "Vybraných mincí ({number})",
     "selected_summ": "{value} vybrané",

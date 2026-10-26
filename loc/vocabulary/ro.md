@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | controlul UTXO-urilor / controlul monedelor | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. ro.json ships `Controlul monedelor`. |
 | Frozen | înghețat / înghețată | adj · masc / fem · ⚠️ NOT verb "îngheață". ro.json `cc.freeze`/`cc.freezeLabel` ships verb `Îngheață` (button label OK; state should be `Înghețat`). |
 | **_Security & storage_** | | |
+| Replay risk | risc de repetare | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | spațiu de stocare criptat | noun, lowercase · ⚠️ NOT Title Case · ro.json `_.storage_is_encrypted`. |
 | Plausible Deniability | negare plauzibilă | noun, lowercase · ro.json. |
 | Biometrics | biometrie | noun, lowercase · ro.json ships `Biometrici` (plural; standard form is `biometrie`). |

@@ -77,6 +77,7 @@ Note: Azerbaijani (Azərbaycan dili) is written in the Latin alphabet (LTR). Ups
 | Coin Control | sikkə nəzarəti | noun · "coin control" (sikkə = coin). ⚠️ NOT Title Case. |
 | Frozen | dondurulmuş | adj/state · "frozen". ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | təkrarlanma riski | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | şifrələnmiş yaddaş | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | ağlabatan inkar | noun · "plausible denial". ⚠️ NOT Title Case. |
 | Biometrics | biometrika | noun · transliteration. |

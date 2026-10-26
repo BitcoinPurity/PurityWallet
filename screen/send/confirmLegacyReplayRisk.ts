@@ -5,13 +5,12 @@ import loc from '../../loc';
 export async function confirmLegacyReplayRisk(inputs: readonly LegacyUtxo[], isCurrent: () => boolean = () => true): Promise<boolean> {
   const status = getLegacyReplayStatus(inputs, await checkLegacyUtxos(inputs));
   if (!isCurrent()) return false;
-  if (status === 'unknown') throw new Error(loc.send.legacy_check_failed);
-  if (status !== 'shared') return true;
+  if (status === 'absent') return true;
 
   return new Promise(resolve => {
     presentAlert({
       title: loc.send.legacy_replay_title,
-      message: loc.send.legacy_replay_warning,
+      message: status === 'unknown' ? loc.send.legacy_check_failed : loc.send.legacy_replay_warning,
       buttons: [
         { text: loc._.cancel, style: 'cancel', onPress: () => resolve(false) },
         {
