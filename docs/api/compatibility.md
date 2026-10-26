@@ -1,5 +1,11 @@
 # API compatibility
 
+## Legacy-chain read-only API
+
+Replay checks use Bitcoin mainnet `https://mempool.space/api/tx/:txid` and `/tx/:txid/outspends`. The transaction response must contain the requested `txid` and a `vout` array of `value` (integer satoshis) and `scriptpubkey` (hex). The outspends response is indexed by output number and must provide a boolean `spent`. An explicit 404 on the transaction endpoint means absent; other unsuccessful or malformed responses mean unknown. Requests time out after 10 seconds and at most four transaction groups are checked concurrently.
+
+Only transaction IDs are disclosed to this third-party service; no keys or signed transactions are sent. Purity Electrum preferences, transaction/broadcast protocols, wallet storage, and navigation parameters remain unchanged.
+
 The PurityWallet visible-brand rebrand makes no API or protocol changes. iOS/macOS deep-link schemes, activity types, bundle identifiers, app groups, native bridge module names, Electrum endpoints, and serialized formats remain unchanged. Android now uses the independent application ID and code namespace `org.bitcoinpurity.puritywallet`.
 
 ## Android identity and service compatibility

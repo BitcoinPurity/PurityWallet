@@ -37,3 +37,13 @@
 - Hide wallet-type selection in the new-wallet interface so the unchanged default creates a native SegWit Bitcoin wallet.
 - Keep the existing multisig, legacy, Taproot, Lightning, and Ark creation implementations and navigation contracts in place for upstream compatibility.
 - Keep wallet import and compatibility with existing wallets unchanged.
+
+## REQ-007: Legacy Bitcoin chain replay warnings
+
+- Use the read-only `https://mempool.space/api` Bitcoin mainnet API to check whether Purity UTXOs also remain unspent on the legacy Bitcoin Core chain.
+- Coin Control checks every UTXO, including frozen outputs, and prominently marks matching outputs with a replay-risk warning.
+- Send checks selected inputs and displays a warning when all of them exist on the legacy chain. Before signing, repeat the check against the actual inputs chosen by coin selection, including automatic selection.
+- When every actual input matches, require explicit acknowledgement that the transaction may also spend BTC on the legacy chain before signing or continuing to broadcast review. Cancelling stops transaction creation.
+- Compare transaction ID, output index, value, and output script, and require an unspent output. A transaction's historical existence alone is insufficient.
+- Show pending/failed checks explicitly. A failed check must not be treated as absence; pause signing until a fresh check succeeds.
+- Checks send only transaction IDs to mempool.space, never private keys or signed transaction data. Purity Electrum and broadcast settings remain unchanged.

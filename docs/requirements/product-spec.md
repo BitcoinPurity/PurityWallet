@@ -68,3 +68,11 @@ The existing type-selection state, route parameters, wallet constructors, multis
 - Without an explicit internal route override, Create follows the existing index `0` / on-chain default and instantiates `HDSegwitBech32Wallet`.
 - Existing alternative wallet constructors, route parameters, and multisig screens are retained.
 - Import Wallet remains available.
+
+## Legacy Bitcoin chain replay warnings
+
+Coin Control checks all outputs against Bitcoin mainnet using the read-only mempool.space API. Each output that has the same `txid:vout`, value, and locking script and remains unspent carries a prominent replay-risk label. Pending and failed checks have distinct labels; a failed request does not imply an output is absent.
+
+Send checks manually selected inputs as soon as they are selected and warns when all of them match. Before creating/signing a transaction, it checks the actual inputs selected for the recipient amount and fee, including automatic selection. If all actual inputs match, a non-dismissible confirmation explains that this transaction may be replayed on Bitcoin Core's chain and spend the corresponding BTC. Only the explicit risk-acknowledgement action permits signing and the existing broadcast-review flow. Cancel returns to editing. The acknowledgement applies only to that transaction creation attempt; subsequent attempts check again. Any unknown result pauses signing and invites retry.
+
+This is an online warning based on the API's current view, not a consensus-level replay protection mechanism or a guarantee of safety. Checks disclose queried transaction IDs to mempool.space. They do not send secrets or transactions to that service and do not change Purity networking or broadcast behavior.

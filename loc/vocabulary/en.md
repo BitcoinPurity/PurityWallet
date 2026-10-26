@@ -77,6 +77,7 @@ Reference. All other locales translate from this.
 | Coin Control | Coin Control | Title-cased proper feature name. |
 | Frozen | Freeze (verb) / frozen | — |
 | **_Security & storage_** | | |
+| Replay risk | replay risk | A transaction may also spend the corresponding BTC on the Bitcoin Core chain. |
 | Encrypted storage | Encrypted Storage / Storage Encryption | — |
 | Plausible Deniability | Plausible Deniability | — |
 | Biometrics | Biometrics | — |

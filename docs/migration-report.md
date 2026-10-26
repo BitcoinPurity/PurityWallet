@@ -1,5 +1,9 @@
 # Migration report
 
+## Legacy Bitcoin chain replay warnings
+
+Add a read-only mempool.space mainnet check without migrating wallet data or changing Purity Electrum/broadcast configuration. Coin Control labels shared UTXOs, including frozen outputs. Send warns for shared selected inputs and repeats the check for actual coin-selected inputs before signing. All-shared transactions require explicit risk acknowledgement; unknown checks and cancellation stop signing. English and simplified/traditional Chinese copy cover checking, failure, replay risk, and acknowledgement. Existing signing and transaction review continue after the gate succeeds. API availability and accuracy bound this online warning; it is not protocol-level replay protection.
+
 ## BlueWallet to PurityWallet visible brand
 
 This migration updates presentation, distribution metadata, and artwork. iOS/macOS internal projects, targets, modules, identifiers, schemes, storage namespaces, endpoints, and dependency references remain compatible. Android is intentionally published as the separate application `org.bitcoinpurity.puritywallet` so it can coexist with BlueWallet.

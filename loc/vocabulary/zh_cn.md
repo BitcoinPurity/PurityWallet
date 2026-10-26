@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | 选币 / 选币功能 | noun · technical / UI-friendly · shipped is `选币功能` (verified — earlier note about `币的控制` was incorrect for current zh_cn.json) · Electrum zh_CN. |
 | Frozen | 已冻结 | adj/state · ⚠️ NOT verb `冻结` (= to freeze). |
 | **_Security & storage_** | | |
+| Replay risk | 重放风险 | A transaction may also spend the corresponding BTC on the Bitcoin Core chain. |
 | Encrypted storage | 存储加密 | noun · ⚠️ NOT Title Case · shipped `启用存储加密` includes verb `启用` (= enable); drop for bare noun. |
 | Plausible Deniability | 可合理否认 | noun · ⚠️ NOT Title Case. |
 | Biometrics | 生物识别认证 | noun. |
