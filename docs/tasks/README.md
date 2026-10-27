@@ -7,3 +7,4 @@
 - [TASK-005: Differentiate PurityWallet with a blue icon colorway](TASK-005.md)
 - [TASK-006: Use an independent Android application identity](TASK-006.md)
 - [TASK-007: Create only a standard Bitcoin wallet](TASK-007.md)
+- [TASK-008: Reject immature Coinbase inputs](TASK-008.md)

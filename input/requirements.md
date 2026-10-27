@@ -37,3 +37,11 @@
 - Hide wallet-type selection in the new-wallet interface so the unchanged default creates a native SegWit Bitcoin wallet.
 - Keep the existing multisig, legacy, Taproot, Lightning, and Ark creation implementations and navigation contracts in place for upstream compatibility.
 - Keep wallet import and compatibility with existing wallets unchanged.
+
+## REQ-007: Enforce Coinbase spendability
+
+- Classify creating transactions using bitcoinjs-lib and cached raw Electrum transactions; missing status remains unknown and is retried on normal UTXO synchronization.
+- Only spend Coinbase outputs when the actual connected Electrum tip satisfies `tipHeight - coinbaseHeight + 1 >= 100`.
+- Enforce one shared rule for automatic/manual selection, Send Max, fees, RBF, CPFP and PSBT construction across on-chain wallet types; preserve ordinary unconfirmed spending and frozen-output policy.
+- Retain immature/unknown outputs and total balance. Invalidate Coinbase height verification on tip changes, reconnects or stale tip data; refresh heights from listunspent/history, never estimated confirmations.
+- Preserve storage, seed/derivation and Electrum protocol compatibility without new dependencies or UI redesign.

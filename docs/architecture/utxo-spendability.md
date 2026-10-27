@@ -1,0 +1,13 @@
+# UTXO spendability
+
+`BlueElectrum.multiGetUtxoByAddress()` maps standard listunspent data and brackets retrieval with actual header requests. Height verification is held only in memory and associated with the current header identity. Header notifications, polling, disconnects and freshness expiration invalidate eligibility. A same-height replacement header also invalidates heights. Old wallet UTXO heights and estimated confirmations never establish Coinbase eligibility.
+
+`BlueElectrum.prepareUtxos()` resolves unknown creating transactions, using existing raw/verbose transaction data where raw bytes are available, the existing Realm raw-transaction cache, and a txid classification cache. It serializes concurrent preparations, deduplicates txids and uses sequential batches of at most 45 requests. Failed batches do not prevent later batches from being classified. Missing or malformed data remains unknown and is retried; malformed raw data is not accepted into the transaction cache. Classification is immutable for a verified txid; height is not.
+
+Legacy and HD Electrum UTXO refreshes call this preparation before exposing spendable inputs. Derived-history fallback UTXOs receive the same preparation. RBF/CPFP prepare reconstructed inputs; spent Coinbase input heights are refreshed through standard address history. No verbose confirmations are used for maturity.
+
+`class/utxo-spendability.ts` supplies raw parsing and the synchronous deterministic policy. `LegacyWallet.getSpendableUtxos()` combines it with wallet freeze metadata, the current actual tip and freshly verified Coinbase height. The default `getUtxo()` and shared `coinselect()` both apply it. `getUtxo(true)` retains the full list for ownership and Coin Control; explicitly selecting an ineligible output cannot bypass the selector guard.
+
+Legacy P2PKH, single-address P2SH/P2WPKH/Taproot, all HD derivations (including Electrum, aezeed, Breadwallet and SLIP39), HD Taproot, watch-only delegation and multisig selection share this boundary. BIP47 and Silent Payments use the same guarded constructor. Existing raw transaction broadcasts and externally imported PSBT combination do not perform coin selection; the node still validates externally supplied transactions and changes occurring after construction.
+
+The existing total balance remains unchanged. Send Max previews, including manual selections, sum only eligible inputs; the frozen-balance notice counts only explicitly frozen outputs. This patch adds no balance category UI. Coinbase inputs are conservatively unavailable after any tip change until normal UTXO/history synchronization verifies heights again, and after 60 seconds without actual tip verification. Ordinary classified inputs remain usable without tip data.

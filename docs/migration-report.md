@@ -25,3 +25,9 @@ Lightning and Ark creation choices and the Lightning Network settings row are hi
 ## Standard Bitcoin wallet creation
 
 New-wallet creation no longer exposes a wallet-type choice. A disabled presentation flag leaves the upstream selection state, constructors, route parameters, and multisig screens intact; the unchanged default creates a native SegWit (`p2wpkh/HD`) Bitcoin wallet. Existing persisted wallets and import formats are not migrated or removed.
+
+## Coinbase spendability repair
+
+Previously UTXOs from listunspent (and locally reconstructed replacement inputs) reached coinselect without Coinbase checks. The fix adds optional classification metadata, a shared spendability policy and asynchronous cached classification. No wallet reimport, seed conversion, server changes or consensus changes are needed. Old unknown UTXOs remain visible and become spendable after successful normal synchronization.
+
+Fresh actual headers and listunspent/history heights replace estimated confirmations only for Coinbase eligibility. Height verification is invalidated on header identity changes and reconnects, preventing persisted or reorganized heights from remaining trusted. The total-balance display is retained; a dedicated immature-balance UI is deferred. See [UTXO spendability architecture](architecture/utxo-spendability.md).

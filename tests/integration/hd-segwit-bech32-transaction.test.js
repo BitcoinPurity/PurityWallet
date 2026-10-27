@@ -96,12 +96,14 @@ describe('HDSegwitBech32Transaction', () => {
           value: 108150,
           txid: 'f3d7fb23248168c977e8085b6bd5381d73c85da423056a47cbf734b5665615f1',
           address: 'bc1qahhgjtxexjx9t0e5pjzqwtjnxexzl6f5an38hq',
+          isCoinbase: false,
         },
         {
           vout: 0,
           value: 200000,
           txid: '89bcff166c39b3831e03257d4bcc1034dd52c18af46a3eb459e72e692a88a2d8',
           address: 'bc1qvh44cwd2v7zld8ef9ld5rs5zafmejuslp6yd73',
+          isCoinbase: false,
         },
       ]),
     );

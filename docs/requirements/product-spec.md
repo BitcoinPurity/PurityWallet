@@ -68,3 +68,11 @@ The existing type-selection state, route parameters, wallet constructors, multis
 - Without an explicit internal route override, Create follows the existing index `0` / on-chain default and instantiates `HDSegwitBech32Wallet`.
 - Existing alternative wallet constructors, route parameters, and multisig screens are retained.
 - Import Wallet remains available.
+
+## Coinbase spendability
+
+Coinbase rewards remain in the wallet's total balance and complete Coin Control UTXO list. The spendable UTXO set and transaction selector exclude unknown, frozen and immature outputs. The consensus boundary is exactly `actualTip - coinbaseHeight + 1 >= 100`; ordinary unconfirmed spending retains its existing policy.
+
+Coinbase classification comes from txid-verified raw transactions using bitcoinjs-lib. Raw transaction caching and deduplicated batches avoid repeated downloads. Unknown outputs remain owned and are retried on normal UTXO refresh. Actual Electrum headers and freshly retrieved UTXO/history heights establish maturity; wall-clock estimates and cached verbose confirmations cannot establish it. Any changed tip, disconnect or expired tip verification requires fresh Coinbase height verification.
+
+All on-chain wallet constructors share the guarded selector, including Send Max, fees, manual selection, hardware/watch-only and multisig PSBT creation, RBF/CPFP and BIP47 notifications. No seed, derivation, signing or serialization format changes are required. A separate immature/spendable balance label is outside this focused repair; the existing headline balance continues to show total ownership.

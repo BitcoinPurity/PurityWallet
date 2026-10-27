@@ -21,3 +21,9 @@ Disabling `isLightningUiEnabled` changes only visible feature entry points. Exis
 ## Wallet creation compatibility
 
 The `AddWallet` route retains its wallet-type and type-index parameters. Only the visible selector is disabled, leaving navigation contracts, wallet constructors, persisted serialization, import formats, and existing-wallet behavior unchanged. With no internal override, the upstream default remains native SegWit.
+
+## Coinbase metadata and spending compatibility
+
+UTXOs may contain optional `isCoinbase: boolean`. Absence means unknown; older wallets are lazily classified on their next normal UTXO refresh. Verified classification is backward compatible with JSON wallet storage; live height verification is memory-only and is never restored as trusted from storage. Seeds and derivation paths are unchanged.
+
+The Electrum contract remains standard `blockchain.scripthash.listunspent`, `blockchain.scripthash.get_history`, `blockchain.transaction.get` and `blockchain.headers.subscribe`; no server-provided Coinbase flag or verbose support is required. Transaction construction remains synchronous. Callers supplying new UTXOs must resolve unknown status asynchronously with `BlueElectrum.prepareUtxos()` before construction. The shared selector excludes ineligible inputs even when manually supplied; an entirely ineligible set produces a diagnostic error.

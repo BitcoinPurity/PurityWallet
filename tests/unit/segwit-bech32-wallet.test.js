@@ -14,6 +14,7 @@ describe('Segwit P2SH wallet', () => {
     const feeRate = 1;
     const utxos = [
       {
+        isCoinbase: false,
         txid: '57d18bc076b919583ff074cfba6201edd577f7fe35f69147ea512e970f95ffeb',
         vout: 0,
         value: 100000,
@@ -71,6 +72,7 @@ describe('Segwit P2SH wallet', () => {
     const feeRate = 1.5;
     const utxos = [
       {
+        isCoinbase: false,
         txid: '57d18bc076b919583ff074cfba6201edd577f7fe35f69147ea512e970f95ffeb',
         vout: 0,
         value: 100000,
@@ -133,6 +135,7 @@ describe('Segwit P2SH wallet', () => {
     const change = wallet.getAddress();
     const utxos = [
       {
+        isCoinbase: false,
         txid: '57d18bc076b919583ff074cfba6201edd577f7fe35f69147ea512e970f95ffeb',
         vout: 0,
         value: 100000,

@@ -194,6 +194,7 @@ export default class SelfTest extends Component {
 
       utxos = [
         {
+          isCoinbase: false,
           txid: 'a56b44080cb606c0bd90e77fcd4fb34c863e68e5562e75b4386e611390eb860c',
           vout: 0,
           value: 300000,
@@ -232,6 +233,7 @@ export default class SelfTest extends Component {
       const txNewTaproot = l.createTransaction(
         [
           {
+            isCoinbase: false,
             value: 10000,
             address: 'bc1pm6lqlel3qxefsx0v39nshtghasvvp6ghn3e5hd5q280j5m9h7csqrkzssu',
             txid: '4dc4c9a03dd7005310a313c5ef1754e5e53888d587073f01a5a662501c12ac3b',

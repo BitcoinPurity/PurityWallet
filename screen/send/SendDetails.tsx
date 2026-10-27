@@ -300,14 +300,14 @@ const SendDetails = () => {
     const fees = networkTransactionFees;
     const requestedSatPerByte = Number(feeRate);
     const m = new Measure('getUtxo');
-    const lutxo = utxos || wallet.getUtxo();
+    const lutxo = wallet.getSpendableUtxos(utxos || wallet.getUtxo());
     m.end();
     let frozen = 0;
     if (!utxos) {
       // if utxo is not limited search for frozen outputs and calc it's balance
       frozen = wallet
         .getUtxo(true)
-        .filter(o => !lutxo.some(i => i.txid === o.txid && i.vout === o.vout))
+        .filter(o => wallet.getUTXOMetadata(o.txid, o.vout).frozen)
         .reduce((prev, curr) => prev + curr.value, 0);
     }
 
