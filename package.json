@@ -1,13 +1,13 @@
 {
   "name": "bluewallet",
-  "version": "8.0.2",
+  "version": "1.1.0",
   "license": "MIT",
   "allowScripts": {
     "fsevents@2.3.3": true
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BlueWallet/BlueWallet.git"
+    "url": "https://github.com/PurityWallet/PurityWallet.git"
   },
   "codegenConfig": {
     "name": "BlueWalletSpec",

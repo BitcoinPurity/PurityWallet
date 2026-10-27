@@ -38,3 +38,27 @@ describe('currency', () => {
     assert.ok(satoshiToLocalCurrency(1) === '¥0.01' || satoshiToLocalCurrency(1) === '￥0.01', 'Unexpected: ' + satoshiToLocalCurrency(1));
   });
 });
+
+describe('preference namespace compatibility', () => {
+  it.each([
+    ['android', 'group.io.bluewallet.bluewallet'],
+    ['ios', 'group.au.com.bitcoininstitute.puritywallet'],
+  ] as const)('reads the existing %s currency preference', async (platform, group) => {
+    let preferences!: typeof import('react-native-default-preference').default;
+    let currency!: typeof import('../../blue_modules/currency');
+    jest.isolateModules(() => {
+      const { Platform } = require('react-native');
+      jest.replaceProperty(Platform, 'OS', platform);
+      preferences = require('react-native-default-preference');
+      currency = require('../../blue_modules/currency');
+    });
+    try {
+      await preferences.setName(group);
+      await preferences.set('preferredCurrency', 'AUD');
+      expect((await currency.getPreferredCurrency()).endPointKey).toBe('AUD');
+      expect(await preferences.getName()).toBe(group);
+    } finally {
+      jest.restoreAllMocks();
+    }
+  });
+});

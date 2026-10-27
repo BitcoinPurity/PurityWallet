@@ -168,7 +168,7 @@ select device in "${devices[@]}"; do
       # dynamically build APNS payload with selected address
       read -r -d '' APNS_PAYLOAD << JSON
 {
-  "Simulator Target Bundle": "io.bluewallet.bluewallet",
+  "Simulator Target Bundle": "au.com.bitcoininstitute.puritywallet",
   "aps": {
     "alert": {
       "title": "Transaction Received",

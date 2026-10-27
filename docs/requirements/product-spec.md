@@ -2,9 +2,11 @@
 
 ## PurityWallet brand identity
 
+The canonical repository belongs to the GitHub organization `PurityWallet`: `https://github.com/PurityWallet/PurityWallet`. App repository links, root npm repository metadata, checkout instructions, and the local origin remote use this location.
+
 The product is presented to users as **PurityWallet** on iOS, Android, macOS Catalyst, launch surfaces, in-app localized copy, and app-store metadata. Its app, splash, and in-app brand artwork uses a PurityWallet-specific blue colorway of the Bitcoin Purity mark so it is visually distinct from the gold Purity Node identity.
 
-The iOS and macOS rebrand remains presentation-only, while Android uses an independent PurityWallet application identity so it can be installed alongside BlueWallet. iOS bundle identifiers, shared containers, deep links, native target/module names, storage keys, service endpoints, and upstream dependency references retain their current values.
+Android retains application identity `org.bitcoinpurity.puritywallet` and preference namespace `group.io.bluewallet.bluewallet` for upgrades of already distributed APKs. iOS/macOS use `au.com.bitcoininstitute.puritywallet`; Apple extensions retain `.Stickers` and `.MarketWidget`, and Apple App Group/preference clients use `group.au.com.bitcoininstitute.puritywallet`. Shared JavaScript selects the preference namespace per platform. Native target/module names, URL schemes, wallet formats, service endpoints, and upstream dependency references retain their current values.
 
 ### Acceptance criteria
 
@@ -12,13 +14,13 @@ The iOS and macOS rebrand remains presentation-only, while Android uses an indep
 - User-facing localized strings no longer display `BlueWallet` or `Blue Wallet`.
 - iOS, macOS Catalyst, Android, splash, in-app, and store icon assets derive from one 1024 px PurityWallet blue master icon.
 - The mark geometry and silver/white faceted center remain recognizable while gold accents are replaced by a saturated cobalt/electric-blue palette.
-- Android uses `org.bitcoinpurity.puritywallet` for its application ID and code namespace.
-- iOS and macOS package/bundle, app-group, URL-scheme, native module, storage, and network compatibility identifiers remain unchanged.
-- Android shared storage key strings remain unchanged for JavaScript/native preference interoperability; changing the Android application ID creates a separate app data directory, so old BlueWallet data is restored through backup/import rather than automatic migration.
+- Android retains `org.bitcoinpurity.puritywallet` for application ID/code namespace; iOS/macOS main app Bundle IDs use `au.com.bitcoininstitute.puritywallet`.
+- Apple extensions use `au.com.bitcoininstitute.puritywallet.Stickers` and `au.com.bitcoininstitute.puritywallet.MarketWidget`; Apple entitlements and preference clients use `group.au.com.bitcoininstitute.puritywallet`, while Android preference clients retain `group.io.bluewallet.bluewallet`. URL schemes, native module names, wallet formats, and network settings remain compatible.
+- Android APK updates retain the original package, compatible app-signing identity, and data directory; build 1.1.0 uses local `versionCode` 2, with release automation required to exceed the highest previously distributed code. Apple builds with changed Bundle IDs/App Groups remain separate apps and require backup/import. The experimental Android app under `au.com.bitcoininstitute.puritywallet` remains separate and is not automatically migrated.
 
 ### Android application identity
 
-PurityWallet is a separate Android application under `org.bitcoinpurity.puritywallet`. Package-dependent Android metadata and service configuration must use this identity. The checked-in Firebase package selector is aligned for local builds, but the complete Firebase Android client configuration must be generated for this package before production distribution.
+PurityWallet retains the existing Android application ID `org.bitcoinpurity.puritywallet`. Package-dependent Android metadata and service configuration must use this identity. The checked-in Firebase package selector is aligned for local builds, but the complete Firebase Android client configuration must be generated for this package before production distribution. Apple distribution requires registered app/extension IDs, the matching App Group, and provisioning profiles for these new identifiers.
 
 ## Purity network defaults
 
@@ -78,3 +80,17 @@ Send checks manually selected inputs as soon as they are selected and warns when
 This is an online warning based on the API's current view, not a consensus-level replay protection mechanism or a guarantee of safety. Checks disclose queried transaction IDs to mempool.space. They do not send secrets or transactions to that service and do not change Purity networking or broadcast behavior.
 
 All seven replay-check strings must be translated in each of the app's 71 supported locales. Each translation preserves the distinction between shared outputs and unknown checks, the possible spending of corresponding BTC on Bitcoin Core's chain, and explicit acceptance before continuing. Product names and `BTC` remain recognizable. These messages must not depend on English fallback.
+
+## Release version
+
+PurityWallet reports public version `1.1.0` in Android and all iOS/macOS app and extension configurations. Root npm package and lockfile versions match. Build-number configuration and application identities are retained.
+
+### Android distribution compatibility
+
+The public GitHub 1.0.0 APK uses `org.bitcoinpurity.puritywallet` with `versionCode` 1. Its signing certificate differs from the local temporary test key. Public upgrade artifacts must be signed with the original release key or an applicable supported signing lineage; temporary test signatures verify local behavior only. The recovered original key has signed the ARM64 1.1.0/code-2 upgrade, which passed an in-place update from the public 1.0.0 APK. The universal release must contain all four original ABIs (`armeabi-v7a`, `arm64-v8a`, `x86`, `x86_64`) and pass original-signature and upgrade verification. Google Play distribution must retain an app-signing identity compatible with installed APKs. Developer organization verification is independent of the historical package-name prefix.
+
+The four-ABI universal 1.1.0/code-2 APK has been built with the original release signature. All original native-library paths and expected ELF architectures were verified. A public 1.0.0 in-place upgrade and launch passed on Android 36 ARM64 without uninstalling or clearing data; UID/data directory/first-install time were retained. Other ABIs were verified statically, not runtime-tested.
+
+### Apple app record boundary
+
+The existing iOS 1.0.0 (2) IPA uses `org.bitcoinpurity.puritywallet` and was previously uploaded to TestFlight. Distribution using the selected new Apple Bundle ID `au.com.bitcoininstitute.puritywallet` requires a new App Store Connect record, matching signing/App Group capabilities, and matching APNs configuration; it cannot update the prior record. An Individual-to-Organization membership conversion alone does not require a Bundle ID change. These external account/app-record changes have not been performed.

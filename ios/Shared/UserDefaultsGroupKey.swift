@@ -9,9 +9,9 @@
 import Foundation
 
 enum UserDefaultsGroupKey: String {
-  case GroupName = "group.io.bluewallet.bluewallet"
+  case GroupName = "group.au.com.bitcoininstitute.puritywallet"
   case PreferredCurrency = "preferredCurrency"
-  case BundleIdentifier = "io.bluewallet.bluewallet"
+  case BundleIdentifier = "au.com.bitcoininstitute.puritywallet"
   case ElectrumSettingsHost = "electrum_host"
   case ElectrumSettingsTCPPort = "electrum_tcp_port"
   case ElectrumSettingsSSLPort = "electrum_ssl_port"

@@ -1,6 +1,8 @@
 # TASK-006: Use an independent Android application identity
 
-Status: In progress
+Status: Android identity retained by TASK-012; Apple identity updated by TASK-011
+
+The initial Android-only identity below is historical. TASK-012 restores this Android identity for existing APK upgrades; TASK-011 defines the Apple identity.
 
 ## Scope
 

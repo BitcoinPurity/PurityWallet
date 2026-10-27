@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import BigNumber from 'bignumber.js';
 import DefaultPreference from 'react-native-default-preference';
 import * as RNLocalize from 'react-native-localize';
@@ -8,7 +9,8 @@ const PREFERRED_CURRENCY_STORAGE_KEY = 'preferredCurrency';
 const PREFERRED_CURRENCY_LOCALE_STORAGE_KEY = 'preferredCurrencyLocale';
 const EXCHANGE_RATES_STORAGE_KEY = 'exchangeRates';
 const LAST_UPDATED = 'LAST_UPDATED';
-export const GROUP_IO_BLUEWALLET = 'group.io.bluewallet.bluewallet';
+export const GROUP_IO_BLUEWALLET =
+  Platform.OS === 'android' ? 'group.io.bluewallet.bluewallet' : 'group.au.com.bitcoininstitute.puritywallet';
 const BTC_PREFIX = 'BTC_';
 
 export interface CurrencyRate {

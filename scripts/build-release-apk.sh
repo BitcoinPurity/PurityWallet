@@ -12,7 +12,7 @@ rm bluewallet-release-key.keystore.hex
 
 cd android
 # Use the BUILD_NUMBER environment variable set in the GitHub Actions workflow
-sed -i'.original' "s/versionCode 1/versionCode $BUILD_NUMBER/g" app/build.gradle
+sed -E -i'.original' "s/versionCode [0-9]+/versionCode $BUILD_NUMBER/g" app/build.gradle
 
 # Extract versionName from build.gradle
 VERSION_NAME=$(grep versionName app/build.gradle | awk '{print $2}' | tr -d '"')
