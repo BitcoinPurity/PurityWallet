@@ -31,3 +31,5 @@ The Electrum contract remains standard `blockchain.scripthash.listunspent`, `blo
 `getUtxoSpendabilityReason()` exposes the synchronous policy result (`spendable`, `frozen`, `unknown_coinbase_status`, `unknown_chain_height`, or `immature_coinbase`) for Coin Control labels. The existing boolean helper delegates to it with unchanged spending behavior. The badge requires no navigation, storage or RPC changes.
 
 The Send Coin Control button retains `navigate('CoinControl', { walletID })`. Moving this entry out of the Send ellipsis menu changes presentation only; existing routes, selected-coin parameters and frozen-balance shortcuts remain compatible.
+
+Wallet Details reads the existing `getUtxo(true)` complete-set contract for its Coins count; the Coin Control route and transaction-selection contracts are unchanged.

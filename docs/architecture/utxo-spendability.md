@@ -15,3 +15,5 @@ The existing total balance remains unchanged. Send Max previews, including manua
 Coin Control uses `getUtxoSpendabilityReason()` from the shared policy to display an Immature badge only for `immature_coinbase`. `isUtxoSpendable()` delegates to this reason calculation, keeping one maturity rule. The UI reads cached classification and live height verification without network calls. Unknown status or unavailable/invalid height verification has a distinct reason and does not receive an Immature badge. Frozen and Change badges retain their existing behavior.
 
 The Send screen opens Coin Control from a dedicated secondary button below the fee row and above Next, rather than from its ellipsis menu. The button, selected-coins summary and frozen-balance shortcut reuse `handleCoinControl()` and the existing wallet-ID navigation contract. No UTXO retrieval, selection or maturity rules change.
+
+Wallet Details uses `getUtxo(true)` for its Coin Control count and entry availability. Counting the default spendable-only set would hide the entry for an immature-only wallet. This ownership count does not authorize inputs for spending.

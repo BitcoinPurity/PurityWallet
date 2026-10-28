@@ -51,6 +51,7 @@
 - Show a localized Immature badge beside Coinbase UTXOs that have fewer than 100 confirmations, using the existing verified chain-tip/height data and shared spendability rule.
 - Do not label mature or ordinary outputs as immature. Missing classification or unavailable/stale height verification must not be presented as confirmed immaturity.
 - Preserve output visibility, selection, frozen/change badges and existing transaction-construction safeguards.
+- Wallet Details must count all owned UTXOs for the Coin Control entry, including wallets containing only immature, unknown or frozen outputs.
 
 ## REQ-009: Expose Coin Control directly on Send
 

@@ -88,3 +88,5 @@ The badge can coexist with Frozen and Change. Outputs remain visible and retain 
 The Send screen exposes Coin Control as a secondary button below the fee row and above Next. It uses the existing localized Coin Control title and navigates with the currently selected wallet ID. It remains available for an empty wallet and is disabled during transaction processing, matching the previous menu behavior.
 
 The Send ellipsis menu no longer contains Coin Control. The selected-coins summary and frozen-balance shortcut still open the same Coin Control route. Existing selection, maturity filtering, signing and wallet switching behavior is retained.
+
+The Wallet Details Coins statistic counts all owned UTXOs, including immature, unknown and frozen outputs, so Coin Control stays accessible when none are currently spendable. The spendable set and transaction-construction guard retain their separate policy.

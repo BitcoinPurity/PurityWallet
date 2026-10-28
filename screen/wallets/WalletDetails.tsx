@@ -40,10 +40,10 @@ import { navigateToWalletsList } from '../../NavigationService';
 
 type RouteProps = RouteProp<DetailViewStackParamList, 'WalletDetails'>;
 
-function getCoinControlStats(w: TWallet): { hasCoinControl: boolean; utxoCount: number | null } {
+export function getCoinControlStats(w: TWallet): { hasCoinControl: boolean; utxoCount: number | null } {
   if (typeof w.getUtxo !== 'function') return { hasCoinControl: false, utxoCount: null };
   try {
-    return { hasCoinControl: true, utxoCount: w.getUtxo().length };
+    return { hasCoinControl: true, utxoCount: w.getUtxo(true).length };
   } catch {
     return { hasCoinControl: false, utxoCount: null };
   }

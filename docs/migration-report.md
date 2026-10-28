@@ -39,3 +39,7 @@ Coin Control now distinguishes confirmed immature Coinbase outputs with a locali
 ## Send Coin Control entry
 
 The Send ellipsis action is replaced with a visible secondary Coin Control button above Next. The existing localized title, navigation callback and loading protection are reused. No persisted-state, route or transaction-policy migration is required.
+
+## Immature-only Coin Control access
+
+Live emulator inspection found that the Wallet Details Coins entry counted spendable outputs and became inaccessible for immature-only wallets. Its count now uses all owned UTXOs, restoring entry access without changing spending eligibility or stored data.

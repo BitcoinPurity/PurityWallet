@@ -10,3 +10,4 @@
 - [TASK-008: Reject immature Coinbase inputs](TASK-008.md)
 - [TASK-009: Label immature Coinbase outputs in Coin Control](TASK-009.md)
 - [TASK-010: Move Send Coin Control from menu to button](TASK-010.md)
+- [TASK-011: Preserve Coin Control access for immature-only wallets](TASK-011.md)
