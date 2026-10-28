@@ -35,3 +35,5 @@ The Send Coin Control button retains `navigate('CoinControl', { walletID })`. Mo
 Wallet Details reads the existing `getUtxo(true)` complete-set contract for its Coins count; the Coin Control route and transaction-selection contracts are unchanged.
 
 Multisig CI validation reconciles the existing wallet balance with transaction history using the same Electrum methods. This test-only repair does not change balance policy, RPC requirements, derivation, signing or stored wallet formats. See [wallet balance validation](../architecture/testing.md).
+
+Restricting signed-release workflows to `master` pushes/manual dispatch and overriding the Android SDK package list changes CI scheduling/setup only. Signing identities, publishing credentials, application protocols and wallet storage are unchanged; native E2E build checks remain enabled for PRs.

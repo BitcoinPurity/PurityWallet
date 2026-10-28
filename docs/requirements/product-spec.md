@@ -94,3 +94,7 @@ The Wallet Details Coins statistic counts all owned UTXOs, including immature, u
 ## Multisig CI balance validation
 
 The public multisig integration fixture validates its current balance against transaction-history accounting and retains its immutable historical funding assertion. A deterministic funded-to-empty refresh test preserves positive-balance coverage without requiring public funds to remain unspent. Lint, unit and integration jobs must pass in a clean Node 24 Linux container before this repair is committed and pushed; tests requiring unavailable secrets remain explicitly unverified.
+
+## Native CI and signed release scope
+
+PRs use the existing iOS/Android E2E build workflows and lint/unit/integration checks. Signed iOS and Android release workflows run only for pushes to `master` or manual dispatch and continue to require real signing credentials. Android SDK setup explicitly installs `platform-tools`, avoiding the removed legacy `tools` default.

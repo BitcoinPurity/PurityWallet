@@ -47,3 +47,7 @@ Live emulator inspection found that the Wallet Details Coins entry counted spend
 ## Multisig CI balance fixture
 
 The public multisig fixture spent its remaining 108880 sats, so its old fixed current-balance expectation is stale. The integration test now retains immutable funding assertions and reconciles live balance with transaction history; an offline funded-to-empty refresh test preserves positive-balance coverage. No runtime behavior, dependency or data migration is required. See [wallet balance validation](architecture/testing.md).
+
+## Native release workflow repair
+
+PR #2 exposed the pinned Android SDK action's removed `tools` default and an iOS signed build requiring absent publishing secrets. Both signed-release workflows now run only on `master` pushes or manual dispatch, as requested; existing PR native E2E builds remain enabled. Android setup explicitly requests `platform-tools`. Production releases still require their real configured secrets and have not been validated by this scheduling change. No application or wallet-data migration is required.

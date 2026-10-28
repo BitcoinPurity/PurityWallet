@@ -64,3 +64,9 @@
 - Validate the public multisig wallet's current balance against its transaction history instead of assuming its funds remain unspent forever.
 - Retain fixed historical funding assertions and deterministic coverage of funded-to-empty balance refreshes.
 - Run the lint, unit and integration jobs in a clean Node 24 Linux container before committing and pushing the repair; retain existing secrets-related coverage limitations.
+
+## REQ-011: Separate native PR validation from signed releases
+
+- Run iOS and Android signed-release workflows only on pushes to `master` or manual dispatch; PRs retain the existing native E2E build checks and lint/unit/integration checks.
+- Explicitly request `platform-tools` from the Android SDK setup action rather than its removed default `tools` package.
+- Preserve production signing requirements; do not create substitute credentials or treat an unconfigured signed release as verified.
