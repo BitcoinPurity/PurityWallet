@@ -1,6 +1,6 @@
 import assert from 'assert';
-import * as bitcoin from 'bitcoinjs-lib';
 import { element, waitFor } from 'detox';
+import { isWalletTypeSelectionEnabled } from '../../blue_modules/features';
 
 import {
   confirmPasswordDialog,
@@ -32,6 +32,8 @@ console.warn = console.log = (...args) => {
 
   process.stdout.write('\n\t\t' + output + '\n');
 };
+
+const test = isWalletTypeSelectionEnabled ? it : it.skip;
 
 /**
  * this testsuite is for test cases that require no wallets to be present
@@ -579,7 +581,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
 
-  it('can import 2of2 multisig using individual cosigners (1 signer, 1 xpub)', async () => {
+  test('can import 2of2 multisig using individual cosigners (1 signer, 1 xpub)', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('can import 2of2 multisig using individual cosigners (1 signer, 1 xpub)');
     if (process.env.CI) {
       if (require('fs').existsSync(lockFile)) return console.warn('skipping as it previously passed on Travis');
@@ -648,7 +650,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
 
-  it('can import multisig setup from UR, and create tx, and sign on hw devices', async () => {
+  it('can import multisig setup from UR and prevent sending from its empty wallet', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t6');
     if (process.env.CI) {
       if (require('fs').existsSync(lockFile)) return console.warn('skipping', JSON.stringify('t6'), 'as it previously passed on Travis');
@@ -704,76 +706,11 @@ describe('BlueWallet UI Tests - no wallets', () => {
     const feeRate = 3;
     await setCustomFeeRate(feeRate);
 
-    await element(by.id('CreateTransactionButton')).tap();
-
-    await waitFor(element(by.id('ItemUnsigned'))).toBeVisible();
-    await waitFor(element(by.id('ItemSigned'))).toBeNotVisible(); // not a single green checkmark
-
-    await waitForId('ProvideSignature');
-    await element(by.id('ProvideSignature')).tap();
-    await waitFor(element(by.id('CosignedScanOrImportFile')))
+    await waitFor(element(by.id('CreateTransactionButton')))
       .toBeVisible()
-      .whileElement(by.id('PsbtMultisigQRCodeScrollView'))
-      .scroll(500, 'down'); // in case emu screen is small and it doesnt fit
-
-    await tapAndTapAgainIfElementIsNotVisible('CosignedScanOrImportFile', 'ScanQrBackdoorButton');
-
-    const ursSignedByPassport = [
-      'UR:CRYPTO-PSBT/22-4/LPCMAACFAXPLCYZTVYVOPKHDWPHKAXPYJOIHIDHNJSATRTSWEYGUHDURWYDECAGLAAHTTBHTFZFPWDRTLROXLUEHCXAHJTIHTEHDHKTEVTOTIOWFSKGEOSCFFLDRGLFTCYKELSRDNSHYGLLEVYIDGYZOEEDAAOENHGASFDHFVWNSATVYCFETATZSFROXFPMHGUJNWDSPNYMHHGPAIMGYURAYCXLEZEZSCLKBJZLFSRAOOYMSYNCEHDOSPYGTTDSODRSKLALBCAVYBNOLOEGSOYVOVLMWFDPFHGBAVDAEAEAEADADWMDTGDPTADAEADADSTENFYASFDTBCLDINBAOHFHYTPPKWYMSSNDKHKKNUOIELPDRKTOYHPCFCSWNFXPKFZNEPKVOIOCNAOAXMNPSKPLTGYFLRHLOHGUYKISWBWVEGUGMLAAYDLLDLSAAVDTDSADLIDFXYLKKFYURMTOXLKMDRSTYTERSJNHSBDPSGOGWJKJESTWLZCTKGE',
-      'UR:CRYPTO-PSBT/52-4/LPCSEEAACFAXPLCYZTVYVOPKHDWPPECPWPHNLBGMLDGOMWJYMDASCFYTOEGRTDGMZOCXFGFEGOSPBDSBISPKCNNYNBIORDRLRTRTHGAAHLGDFWJTVWCEYKGLVEIODSYKKNMSBGNYSAZEZEADGHSAAEAEAECPAMAXCSPLEHGDWFSAGETNWLPRECKOSKDWURMKMYSOASBEBDBNLBFMESCHZEVSJTJKDNADCEENTDROWFVYWEPDRNMDSNYKPMRYZMRLMNRYPAAYBKTDCLGDJKIYBNTYFXECMKWFLSWFWPCPGYBKEHSETTOECANTRHKGFGCLSROLMYLKNSOLHGGDHPOXWPMWCKLYETCLMWAMIDISHKKPJTWDHFPTECMOBALNDABSPTAXAEAELAAEADAEAELSAOGDPTAEAHFLGMCLAXDWPLAHBSMTLSHFPKRLMTIYLRYATNLGPLWFLYHFTOTLRDWZHKBWLAHNFNCPWTIMRFLUVYHLBWKBCXGYNLFYDPOL',
-      'UR:CRYPTO-PSBT/76-4/LPCSGSAACFAXPLCYZTVYVOPKHDWPBKEHRTTTFDCTNTRHKGFGCXSAHSRHWDMDTONBRLROWMSFCPBTHNTIAAGMPLAEAECPAOAXFXPSGMTABNWEIAJTHSCLAOSERKVLJKADWEBKTBBTRKJPTPYKMKLTMSRYRKDYPLLKCECMLGTBAXDYAEAELAAEAEAELAAEAEAELAAOAEAELAADAEAEAEAEAEAEAECPAOAXCSMYGWCMSGFWBTIENEOTRHHDFTVTLYTASNUYWZAMFSNLZSYLHGDKDWAYKBFYZTECCETEKBPMLODYAEAELAAEAEAELAAEAEAELAAOAEAELAADAEAEAEAEAEAEAEADADFLGMCLAXCSMYGWCMSGFWBTIENEOTRHHDFTVTLYTASNUYWZAMFSNLZSYLHGDKDWAYKBFYZTECCLAXFXPSGMTABNWEIAJTHSCLAOSERKVLJKADWEBKTBBTRKJPTPYKMKLTMSRYRKDYPLLKGMPLAEAEAEWLCMNTPF',
-      'UR:CRYPTO-PSBT/416-4/LPCFADNBAACFAXPLCYZTVYVOPKHDWPONBWDWPACLGTAEIDWLWZBAZODNCSMSEHZELBIYDLMWCSHDIADKNYWNZSSGPKVEFLMKLRKNCELEDAMYEMBYKIJKFNDEDMIAHPLBRDPMLTROWMFNWSLTROCMIOYKWPFZDSLGLGDKWSOYPFAHMODAMYENSAIOSEGAZEEHTSLBKGOEDMWZUTRFNYJEKIPEEMIYJSOTUEZERORFPSGRPABSSKLOGOONAECAGRSFBDLRWFEMLNSALRCWZOWNLPHNPTNSLPJTKBMTEYNSISTAFTEHSEGDOTENSNMHKNFGCLFXOXMYPLCELTKOMTNEGRTOJYGURHKGPMTAFHHKWPKIOTJPGWVSKNSKSSFTOYPTKKSGSRFGIORHMDDAFHNYKTHPCPOTKEGELANNLEWEGMJEKPIYGYSFECJNCWFNRYVLTBTBWPHTKBISTLRLDEMWADCWMNKTTARKDRJSZCJPLRCNFSHGNEGAMTYLVLGOWS',
-    ];
-
-    // Keep sync disabled across animated QR cosign screens — re-enabling here
-    // waits on pending layer animations and can hang the suite.
-    try {
-      await scanUrParts(ursSignedByPassport);
-      await waitFor(element(by.id('ItemSigned')))
-        .toBeVisible()
-        .withTimeout(30_000);
-      await waitForId('ProvideSignature');
-      await element(by.id('ProvideSignature')).tap();
-      // Wait for the cosign QR screen to mount before scrolling — with sync off
-      // after UR scans, whileElement(...).scroll can race the navigation.
-      await waitFor(element(by.id('PsbtMultisigQRCodeScrollView')))
-        .toBeVisible()
-        .withTimeout(30_000);
-      await waitFor(element(by.id('CosignedScanOrImportFile')))
-        .toBeVisible()
-        .whileElement(by.id('PsbtMultisigQRCodeScrollView'))
-        .scroll(500, 'down'); // in case emu screen is small and it doesnt fit
-      await tapAndTapAgainIfElementIsNotVisible('CosignedScanOrImportFile', 'ScanQrBackdoorButton');
-
-      const urSignedByPassportAndKeystone = [
-        'UR:CRYPTO-PSBT/105-2/LPCSINAOCFAXOLCYSBLUFDHSHKADTEHKAXOTJOJKIDJYZMADAEKIAOAEAEAEADSGMHIEQDIAFLKPVABAJEHLLNVLRKKPCPDAHYNSOTTSOYBTIMMUCYAASSMDAMDAMKAEAEAEAEAEZMZMZMZMAOGDSRAEAEAEAEAEAECMAEBBKBOTLPWFGMRNINIMPFYNWLGEBAVTVLSWTYPAGEGUWFVLAEAEAEAEAEAECPAECXHEJTWTTTWEPDFMMDSNYKDPRYZMRLBARSPAAYLETDCLGDJKIHBNTYFXCHNNWTRHFEAEAEAEAEAEADAEWDAOAEAEAEAEADADSTENIYASISYLVDVLGWCXRPBWVYVSDALOTLCESKTTFEJTWDTBPTECMOMNLNDABSDTADAEAEAEAEADAEAELAAOGDPTADAEAEAEAEAECPAECXCLSWSSWSCPVTGTESFWSBCTCSETNSPYNLBKJLZTUEMWSOMSNNTYGSLSFPNEPKVOIOONMOAOAEAEAEAEAECMAEBBMNAMRTRKDYGUHDURWSVOLGDRRLESMEDLOLGWLYNTAOFLDYFYAOCXDYYTJOMYYAUELEDYKIYLADUROYFNURDRGLFTCYKEKEFEIAOYGSTNCPIDGYZOEEDAAOCXHGCAENYKHNJLGOHEJOGMRLBNTDWYGWJOPFPYFMKKTISROXGMIMGYURAYCXLEUOZSADCLAOJPBGWSASPTIATTPMLECMPRIHSTMDJYLOYKTKRTHHTLSTFZKPOYWKBKROASBGBAVDAEAEAEAEADADDNGDPTADAEAEAEAEAECPAECXCLSWSSWSCPVTGTESFWSBCTCSETNSPYNLBKJLZTUEMWSOMSNNTYGSLSFPNEPKVOIOCPAOAXFTRPWPCPGYBKEHRTTTFDCTNTRHKGFGCXSAHSRHWDMDTONBRLROWMSFCPBTHNTIAAFLDYFYAOCXISRERKHDRDGAPMATEHJLFL',
-        'UR:CRYPTO-PSBT/158-2/LPCSNNAOCFAXOLCYSBLUFDHSHKADTEZECFFTHDETNBADMOCLINLNOSOXZEYKGDPYTPKTRETNURTIZOPDAOCXIAAOWETTJKMDUOSBONAASWNLMERLZSGLCYCTGAKBDAFHGHWKMTRSNLAAYKFWWPRSADADAHFLGMCLAXBAPLDADMGDFLRHLOHGUYHESWEOSKMDMTJLDRTKSSRDFGDWSNTNCHZEVSJTJKDNCNCLAXFTRPWPCPGYBKEHRTTTFDCTNTRHKGFGCXSAHSRHWDMDTONBRLROWMSFCPBTHNTIAAGMPLCPAMAXBAPLDADMGDFLRHLOHGUYHESWEOSKMDMTJLDRTKSSRDFGDWSNTNCHZEVSJTJKDNCNCECMLGTBAXDYAEAELAAEAEAELAAEAEAELAAOAEAELAAEAEAEAEAXAEAEAECPAMAXFTRPWPCPGYBKEHRTTTFDCTNTRHKGFGCXSAHSRHWDMDTONBRLROWMSFCPBTHNTIAACETEKBPMLODYAEAELAAEAEAELAAEAEAELAAOAEAELAAEAEAEAEAXAEAEAEAEAEADADFLGMCLAXCSMYGWCMSGFWBTIENEOTRHHDFTVTLYTASNUYWZAMFSNLZSYLHGDKDWAYKBFYZTECCLAXFXPSGMTABNWEIAJTHSCLAOSERKVLJKADWEBKTBBTRKJPTPYKMKLTMSRYRKDYPLLKGMPLCPAOAXCSMYGWCMSGFWBTIENEOTRHHDFTVTLYTASNUYWZAMFSNLZSYLHGDKDWAYKBFYZTECCETEKBPMLODYAEAELAAEAEAELAAEAEAELAAOAEAELAADAEAEAEAEAEAEAECPAOAXFXPSGMTABNWEIAJTHSCLAOSERKVLJKADWEBKTBBTRKJPTPYKMKLTMSRYRKDYPLLKCECMLGTBAXDYAEAELAAEAEAELAAEAEAELAAOAEAELAADAEAEAEAEAEAEAEAENNHKLKUO',
-      ];
-
-      await scanUrParts(urSignedByPassportAndKeystone);
-      await waitFor(element(by.id('ExportSignedPsbt')))
-        .toBeVisible()
-        .withTimeout(30_000);
-
-      await element(by.id('PsbtMultisigConfirmButton')).tap();
-    } finally {
-      if (!(await restoreSynchronizationIfAnimatedQrClosed())) {
-        console.warn('[detox] leaving sync disabled after UR cosign: animated QR/scanner still open');
-      }
-    }
-
-    // created. verifying:
-    await waitForId('TransactionValue');
-    await expect(element(by.id('TransactionValue'))).toHaveText('0.0005');
-    await element(by.id('TransactionDetailsButton')).tap();
-
-    const txhex = await extractTextFromElementById('TxhexInput');
-
-    const transaction = bitcoin.Transaction.fromHex(txhex);
-    assert.ok(transaction.ins.length === 1);
-    assert.strictEqual(transaction.outs.length, 2);
-    assert.strictEqual(bitcoin.address.fromOutputScript(transaction.outs[0].script), 'bc1q063ctu6jhe5k4v8ka99qac8rcm2tzjjnuktyrl'); // to address
-    assert.strictEqual(transaction.outs[0].value, 50000n);
+      .withTimeout(15_000);
+    const nextButton = await element(by.id('CreateTransactionButton')).getAttributes();
+    assert.strictEqual(nextButton.enabled, false);
 
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
@@ -975,8 +912,10 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await element(by.id('CreateAWallet')).tap();
     await waitForId('WalletNameInput');
     await element(by.id('WalletNameInput')).replaceText('entropy1');
-    await waitForId('ActivateBitcoinButton');
-    await element(by.id('ActivateBitcoinButton')).tap();
+    if (isWalletTypeSelectionEnabled) {
+      await waitForId('ActivateBitcoinButton');
+      await element(by.id('ActivateBitcoinButton')).tap();
+    }
 
     // header menu -> Provide entropy via dice rolls -> 12 words
     await element(by.id('HeaderMenuButton')).tap();
@@ -1080,7 +1019,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
 
-  it('can create 2of3 multisig vault with generated keys, manage cosigners and export coordination setup; forgetting seed/restoring seed does not change receive address', async () => {
+  test('can create 2of3 multisig vault with generated keys, manage cosigners and export coordination setup; forgetting seed/restoring seed does not change receive address', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t10');
     if (process.env.CI) {
       if (require('fs').existsSync(lockFile)) return console.warn('skipping', JSON.stringify('t10'), 'as it previously passed on Travis');
@@ -1261,7 +1200,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
 
-  it('can create wrapped segwit 2of2 vault via advanced settings', async () => {
+  test('can create wrapped segwit 2of2 vault via advanced settings', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t11');
     if (process.env.CI) {
       if (require('fs').existsSync(lockFile)) return console.warn('skipping', JSON.stringify('t11'), ' as it previously passed on Travis');

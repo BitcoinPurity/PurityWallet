@@ -60,6 +60,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699 # v4.0.1
+        with:
+          packages: platform-tools
 
       - name: Install Android SDK components
         run: |
@@ -84,7 +86,12 @@ jobs:
 
       - name: Build and sign APK
         id: build_and_sign_apk
-        run: bundle exec fastlane android build_release_apk
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            bundle exec fastlane android build_release_apk auto_credentials:true
+          else
+            bundle exec fastlane android build_release_apk
+          fi
         env:
           BUILD_NUMBER: ${{ steps.build_number.outputs.build_number }}
           KEYSTORE_FILE_HEX: ${{ secrets.KEYSTORE_FILE_HEX }}
@@ -124,7 +131,7 @@ jobs:
       - name: Upload APK as artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: signed-apk
+          name: ${{ github.event_name == 'pull_request' && 'pr-test-apk' || 'signed-apk' }}
           path: ${{ env.APK_PATH }}
           if-no-files-found: error
 
@@ -149,7 +156,7 @@ jobs:
       - name: Download APK artifact
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: signed-apk
+          name: pr-test-apk
 
       - name: Set APK Path
         run: |
