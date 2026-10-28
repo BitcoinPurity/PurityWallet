@@ -68,3 +68,39 @@ The existing type-selection state, route parameters, wallet constructors, multis
 - Without an explicit internal route override, Create follows the existing index `0` / on-chain default and instantiates `HDSegwitBech32Wallet`.
 - Existing alternative wallet constructors, route parameters, and multisig screens are retained.
 - Import Wallet remains available.
+
+## Coinbase spendability
+
+Coinbase rewards remain in the wallet's total balance and complete Coin Control UTXO list. The spendable UTXO set and transaction selector exclude unknown, frozen and immature outputs. The consensus boundary is exactly `actualTip - coinbaseHeight + 1 >= 100`; ordinary unconfirmed spending retains its existing policy.
+
+Coinbase classification comes from txid-verified raw transactions using bitcoinjs-lib. Raw transaction caching and deduplicated batches avoid repeated downloads. Unknown outputs remain owned and are retried on normal UTXO refresh. Actual Electrum headers and freshly retrieved UTXO/history heights establish maturity; wall-clock estimates and cached verbose confirmations cannot establish it. Any changed tip, disconnect or expired tip verification requires fresh Coinbase height verification.
+
+All on-chain wallet constructors share the guarded selector, including Send Max, fees, manual selection, hardware/watch-only and multisig PSBT creation, RBF/CPFP and BIP47 notifications. No seed, derivation, signing or serialization format changes are required. A separate immature/spendable balance label is outside this focused repair; the existing headline balance continues to show total ownership.
+
+## Coin Control immature-output badge
+
+Coin Control shows an Immature badge (`未成熟` in Simplified and Traditional Chinese) on verified Coinbase outputs below 100 confirmations. It uses the same spendability rule as transaction construction and verified Electrum heights, without extra network requests during rendering. Mature and ordinary outputs have no Immature badge; unknown classification or unavailable/stale height verification is not displayed as confirmed immaturity.
+
+The badge can coexist with Frozen and Change. Outputs remain visible and retain the existing selection behavior; the transaction-construction guard continues to prevent spending immature inputs. Normal refresh/re-render uses current verified maturity, including the 99/100-confirmation boundary and rollback.
+
+## Send Coin Control button
+
+The Send screen exposes Coin Control as a secondary button below the fee row and above Next. It uses the existing localized Coin Control title and navigates with the currently selected wallet ID. It remains available for an empty wallet and is disabled during transaction processing, matching the previous menu behavior.
+
+The Send ellipsis menu no longer contains Coin Control. The selected-coins summary and frozen-balance shortcut still open the same Coin Control route. Existing selection, maturity filtering, signing and wallet switching behavior is retained.
+
+The Wallet Details Coins statistic counts all owned UTXOs, including immature, unknown and frozen outputs, so Coin Control stays accessible when none are currently spendable. The spendable set and transaction-construction guard retain their separate policy.
+
+## Multisig CI balance validation
+
+The public multisig integration fixture validates its current balance against transaction-history accounting and retains its immutable historical funding assertion. A deterministic funded-to-empty refresh test preserves positive-balance coverage without requiring public funds to remain unspent. Lint, unit and integration jobs must pass in a clean Node 24 Linux container before this repair is committed and pushed; tests requiring unavailable secrets remain explicitly unverified.
+
+## Native CI and signed release scope
+
+PRs use the existing iOS/Android E2E build workflows and lint/unit/integration checks. Signed iOS and Android release workflows run only for pushes to `master` or manual dispatch and continue to require real signing credentials. Android SDK setup explicitly installs `platform-tools`, avoiding the removed legacy `tools` default.
+
+Android E2E preparation waits for boot broadcasts (at most 120 seconds) and closes stale system dialogs before starting Detox. API 36 and the complete test suite remain enabled. ANR/crash reporting and application dialogs during test execution remain unchanged.
+
+## E2E feature compatibility (REQ-013)
+
+Default creation and entropy tests follow the preselected on-chain wallet type. Three vault-creation cases follow the production wallet-type flag; Lightning scan branches follow the Lightning flag. Multisig UR import and Send/Coin Control remain native UI checks. Historical Bitcoin hardware signatures are decoded, combined and cryptographically validated offline, without assuming Bitcoin funds exist on Purity. Production feature flags, endpoints and transaction rules remain unchanged.

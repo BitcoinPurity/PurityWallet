@@ -33,6 +33,7 @@ describe('Taproot wallet', () => {
 
     const utxos = [
       {
+        isCoinbase: false,
         height: 0,
         value: 10000,
         address: 'bc1pm6lqlel3qxefsx0v39nshtghasvvp6ghn3e5hd5q280j5m9h7csqrkzssu',

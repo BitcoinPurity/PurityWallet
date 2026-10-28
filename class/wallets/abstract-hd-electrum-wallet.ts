@@ -836,6 +836,9 @@ export class AbstractHDElectrumWallet extends AbstractHDWallet {
       this._utxo = this._utxo.concat(arr);
     }
 
+    if (this._utxo.length === 0) this._utxo = this.getDerivedUtxoFromOurTransaction();
+    await BlueElectrum.prepareUtxos(this._utxo);
+
     // this belongs in `.getUtxo()`
     for (const u of this._utxo) {
       u.wif = this._getWifForAddress(u.address);
@@ -868,7 +871,7 @@ export class AbstractHDElectrumWallet extends AbstractHDWallet {
       ret = this._utxo;
     }
     if (!respectFrozen) {
-      ret = ret.filter(({ txid, vout }) => !this.getUTXOMetadata(txid, vout).frozen);
+      ret = this.getSpendableUtxos(ret);
     }
     return ret;
   }

@@ -300,14 +300,14 @@ const SendDetails = () => {
     const fees = networkTransactionFees;
     const requestedSatPerByte = Number(feeRate);
     const m = new Measure('getUtxo');
-    const lutxo = utxos || wallet.getUtxo();
+    const lutxo = wallet.getSpendableUtxos(utxos || wallet.getUtxo());
     m.end();
     let frozen = 0;
     if (!utxos) {
       // if utxo is not limited search for frozen outputs and calc it's balance
       frozen = wallet
         .getUtxo(true)
-        .filter(o => !lutxo.some(i => i.txid === o.txid && i.vout === o.vout))
+        .filter(o => wallet.getUTXOMetadata(o.txid, o.vout).frozen)
         .reduce((prev, curr) => prev + curr.value, 0);
     }
 
@@ -1107,8 +1107,6 @@ const SendDetails = () => {
       } else if (id === CommonToolTipActions.CoSignTransaction.id) {
         selectedDataProcessor.current = CommonToolTipActions.CoSignTransaction;
         navigateToQRCodeScanner();
-      } else if (id === CommonToolTipActions.CoinControl.id) {
-        handleCoinControl();
       } else if (id === CommonToolTipActions.InsertContact.id) {
         handleInsertContact();
       } else if (id === CommonToolTipActions.RemoveAllRecipients.id) {
@@ -1125,7 +1123,6 @@ const SendDetails = () => {
       importTransaction,
       importQrTransaction,
       importTransactionMultisig,
-      handleCoinControl,
       handleInsertContact,
       handleRemoveAllRecipients,
     ],
@@ -1197,7 +1194,6 @@ const SendDetails = () => {
         ...CommonToolTipActions.InsertContact,
         hidden: !(isEditable && wallet.allowBIP47() && wallet.isBIP47Enabled()),
       },
-      CommonToolTipActions.CoinControl,
     ];
     walletActions.push(specificWalletActions);
 
@@ -1581,6 +1577,18 @@ const SendDetails = () => {
             </View>
           </Pressable>
           {renderCustomFeeWarning()}
+          {wallet && (
+            <View style={styles.coinControlButton}>
+              <Button
+                testID="CoinControlButton"
+                title={loc.cc.header}
+                onPress={handleCoinControl}
+                disabled={isLoading}
+                backgroundColor={colors.lightButton}
+                buttonTextColor={colors.buttonAlternativeTextColor}
+              />
+            </View>
+          )}
           {renderCreateButton()}
         </View>
       </ScrollView>
@@ -1614,6 +1622,10 @@ const styles = StyleSheet.create({
     left: 8,
     bottom: 0,
     right: 8,
+  },
+  coinControlButton: {
+    marginTop: 16,
+    marginHorizontal: 16,
   },
   createButton: {
     marginVertical: 16,

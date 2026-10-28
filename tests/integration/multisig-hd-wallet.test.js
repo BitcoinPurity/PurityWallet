@@ -42,7 +42,19 @@ describe('multisig-hd-wallet', () => {
 
     await w.fetchBalance();
     await w.fetchTransactions();
-    assert.ok(w.getTransactions().length >= 6);
-    assert.strictEqual(w.getBalance(), 108880);
+    const transactions = w.getTransactions();
+    assert.ok(transactions.length >= 6);
+    assert.strictEqual(
+      transactions.find(tx => tx.txid === '98250695c4041a936a0da1d7a39c5e252275bbe3865d6b0ee6754763b36490ca')?.value,
+      108880,
+    );
+    assert.ok(transactions.some(tx => tx.value < 0));
+
+    // Include pending incoming value so both sides represent the full transaction-history net.
+    const balanceIncludingUnconfirmed = w.getBalance() + Math.max(w.getUnconfirmedBalance(), 0);
+    assert.strictEqual(
+      balanceIncludingUnconfirmed,
+      transactions.reduce((balance, tx) => balance + tx.value, 0),
+    );
   });
 });

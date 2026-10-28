@@ -635,6 +635,7 @@
     "error": "输入的内容不是 11 或 23 个助记词的部分助记词，请重试。"
   },
   "cc": {
+    "immature": "未成熟",
     "change": "找零",
     "coins_selected": "已选择的币（{number}）",
     "selected_summ": "已选择 {value} ",

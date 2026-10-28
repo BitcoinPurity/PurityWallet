@@ -14,6 +14,7 @@ describe('Segwit P2SH wallet', () => {
 
     const utxos = [
       {
+        isCoinbase: false,
         txid: 'a56b44080cb606c0bd90e77fcd4fb34c863e68e5562e75b4386e611390eb860c',
         vout: 0,
         value: 300000,
