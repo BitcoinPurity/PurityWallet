@@ -166,6 +166,24 @@ export async function helperImportWallet(importText, walletType, expectedWalletL
   await expect(element(by.id('WalletBalance'))).toHaveText(expectedBalance);
 }
 
+export async function enableOfflineMode() {
+  await waitForId('WalletsList');
+  await element(by.id('SettingsButton')).tap();
+  await waitForId('NetworkSettings');
+  await element(by.id('NetworkSettings')).tap();
+  await waitForId('ElectrumSettings');
+  await element(by.id('ElectrumSettings')).tap();
+  await waitForId('ElectrumConnectionEnabledSwitch');
+  if (!(await getSwitchValue('ElectrumConnectionEnabledSwitch'))) {
+    await element(by.id('ElectrumConnectionEnabledSwitch')).tap();
+  }
+  await waitForSwitchValue('ElectrumConnectionEnabledSwitch', true);
+  await goBack();
+  await goBack();
+  await goBack();
+  await waitForId('WalletsList');
+}
+
 export async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }

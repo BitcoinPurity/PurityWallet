@@ -6,6 +6,7 @@ import { element, waitFor } from 'detox';
 import {
   confirmPasswordDialog,
   dismissAlertByText,
+  enableOfflineMode,
   expectToBeVisible,
   extractTextFromElementById,
   goBack,
@@ -114,7 +115,16 @@ describe('BlueWallet UI Tests - no wallets', () => {
     // change currency to ARS ($) and switch it back to USD ($)
     await element(by.id('Currency')).tap();
     await element(by.text('ARS ($)')).tap();
-    await expect(element(by.text('Rate is obtained from Yadio'))).toBeVisible();
+    await waitFor(element(by.text(/Rate is obtained from Yadio|.*Could not update rate for ARS from Yadio.*/s)))
+      .toExist()
+      .withTimeout(60_000);
+    try {
+      await expect(element(by.text('Rate is obtained from Yadio'))).toBeVisible();
+    } catch (_) {
+      await expect(element(by.text(/.*Could not update rate for ARS from Yadio.*/s))).toExist();
+      assert.strictEqual(await dismissAlertByText('OK'), true);
+      await expect(element(by.text('Rate is obtained from Kraken'))).toBeVisible();
+    }
     await element(by.text('USD ($)')).tap();
     await goBack();
 
@@ -277,7 +287,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await device.clearKeychain();
     await device.launchApp({ delete: true }); // reinstalling the app just for any case to clean up app's storage
     await waitForId('WalletsList');
-
+    await enableOfflineMode();
     await helperCreateWallet();
 
     await device.launchApp({ newInstance: true, permissions: { notifications: 'YES' } });
@@ -499,6 +509,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await device.clearKeychain();
     await device.launchApp({ delete: true }); // reinstalling the app just for any case to clean up app's storage
     await waitForId('WalletsList');
+    await enableOfflineMode();
     await helperCreateWallet();
     await element(by.id('SettingsButton')).tap();
     await element(by.id('SecurityButton')).tap();
@@ -706,8 +717,10 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await waitFor(element(by.id('CreateTransactionButton')))
       .toBeVisible()
       .withTimeout(15_000);
-    const nextButton = await element(by.id('CreateTransactionButton')).getAttributes();
-    assert.strictEqual(nextButton.enabled, false);
+    // RN Pressable's native UIView remains enabled on iOS even when presses are disabled.
+    await element(by.id('CreateTransactionButton')).tap();
+    await expect(element(by.id('AddressInput'))).toBeVisible();
+    await expect(element(by.id('PsbtWithHardwareScrollView'))).not.toExist();
     await waitForId('CoinControlButton');
     await element(by.id('CoinControlButton')).tap();
     await waitFor(element(by.id('AddressInput')))

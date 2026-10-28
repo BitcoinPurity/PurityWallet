@@ -73,6 +73,16 @@ async function renderSendDetails() {
 }
 
 describe('Send Coin Control entry', () => {
+  it('does not create a transaction for an empty wallet with a valid recipient and amount', async () => {
+    mockRoute.params.addRecipientParams = { address: 'bc1q063ctu6jhe5k4v8ka99qac8rcm2tzjjnuktyrl', amount: '0.0005' };
+    const createTransaction = jest.spyOn(mockStorage.wallets[0], 'createTransaction');
+    const screen = await renderSendDetails();
+    await waitFor(() => expect(screen.getByTestId('CreateTransactionButton')).toBeDisabled());
+    fireEvent.press(screen.getByTestId('CreateTransactionButton'));
+    expect(createTransaction).not.toHaveBeenCalled();
+    expect(mockNavigation.navigate).not.toHaveBeenCalled();
+  });
+
   it('opens Coin Control from a visible button even when the wallet balance is zero', async () => {
     const screen = await renderSendDetails();
     await waitFor(() => expect(screen.getByTestId('CoinControlButton')).toBeEnabled());
