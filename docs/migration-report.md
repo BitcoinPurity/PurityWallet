@@ -43,3 +43,7 @@ The Send ellipsis action is replaced with a visible secondary Coin Control butto
 ## Immature-only Coin Control access
 
 Live emulator inspection found that the Wallet Details Coins entry counted spendable outputs and became inaccessible for immature-only wallets. Its count now uses all owned UTXOs, restoring entry access without changing spending eligibility or stored data.
+
+## Multisig CI balance fixture
+
+The public multisig fixture spent its remaining 108880 sats, so its old fixed current-balance expectation is stale. The integration test now retains immutable funding assertions and reconciles live balance with transaction history; an offline funded-to-empty refresh test preserves positive-balance coverage. No runtime behavior, dependency or data migration is required. See [wallet balance validation](architecture/testing.md).

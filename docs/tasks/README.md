@@ -11,3 +11,4 @@
 - [TASK-009: Label immature Coinbase outputs in Coin Control](TASK-009.md)
 - [TASK-010: Move Send Coin Control from menu to button](TASK-010.md)
 - [TASK-011: Preserve Coin Control access for immature-only wallets](TASK-011.md)
+- [TASK-012: Repair multisig CI balance validation](TASK-012.md)

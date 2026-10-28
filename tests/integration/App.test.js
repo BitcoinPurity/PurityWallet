@@ -11,6 +11,7 @@ import { BlueDefaultTheme } from '../../components/themes';
 jest.mock('../../blue_modules/BlueElectrum', () => {
   return {
     ensureConnected: jest.fn().mockResolvedValue(true),
+    getSpendabilityTip: jest.fn().mockReturnValue(null),
   };
 });
 

@@ -90,3 +90,7 @@ The Send screen exposes Coin Control as a secondary button below the fee row and
 The Send ellipsis menu no longer contains Coin Control. The selected-coins summary and frozen-balance shortcut still open the same Coin Control route. Existing selection, maturity filtering, signing and wallet switching behavior is retained.
 
 The Wallet Details Coins statistic counts all owned UTXOs, including immature, unknown and frozen outputs, so Coin Control stays accessible when none are currently spendable. The spendable set and transaction-construction guard retain their separate policy.
+
+## Multisig CI balance validation
+
+The public multisig integration fixture validates its current balance against transaction-history accounting and retains its immutable historical funding assertion. A deterministic funded-to-empty refresh test preserves positive-balance coverage without requiring public funds to remain unspent. Lint, unit and integration jobs must pass in a clean Node 24 Linux container before this repair is committed and pushed; tests requiring unavailable secrets remain explicitly unverified.

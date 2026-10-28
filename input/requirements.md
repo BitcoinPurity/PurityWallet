@@ -58,3 +58,9 @@
 - Move the Coin Control entry out of the Send screen's ellipsis menu into a visible secondary button above Next.
 - Reuse the existing localized Coin Control title, selected-wallet navigation and loading-state protection.
 - Keep the selected-coins summary, frozen-balance shortcut and coin-selection/spendability behavior unchanged.
+
+## REQ-010: Keep multisig CI balance checks accurate
+
+- Validate the public multisig wallet's current balance against its transaction history instead of assuming its funds remain unspent forever.
+- Retain fixed historical funding assertions and deterministic coverage of funded-to-empty balance refreshes.
+- Run the lint, unit and integration jobs in a clean Node 24 Linux container before committing and pushing the repair; retain existing secrets-related coverage limitations.

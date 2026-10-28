@@ -33,3 +33,5 @@ The Electrum contract remains standard `blockchain.scripthash.listunspent`, `blo
 The Send Coin Control button retains `navigate('CoinControl', { walletID })`. Moving this entry out of the Send ellipsis menu changes presentation only; existing routes, selected-coin parameters and frozen-balance shortcuts remain compatible.
 
 Wallet Details reads the existing `getUtxo(true)` complete-set contract for its Coins count; the Coin Control route and transaction-selection contracts are unchanged.
+
+Multisig CI validation reconciles the existing wallet balance with transaction history using the same Electrum methods. This test-only repair does not change balance policy, RPC requirements, derivation, signing or stored wallet formats. See [wallet balance validation](../architecture/testing.md).
