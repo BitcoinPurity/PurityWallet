@@ -6,6 +6,8 @@ import Badge from '../../components/Badge';
 import LegacyReplayWarning from '../../components/LegacyReplayWarning';
 import { LegacyUtxoStatus } from '../../blue_modules/legacy-chain';
 import { useLegacyUtxoCheck } from '../../hooks/useLegacyUtxoCheck';
+import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import { getCoinbaseStatus, getUtxoSpendabilityReason } from '../../class/utxo-spendability';
 import Icon from '../../components/Icon';
 import { Animated, ActivityIndicator, PixelRatio, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import debounce from '../../blue_modules/debounce';
@@ -29,6 +31,18 @@ const FrozenBadge: React.FC = () => {
     <Badge
       testID="FrozenBadge"
       value={loc.cc.freeze}
+      badgeStyle={[styles.badge, { backgroundColor: colors.redBG }]}
+      textStyle={[styles.badgeText, { color: colors.redText }]}
+    />
+  );
+};
+
+const ImmatureBadge: React.FC = () => {
+  const { colors } = useTheme();
+  return (
+    <Badge
+      testID="ImmatureBadge"
+      value={loc.cc.immature}
       badgeStyle={[styles.badge, { backgroundColor: colors.redBG }]}
       textStyle={[styles.badgeText, { color: colors.redText }]}
     />
@@ -86,6 +100,7 @@ type TOutputListProps = {
   balanceUnit: string;
   oMemo?: string;
   frozen: boolean;
+  immature: boolean;
   change: boolean;
   legacyStatus: LegacyUtxoStatus | 'checking';
   onOpen: () => void;
@@ -100,6 +115,7 @@ const OutputList: React.FC<TOutputListProps> = ({
   balanceUnit = BitcoinUnit.BTC,
   oMemo,
   frozen,
+  immature,
   change,
   legacyStatus,
   onOpen,
@@ -146,6 +162,7 @@ const OutputList: React.FC<TOutputListProps> = ({
       </View>
       <View style={styles.badges}>
         {frozen && <FrozenBadge />}
+        {immature && <ImmatureBadge />}
         {change && <ChangeBadge />}
       </View>
     </Pressable>
@@ -295,6 +312,10 @@ const CoinControl: React.FC = () => {
     const { memo } = wallet.getUTXOMetadata(item.txid, item.vout);
     const isChange = wallet.addressIsChange(item.address);
     const oFrozen = frozen.includes(key);
+    const spendability = getUtxoSpendabilityReason(
+      { isCoinbase: getCoinbaseStatus(item), height: BlueElectrum.getSpendabilityHeight(item.txid) },
+      BlueElectrum.getSpendabilityTip(),
+    );
     return (
       <OutputList
         key={key}
@@ -302,6 +323,7 @@ const CoinControl: React.FC = () => {
         item={item}
         oMemo={memo}
         frozen={oFrozen}
+        immature={spendability === 'immature_coinbase'}
         change={isChange}
         legacyStatus={legacyCheck.checking ? 'checking' : (legacyCheck.results[key] ?? 'unknown')}
         onOpen={() => handleChoose(item)}

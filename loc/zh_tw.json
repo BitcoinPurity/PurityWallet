@@ -628,6 +628,7 @@
     "legacy_shared": "⚠ 重放風險：Bitcoin Core 鏈上也未花費",
     "legacy_checking": "正在檢查 Bitcoin Core 鏈…",
     "legacy_unknown": "⚠ Bitcoin Core 鏈檢查失敗",
+    "immature": "未成熟",
     "change": "找零",
     "coins_selected": "所選的幣（{number}）",
     "selected_summ": "已選擇 {value}",

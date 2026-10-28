@@ -7,8 +7,16 @@
 - [TASK-005: Differentiate PurityWallet with a blue icon colorway](TASK-005.md)
 - [TASK-006: Use an independent Android application identity](TASK-006.md)
 - [TASK-007: Create only a standard Bitcoin wallet](TASK-007.md)
-- [TASK-008: Warn about legacy-chain UTXOs and gate signing on replay acknowledgement](TASK-008.md) — includes acknowledged continuation after failed checks and localization in all supported languages.
-- [TASK-009: Align app release metadata to version 1.1.0](TASK-009.md)
-- [TASK-010: Update the canonical GitHub repository to PurityWallet/PurityWallet](TASK-010.md)
-- [TASK-011: Unify Android and Apple application identities](TASK-011.md) — supersedes the initial identity in TASK-006.
-- [TASK-012: Preserve existing Android APK upgrades](TASK-012.md) — supersedes the Android identity changes in TASK-011; includes the four-ABI universal release.
+- [TASK-008: Reject immature Coinbase inputs](TASK-008.md)
+- [TASK-009: Label immature Coinbase outputs in Coin Control](TASK-009.md)
+- [TASK-010: Move Send Coin Control from menu to button](TASK-010.md)
+- [TASK-011: Preserve Coin Control access for immature-only wallets](TASK-011.md)
+- [TASK-012: Repair multisig CI balance validation](TASK-012.md)
+- [TASK-013: Repair native release CI triggers and Android SDK setup](TASK-013.md)
+- [TASK-014: Clear Android boot dialogs before E2E launch](TASK-014.md)
+- [TASK-015: Align E2E with Purity feature flags and hardware fixtures](TASK-015.md)
+- [TASK-016: Warn about legacy-chain UTXOs and gate signing on replay acknowledgement](TASK-016.md) — includes acknowledged continuation after failed checks and localization in all supported languages.
+- [TASK-017: Align app release metadata to version 1.1.0](TASK-017.md)
+- [TASK-018: Update the canonical GitHub repository to PurityWallet/PurityWallet](TASK-018.md)
+- [TASK-019: Unify Android and Apple application identities](TASK-019.md) — supersedes the initial identity in TASK-006.
+- [TASK-020: Preserve existing Android APK upgrades](TASK-020.md) — supersedes the Android identity changes in TASK-019; includes the four-ABI universal release.

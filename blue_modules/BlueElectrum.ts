@@ -4,6 +4,8 @@ import DefaultPreference from 'react-native-default-preference';
 import RNFS from 'react-native-fs';
 import Realm from 'realm';
 import { sha256 as _sha256 } from '@noble/hashes/sha256';
+import { getCoinbaseStatus } from '../class/utxo-spendability';
+import type { CreateTransactionUtxo } from '../class/wallets/types';
 
 import type { LegacyWallet as LegacyWalletT } from '../class/wallets/legacy-wallet';
 import type { SegwitBech32Wallet as SegwitBech32WalletT } from '../class/wallets/segwit-bech32-wallet';
@@ -28,6 +30,7 @@ type Utxo = {
   txid: string;
   vout: number;
   wif?: string;
+  isCoinbase?: boolean;
 };
 
 export type ElectrumTransaction = {
@@ -101,6 +104,52 @@ let currentPeerIndex = hardcodedPeers.findIndex(peer => peer.host === defaultPee
 if (currentPeerIndex < 0) currentPeerIndex = 0;
 let latestBlock: { height: number; time: number } | { height: undefined; time: undefined } = { height: undefined, time: undefined };
 
+type SpendabilityHeader = { height: number; hex?: string };
+let spendabilityHeader: SpendabilityHeader | null = null;
+let spendabilityTipTime = 0;
+const spendabilityHeights = new Map<string, number>();
+
+function invalidateSpendability(): void {
+  spendabilityHeader = null;
+  spendabilityHeights.clear();
+}
+
+function updateSpendabilityTip(header: SpendabilityHeader): void {
+  if (!Number.isSafeInteger(header?.height) || header.height < 0) {
+    invalidateSpendability();
+    return;
+  }
+  if (header.height !== spendabilityHeader?.height || header.hex !== spendabilityHeader?.hex) {
+    spendabilityHeights.clear();
+    for (const txid of Object.keys(txhashHeightCache)) delete txhashHeightCache[txid];
+    spendabilityHeader = { height: header.height, hex: header.hex };
+  }
+  spendabilityTipTime = Date.now();
+}
+
+export function getSpendabilityTip(): number | null {
+  if (connState !== 'connected' || Date.now() - spendabilityTipTime >= TIP_CACHE_TTL_SEC * 1000) return null;
+  return spendabilityHeader?.height ?? null;
+}
+
+export function getSpendabilityHeight(txid: string): number | undefined {
+  return getSpendabilityTip() === null ? undefined : spendabilityHeights.get(txid);
+}
+
+async function refreshSpendabilityTip(): Promise<void> {
+  const client = mainClient;
+  if (!client) {
+    invalidateSpendability();
+    return;
+  }
+  try {
+    const header = await client.blockchainHeaders_subscribe();
+    if (mainClient === client) updateSpendabilityTip(header);
+  } catch {
+    if (mainClient === client) invalidateSpendability();
+  }
+}
+
 // --- Single source of truth for connection liveness -----------------------------
 // We previously tracked `mainConnected` (boolean) separately from the client's own
 // `mainClient.status`. They drifted on iOS suspend/resume: a transient `ping()`
@@ -115,6 +164,7 @@ type ConnectionListener = (state: ConnectionState) => void;
 const connectionListeners = new Set<ConnectionListener>();
 
 function setConnectionState(next: ConnectionState): void {
+  if (next !== 'connected') invalidateSpendability();
   if (connState === next) return;
   connState = next;
   for (const l of connectionListeners) {
@@ -383,6 +433,10 @@ async function attemptConnectOnce(): Promise<{ ok: boolean; peer: Peer }> {
     console.log('[electrum] begin connection:', JSON.stringify(usingPeer));
     const client = new ElectrumClient(net, tls, usingPeer.ssl || usingPeer.tcp, usingPeer.host, usingPeer.ssl ? 'tls' : 'tcp');
     mainClient = client;
+    invalidateSpendability();
+    client.subscribe?.on('blockchain.headers.subscribe', (headers: SpendabilityHeader[]) => {
+      if (mainClient === client && headers[0]) updateSpendabilityTip(headers[0]);
+    });
 
     // Live-socket errors after a successful handshake: schedule a single
     // `ensureConnected()` (deduped). Errors during this attempt's own handshake
@@ -433,6 +487,7 @@ async function attemptConnectOnce(): Promise<{ ok: boolean; peer: Peer }> {
         }
       }
       const header = await client.blockchainHeaders_subscribe();
+      updateSpendabilityTip(header);
       if (header && header.height) {
         latestBlock = {
           height: header.height,
@@ -819,6 +874,7 @@ export const ping = async function (): Promise<boolean> {
 // exported only to be used in unit tests
 export function txhexToElectrumTransaction(txhex: string): ElectrumTransactionWithHex {
   const tx = bitcoin.Transaction.fromHex(txhex);
+  getCoinbaseStatus({ txid: tx.getId(), txhex });
 
   const ret: ElectrumTransactionWithHex = {
     txid: tx.getId(),
@@ -1038,6 +1094,8 @@ export const multiGetBalanceByAddress = async (addresses: string[], batchsize: n
 
 export const multiGetUtxoByAddress = async function (addresses: string[], batchsize: number = 100): Promise<Record<string, Utxo[]>> {
   if (!mainClient) throw new Error('Electrum client is not connected');
+  await refreshSpendabilityTip();
+  const snapshot = spendabilityHeader;
   const ret: Record<string, any> = {};
 
   const chunks = splitIntoChunks(addresses, batchsize);
@@ -1070,10 +1128,15 @@ export const multiGetUtxoByAddress = async function (addresses: string[], batchs
         utxo.vout = utxo.tx_pos;
         delete utxo.tx_pos;
         delete utxo.tx_hash;
+        delete utxo.isCoinbase;
       }
     }
   }
 
+  await refreshSpendabilityTip();
+  if (snapshot && snapshot === spendabilityHeader) {
+    for (const u of Object.values(ret).flat() as Utxo[]) spendabilityHeights.set(u.txid, u.height);
+  }
   return ret;
 };
 
@@ -1147,7 +1210,6 @@ export async function multiGetTransactionByTxid<T extends boolean>(
   txids = txids.filter(txid => !!txid); // failsafe: removing 'undefined' or other falsy stuff from txids array
   // this value is fine-tuned so althrough wallets in test suite will occasionally
   // throw 'response too large (over 1,000,000 bytes', test suite will pass
-  if (!mainClient) throw new Error('Electrum client is not connected');
   const ret: MultiGetTransactionByTxidResult<T> = {};
   txids = [...new Set(txids)]; // deduplicate just for any case
 
@@ -1160,6 +1222,13 @@ export async function multiGetTransactionByTxid<T extends boolean>(
     if (jsonString && jsonString.cache_value) {
       try {
         ret[txid] = JSON.parse(jsonString.cache_value as string);
+        const cached = ret[txid];
+        const txhex = typeof cached === 'string' ? cached : (cached as ElectrumTransactionWithHex)?.hex;
+        if (!verbose && (typeof cached !== 'string' || getCoinbaseStatus({ txid, txhex: cached }) === undefined)) {
+          delete ret[txid];
+        } else if (verbose && txhex) {
+          getCoinbaseStatus({ txid, txhex });
+        }
       } catch (error) {
         console.log('[electrum]', error, 'cache failed to parse', jsonString.cache_value);
       }
@@ -1172,6 +1241,7 @@ export async function multiGetTransactionByTxid<T extends boolean>(
     return ret;
   }
 
+  if (!mainClient) throw new Error('Electrum client is not connected');
   txids = keysCacheMiss;
   // end cache
 
@@ -1242,8 +1312,10 @@ export async function multiGetTransactionByTxid<T extends boolean>(
         // lets do single call, that should go through okay:
         txdata.result = await mainClient.blockchainTransaction_get(txdata.param, false);
         // since we used VERBOSE=false, server sent us plain txhex which we must decode on our end:
-        txdata.result = txhexToElectrumTransaction(txdata.result);
+        if (verbose) txdata.result = txhexToElectrumTransaction(txdata.result);
       }
+      const txhex = typeof txdata.result === 'string' ? txdata.result : txdata.result?.hex;
+      if (txhex) getCoinbaseStatus({ txid: txdata.param, txhex });
       ret[txdata.param] = txdata.result;
       // @ts-ignore: hex property
       if (ret[txdata.param]) delete ret[txdata.param].hex; // compact
@@ -1265,6 +1337,7 @@ export async function multiGetTransactionByTxid<T extends boolean>(
     realm.write(() => {
       for (const txid of Object.keys(ret)) {
         const tx = ret[txid];
+        if (!tx || (!verbose && (typeof tx !== 'string' || getCoinbaseStatus({ txid, txhex: tx }) === undefined))) continue;
         // dont cache immature txs, but only for 'verbose', since its fully decoded tx jsons. non-verbose are just plain
         // strings txhex
         if (verbose && typeof tx !== 'string' && (!tx?.confirmations || tx.confirmations < 7)) {
@@ -1286,6 +1359,47 @@ export async function multiGetTransactionByTxid<T extends boolean>(
   }
 
   return ret;
+}
+
+let utxoPreparation: Promise<void> = Promise.resolve();
+
+async function classifyUtxos(utxos: Omit<CreateTransactionUtxo, 'wif'>[]): Promise<void> {
+  const unknown = [...new Set(utxos.filter(u => getCoinbaseStatus(u) === undefined).map(u => u.txid))];
+  for (const chunk of splitIntoChunks(unknown, 45)) {
+    try {
+      const transactions = await multiGetTransactionByTxid(chunk, false);
+      for (const txid of chunk) {
+        const txhex = transactions[txid];
+        if (txhex) getCoinbaseStatus({ txid, txhex });
+      }
+    } catch (e) {
+      console.warn('[electrum] Coinbase classification pending; retry on UTXO refresh', e);
+    }
+  }
+  for (const u of utxos) u.isCoinbase = getCoinbaseStatus(u);
+
+  // RBF inputs may already be spent, and EPS may not implement listunspent.
+  // Refresh their heights from history rather than cached verbose confirmations.
+  const coinbases = utxos.filter(u => u.isCoinbase && getSpendabilityHeight(u.txid) === undefined);
+  if (coinbases.length === 0) return;
+  await refreshSpendabilityTip();
+  const snapshot = spendabilityHeader;
+  const addresses = [...new Set(coinbases.flatMap(u => (u.address ? [u.address] : [])))];
+  try {
+    const histories = await multiGetHistoryByAddress(addresses);
+    await refreshSpendabilityTip();
+    if (snapshot && snapshot === spendabilityHeader) {
+      for (const history of Object.values(histories).flat()) spendabilityHeights.set(history.tx_hash, history.height);
+    }
+  } catch (e) {
+    console.warn('[electrum] Coinbase height verification pending; retry on UTXO refresh', e);
+  }
+}
+
+export function prepareUtxos(utxos: Omit<CreateTransactionUtxo, 'wif'>[]): Promise<void> {
+  const pending = utxoPreparation.then(() => classifyUtxos(utxos));
+  utxoPreparation = pending.catch(() => {});
+  return pending;
 }
 
 // Returns the value at a given percentile in a sorted numeric array.
@@ -1507,6 +1621,7 @@ async function fetchBlockTipFromServer(): Promise<number | null> {
   const now = Math.floor(+new Date() / 1000);
   try {
     const header = await mainClient.blockchainHeaders_subscribe();
+    updateSpendabilityTip(header);
     if (header && header.height) {
       latestBlock = { height: header.height, time: now };
       return header.height;

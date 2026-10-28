@@ -5,7 +5,7 @@
 - Replace user-visible `BlueWallet` branding with `PurityWallet` across the app and store metadata.
 - Use a PurityWallet-specific blue colorway of the Bitcoin Purity logo so the wallet is visually distinct from Purity Node.
 - The canonical GitHub repository is `https://github.com/PurityWallet/PurityWallet`; use it for the app's repository link, npm repository metadata, and local origin remote.
-- Preserve URL schemes, native project/target/module names, wallet serialization, service endpoints, and dependency coordinates. Cross-platform application identities and shared preference groups are defined by REQ-009.
+- Preserve URL schemes, native project/target/module names, wallet serialization, service endpoints, and dependency coordinates. Cross-platform application identities and shared preference groups are defined by REQ-016.
 
 ## REQ-002: Purity network defaults
 
@@ -28,8 +28,8 @@
 
 ## REQ-005: Independent Android application identity
 
-- Retain `org.bitcoinpurity.puritywallet` as the Android `applicationId` and code namespace to preserve the existing Android upgrade path (REQ-010).
-- Keep URL schemes and wallet formats compatible; iOS identifiers and shared preference groups follow REQ-009.
+- Retain `org.bitcoinpurity.puritywallet` as the Android `applicationId` and code namespace to preserve the existing Android upgrade path (REQ-017).
+- Keep URL schemes and wallet formats compatible; iOS identifiers and shared preference groups follow REQ-016.
 - Update Android native package references, React Native codegen configuration, Firebase package metadata, and Android install/test scripts to the new identity.
 - Allow the Android PurityWallet build to coexist with BlueWallet as a separate application. Existing BlueWallet app data is not migrated automatically; users must use the wallet backup/import flow.
 
@@ -39,7 +39,51 @@
 - Keep the existing multisig, legacy, Taproot, Lightning, and Ark creation implementations and navigation contracts in place for upstream compatibility.
 - Keep wallet import and compatibility with existing wallets unchanged.
 
-## REQ-007: Legacy Bitcoin chain replay warnings
+## REQ-007: Enforce Coinbase spendability
+
+- Classify creating transactions using bitcoinjs-lib and cached raw Electrum transactions; missing status remains unknown and is retried on normal UTXO synchronization.
+- Only spend Coinbase outputs when the actual connected Electrum tip satisfies `tipHeight - coinbaseHeight + 1 >= 100`.
+- Enforce one shared rule for automatic/manual selection, Send Max, fees, RBF, CPFP and PSBT construction across on-chain wallet types; preserve ordinary unconfirmed spending and frozen-output policy.
+- Retain immature/unknown outputs and total balance. Invalidate Coinbase height verification on tip changes, reconnects or stale tip data; refresh heights from listunspent/history, never estimated confirmations.
+- Preserve storage, seed/derivation and Electrum protocol compatibility without new dependencies or UI redesign.
+
+## REQ-008: Label immature Coinbase outputs in Coin Control
+
+- Show a localized Immature badge beside Coinbase UTXOs that have fewer than 100 confirmations, using the existing verified chain-tip/height data and shared spendability rule.
+- Do not label mature or ordinary outputs as immature. Missing classification or unavailable/stale height verification must not be presented as confirmed immaturity.
+- Preserve output visibility, selection, frozen/change badges and existing transaction-construction safeguards.
+- Wallet Details must count all owned UTXOs for the Coin Control entry, including wallets containing only immature, unknown or frozen outputs.
+
+## REQ-009: Expose Coin Control directly on Send
+
+- Move the Coin Control entry out of the Send screen's ellipsis menu into a visible secondary button above Next.
+- Reuse the existing localized Coin Control title, selected-wallet navigation and loading-state protection.
+- Keep the selected-coins summary, frozen-balance shortcut and coin-selection/spendability behavior unchanged.
+
+## REQ-010: Keep multisig CI balance checks accurate
+
+- Validate the public multisig wallet's current balance against its transaction history instead of assuming its funds remain unspent forever.
+- Retain fixed historical funding assertions and deterministic coverage of funded-to-empty balance refreshes.
+- Run the lint, unit and integration jobs in a clean Node 24 Linux container before committing and pushing the repair; retain existing secrets-related coverage limitations.
+
+## REQ-011: Separate native PR validation from signed releases
+
+- Run iOS and Android signed-release workflows only on pushes to `master` or manual dispatch; PRs retain the existing native E2E build checks and lint/unit/integration checks.
+- Explicitly request `platform-tools` from the Android SDK setup action rather than its removed default `tools` package.
+- Preserve production signing requirements; do not create substitute credentials or treat an unconfigured signed release as verified.
+
+## REQ-012: Prepare Android emulator UI before E2E launch
+
+- After emulator boot and before Detox starts, wait for pending boot broadcasts with a bounded timeout and close stale system startup dialogs.
+- Retain Android API 36, all E2E cases, retries, synchronization and failure artifacts. Do not persistently suppress ANR/crash dialogs or dismiss dialogs after wallet tests start.
+
+## REQ-013: Align E2E coverage with Purity feature availability
+
+- Default wallet creation and dice entropy must use the already-selected on-chain type, without waiting for hidden type buttons.
+- As explicitly requested, register the three vault-creation UI cases as skipped while wallet-type selection is disabled; restore them automatically when enabled. Gate Lightning-only scan checks by the existing Lightning flag and retain on-chain BIP21 coverage.
+- Keep multisig UR import and Send/Coin Control navigation in E2E. Verify the historical Bitcoin hardware-signature fixture offline rather than requiring its UTXOs on the Purity chain. Do not enable hidden production features, change Electrum endpoints or relax spendability guards.
+
+## REQ-014: Legacy Bitcoin chain replay warnings
 
 - Use the read-only `https://mempool.space/api` Bitcoin mainnet API to check whether Purity UTXOs also remain unspent on the legacy Bitcoin Core chain.
 - Coin Control checks every UTXO, including frozen outputs, and prominently marks matching outputs with a replay-risk warning.
@@ -50,21 +94,21 @@
 - Checks send only transaction IDs to mempool.space, never private keys or signed transaction data. Purity Electrum and broadcast settings remain unchanged.
 - Provide all seven replay-check messages in every supported app language, including failed-check uncertainty and explicit risk acknowledgement, without relying on English fallback for these messages.
 
-## REQ-008: PurityWallet 1.1.0 version
+## REQ-015: PurityWallet 1.1.0 version
 
 - Set the app's public version to `1.1.0` consistently in Android, iOS/macOS app and extension targets, and root npm package metadata.
-- Preserve wallet data and service contracts; platform application identities and Android build-number progression follow REQ-009 and REQ-010.
+- Preserve wallet data and service contracts; platform application identities and Android build-number progression follow REQ-016 and REQ-017.
 
-## REQ-009: Apple application identity and platform compatibility
+## REQ-016: Apple application identity and platform compatibility
 
-- Use `au.com.bitcoininstitute.puritywallet` for the iOS/macOS main app Bundle ID. Android retains its original application identity under REQ-010.
+- Use `au.com.bitcoininstitute.puritywallet` for the iOS/macOS main app Bundle ID. Android retains its original application identity under REQ-017.
 - Use `.Stickers` and `.MarketWidget` suffixes for the existing Apple extension targets.
-- Use `group.au.com.bitcoininstitute.puritywallet` for the Apple App Group and Apple shared preference clients. Android shared preference clients retain `group.io.bluewallet.bluewallet` under REQ-010.
+- Use `group.au.com.bitcoininstitute.puritywallet` for the Apple App Group and Apple shared preference clients. Android shared preference clients retain `group.io.bluewallet.bluewallet` under REQ-017.
 - Align native source packages, codegen metadata, Android package selectors, Apple signing/export configuration, background task and user-activity identifiers, install/deep-link scripts, and app-store links with the new application identity.
 - Preserve native project/target/module names, URL schemes, wallet serialization, Purity service endpoints, and the GitHub organization `PurityWallet`.
-- Apple builds with a changed identity remain separate from prior Apple installations and require explicit wallet backup/import. Do not delete existing apps or data; Android follows the in-place upgrade requirements in REQ-010.
+- Apple builds with a changed identity remain separate from prior Apple installations and require explicit wallet backup/import. Do not delete existing apps or data; Android follows the in-place upgrade requirements in REQ-017.
 
-## REQ-010: Preserve the Android upgrade path
+## REQ-017: Preserve the Android upgrade path
 
 - Retain Android application ID/namespace `org.bitcoinpurity.puritywallet`, including native/codegen references, the Firebase package selector, store links, and install scripts.
 - Retain Android shared preferences under `group.io.bluewallet.bluewallet`, including currency, privacy, native settings, and widget clients. Select the preference namespace per platform in shared JavaScript.

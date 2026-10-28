@@ -642,6 +642,7 @@
     "legacy_shared": "⚠ Replay risk: also unspent on Bitcoin Core",
     "legacy_checking": "Checking Bitcoin Core chain…",
     "legacy_unknown": "⚠ Bitcoin Core check failed",
+    "immature": "Immature",
     "change": "Change",
     "coins_selected": "Coins Selected ({number})",
     "selected_summ": "{value} selected",

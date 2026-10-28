@@ -10,6 +10,7 @@ import ecc from '../../blue_modules/noble_ecc';
 import { hexToUint8Array, concatUint8Arrays } from '../../blue_modules/uint8array-extras';
 import type { HDSegwitBech32Wallet as HDSegwitBech32WalletT } from './hd-segwit-bech32-wallet';
 import { randomBytes } from '../rng';
+import { getCoinbaseStatus, isUtxoSpendable } from '../utxo-spendability';
 import { AbstractWallet } from './abstract-wallet';
 import { CreateTransactionResult, CreateTransactionTarget, CreateTransactionUtxo, Transaction, Utxo } from './types';
 const ECPair: ECPairAPI = ECPairFactory(ecc);
@@ -135,6 +136,9 @@ export class LegacyWallet extends AbstractWallet {
         this._utxo = this._utxo.concat(arr);
       }
 
+      if (this._utxo.length === 0) this._utxo = this.getDerivedUtxoFromOurTransaction();
+      await BlueElectrum.prepareUtxos(this._utxo);
+
       // now we need to fetch txhash for each input as required by PSBT
       if (LegacyWallet.type !== this.type) return; // but only for LEGACY single-address wallets
       const txhexes = await BlueElectrum.multiGetTransactionByTxid(
@@ -179,9 +183,18 @@ export class LegacyWallet extends AbstractWallet {
     }
 
     if (!respectFrozen) {
-      ret = ret.filter(({ txid, vout }) => !txid || !this.getUTXOMetadata(txid, vout).frozen);
+      ret = this.getSpendableUtxos(ret);
     }
     return ret;
+  }
+
+  getSpendableUtxos<T extends Omit<CreateTransactionUtxo, 'wif'>>(utxos: T[]): T[] {
+    const tip = BlueElectrum.getSpendabilityTip();
+    return utxos.filter(u => {
+      const isCoinbase = getCoinbaseStatus(u);
+      const height = isCoinbase ? BlueElectrum.getSpendabilityHeight(u.txid) : u.height;
+      return isUtxoSpendable({ isCoinbase, height }, tip, this.getUTXOMetadata(u.txid, u.vout));
+    });
   }
 
   getDerivedUtxoFromOurTransaction(returnSpentUtxoAsWell = false): Utxo[] {
@@ -388,7 +401,11 @@ export class LegacyWallet extends AbstractWallet {
       algo = coinSelectSplit;
     }
 
-    const _utxos = JSON.parse(JSON.stringify(utxos)) as CreateTransactionUtxo[];
+    const spendable = this.getSpendableUtxos(utxos);
+    if (spendable.length === 0 && (utxos.length > 0 || this._utxo.length > 0)) {
+      throw new Error('No spendable UTXOs: outputs are immature Coinbase, frozen, or awaiting Coinbase status/chain-height verification.');
+    }
+    const _utxos = JSON.parse(JSON.stringify(spendable)) as CreateTransactionUtxo[];
     const _targets = JSON.parse(JSON.stringify(targets)) as CreateTransactionTarget[];
 
     // compensating for coinselect inability to deal with segwit inputs, and overriding script length for proper vbytes calculation

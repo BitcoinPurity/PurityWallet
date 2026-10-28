@@ -42,19 +42,19 @@ describe('multisig-hd-wallet', () => {
 
     await w.fetchBalance();
     await w.fetchTransactions();
-    assert.ok(w.getTransactions().length >= 6);
-    assert.ok(w.getTransactions().some(tx => tx.value === 108880));
+    const transactions = w.getTransactions();
+    assert.ok(transactions.length >= 6);
+    assert.strictEqual(
+      transactions.find(tx => tx.txid === '98250695c4041a936a0da1d7a39c5e252275bbe3865d6b0ee6754763b36490ca')?.value,
+      108880,
+    );
+    assert.ok(transactions.some(tx => tx.value < 0));
 
-    const addresses = [
-      ...w.getAllExternalAddresses(),
-      ...Array.from({ length: w.next_free_change_address_index + w.gap_limit }, (_, index) => w._getInternalAddressByIndex(index)),
-    ];
-    const utxos = await BlueElectrum.multiGetUtxoByAddress(addresses);
-    assert.strictEqual(Object.keys(utxos).length, addresses.length);
-    const confirmedBalance = Object.values(utxos)
-      .flat()
-      .filter(utxo => utxo.height > 0)
-      .reduce((total, utxo) => total + utxo.value, 0);
-    assert.strictEqual(w.getBalance(), confirmedBalance);
+    // Include pending incoming value so both sides represent the full transaction-history net.
+    const balanceIncludingUnconfirmed = w.getBalance() + Math.max(w.getUnconfirmedBalance(), 0);
+    assert.strictEqual(
+      balanceIncludingUnconfirmed,
+      transactions.reduce((balance, tx) => balance + tx.value, 0),
+    );
   });
 });

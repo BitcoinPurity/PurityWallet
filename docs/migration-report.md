@@ -57,3 +57,37 @@ New-wallet creation no longer exposes a wallet-type choice. A disabled presentat
 ## Existing Apple release artifact verification
 
 Inspection of the prior `PurityWallet-1.0.0-2.ipa` confirms Bundle ID `org.bitcoinpurity.puritywallet`. The selected new Apple Bundle ID cannot update that previously uploaded TestFlight record. Continuing under the new ID requires a new App Store Connect app record and matching signing/App Group/APNs setup, independently of Individual-to-Organization membership conversion. No external Apple records or notification-service configuration were changed.
+
+## Coinbase spendability repair
+
+Previously UTXOs from listunspent (and locally reconstructed replacement inputs) reached coinselect without Coinbase checks. The fix adds optional classification metadata, a shared spendability policy and asynchronous cached classification. No wallet reimport, seed conversion, server changes or consensus changes are needed. Old unknown UTXOs remain visible and become spendable after successful normal synchronization.
+
+Fresh actual headers and listunspent/history heights replace estimated confirmations only for Coinbase eligibility. Height verification is invalidated on header identity changes and reconnects, preventing persisted or reorganized heights from remaining trusted. The total-balance display is retained; a dedicated immature-balance UI is deferred. See [UTXO spendability architecture](architecture/utxo-spendability.md).
+
+## Coin Control immature-output label
+
+Coin Control now distinguishes confirmed immature Coinbase outputs with a localized badge. The shared spendability calculation exposes diagnostic reasons so unknown verification is not confused with immaturity. This is a presentation change with no wallet-data migration, new network calls, balance-category changes or changes to selection/signing policy.
+
+## Send Coin Control entry
+
+The Send ellipsis action is replaced with a visible secondary Coin Control button above Next. The existing localized title, navigation callback and loading protection are reused. No persisted-state, route or transaction-policy migration is required.
+
+## Immature-only Coin Control access
+
+Live emulator inspection found that the Wallet Details Coins entry counted spendable outputs and became inaccessible for immature-only wallets. Its count now uses all owned UTXOs, restoring entry access without changing spending eligibility or stored data.
+
+## Multisig CI balance fixture
+
+The public multisig fixture spent its remaining 108880 sats, so its old fixed current-balance expectation is stale. The integration test now retains immutable funding assertions and reconciles live balance with transaction history; an offline funded-to-empty refresh test preserves positive-balance coverage. No runtime behavior, dependency or data migration is required. See [wallet balance validation](architecture/testing.md).
+
+## Native release workflow repair
+
+PR #2 exposed the pinned Android SDK action's removed `tools` default and an iOS signed build requiring absent publishing secrets. Both signed-release workflows now run only on `master` pushes or manual dispatch, as requested; existing PR native E2E builds remain enabled. Android setup explicitly requests `platform-tools`. Production releases still require their real configured secrets and have not been validated by this scheduling change. No application or wallet-data migration is required.
+
+## Android E2E boot focus
+
+Run `40625679228` built successfully but failed UI tests because a SystemUI startup ANR, recorded before the wallet launch, held window focus. Its first failure screenshot shows the wallet home screen behind the system error dialog. The workflow now drains boot broadcasts and closes stale system dialogs once before Detox starts. API level, tests, retries, reporting and application behavior remain unchanged; there is no wallet-data migration.
+
+## E2E compatibility with Purity features
+
+The UI tests now use the existing default wallet type and obey the disabled wallet-type/Lightning flags. Per the user's explicit choice, three vault-creation cases are skipped until that UI is enabled. Historical Bitcoin multisig signatures move to offline cryptographic validation; native UR import and Send/Coin Control remain exercised on Purity. No application or wallet-data migration is needed. Funded Purity multisig cosign-screen E2E coverage remains a limitation.

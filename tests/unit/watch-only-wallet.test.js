@@ -114,6 +114,7 @@ describe('Watch only wallet', () => {
     // hardcoding so we wont have to call w.getChangeAddressAsync()
     const utxos = [
       {
+        isCoinbase: false,
         height: 566299,
         value: 250000,
         address: '37EX3KrmopubWPLB8Y8NR36wXs7icu2kjQ',
@@ -140,6 +141,7 @@ describe('Watch only wallet', () => {
     // hardcoding so we wont have to call w.getChangeAddressAsync()
     const utxos = [
       {
+        isCoinbase: false,
         height: 596736,
         value: 20000,
         address: 'bc1qhu8jqyzfazgatpctqn44xr7pdd3mdx6qy2r6xa',
@@ -173,6 +175,7 @@ describe('Watch only wallet', () => {
 
     const utxos = [
       {
+        isCoinbase: false,
         height: 618811,
         value: 66600,
         address: 'bc1qzqjwye4musmz56cg44ttnchj49zueh9yr0qsxt',
@@ -228,6 +231,7 @@ describe('Watch only wallet', () => {
 
     const utxos = [
       {
+        isCoinbase: false,
         height: 618811,
         value: 66600,
         address: 'bc1qzqjwye4musmz56cg44ttnchj49zueh9yr0qsxt',
@@ -538,6 +542,7 @@ describe('Watch only wallet', () => {
 
       const utxos = [
         {
+          isCoinbase: false,
           height: 923789,
           value: 10108,
           address: 'bc1pyren45uwytsghuxelahgyjflrx9dhq9zhavangrcmw2avfre6spqtwxgm4',
@@ -618,6 +623,7 @@ describe('Watch only wallet', () => {
 
     const utxos = [
       {
+        isCoinbase: false,
         height: 557538,
         value: 51432,
         address: '3GCvDBAktgQQtsbN6x5DYiQCMmgZ9Yk8BK',
@@ -700,12 +706,14 @@ describe('Watch only wallet', () => {
 
     const utxos = [
       {
+        isCoinbase: false,
         value: 100000,
         address: w._getExternalAddressByIndex(0),
         vout: 0,
         txid: '11'.repeat(32),
       },
       {
+        isCoinbase: false,
         value: 100000,
         address: w._getExternalAddressByIndex(1),
         vout: 1,
@@ -739,7 +747,7 @@ describe('Watch only wallet', () => {
     assert.strictEqual(w.getID(), idBefore);
 
     const { psbt } = w.createTransaction(
-      [{ value: 100000, address: addressBefore, vout: 0, txid: '11'.repeat(32) }],
+      [{ isCoinbase: false, value: 100000, address: addressBefore, vout: 0, txid: '11'.repeat(32) }],
       [{ address: 'bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq', value: 5000 }],
       1,
       w._getInternalAddressByIndex(0),
@@ -909,7 +917,7 @@ describe('Watch only wallet', () => {
       w.setMasterFingerprintFromHex(fp);
       assert.strictEqual(w.getMasterFingerprintHex(), fp);
       const { psbt } = w.createTransaction(
-        [{ value: 100000, address: w._getExternalAddressByIndex(0), vout: 0, txid: '11'.repeat(32) }],
+        [{ isCoinbase: false, value: 100000, address: w._getExternalAddressByIndex(0), vout: 0, txid: '11'.repeat(32) }],
         [{ address: 'bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq', value: 5000 }],
         1,
         w._getInternalAddressByIndex(0),

@@ -1,6 +1,7 @@
 import assert from 'assert';
 import * as bitcoin from 'bitcoinjs-lib';
 
+import * as BlueElectrum from '../../blue_modules/BlueElectrum';
 import Base43 from '../../blue_modules/base43';
 import { BlueURDecoder, decodeUR, encodeUR } from '../../blue_modules/ur';
 import { MultisigHDWallet } from '../../class/wallets/multisig-hd-wallet';
@@ -12,6 +13,36 @@ const Zpub1 = 'Zpub74ijpfhERJNjhCKXRspTdLJV5eoEmSRZdHqDvp9kVtdVEyiXk7pXxRbfZzQvs
 
 const fp2coldcard = '168DD603';
 const Zpub2 = 'Zpub75mAE8EjyxSzoyPmGnd5E6MyD7ALGNndruWv52xpzimZQKukwvEfXTHqmH8nbbc6ccP5t2aM3mws3pKYSnKpKMMytdbNEZFUxKzztYFM8Pn';
+
+describe('multisig balance refresh', () => {
+  afterEach(() => jest.restoreAllMocks());
+
+  it('refreshes a funded wallet to zero after its funds are spent', async () => {
+    const wallet = new MultisigHDWallet();
+    wallet.addCosigner(Zpub1, fp1cobo);
+    wallet.addCosigner(Zpub2, fp2coldcard);
+    wallet.setDerivationPath("m/48'/0'/0'/2'");
+    wallet.setM(2);
+    wallet.next_free_address_index = 1;
+    wallet.next_free_change_address_index = 1;
+    wallet.gap_limit = 1;
+    const address = wallet._getExternalAddressByIndex(0);
+    let confirmed = 108880;
+    jest.spyOn(BlueElectrum, 'multiGetHistoryByAddress').mockResolvedValue({});
+    jest.spyOn(BlueElectrum, 'multiGetBalanceByAddress').mockImplementation(async addresses => ({
+      balance: confirmed,
+      unconfirmed_balance: 0,
+      addresses: Object.fromEntries(addresses.map(a => [a, { confirmed: a === address ? confirmed : 0, unconfirmed: 0 }])),
+    }));
+
+    await wallet.fetchBalance();
+    assert.strictEqual(wallet.getBalance(), 108880);
+
+    confirmed = 0;
+    await wallet.fetchBalance();
+    assert.strictEqual(wallet.getBalance(), 0);
+  });
+});
 
 const txtFileFormatMultisigLegacy =
   'UR:BYTES/TYQHZGEQGDHKYM6KV96KCAPQF46KCARFWD5KWGRNV4682UPQVE5KCEFQ9P3HYETPW3JKGGR0DCSYGVEHG4Q5GWPC9Y9ZXZJWV9KK2W3QGDT97DPNGVER2VEJGF0NYTFJPFGX7MRFVDUN5GPJYPHKVGPJPFZX2UNFWESHG6T0DCAZQMF0XS6JWZJXDAEX6CT58GS9QVJNFQ9Q53PNXAZ5Z3PC8QAZQ7RSW43RVW2NVERXS3E4V4QNJCM30PYYKNFKVGC5S6ZCF4CYG7NFWP24Q3ZZFEX5YUN2FEN4W4MZVFAYKUTWW9MHSVNDWEXHJS34VFFXWM2VG95NWC6ZVAERSET4W4ARGNRK0GEK6C2H0PCXV4TDV3XNWVTY09GH2AN3XCUX64ZPGU6YXUQ2XYMRS3ZYXCCRXW3Q0PC82C3K8Q6RW4EKVDV42UT3X35HSCMDGE3RSVMFW9G8GJJ6VEHY65Z5DDC9J62RWD6427TZ0FR8QUZ2WQE8Z7NGXD95X4JGWDXYW5TEX3TKSCTCGACKKJEEV9ZYGKNW2DNXSS3EXFGXKJZYFD5KSCJGXET5C7N50FK5UD6H2UU5WKTS2G9QHU0U3D';

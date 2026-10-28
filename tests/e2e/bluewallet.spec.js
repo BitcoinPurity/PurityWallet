@@ -1,6 +1,7 @@
 import assert from 'assert';
+import { isLightningUiEnabled, isWalletTypeSelectionEnabled } from '../../blue_modules/features';
+import multisigHardware from '../unit/fixtures/multisig-hardware-psbt.json';
 import { element, waitFor } from 'detox';
-import { isWalletTypeSelectionEnabled } from '../../blue_modules/features';
 
 import {
   confirmPasswordDialog,
@@ -33,11 +34,11 @@ console.warn = console.log = (...args) => {
   process.stdout.write('\n\t\t' + output + '\n');
 };
 
-const test = isWalletTypeSelectionEnabled ? it : it.skip;
-
 /**
  * this testsuite is for test cases that require no wallets to be present
  */
+const test = isWalletTypeSelectionEnabled ? it : it.skip;
+
 describe('BlueWallet UI Tests - no wallets', () => {
   it('selftest passes', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t1');
@@ -650,7 +651,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
 
-  it('can import multisig setup from UR and prevent sending from its empty wallet', async () => {
+  it('can import multisig setup from UR and verify empty-wallet Send and Coin Control', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t6');
     if (process.env.CI) {
       if (require('fs').existsSync(lockFile)) return console.warn('skipping', JSON.stringify('t6'), 'as it previously passed on Travis');
@@ -667,10 +668,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await element(by.id('ImportWallet')).tap();
     await element(by.id('ScanImport')).tap();
 
-    const urs = [
-      'UR:BYTES/1OF2/J8RX04F2WJ9SSY577U30R55ELM4LUCJCXJVJTD60SYV9A286Q0AQH7QXL6/TYQMJGEQGFK82E2HV9KXCET5YPXH2MR5D9EKJEEQWDJHGATSYPNXJMR9PG3JQARGD9EJQENFD3JJQCM0DE6XZ6TWWVSX7MNV0YS8QATZD35KXGRTV4UHXGRPDEJZQ6TNYPEKZEN9YP6X7Z3RYPJXJUM5WF5KYAT5V5SXZMT0DENJQCM0WD5KWMN9WFES5GC2FESK6EF6YPXH2MR5D9EKJEEQ2ESH2MR5PFGX7MRFVDUN5GPJYPHKVGPJPFZX2UNFWESHG6T0DCAZQMF0XSUZWTESYUHNQFE0XGNS53N0WFKKZAP6YPGRY46NFQ9Q53PNXAZ5Z3PC8QAZQKNSW43RWDRFDFCXV6Z92F9YU6NGGD94S5NNWP2XGNZ22C6K2M69D4F4YKNYFPC5GANS',
-      'UR:BYTES/2OF2/J8RX04F2WJ9SSY577U30R55ELM4LUCJCXJVJTD60SYV9A286Q0AQH7QXL6/8944VARY2EZHJ62CDVMHQKRC2F3XVKN629M8X3ZXWPNYGJZ9FPT8G4NS0Q6YG73EG3R42468DCE9S6E40FRN2AF5X4G4GNTNT9FNYAN2DA5YU5G2PGCNVWZYGSMRQVE6YPD8QATZXU6K6S298PZK57TC2DAX772SD4RKUEP4G5MY672YXAQ5C36WDEJ8YA2HWC6NY7RS0F5K6KJ3FD6KKAMKG4N9S4ZGW9K5SWRWVF3XXDNRVDGR2APJV9XNXMTHWVEHQJ6E2DHYKUZTF4XHJARYVF8Y2KJX24UYK7N6W3V5VNFC2PHQ5ZSJDYL5T',
-    ];
+    const urs = multisigHardware.wallet;
 
     await waitFor(element(by.id('UrProgressBar'))).toBeNotVisible();
 
@@ -703,14 +701,19 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await waitForKeyboardToClose();
 
     // setting fee rate:
-    const feeRate = 3;
-    await setCustomFeeRate(feeRate);
+    await setCustomFeeRate(3);
 
     await waitFor(element(by.id('CreateTransactionButton')))
       .toBeVisible()
       .withTimeout(15_000);
     const nextButton = await element(by.id('CreateTransactionButton')).getAttributes();
     assert.strictEqual(nextButton.enabled, false);
+    await waitForId('CoinControlButton');
+    await element(by.id('CoinControlButton')).tap();
+    await waitFor(element(by.id('AddressInput')))
+      .not.toBeVisible()
+      .withTimeout(15000);
+    await waitForText('Coin Control');
 
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
@@ -801,73 +804,83 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await waitForId('AddressInput');
     await expect(element(by.id('AddressInput'))).toHaveText('bc1qzrtn3xwlunlrm0n0uu23lr00gmdx4lnlavdy75');
 
-    // now, gona import second wallet (ln) and test bip21 with both onchain and offchain present
+    if (isLightningUiEnabled) {
+      // now, gona import second wallet (ln) and test bip21 with both onchain and offchain present
 
-    await goBack();
-    await scrollUpOnHomeScreen();
-    await waitForId('WalletsList');
-    await waitFor(element(by.id('CreateAWallet')))
-      .toBeVisible()
-      .whileElement(by.id('WalletsList'))
-      .scroll(500, 'right'); // in case emu screen is small and it doesnt fit
-    // going to Import Wallet screen and importing mnemonic
-    await tapAndTapAgainIfElementIsNotVisible('CreateAWallet', 'ImportWallet');
-    await element(by.id('ImportWallet')).tap();
-    await element(by.id('ScanImport')).tap();
-    await scanText('lndhub://a3b4c9109408a043d1ea:ec5a888596b2c45729d1@https://kek.lol');
-    await waitForText('OK', 30_000); // waiting for wallet import
-    await element(by.text('OK')).tap();
-
-    // imported
-
-    await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
-    await scanText(
-      'lightning:lnbc1p090vrqpp5yxpd5wjtln4r874a9grkpr772cs0uyn7ayva3ypleyut7z0a4rgsdpu235hqurfdcsx7an9wf6x7undv4h8ggpgw35hqurfdchx6eff9p6nzvfc8q5scqzpgxqyz5vqcy30v2txquuh06h6946pal4dlm4hyujqv8ec3cunetf46gfydpxswedv4sr2rlg8dwpcg3fq9gah3j42373w366e6yau37t30amp5zqqftd004',
-    );
-    await waitForId('AddressInput');
-    await expect(element(by.id('AddressInput'))).toHaveText(
-      'lnbc1p090vrqpp5yxpd5wjtln4r874a9grkpr772cs0uyn7ayva3ypleyut7z0a4rgsdpu235hqurfdcsx7an9wf6x7undv4h8ggpgw35hqurfdchx6eff9p6nzvfc8q5scqzpgxqyz5vqcy30v2txquuh06h6946pal4dlm4hyujqv8ec3cunetf46gfydpxswedv4sr2rlg8dwpcg3fq9gah3j42373w366e6yau37t30amp5zqqftd004',
-    );
-
-    // ok, time to test wallets selector
-    if (device.getPlatform() === 'android') {
       await goBack();
+      await scrollUpOnHomeScreen();
+      await waitForId('WalletsList');
+      await waitFor(element(by.id('CreateAWallet')))
+        .toBeVisible()
+        .whileElement(by.id('WalletsList'))
+        .scroll(500, 'right'); // in case emu screen is small and it doesnt fit
+      // going to Import Wallet screen and importing mnemonic
+      await tapAndTapAgainIfElementIsNotVisible('CreateAWallet', 'ImportWallet');
+      await element(by.id('ImportWallet')).tap();
+      await element(by.id('ScanImport')).tap();
+      await scanText('lndhub://a3b4c9109408a043d1ea:ec5a888596b2c45729d1@https://kek.lol');
+      await waitForText('OK', 30_000); // waiting for wallet import
+      await element(by.text('OK')).tap();
+
+      // imported
+
+      await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
+      await scanText(
+        'lightning:lnbc1p090vrqpp5yxpd5wjtln4r874a9grkpr772cs0uyn7ayva3ypleyut7z0a4rgsdpu235hqurfdcsx7an9wf6x7undv4h8ggpgw35hqurfdchx6eff9p6nzvfc8q5scqzpgxqyz5vqcy30v2txquuh06h6946pal4dlm4hyujqv8ec3cunetf46gfydpxswedv4sr2rlg8dwpcg3fq9gah3j42373w366e6yau37t30amp5zqqftd004',
+      );
+      await waitForId('AddressInput');
+      await expect(element(by.id('AddressInput'))).toHaveText(
+        'lnbc1p090vrqpp5yxpd5wjtln4r874a9grkpr772cs0uyn7ayva3ypleyut7z0a4rgsdpu235hqurfdcsx7an9wf6x7undv4h8ggpgw35hqurfdchx6eff9p6nzvfc8q5scqzpgxqyz5vqcy30v2txquuh06h6946pal4dlm4hyujqv8ec3cunetf46gfydpxswedv4sr2rlg8dwpcg3fq9gah3j42373w366e6yau37t30amp5zqqftd004',
+      );
+
+      // ok, time to test wallets selector
+      if (device.getPlatform() === 'android') {
+        await goBack();
+      } else {
+        // on ios we dont have close or back button on this screen, so just use pull to close
+        await element(by.text('Send')).swipe('down', 'fast', 0.9);
+      }
+      await waitForId('WalletsList');
+      await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
+      await scanText(
+        'bitcoin:1DamianM2k8WfNEeJmyqSe2YW1upB7UATx?amount=0.000001&lightning=lnbc1u1pwry044pp53xlmkghmzjzm3cljl6729cwwqz5hhnhevwfajpkln850n7clft4sdqlgfy4qv33ypmj7sj0f32rzvfqw3jhxaqcqzysxq97zvuq5zy8ge6q70prnvgwtade0g2k5h2r76ws7j2926xdjj2pjaq6q3r4awsxtm6k5prqcul73p3atveljkn6wxdkrcy69t6k5edhtc6q7lgpe4m5k4',
+      );
+
+      await waitForId('SelectWalletsList');
+      await element(by.text('Imported Lightning')).tap();
+      await waitForId('AddressInput');
+      await expect(element(by.id('AddressInput'))).toHaveText(
+        'lnbc1u1pwry044pp53xlmkghmzjzm3cljl6729cwwqz5hhnhevwfajpkln850n7clft4sdqlgfy4qv33ypmj7sj0f32rzvfqw3jhxaqcqzysxq97zvuq5zy8ge6q70prnvgwtade0g2k5h2r76ws7j2926xdjj2pjaq6q3r4awsxtm6k5prqcul73p3atveljkn6wxdkrcy69t6k5edhtc6q7lgpe4m5k4',
+      ); // send screen, and ln invoice is prefilled!
+
+      // now again, but chosing onchain
+
+      if (device.getPlatform() === 'android') {
+        await goBack();
+      } else {
+        // on ios we dont have close or back button on this screen, so just use pull to close
+        await element(by.text('Send')).swipe('down', 'fast', 0.9);
+      }
+      await waitForId('WalletsList');
+      await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
+      await scanText(
+        'bitcoin:1DamianM2k8WfNEeJmyqSe2YW1upB7UATx?amount=0.000001&lightning=lnbc1u1pwry044pp53xlmkghmzjzm3cljl6729cwwqz5hhnhevwfajpkln850n7clft4sdqlgfy4qv33ypmj7sj0f32rzvfqw3jhxaqcqzysxq97zvuq5zy8ge6q70prnvgwtade0g2k5h2r76ws7j2926xdjj2pjaq6q3r4awsxtm6k5prqcul73p3atveljkn6wxdkrcy69t6k5edhtc6q7lgpe4m5k4',
+      );
+
+      await waitForId('SelectWalletsList');
+      await element(by.text('cr34t3d')).tap();
+      await waitForId('AddressInput');
+      await expect(element(by.id('AddressInput'))).toHaveText('1DamianM2k8WfNEeJmyqSe2YW1upB7UATx'); // send screen, and ONCHAIN invoice is prefilled!
+      await expect(element(by.id('BitcoinAmountInput'))).toHaveText('0.000001');
     } else {
-      // on ios we dont have close or back button on this screen, so just use pull to close
-      await element(by.text('Send')).swipe('down', 'fast', 0.9);
-    }
-    await waitForId('WalletsList');
-    await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
-    await scanText(
-      'bitcoin:1DamianM2k8WfNEeJmyqSe2YW1upB7UATx?amount=0.000001&lightning=lnbc1u1pwry044pp53xlmkghmzjzm3cljl6729cwwqz5hhnhevwfajpkln850n7clft4sdqlgfy4qv33ypmj7sj0f32rzvfqw3jhxaqcqzysxq97zvuq5zy8ge6q70prnvgwtade0g2k5h2r76ws7j2926xdjj2pjaq6q3r4awsxtm6k5prqcul73p3atveljkn6wxdkrcy69t6k5edhtc6q7lgpe4m5k4',
-    );
-
-    await waitForId('SelectWalletsList');
-    await element(by.text('Imported Lightning')).tap();
-    await waitForId('AddressInput');
-    await expect(element(by.id('AddressInput'))).toHaveText(
-      'lnbc1u1pwry044pp53xlmkghmzjzm3cljl6729cwwqz5hhnhevwfajpkln850n7clft4sdqlgfy4qv33ypmj7sj0f32rzvfqw3jhxaqcqzysxq97zvuq5zy8ge6q70prnvgwtade0g2k5h2r76ws7j2926xdjj2pjaq6q3r4awsxtm6k5prqcul73p3atveljkn6wxdkrcy69t6k5edhtc6q7lgpe4m5k4',
-    ); // send screen, and ln invoice is prefilled!
-
-    // now again, but chosing onchain
-
-    if (device.getPlatform() === 'android') {
       await goBack();
-    } else {
-      // on ios we dont have close or back button on this screen, so just use pull to close
-      await element(by.text('Send')).swipe('down', 'fast', 0.9);
+      await waitForId('WalletsList');
+      await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
+      await scanText('bitcoin:1DamianM2k8WfNEeJmyqSe2YW1upB7UATx?amount=0.000001');
+      await waitForId('AddressInput');
+      await expect(element(by.id('AddressInput'))).toHaveText('1DamianM2k8WfNEeJmyqSe2YW1upB7UATx');
+      await expect(element(by.id('BitcoinAmountInput'))).toHaveText('0.000001');
     }
-    await waitForId('WalletsList');
-    await tapAndTapAgainIfElementIsNotVisible('HomeScreenScanButton', 'ScanQrBackdoorButton');
-    await scanText(
-      'bitcoin:1DamianM2k8WfNEeJmyqSe2YW1upB7UATx?amount=0.000001&lightning=lnbc1u1pwry044pp53xlmkghmzjzm3cljl6729cwwqz5hhnhevwfajpkln850n7clft4sdqlgfy4qv33ypmj7sj0f32rzvfqw3jhxaqcqzysxq97zvuq5zy8ge6q70prnvgwtade0g2k5h2r76ws7j2926xdjj2pjaq6q3r4awsxtm6k5prqcul73p3atveljkn6wxdkrcy69t6k5edhtc6q7lgpe4m5k4',
-    );
-
-    await waitForId('SelectWalletsList');
-    await element(by.text('cr34t3d')).tap();
-    await waitForId('AddressInput');
-    await expect(element(by.id('AddressInput'))).toHaveText('1DamianM2k8WfNEeJmyqSe2YW1upB7UATx'); // send screen, and ONCHAIN invoice is prefilled!
-    await expect(element(by.id('BitcoinAmountInput'))).toHaveText('0.000001');
 
     // let's test Azteco voucher scanning now, while we have a wallet
     await goBack();
@@ -912,10 +925,6 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await element(by.id('CreateAWallet')).tap();
     await waitForId('WalletNameInput');
     await element(by.id('WalletNameInput')).replaceText('entropy1');
-    if (isWalletTypeSelectionEnabled) {
-      await waitForId('ActivateBitcoinButton');
-      await element(by.id('ActivateBitcoinButton')).tap();
-    }
 
     // header menu -> Provide entropy via dice rolls -> 12 words
     await element(by.id('HeaderMenuButton')).tap();

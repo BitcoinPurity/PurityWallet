@@ -228,6 +228,9 @@ export class HDSegwitBech32Transaction {
       }
     }
 
+    await BlueElectrum.prepareUtxos(utxos);
+    await BlueElectrum.prepareUtxos(unconfirmedUtxos.map(u => ({ ...u, txhex: this._txhex ?? undefined })));
+
     return { fee, feeRate, targets, changeAmount, utxos, unconfirmedUtxos };
   }
 

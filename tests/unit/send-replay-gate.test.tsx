@@ -6,7 +6,14 @@ import { checkLegacyUtxos, LegacyUtxoResults } from '../../blue_modules/legacy-c
 import presentAlert from '../../components/Alert';
 import loc from '../../loc';
 
-const coin = { txid: 'a'.repeat(64), vout: 0, value: 50000, address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', height: 1 };
+const coin = {
+  txid: 'a'.repeat(64),
+  vout: 0,
+  value: 50000,
+  address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+  height: 1,
+  isCoinbase: false,
+};
 const otherCoin = { ...coin, txid: 'b'.repeat(64) };
 const key = `${coin.txid}:0`;
 const mockUiCheck = jest.fn((_coins: unknown, _refresh: unknown) => ({ checking: false, results: {} as LegacyUtxoResults }));
@@ -18,9 +25,11 @@ const mockWallet = {
   allowSend: () => true,
   getID: () => 'wallet',
   getBalance: () => 100000,
+  getSpendableBalance: () => coin.value,
   getLabel: () => 'Wallet',
   getPreferredBalanceUnit: () => 'BTC',
   getUtxo: () => [coin, otherCoin],
+  getSpendableUtxos: () => [coin],
   fetchUtxo: async () => {},
   getUTXOMetadata: (_txid: string, vout: number) => ({ frozen: _txid === otherCoin.txid }),
   setUTXOMetadata: () => {},

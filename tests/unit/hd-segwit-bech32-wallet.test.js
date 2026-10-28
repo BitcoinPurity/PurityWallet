@@ -88,8 +88,8 @@ describe('Bech32 Segwit HD (BIP84)', () => {
 
     // fake UTXO so we don't need to use fetchUtxo
     hd._utxo = [
-      { txid: '11111', vout: 0, value: 11111 },
-      { txid: '22222', vout: 0, value: 22222 },
+      { isCoinbase: false, txid: '11111', vout: 0, value: 11111 },
+      { isCoinbase: false, txid: '22222', vout: 0, value: 22222 },
     ];
 
     assert.ok(hd.getUtxo().length === 2);
@@ -227,6 +227,7 @@ describe('Bech32 Segwit HD (BIP84)', () => {
 
     const utxo = [
       {
+        isCoinbase: false,
         address: 'bc1q063ctu6jhe5k4v8ka99qac8rcm2tzjjnuktyrl',
         vout: 0,
         txid: '8b0ab2c7196312e021e0d3dc73f801693826428782970763df6134457bd2ec20',
@@ -263,6 +264,7 @@ describe('Bech32 Segwit HD (BIP84)', () => {
 
     const utxo = [
       {
+        isCoinbase: false,
         address: 'bc1q063ctu6jhe5k4v8ka99qac8rcm2tzjjnuktyrl',
         vout: 0,
         txid: '8b0ab2c7196312e021e0d3dc73f801693826428782970763df6134457bd2ec20',
