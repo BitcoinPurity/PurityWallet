@@ -76,3 +76,15 @@ Coinbase rewards remain in the wallet's total balance and complete Coin Control 
 Coinbase classification comes from txid-verified raw transactions using bitcoinjs-lib. Raw transaction caching and deduplicated batches avoid repeated downloads. Unknown outputs remain owned and are retried on normal UTXO refresh. Actual Electrum headers and freshly retrieved UTXO/history heights establish maturity; wall-clock estimates and cached verbose confirmations cannot establish it. Any changed tip, disconnect or expired tip verification requires fresh Coinbase height verification.
 
 All on-chain wallet constructors share the guarded selector, including Send Max, fees, manual selection, hardware/watch-only and multisig PSBT creation, RBF/CPFP and BIP47 notifications. No seed, derivation, signing or serialization format changes are required. A separate immature/spendable balance label is outside this focused repair; the existing headline balance continues to show total ownership.
+
+## Coin Control immature-output badge
+
+Coin Control shows an Immature badge (`未成熟` in Simplified and Traditional Chinese) on verified Coinbase outputs below 100 confirmations. It uses the same spendability rule as transaction construction and verified Electrum heights, without extra network requests during rendering. Mature and ordinary outputs have no Immature badge; unknown classification or unavailable/stale height verification is not displayed as confirmed immaturity.
+
+The badge can coexist with Frozen and Change. Outputs remain visible and retain the existing selection behavior; the transaction-construction guard continues to prevent spending immature inputs. Normal refresh/re-render uses current verified maturity, including the 99/100-confirmation boundary and rollback.
+
+## Send Coin Control button
+
+The Send screen exposes Coin Control as a secondary button below the fee row and above Next. It uses the existing localized Coin Control title and navigates with the currently selected wallet ID. It remains available for an empty wallet and is disabled during transaction processing, matching the previous menu behavior.
+
+The Send ellipsis menu no longer contains Coin Control. The selected-coins summary and frozen-balance shortcut still open the same Coin Control route. Existing selection, maturity filtering, signing and wallet switching behavior is retained.

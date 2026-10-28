@@ -31,3 +31,11 @@ New-wallet creation no longer exposes a wallet-type choice. A disabled presentat
 Previously UTXOs from listunspent (and locally reconstructed replacement inputs) reached coinselect without Coinbase checks. The fix adds optional classification metadata, a shared spendability policy and asynchronous cached classification. No wallet reimport, seed conversion, server changes or consensus changes are needed. Old unknown UTXOs remain visible and become spendable after successful normal synchronization.
 
 Fresh actual headers and listunspent/history heights replace estimated confirmations only for Coinbase eligibility. Height verification is invalidated on header identity changes and reconnects, preventing persisted or reorganized heights from remaining trusted. The total-balance display is retained; a dedicated immature-balance UI is deferred. See [UTXO spendability architecture](architecture/utxo-spendability.md).
+
+## Coin Control immature-output label
+
+Coin Control now distinguishes confirmed immature Coinbase outputs with a localized badge. The shared spendability calculation exposes diagnostic reasons so unknown verification is not confused with immaturity. This is a presentation change with no wallet-data migration, new network calls, balance-category changes or changes to selection/signing policy.
+
+## Send Coin Control entry
+
+The Send ellipsis action is replaced with a visible secondary Coin Control button above Next. The existing localized title, navigation callback and loading protection are reused. No persisted-state, route or transaction-policy migration is required.

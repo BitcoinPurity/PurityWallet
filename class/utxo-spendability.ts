@@ -24,19 +24,33 @@ export function getCoinbaseStatus(utxo: CoinbaseUtxo): boolean | undefined {
   return utxo.isCoinbase;
 }
 
+export type UtxoSpendabilityReason = 'spendable' | 'frozen' | 'unknown_coinbase_status' | 'unknown_chain_height' | 'immature_coinbase';
+
+export function getUtxoSpendabilityReason(
+  utxo: { isCoinbase?: boolean; height?: number },
+  tipHeight: number | null | undefined,
+  policy: { frozen?: boolean } = {},
+): UtxoSpendabilityReason {
+  if (policy.frozen) return 'frozen';
+  if (utxo.isCoinbase === undefined) return 'unknown_coinbase_status';
+  if (utxo.isCoinbase === false) return 'spendable';
+  if (
+    !(
+      Number.isSafeInteger(tipHeight) &&
+      tipHeight! >= 0 &&
+      Number.isSafeInteger(utxo.height) &&
+      utxo.height! > 0 &&
+      utxo.height! <= tipHeight!
+    )
+  )
+    return 'unknown_chain_height';
+  return tipHeight! - utxo.height! + 1 >= COINBASE_MATURITY ? 'spendable' : 'immature_coinbase';
+}
+
 export function isUtxoSpendable(
   utxo: { isCoinbase?: boolean; height?: number },
   tipHeight: number | null | undefined,
   policy: { frozen?: boolean } = {},
 ): boolean {
-  if (policy.frozen || utxo.isCoinbase === undefined) return false;
-  if (utxo.isCoinbase === false) return true;
-  return (
-    Number.isSafeInteger(tipHeight) &&
-    tipHeight! >= 0 &&
-    Number.isSafeInteger(utxo.height) &&
-    utxo.height! > 0 &&
-    utxo.height! <= tipHeight! &&
-    tipHeight! - utxo.height! + 1 >= COINBASE_MATURITY
-  );
+  return getUtxoSpendabilityReason(utxo, tipHeight, policy) === 'spendable';
 }

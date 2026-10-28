@@ -215,6 +215,7 @@ These rules apply to every per-language file. The English glossary below uses th
 |------|-----|---------|
 | **Coin Control** | noun | Per-UTXO selection feature. ⚠️ NOT Title Case in target locale. Prefer the technical UTXO form when possible (e.g. `керування UTXO / керування монетами`). |
 | **Frozen** | adj | UTXO marked unspendable by the user. ⚠️ NOT the verb "to freeze" — must be an adjective/state form (e.g. `заморожено`, **not** `заморозити`). |
+| **Immature** | adj | Coinbase output with fewer than 100 confirmations at a verified active-chain tip. Distinct from user-frozen funds and unknown verification status. |
 
 ### 9. Security & storage
 

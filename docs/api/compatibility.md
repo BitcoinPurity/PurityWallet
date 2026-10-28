@@ -27,3 +27,7 @@ The `AddWallet` route retains its wallet-type and type-index parameters. Only th
 UTXOs may contain optional `isCoinbase: boolean`. Absence means unknown; older wallets are lazily classified on their next normal UTXO refresh. Verified classification is backward compatible with JSON wallet storage; live height verification is memory-only and is never restored as trusted from storage. Seeds and derivation paths are unchanged.
 
 The Electrum contract remains standard `blockchain.scripthash.listunspent`, `blockchain.scripthash.get_history`, `blockchain.transaction.get` and `blockchain.headers.subscribe`; no server-provided Coinbase flag or verbose support is required. Transaction construction remains synchronous. Callers supplying new UTXOs must resolve unknown status asynchronously with `BlueElectrum.prepareUtxos()` before construction. The shared selector excludes ineligible inputs even when manually supplied; an entirely ineligible set produces a diagnostic error.
+
+`getUtxoSpendabilityReason()` exposes the synchronous policy result (`spendable`, `frozen`, `unknown_coinbase_status`, `unknown_chain_height`, or `immature_coinbase`) for Coin Control labels. The existing boolean helper delegates to it with unchanged spending behavior. The badge requires no navigation, storage or RPC changes.
+
+The Send Coin Control button retains `navigate('CoinControl', { walletID })`. Moving this entry out of the Send ellipsis menu changes presentation only; existing routes, selected-coin parameters and frozen-balance shortcuts remain compatible.

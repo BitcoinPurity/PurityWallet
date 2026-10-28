@@ -45,3 +45,15 @@
 - Enforce one shared rule for automatic/manual selection, Send Max, fees, RBF, CPFP and PSBT construction across on-chain wallet types; preserve ordinary unconfirmed spending and frozen-output policy.
 - Retain immature/unknown outputs and total balance. Invalidate Coinbase height verification on tip changes, reconnects or stale tip data; refresh heights from listunspent/history, never estimated confirmations.
 - Preserve storage, seed/derivation and Electrum protocol compatibility without new dependencies or UI redesign.
+
+## REQ-008: Label immature Coinbase outputs in Coin Control
+
+- Show a localized Immature badge beside Coinbase UTXOs that have fewer than 100 confirmations, using the existing verified chain-tip/height data and shared spendability rule.
+- Do not label mature or ordinary outputs as immature. Missing classification or unavailable/stale height verification must not be presented as confirmed immaturity.
+- Preserve output visibility, selection, frozen/change badges and existing transaction-construction safeguards.
+
+## REQ-009: Expose Coin Control directly on Send
+
+- Move the Coin Control entry out of the Send screen's ellipsis menu into a visible secondary button above Next.
+- Reuse the existing localized Coin Control title, selected-wallet navigation and loading-state protection.
+- Keep the selected-coins summary, frozen-balance shortcut and coin-selection/spendability behavior unchanged.

@@ -76,6 +76,7 @@ Reference. All other locales translate from this.
 | **_Coin control_** | | |
 | Coin Control | Coin Control | Title-cased proper feature name. |
 | Frozen | Freeze (verb) / frozen | — |
+| Immature | Immature | Coinbase maturity state; fewer than 100 verified confirmations. |
 | **_Security & storage_** | | |
 | Encrypted storage | Encrypted Storage / Storage Encryption | — |
 | Plausible Deniability | Plausible Deniability | — |

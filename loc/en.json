@@ -635,6 +635,7 @@
     "error": "The input is not an 11- or 23-word partial mnemonic. Please try again."
   },
   "cc": {
+    "immature": "Immature",
     "change": "Change",
     "coins_selected": "Coins Selected ({number})",
     "selected_summ": "{value} selected",

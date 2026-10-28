@@ -621,6 +621,7 @@
     "error": "輸入不是 11 字或 23 字的不完整助記詞。請再試一次。"
   },
   "cc": {
+    "immature": "未成熟",
     "change": "找零",
     "coins_selected": "所選的幣（{number}）",
     "selected_summ": "已選擇 {value}",

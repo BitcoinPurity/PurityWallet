@@ -8,3 +8,5 @@
 - [TASK-006: Use an independent Android application identity](TASK-006.md)
 - [TASK-007: Create only a standard Bitcoin wallet](TASK-007.md)
 - [TASK-008: Reject immature Coinbase inputs](TASK-008.md)
+- [TASK-009: Label immature Coinbase outputs in Coin Control](TASK-009.md)
+- [TASK-010: Move Send Coin Control from menu to button](TASK-010.md)

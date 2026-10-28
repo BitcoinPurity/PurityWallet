@@ -74,6 +74,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | **_Coin control_** | | |
 | Coin Control | 幣的控制 / UTXO 控制 | noun · mainstream / technical · ⚠️ NOT Title Case · shipped `币的控制` mixes Simplified `币`; fix to 幣. Bitcoin Core zh_TW uses `錢幣控制`. |
 | Frozen | 已凍結 / 凍結 | adj / verb · state form preferred · ⚠️ NOT verb "凍結"; for adj/state prefer `已凍結`. |
+| Immature | 未成熟 | Coinbase 獎勵尚未達到 100 次確認；狀態標籤，與凍結及無法核實鏈高不同。 |
 | **_Security & storage_** | | |
 | Encrypted storage | 加密儲存空間 / 加密儲存 | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | 合理推諉 | noun · ⚠️ NOT Title Case · zh.wikipedia.org/wiki/合理推諉. |
