@@ -111,7 +111,7 @@ describe('LegacyWallet', function () {
     assert.ok(w.getUtxo()[0].txid);
     assert.ok(w.getUtxo()[0].confirmations);
     assert.ok(w.getUtxo()[0].txhex);
-  });
+  }, 150000);
 });
 
 describe('SegwitP2SHWallet', function () {

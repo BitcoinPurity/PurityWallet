@@ -43,6 +43,18 @@ describe('multisig-hd-wallet', () => {
     await w.fetchBalance();
     await w.fetchTransactions();
     assert.ok(w.getTransactions().length >= 6);
-    assert.strictEqual(w.getBalance(), 108880);
+    assert.ok(w.getTransactions().some(tx => tx.value === 108880));
+
+    const addresses = [
+      ...w.getAllExternalAddresses(),
+      ...Array.from({ length: w.next_free_change_address_index + w.gap_limit }, (_, index) => w._getInternalAddressByIndex(index)),
+    ];
+    const utxos = await BlueElectrum.multiGetUtxoByAddress(addresses);
+    assert.strictEqual(Object.keys(utxos).length, addresses.length);
+    const confirmedBalance = Object.values(utxos)
+      .flat()
+      .filter(utxo => utxo.height > 0)
+      .reduce((total, utxo) => total + utxo.value, 0);
+    assert.strictEqual(w.getBalance(), confirmedBalance);
   });
 });
