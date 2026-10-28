@@ -55,3 +55,7 @@ PR #2 exposed the pinned Android SDK action's removed `tools` default and an iOS
 ## Android E2E boot focus
 
 Run `40625679228` built successfully but failed UI tests because a SystemUI startup ANR, recorded before the wallet launch, held window focus. Its first failure screenshot shows the wallet home screen behind the system error dialog. The workflow now drains boot broadcasts and closes stale system dialogs once before Detox starts. API level, tests, retries, reporting and application behavior remain unchanged; there is no wallet-data migration.
+
+## E2E compatibility with Purity features
+
+The UI tests now use the existing default wallet type and obey the disabled wallet-type/Lightning flags. Per the user's explicit choice, three vault-creation cases are skipped until that UI is enabled. Historical Bitcoin multisig signatures move to offline cryptographic validation; native UR import and Send/Coin Control remain exercised on Purity. No application or wallet-data migration is needed. Funded Purity multisig cosign-screen E2E coverage remains a limitation.

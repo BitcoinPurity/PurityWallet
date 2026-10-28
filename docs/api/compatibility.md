@@ -39,3 +39,5 @@ Multisig CI validation reconciles the existing wallet balance with transaction h
 Restricting signed-release workflows to `master` pushes/manual dispatch and overriding the Android SDK package list changes CI scheduling/setup only. Signing identities, publishing credentials, application protocols and wallet storage are unchanged; native E2E build checks remain enabled for PRs.
 
 Android E2E boot preparation uses standard API 36 `am` shell commands before Detox starts. It changes no application APIs, permissions, wallet state, runtime dialog policy or test selection.
+
+E2E feature gating and offline historical hardware fixtures change tests only. No production feature, Electrum RPC/endpoint, wallet storage, seed, signing or Coinbase spendability contract changes. See REQ-013 and the E2E feature/fixture boundaries in the testing architecture.

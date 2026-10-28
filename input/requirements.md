@@ -75,3 +75,9 @@
 
 - After emulator boot and before Detox starts, wait for pending boot broadcasts with a bounded timeout and close stale system startup dialogs.
 - Retain Android API 36, all E2E cases, retries, synchronization and failure artifacts. Do not persistently suppress ANR/crash dialogs or dismiss dialogs after wallet tests start.
+
+## REQ-013: Align E2E coverage with Purity feature availability
+
+- Default wallet creation and dice entropy must use the already-selected on-chain type, without waiting for hidden type buttons.
+- As explicitly requested, register the three vault-creation UI cases as skipped while wallet-type selection is disabled; restore them automatically when enabled. Gate Lightning-only scan checks by the existing Lightning flag and retain on-chain BIP21 coverage.
+- Keep multisig UR import and Send/Coin Control navigation in E2E. Verify the historical Bitcoin hardware-signature fixture offline rather than requiring its UTXOs on the Purity chain. Do not enable hidden production features, change Electrum endpoints or relax spendability guards.

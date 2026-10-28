@@ -100,3 +100,7 @@ The public multisig integration fixture validates its current balance against tr
 PRs use the existing iOS/Android E2E build workflows and lint/unit/integration checks. Signed iOS and Android release workflows run only for pushes to `master` or manual dispatch and continue to require real signing credentials. Android SDK setup explicitly installs `platform-tools`, avoiding the removed legacy `tools` default.
 
 Android E2E preparation waits for boot broadcasts (at most 120 seconds) and closes stale system dialogs before starting Detox. API 36 and the complete test suite remain enabled. ANR/crash reporting and application dialogs during test execution remain unchanged.
+
+## E2E feature compatibility (REQ-013)
+
+Default creation and entropy tests follow the preselected on-chain wallet type. Three vault-creation cases follow the production wallet-type flag; Lightning scan branches follow the Lightning flag. Multisig UR import and Send/Coin Control remain native UI checks. Historical Bitcoin hardware signatures are decoded, combined and cryptographically validated offline, without assuming Bitcoin funds exist on Purity. Production feature flags, endpoints and transaction rules remain unchanged.
