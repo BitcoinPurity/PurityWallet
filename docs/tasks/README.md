@@ -13,3 +13,4 @@
 - [TASK-011: Preserve Coin Control access for immature-only wallets](TASK-011.md)
 - [TASK-012: Repair multisig CI balance validation](TASK-012.md)
 - [TASK-013: Repair native release CI triggers and Android SDK setup](TASK-013.md)
+- [TASK-014: Clear Android boot dialogs before E2E launch](TASK-014.md)

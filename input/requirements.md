@@ -70,3 +70,8 @@
 - Run iOS and Android signed-release workflows only on pushes to `master` or manual dispatch; PRs retain the existing native E2E build checks and lint/unit/integration checks.
 - Explicitly request `platform-tools` from the Android SDK setup action rather than its removed default `tools` package.
 - Preserve production signing requirements; do not create substitute credentials or treat an unconfigured signed release as verified.
+
+## REQ-012: Prepare Android emulator UI before E2E launch
+
+- After emulator boot and before Detox starts, wait for pending boot broadcasts with a bounded timeout and close stale system startup dialogs.
+- Retain Android API 36, all E2E cases, retries, synchronization and failure artifacts. Do not persistently suppress ANR/crash dialogs or dismiss dialogs after wallet tests start.

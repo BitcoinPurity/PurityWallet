@@ -98,3 +98,5 @@ The public multisig integration fixture validates its current balance against tr
 ## Native CI and signed release scope
 
 PRs use the existing iOS/Android E2E build workflows and lint/unit/integration checks. Signed iOS and Android release workflows run only for pushes to `master` or manual dispatch and continue to require real signing credentials. Android SDK setup explicitly installs `platform-tools`, avoiding the removed legacy `tools` default.
+
+Android E2E preparation waits for boot broadcasts (at most 120 seconds) and closes stale system dialogs before starting Detox. API 36 and the complete test suite remain enabled. ANR/crash reporting and application dialogs during test execution remain unchanged.

@@ -51,3 +51,7 @@ The public multisig fixture spent its remaining 108880 sats, so its old fixed cu
 ## Native release workflow repair
 
 PR #2 exposed the pinned Android SDK action's removed `tools` default and an iOS signed build requiring absent publishing secrets. Both signed-release workflows now run only on `master` pushes or manual dispatch, as requested; existing PR native E2E builds remain enabled. Android setup explicitly requests `platform-tools`. Production releases still require their real configured secrets and have not been validated by this scheduling change. No application or wallet-data migration is required.
+
+## Android E2E boot focus
+
+Run `40625679228` built successfully but failed UI tests because a SystemUI startup ANR, recorded before the wallet launch, held window focus. Its first failure screenshot shows the wallet home screen behind the system error dialog. The workflow now drains boot broadcasts and closes stale system dialogs once before Detox starts. API level, tests, retries, reporting and application behavior remain unchanged; there is no wallet-data migration.
