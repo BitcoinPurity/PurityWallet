@@ -20,6 +20,8 @@ import {
   setCustomFeeRate,
   sleep,
   tapAndTapAgainIfElementIsNotVisible,
+  tapHeaderMenuAction,
+  tapHeaderMenuItem,
   tapIfTextPresent,
   waitForId,
   waitForKeyboardToClose,
@@ -222,7 +224,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
         if (dismissed1) {
           await sleep(500);
           await element(by.id('NotificationsSwitch')).tap();
-          await dismissAlertByText('OK', 10000);
+          notifDialogStuck = !(await dismissAlertByText('OK', 10000));
         } else {
           notifDialogStuck = true;
         }
@@ -940,9 +942,13 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await element(by.id('WalletNameInput')).replaceText('entropy1');
 
     // header menu -> Provide entropy via dice rolls -> 12 words
-    await element(by.id('HeaderMenuButton')).tap();
-    await element(by.text('Provide entropy via dice rolls')).tap();
-    await element(by.text('12 words')).tap();
+    await tapHeaderMenuItem('Provide entropy via dice rolls', { actionId: 'entropy', restoreSynchronization: false });
+    try {
+      await tapHeaderMenuAction('12_words', '12 words');
+      await waitForId('Tab0');
+    } finally {
+      if (device.getPlatform() === 'ios') await device.enableSynchronization();
+    }
 
     // BIP39: each seed word encodes 11 bits, so two leading "abandon" words require the first 22 bits
     // of entropy to be zero. We provide 28 zero bits using the zero-value input of every tab: coin

@@ -11,6 +11,8 @@ it('configures ignored background requests before launching the app and preserve
     expect(setURLBlacklist).not.toHaveBeenCalled();
     await expect(global.device.launchApp({ delete: true, launchArgs: { example: 'kept' } })).resolves.toBe('launched');
     const [options] = launchApp.mock.calls[0];
+    expect(setURLBlacklist).toHaveBeenCalledWith(options.launchArgs.detoxURLBlacklistRegex);
+    expect(setURLBlacklist.mock.invocationCallOrder[0]).toBeGreaterThan(launchApp.mock.invocationCallOrder[0]);
     expect(options.delete).toBe(true);
     expect(options.launchArgs.example).toBe('kept');
     for (const url of [

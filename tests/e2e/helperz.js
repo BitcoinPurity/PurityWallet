@@ -384,12 +384,18 @@ export async function dismissAlertByText(text, timeoutMs = 10000) {
       // by.text — works on pre–iOS 26 and some iOS 26 alerts
       try {
         await element(by.text(text)).atIndex(0).tap();
+        await waitFor(element(by.text(text)))
+          .not.toExist()
+          .withTimeout(1000);
         dismissed = true;
         break;
       } catch (_) {}
       // by.label — accessibility label, works when text matching differs
       try {
         await element(by.label(text)).atIndex(0).tap();
+        await waitFor(element(by.label(text)))
+          .not.toExist()
+          .withTimeout(1000);
         dismissed = true;
         break;
       } catch (_) {}

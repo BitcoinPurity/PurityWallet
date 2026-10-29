@@ -17,6 +17,11 @@ beforeAll(async () => {
 
   const originalLaunchApp = device.launchApp.bind(device);
   device.launchApp = async (params = {}, ...args) => {
-    return originalLaunchApp({ ...params, launchArgs: { ...params.launchArgs, detoxURLBlacklistRegex: URL_BLACKLIST } }, ...args);
+    const result = await originalLaunchApp(
+      { ...params, launchArgs: { ...params.launchArgs, detoxURLBlacklistRegex: URL_BLACKLIST } },
+      ...args,
+    );
+    await device.setURLBlacklist(URL_BLACKLIST);
+    return result;
   };
 });

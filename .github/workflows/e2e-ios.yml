@@ -218,7 +218,7 @@ jobs:
         timeout-minutes: 360
         run: |
           npm run e2e:test:ios-release -- \
-            --record-videos failing \
+            --record-videos none \
             --record-logs failing \
             --take-screenshots failing \
             --headless \
