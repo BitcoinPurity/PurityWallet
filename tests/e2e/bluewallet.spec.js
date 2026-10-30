@@ -916,6 +916,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await device.clearKeychain();
     await device.launchApp({ delete: true }); // reinstalling the app just for any case to clean up app's storage
     await waitForId('WalletsList');
+    await enableOfflineMode();
     await helperCreateWallet();
     // nop
     await helperDeleteWallet('cr34t3d');
