@@ -1,21 +1,20 @@
-# PurityWallet - A Bitcoin & Lightning Wallet
+# PurityWallet - A Bitcoin Purity Wallet
 
 [![GitHub tag](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/PurityWallet/PurityWallet/master/package.json&query=$.version&label=Version)](https://github.com/PurityWallet/PurityWallet)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![](https://img.shields.io/github/license/PurityWallet/PurityWallet.svg)
 
-Thin Bitcoin Wallet.
+Thin Bitcoin Purity Wallet.
 Built with React Native and Electrum.
 
 [![Appstore](https://bluewallet.io/uploads/app-store-badge-blue.svg)](https://itunes.apple.com/us/app/bluewallet-bitcoin-wallet/id1376878040?l=ru&ls=1&mt=8)
 [![Playstore](https://bluewallet.io/uploads/play-store-badge-blue.svg)](https://play.google.com/store/apps/details?id=org.bitcoinpurity.puritywallet)
 
-Website: [bluewallet.io](https://bluewallet.io)
+Website: [bitcoininstitute.com.au](https://bitcoininstitute.com.au)
 
-Community: [telegram group](https://t.me/bluewallet)
+Community: [@bitcoinpurity](https://t.me/bitcoinpurity)
 
 * Private keys never leave your device
-* Lightning Network supported
 * SegWit-first. Replace-By-Fee support
 * Encryption. Plausible deniability
 * And many more [features...](https://bluewallet.io/features)
@@ -100,7 +99,7 @@ MIT
 
 ## WANT TO CONTRIBUTE?
 
-Grab an issue from [the backlog](https://github.com/BlueWallet/BlueWallet/issues), try to start or submit a PR, any doubts we will try to guide you. Contributors have a private telegram group, request access by email bluewallet@bluewallet.io
+Grab an issue from [the backlog](https://github.com/BlueWallet/BlueWallet/issues), try to start or submit a PR, any doubts we will try to guide you. Contributors have a private telegram group, request access by email contact@bitcoininstitute.com.au
 
 ## Translations
 
@@ -133,5 +132,5 @@ Bugs reported via BugSnag
 
 ## RESPONSIBLE DISCLOSURE
 
-Found critical bugs/vulnerabilities? Please email them bluewallet@bluewallet.io
+Found critical bugs/vulnerabilities? Please email them contact@bitcoininstitute.com.au
 Thanks!
