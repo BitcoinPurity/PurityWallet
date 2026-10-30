@@ -32,7 +32,7 @@ The BitcoinPurity notification service processes information as described in thi
 
 ## Your choices and deletion
 
-You can remove wallets and app data from PurityWallet or uninstall the app. You can turn off notifications or remove individual payment subscriptions from the app. These actions do not delete information that has already been received by a third-party service. Contact the project through the [PurityWallet GitHub repository](https://github.com/BitcoinPurity/PurityWallet) for privacy questions or requests related to this policy.
+You can remove wallets and app data from PurityWallet or uninstall the app. You can turn off notifications or remove individual payment subscriptions from the app. These actions do not delete information that has already been received by a third-party service. Contact the project through the [PurityWallet GitHub repository](https://github.com/PurityWallet/PurityWallet) for privacy questions or requests related to this policy.
 
 ## Changes
 

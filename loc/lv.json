@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Atspējot analītiku",
     "privacy_do_not_track_explanation": "Informācija par veiktspēju un uzticamību netiks iesniegta analīzei.",
     "rate": "Likme",
-    "push_notifications_explanation": "Iespējojot paziņojumus, jūsu ierīces marķieris tiks nosūtīts uz serveri kopā ar maku adresēm un darījumu identifikatoriem visiem makiem un darījumiem, kas veikti pēc paziņojumu iespējošanas. Ierīces marķieris tiek izmantots paziņojumu sūtīšanai, un maka informācija ļauj mums informēt jūs par ienākošo Bitcoin vai darījumu apstiprinājumiem.\n\nTiek pārraidīta tikai informācija pēc paziņojumu iespējošanas — nekas no iepriekšējā netiek vākts.\n\nPaziņojumu atspējošana noņems visu šo informāciju no servera. Turklāt maka dzēšana no lietotnes arī noņems ar to saistīto informāciju no servera.",
     "selfTest": "Pašpārbaude",
     "save": "Saglabāt",
     "success_transaction_broadcasted": "Jūsu darījums ir veiksmīgi izsūtīts!",

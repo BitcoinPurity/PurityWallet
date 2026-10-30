@@ -1,1 +1,1 @@
-https://bluewallet.io/privacy.txt
+https://github.com/PurityWallet/PurityWallet/blob/master/docs/privacy-policy.md

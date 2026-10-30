@@ -22,6 +22,16 @@ The universal Android APK retains all four public 1.0.0 ABIs (`armeabi-v7a`, `ar
 
 The bundled defaults are `electrum.bitcoinpurity.org:50002:s` and `https://mempool.bitcoinpurity.org`. Existing Electrum preference keys and block-explorer storage formats are unchanged, so explicit saved custom values remain compatible.
 
+## Notification API migration
+
+The notification base URL moves to `https://notifications.bitcoinpurity.org`, with no BlueWallet fallback. Existing JSON request bodies for `POST /majorTomToGroundControl`, `POST /getTokenConfiguration`, `POST /setTokenConfiguration`, `POST /unsubscribe`, and `POST /enqueue` remain compatible. Tokens identify the intended iOS/Android delivery provider; the deployed provider configuration must belong to PurityWallet. The backend observes Purity mainnet rather than a legacy-chain node. Ark's separate `/register` integration remains disabled until a BitcoinPurity implementation is deployed.
+
+The current notification deployment accepts iOS identities only and returns HTTP 403 for Android remote push requests. The Android client does not reuse saved remote tokens or offer remote push settings until its own FCM provider is available. Registration and unsubscribe return HTTP 201; preference and test-push requests return HTTP 200.
+
+`setTokenConfiguration` with `level_all=false` disables delivery without deleting subscriptions/preferences. `unsubscribe` removes the supplied payment identifiers; it does not purge existing delivery records or logs. The corrected in-app disclosure documents these existing semantics without changing the API contract.
+
+The source configuration targets APNs topic `au.com.bitcoininstitute.puritywallet`. Prior TestFlight and delivery verification used `org.bitcoinpurity.puritywallet`; the new Apple record, matching profiles/credentials, and actual-device delivery still require verification. No deployed backend or Apple account configuration is changed by this integration.
+
 ## Donation navigation contract
 
 Donate uses the existing internal `SelectWallet` and `SendDetailsRoot` routes. It passes the selected on-chain `walletID` and the configured `PURITY_WALLET_DONATION_ADDRESS` as the Send recipient. It does not change public deep links, serialized formats, or external APIs.

@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Analitikanı Söndür",
     "privacy_do_not_track_explanation": "Performans və etibarlılıq məlumatları təhlil üçün göndərilməyəcək.",
     "rate": "Məzənnə",
-    "push_notifications_explanation": "Bildirişləri aktivləşdirməklə cihaz tokeniniz, bildirişləri aktivləşdirdikdən sonra edilən bütün cüzdanlar və tranzaksiyalar üçün cüzdan ünvanları və tranzaksiya İD-ləri ilə birlikdə serverə göndəriləcək. Cihaz tokeni bildirişlər göndərmək üçün istifadə olunur və cüzdan məlumatı sizə gələn Bitcoin və ya tranzaksiya təsdiqləri barədə bildiriş göndərməyə imkan verir.\n\nYalnız bildirişləri aktivləşdirdikdən sonrakı məlumat ötürülür — əvvəlkindən heç nə toplanmır.\n\nBildirişləri söndürmək bütün bu məlumatı serverdən siləcək. Bundan əlavə, tətbiqdən cüzdan silmək onunla bağlı məlumatı da serverdən siləcək.",
     "selfTest": "Özünütest",
     "save": "Yadda saxla",
     "success_transaction_broadcasted": "Tranzaksiyanız uğurla yayımlandı!",

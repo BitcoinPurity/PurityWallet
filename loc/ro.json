@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Dezactivează Analytics",
     "privacy_do_not_track_explanation": "Informațiile despre performanță și fiabilitate nu vor fi trimise spre analiză.",
     "rate": "Rata",
-    "push_notifications_explanation": "Prin activarea notificărilor, tokenul dispozitivului tău va fi trimis către server, împreună cu adresele portofelului și ID-urile tranzacțiilor pentru toate portofelele și tranzacțiile efectuate după activarea notificărilor. Tokenul dispozitivului este folosit pentru a trimite notificări, iar informațiile despre portofel ne permit să te anunțăm despre Bitcoin-ul primit sau despre confirmările tranzacțiilor.\n\nDoar informațiile de după activarea notificărilor sunt transmise — nu se colectează nimic din trecut.\n\nDezactivarea notificărilor va elimina toate aceste informații de pe server. În plus, ștergerea unui portofel din aplicație va elimina și informațiile asociate de pe server.",
     "selfTest": "Auto-test",
     "save": "Salvează",
     "success_transaction_broadcasted": "Tranzacția ta a fost difuzată cu succes!",

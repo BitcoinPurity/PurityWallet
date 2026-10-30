@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Khubaza I-analytics",
     "privacy_do_not_track_explanation": "Ulwazi lokusebenza nokwethembeka ngeke luthunyelwe ukuze luhlaziywe.",
     "rate": "Izinga",
-    "push_notifications_explanation": "Ngokunika amandla izaziso, ithokheni yedivayisi yakho izothunyelwa kuseva, kanye namakheli ezikhwama nama-ID ethransekshini wazo zonke izikhwama namathransekshini enziwe ngemva kokunika amandla izaziso. Ithokheni yedivayisi isetshenziselwa ukuthumela izaziso, futhi ulwazi lwesikhwama lusivumela ukuthi sikwazise ngokwe-Bitcoin engenayo noma ngokuqinisekiswa kwethransekshini.\n\nUlwazi kuphela olusukela ngemva kokuthi unike amandla izaziso oludluliselwayo—akukho lutho olusukela ngaphambili oluqoqwayo.\n\nUkukhubaza izaziso kuzosusa lonke lolu lwazi kuseva. Ngaphezu kwalokho, ukususa isikhwama kuhlelo lokusebenza nakho kuzosusa ulwazi lwaso oluhlobene kuseva.",
     "selfTest": "Ukuzihlola",
     "save": "Londoloza",
     "success_transaction_broadcasted": "Ithransekshini yakho isakazwe ngempumelelo!",

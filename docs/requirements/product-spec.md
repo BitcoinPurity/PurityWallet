@@ -31,6 +31,18 @@ Fresh installations and default/reset behavior use only the Bitcoin Purity servi
 
 No other bundled fallback Electrum peers or predefined block explorers are offered. Explicit user configuration remains supported and is not overwritten.
 
+## BitcoinPurity payment notifications (REQ-018)
+
+Optional payment notifications use `https://notifications.bitcoinpurity.org`, deployed on node1. APNs tokens and payment subscriptions must not be registered with BlueWallet services. The backend observes the Purity chain and uses APNs topic `au.com.bitcoininstitute.puritywallet`.
+
+The existing registration, preferences, unsubscribe, and test-push contracts remain compatible. The separate Ark payment-push endpoint stays disabled until BitcoinPurity operates that service. Backend deployment and verification are release prerequisites; the privacy policy must describe the deployed operator and actual retention rules.
+
+This release enables production remote notifications on iOS only. Android remote registration, saved remote tokens, and the notification settings entry remain disabled until a BitcoinPurity Firebase service account is configured.
+
+The in-app disclosure identifies the BitcoinPurity operator and explains collected identifiers, preferences, connection information, and retention. Switching delivery off or uninstalling does not delete server records. Unsubscribe removes the requested payment subscriptions without erasing existing logs. Delivery records are normally purged after about three days and operational logs are normally retained for about seven days. Transaction-ID subscriptions older than about 90 days are purged on service startup; address subscriptions and device preferences may remain until removed. The public policy provides details and a deletion-request contact. English and both Chinese variants are maintained; other locales use the existing English fallback for this notice.
+
+The source configuration targets APNs topic `au.com.bitcoininstitute.puritywallet`. Prior TestFlight and delivery verification used `org.bitcoinpurity.puritywallet`; the new Apple record, matching profiles/credentials, and actual-device delivery still require verification. No deployed backend or Apple account configuration is changed by this integration.
+
 ## PurityWallet donations
 
 The Settings Donate action remains inside PurityWallet. It asks the user to choose a send-capable on-chain wallet, then opens the standard Send screen with the configured donation recipient prefilled. The amount remains empty and the normal transaction review and confirmation flow is unchanged.

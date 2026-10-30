@@ -316,7 +316,7 @@
     "privacy_do_not_track": "停用分析",
     "privacy_do_not_track_explanation": "效能與可靠性資訊將不會送出進行分析。",
     "rate": "匯率",
-    "push_notifications_explanation": "啟用通知後，您的裝置權杖將會傳送至伺服器，連同啟用通知後所有錢包與所進行交易的錢包地址與交易 ID。裝置權杖用於傳送通知，而錢包資訊則讓我們能通知您比特幣到帳或交易確認。\n\n僅傳送啟用通知後的資訊—之前的資料不會被收集。\n\n停用通知將從伺服器移除所有上述資訊。此外，從應用程式刪除錢包也會從伺服器移除其相關資訊。",
+    "push_notifications_explanation": "選用通知由 BitcoinPurity 的 notifications.bitcoinpurity.org 服務提供。為監測收款，應用程式會傳送裝置推播權杖及訂閱識別資料（錢包地址、交易 ID，以及用於通知的發票付款雜湊）。服務也會儲存通知偏好、語言、應用程式版本及最近上線時間。運作日誌可能包含 IP 位址、裝置權杖與訂閱識別資料。\n\n關閉 PurityWallet 內的通知只會停止推播，不會刪除伺服器上的訂閱或偏好設定。解除安裝應用程式不會傳送取消訂閱請求。移除付款訂閱會請求刪除相應識別資料，但既有投遞紀錄和日誌可能仍會保留。\n\n投遞紀錄通常在約 3 天後清理，運作日誌通常保留約 7 天。超過約 90 天的交易 ID 訂閱會在服務啟動時清理。地址訂閱與裝置偏好設定可能持續保留，直至被移除。\n\n詳細資訊與刪除請求請參閱隱私權政策：https://github.com/PurityWallet/PurityWallet/blob/master/docs/privacy-policy.md",
     "selfTest": "自行測試",
     "save": "儲存",
     "success_transaction_broadcasted": "您的交易已成功廣播！",

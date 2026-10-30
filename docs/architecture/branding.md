@@ -10,7 +10,7 @@ PurityWallet separates its public brand from inherited compatibility identifiers
 - Apple extensions: `.Stickers` and `.MarketWidget`
 - Apple App Group/preference namespace: `group.au.com.bitcoininstitute.puritywallet`
 - Android preference namespace: `group.io.bluewallet.bluewallet` (retained for existing settings/widget/privacy data)
-- Compatibility boundary: URL schemes, native target/module names, wallet formats, service endpoints, and upstream dependency coordinates remain unchanged.
+- Compatibility boundary: URL schemes, native target/module names, wallet formats and upstream dependency coordinates remain unchanged. Notification ownership is the service migration described below.
 
 Android installation/native-code namespaces and its preference namespace remain compatible with published APKs. Shared JavaScript selects the existing Android namespace or the new Apple App Group; Kotlin and Swift consumers agree with their respective platform. Apple task/activity IDs and signing/export configuration follow the new Apple identity. Apple Bundle ID changes and the experimental renamed Android package create separate installations; the established Android package follows in-place updates.
 
@@ -21,6 +21,16 @@ All platform, splash, in-app, and store icon derivatives are generated from the 
 ## Network defaults
 
 JavaScript, iOS widget, and Android widget/client default-peer declarations share one logical Purity endpoint: `electrum.bitcoinpurity.org:50002` over TLS. The predefined explorer catalog contains the Purity mempool explorer plus the existing custom-URL entry.
+
+## Notification service
+
+The client notification base URL is `https://notifications.bitcoinpurity.org`. The node1 deployment must retain the Ground Control API contract, observe the Purity node, and send iOS notifications with the PurityWallet APNs topic. Deployment configuration belongs to this repository; upstream backend source must remain unmodified. The optional Ark payment-push integration has no active endpoint until BitcoinPurity deploys its equivalent. Backend and APNs verification precede the iOS release.
+
+Remote push is enabled only on iOS for this release. Android remote registration and its settings entry are disabled; the gateway rejects Android identities. The project-owned startup adapter skips unused Google authentication in iOS-only sender mode, uses a 120-second HTTP timeout for local RPC batches, and bounds retention by the pinned mempool cache's dormant Map iterator. Upstream files remain unchanged.
+
+Notification privacy copy lives in the existing `settings.push_notifications_explanation` localization key. English, Simplified Chinese, and Traditional Chinese describe the verified server retention; other locales omit this key and inherit English through the existing localization fallback. No notification protocol or backend behavior changes are needed for this correction.
+
+The source configuration targets APNs topic `au.com.bitcoininstitute.puritywallet`. Prior TestFlight and delivery verification used `org.bitcoinpurity.puritywallet`; the new Apple record, matching profiles/credentials, and actual-device delivery still require verification. No deployed backend or Apple account configuration is changed by this integration.
 
 ## Donation flow
 

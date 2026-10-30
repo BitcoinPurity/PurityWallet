@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Desgaitu analitika",
     "privacy_do_not_track_explanation": "Errendimenduari eta fidagarritasunari buruzko informazioa ez da analisirako bidaliko.",
     "rate": "Tasa",
-    "push_notifications_explanation": "Jakinarazpenak gaituz, zure gailuaren tokena zerbitzarira bidaliko da, jakinarazpenak gaitu ondoren egindako diru-zorro eta transakzio guztietarako diru-zorroen helbide eta transakzioen IDekin batera. Gailuaren tokena jakinarazpenak bidaltzeko erabiltzen da, eta diru-zorroaren informazioak sarrerako Bitcoin edo transakzio-berrespenei buruz jakinarazteko aukera ematen digu.\n\nJakinarazpenak gaitu ondorengo informazioa baino ez da transmititzen—aurretik ez da ezer biltzen.\n\nJakinarazpenak desgaituz gero, informazio hau guztia zerbitzaritik kenduko da. Gainera, aplikaziotik diru-zorro bat ezabatzeak ere bere informazioa kenduko du zerbitzaritik.",
     "selfTest": "Auto-proba",
     "save": "Gorde",
     "success_transaction_broadcasted": "Zure transakzioa behar bezala igorri da!",

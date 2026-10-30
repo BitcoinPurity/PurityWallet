@@ -318,7 +318,6 @@
     "privacy_do_not_track": "Zakázat analytiku",
     "privacy_do_not_track_explanation": "Informace o výkonu a spolehlivosti nebudou odesílány k analýze.",
     "rate": "Kurz",
-    "push_notifications_explanation": "Povolením oznámení bude token vašeho zařízení odeslán na server společně s adresami peněženky a transakčními ID od všech peněženek a transakcí provedených po povolení oznámení. Token zařízení je využíván k odesílání oznámení a informace o peněžence nám umožňuje informovat vás o příchozích bitcoinech nebo o potvrzení transakcí.\n\nJsou vysílány pouze informace od té doby, co povolíte oznámení – z dřívější doby nejsou žádné informace shromažďovány.\n\nZakázáním oznámení odstraníte všechny tyto informace ze serveru. Odstraněním peněženky z aplikace taktéž dojde k odebrání jejích souvisejících informací ze serveru.",
     "selfTest": "Autotest",
     "save": "Uložit",
     "success_transaction_broadcasted": "Vaše transakce byla úspěšně odeslána!",

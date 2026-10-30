@@ -318,7 +318,7 @@
     "privacy_do_not_track": "禁用数据分析功能",
     "privacy_do_not_track_explanation": "性能和可靠性信息将不会被提交用于数据分析。",
     "rate": "汇率",
-    "push_notifications_explanation": "启用通知后，您的设备令牌将被发送到服务器，同时还会发送启用通知后所有钱包及交易的地址和交易 ID。设备令牌用于发送通知，而钱包信息则用于通知您比特币到账或交易确认情况。\n\n仅会传输您启用通知之后的信息——启用之前的信息不会被收集。\n\n禁用通知将从服务器中删除所有这些信息。此外，从应用中删除钱包也会删除该钱包在服务器上的相关信息。",
+    "push_notifications_explanation": "可选通知由 BitcoinPurity 的 notifications.bitcoinpurity.org 服务提供。为监测收款，应用会发送设备推送令牌及订阅标识（钱包地址、交易 ID，以及用于通知的发票付款哈希）。服务还会保存通知偏好、语言、应用版本和最近在线时间。运行日志可能包含 IP 地址、设备令牌和订阅标识。\n\n关闭 PurityWallet 内的通知只会停止推送，不会删除服务器上的订阅或偏好设置。卸载应用不会发送退订请求。移除付款订阅会请求删除对应标识，但已有投递记录和日志可能仍然保留。\n\n投递记录通常在约 3 天后清理，运行日志通常保留约 7 天。超过约 90 天的交易 ID 订阅会在服务启动时清理。地址订阅和设备偏好设置可能持续保留，直至被移除。\n\n详情及删除请求请参阅隐私政策：https://github.com/PurityWallet/PurityWallet/blob/master/docs/privacy-policy.md",
     "selfTest": "自检",
     "save": "保存",
     "success_transaction_broadcasted": "您的交易已成功广播！",

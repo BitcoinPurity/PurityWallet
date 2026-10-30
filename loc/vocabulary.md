@@ -336,6 +336,23 @@ Each locale lives in its own file under [`vocabulary/`](vocabulary/). One Markdo
 
 ---
 
+## PurityWallet notification privacy notice (October 25, 2026)
+
+The corrected `settings.push_notifications_explanation` is maintained in `en.json`, `zh_cn.json`, and `zh_tw.json`. The other 68 locale dictionaries omit the obsolete notice and inherit the English text through existing fallback until reviewed translations are available. BitcoinPurity, the service hostname, and policy URL stay untranslated.
+
+| English | Simplified Chinese (`zh_cn`) | Traditional Chinese (`zh_tw`) |
+|---------|-----------------------------|------------------------------|
+| device push token | 设备推送令牌 | 裝置推播權杖 |
+| subscription identifiers | 订阅标识 | 訂閱識別資料 |
+| delivery records | 投递记录 | 投遞紀錄 |
+| operational logs | 运行日志 | 運作日誌 |
+| unsubscribe request | 退订请求 | 取消訂閱請求 |
+| notification preferences | 通知偏好 | 通知偏好 |
+
+The notice distinguishes delivery opt-out from deletion and avoids promising that uninstalling erases server records. Retention wording follows `docs/privacy-policy.md` and the verified node1 deployment.
+
+---
+
 ## Adding a new term
 
 1. Decide which of the 10 categories it belongs to.

@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Analluogi Dadansoddeg",
     "privacy_do_not_track_explanation": "Ni fydd gwybodaeth perfformiad a dibynadwyedd yn cael ei chyflwyno i'w dadansoddi.",
     "rate": "Cyfradd",
-    "push_notifications_explanation": "Drwy alluogi hysbysiadau, bydd tocyn dy ddyfais yn cael ei anfon at y gweinydd, ynghyd â chyfeiriadau waled a IDs trafodion ar gyfer pob waled a thrafodyn a wnaed ar ôl galluogi hysbysiadau. Defnyddir tocyn y ddyfais i anfon hysbysiadau, ac mae gwybodaeth y waled yn caniatáu i ni dy hysbysu am Bitcoin sy'n dod i mewn neu gadarnhad trafodion.\n\nDim ond gwybodaeth o ar ôl iti alluogi hysbysiadau a drosglwyddir—ni chesglir unrhyw beth o cyn hynny.\n\nBydd analluogi hysbysiadau yn gwaredu'r holl wybodaeth hon o'r gweinydd. Yn ogystal, bydd dileu waled o'r ap hefyd yn gwaredu ei gwybodaeth gysylltiedig o'r gweinydd.",
     "selfTest": "Hunan-brawf",
     "save": "Safio",
     "success_transaction_broadcasted": "Mae dy drafodyn wedi'i ddarlledu'n llwyddiannus!",

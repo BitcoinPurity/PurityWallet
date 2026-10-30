@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Vypnúť analytiku",
     "privacy_do_not_track_explanation": "Informácie o výkone a spoľahlivosti nebudú odosielané na analýzu.",
     "rate": "Kurz",
-    "push_notifications_explanation": "Zapnutím notifikácií bude token vášho zariadenia odoslaný na server spolu s adresami peňaženiek a ID transakcií pre všetky peňaženky a transakcie vykonané po zapnutí notifikácií. Token zariadenia sa používa na odosielanie notifikácií a informácie o peňaženke nám umožňujú upozorniť vás na prichádzajúci Bitcoin alebo potvrdenia transakcií.\n\nPrenášajú sa iba informácie po zapnutí notifikácií — nič spred toho sa nezhromažďuje.\n\nVypnutím notifikácií sa všetky tieto informácie zo servera odstránia. Okrem toho zmazanie peňaženky z aplikácie tiež odstráni jej súvisiace informácie zo servera.",
     "selfTest": "Samokontrola",
     "save": "Uložiť",
     "success_transaction_broadcasted": "Vaša transakcia bola úspešne odoslaná!",

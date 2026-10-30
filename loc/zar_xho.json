@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Vala uHlalutyo",
     "privacy_do_not_track_explanation": "Ulwazi lokusebenza nokuthembeka aluzukuthunyelwa ukuze luhlalutywe.",
     "rate": "Ireyithi",
-    "push_notifications_explanation": "Ngokuvula izaziso, itoken yesixhobo sakho iya kuthunyelwa kwiseva, kunye needilesi zengxowa kunye nee-IDs ze-transactions zazo zonke iingxowa kunye nee-transactions ezenziwe emva kokuvula izaziso. Itoken yesixhobo isetyenziselwa ukuthumela izaziso, kwaye ulwazi lwengxowa lusivumela ukukwazisa malunga ne-Bitcoin engenayo okanye ukuqinisekiswa kwe-transactions.\n\nUlwazi kuphela kususela ekuvuleni kwakho izaziso luyathunyelwa—akukho nto ngaphambili iqokelelwayo.\n\nUkuvala izaziso kuya kususa lonke olu lwazi kwiseva. Ukongezelela, ukucima ingxowa kwi-app kukwakhulula ulwazi lwayo lwadibanayo kwiseva.",
     "selfTest": "Uvavanyo lwakho",
     "save": "Ndoloza",
     "success_transaction_broadcasted": "I-transaction yakho isasazwe ngempumelelo!",

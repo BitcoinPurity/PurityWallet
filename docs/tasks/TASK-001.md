@@ -6,7 +6,7 @@ Status: Complete
 
 - Update user-visible product names to `PurityWallet`.
 - Replace application and splash artwork with the Bitcoin Purity icon.
-- Preserve iOS/macOS compatibility identifiers and upstream references; Android identity is defined by TASK-006.
+- Preserve iOS/macOS URL schemes, native modules, and upstream references; iOS identity is defined by TASK-019 and Android identity by TASK-006.
 
 ## Verification
 

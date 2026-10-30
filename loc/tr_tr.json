@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Analitiği Devre Dışı Bırak",
     "privacy_do_not_track_explanation": "Performans ve güvenilirlik bilgileri analiz için gönderilmez.",
     "rate": "Kur",
-    "push_notifications_explanation": "Bildirimleri etkinleştirerek, cihaz tokeniniz, bildirimleri etkinleştirdikten sonra yapılan tüm cüzdanlara ve işlemlere ait cüzdan adresleri ve işlem ID'leri ile birlikte sunucuya gönderilir. Cihaz tokeni bildirim göndermek için kullanılır ve cüzdan bilgileri, gelen Bitcoin veya işlem onayları hakkında sizi bilgilendirmemize olanak tanır.\n\nYalnızca bildirimleri etkinleştirdikten sonraki bilgiler iletilir—öncesinden hiçbir şey toplanmaz.\n\nBildirimleri devre dışı bırakmak, bu bilgilerin tümünü sunucudan kaldırır. Ayrıca, uygulamadan bir cüzdanı silmek, ona ait bilgileri de sunucudan kaldırır.",
     "selfTest": "Kendi Kendine Test",
     "save": "Kaydet",
     "success_transaction_broadcasted": "İşleminiz başarıyla yayınlandı!",

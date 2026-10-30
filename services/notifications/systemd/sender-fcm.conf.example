@@ -1,0 +1,2 @@
+[Service]
+LoadCredential=fcm-key:/etc/puritywallet-notifications/fcm-key

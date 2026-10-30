@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Inaktivera Analytics",
     "privacy_do_not_track_explanation": "Information om prestanda och tillförlitlighet kommer inte att skickas in för analys.",
     "rate": "Kurs",
-    "push_notifications_explanation": "Genom att aktivera aviseringar skickas din enhets-token till servern, tillsammans med plånboksadresser och transaktions-ID för alla plånböcker och transaktioner som görs efter att aviseringar har aktiverats. Enhets-token används för att skicka aviseringar, och plånboksinformationen gör att vi kan meddela dig om inkommande Bitcoin eller transaktionsbekräftelser.\n\nEndast information från efter att du aktiverat aviseringar överförs—inget från tidigare samlas in.\n\nAtt inaktivera aviseringar tar bort all denna information från servern. Att radera en plånbok från appen tar också bort dess associerade information från servern.",
     "selfTest": "Självtest",
     "save": "Spara",
     "success_transaction_broadcasted": "Din transaktion har sänts!",

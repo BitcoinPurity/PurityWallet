@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Keela analüütika",
     "privacy_do_not_track_explanation": "Jõudluse ja töökindluse teavet ei esitata analüüsiks.",
     "rate": "Kurss",
-    "push_notifications_explanation": "Teavituste lubamisel saadetakse sinu seadme luba serverisse koos rahakoti aadresside ja tehingu ID-dega kõigi rahakottide ja teavituste lubamise järel tehtud tehingute kohta. Seadme luba kasutatakse teavituste saatmiseks ja rahakoti teabe abil saame sind teavitada saabuvast Bitcoinist või tehingu kinnitustest.\n\nEdastatakse ainult teave alates teavituste lubamisest—midagi enne seda ei koguta.\n\nTeavituste keelamine eemaldab kogu selle teabe serverist. Lisaks eemaldab rahakoti kustutamine rakendusest ka sellega seotud teabe serverist.",
     "selfTest": "Enesetest",
     "save": "Salvesta",
     "success_transaction_broadcasted": "Sinu tehing on edukalt leviedastatud!",

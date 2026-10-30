@@ -60,6 +60,7 @@ class AppDelegate: RCTAppDelegate, UNUserNotificationCenterDelegate {
         _ = MenuElementsEmitter.sharedInstance()
         NSLog("[MenuElements] AppDelegate: Initialized emitter singleton")
         
+        automaticallyLoadReactNativeWindow = false
         let result = super.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         return result
@@ -491,5 +492,61 @@ class AppDelegate: RCTAppDelegate, UNUserNotificationCenterDelegate {
         } else {
             return super.canPerformAction(action, withSender: sender)
         }
+    }
+}
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowScene = scene as? UIWindowScene,
+              let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
+        var launchOptions = [UIApplication.LaunchOptionsKey: Any]()
+        if let url = connectionOptions.urlContexts.first?.url {
+            launchOptions[.url] = url
+        }
+
+        if let userActivity = connectionOptions.userActivities.first {
+            if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+                launchOptions[.userActivityDictionary] = [
+                    "UIApplicationLaunchOptionsUserActivityTypeKey": userActivity.activityType,
+                    "UIApplicationLaunchOptionsUserActivityKey": userActivity,
+                ]
+            } else {
+                _ = appDelegate.application(UIApplication.shared, continue: userActivity, restorationHandler: { _ in })
+            }
+        }
+
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        appDelegate.window = window
+        appDelegate.reactNativeFactory.startReactNative(
+            withModuleName: appDelegate.moduleName ?? "BlueWallet",
+            in: window,
+            initialProperties: appDelegate.initialProps,
+            launchOptions: launchOptions
+        )
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
+        for context in URLContexts {
+            _ = appDelegate.application(UIApplication.shared, open: context.url, options: [:])
+        }
+    }
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        _ = appDelegate.application(UIApplication.shared, continue: userActivity, restorationHandler: { _ in })
+    }
+
+    func windowScene(
+        _ windowScene: UIWindowScene,
+        performActionFor shortcutItem: UIApplicationShortcutItem,
+        completionHandler: @escaping (Bool) -> Void
+    ) {
+        RNQuickActionManager.onQuickActionPress(shortcutItem, completionHandler: completionHandler)
     }
 }

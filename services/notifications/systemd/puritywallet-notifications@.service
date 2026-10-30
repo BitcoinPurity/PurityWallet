@@ -1,0 +1,37 @@
+[Unit]
+Description=PurityWallet notification service (%i)
+Wants=network-online.target
+After=network-online.target mariadb.service
+Requires=mariadb.service
+
+[Service]
+Type=exec
+DynamicUser=yes
+WorkingDirectory=/opt/puritywallet-notifications/deployment
+EnvironmentFile=/etc/puritywallet-notifications/config.env
+LoadCredential=db-url:/etc/puritywallet-notifications/db-url
+ExecStart=/usr/bin/node --max-old-space-size=320 /opt/puritywallet-notifications/deployment/run.mjs %i
+Restart=always
+RestartSec=5
+TimeoutStartSec=90
+TimeoutStopSec=30
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=yes
+CapabilityBoundingSet=
+UMask=0077
+MemoryMax=512M
+CPUQuota=50%
+TasksMax=128
+LogNamespace=puritywallet-notifications
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, AppStateStatus, EmitterSubscription, Platform } from 'react-native';
-import { getApplicationName, getSystemName, getSystemVersion, getVersion, hasGmsSync, hasHmsSync } from 'react-native-device-info';
+import { getApplicationName, getSystemName, getSystemVersion, getVersion } from 'react-native-device-info';
 import {
   Notification as RNNotification,
   NotificationBackgroundFetchResult,
@@ -619,9 +619,10 @@ const configureNotifications = async (onProcessNotifications?: () => void): Prom
   }
 };
 
-export const isNotificationsCapable = hasGmsSync() || hasHmsSync() || Platform.OS !== 'android';
+export const isNotificationsCapable = Platform.OS === 'ios';
 
-export const getPushToken = async (): Promise<TPushToken> => {
+export const getPushToken = async (): Promise<TPushToken | null> => {
+  if (!isNotificationsCapable) return null;
   try {
     const token = await AsyncStorage.getItem(PUSH_TOKEN);
     return JSON.parse(String(token)) as TPushToken;
@@ -787,6 +788,7 @@ export const getStoredNotifications = async (): Promise<TPayload[]> => {
 
 // on app launch (load module):
 export const initializeNotifications = async (onProcessNotifications?: () => void) => {
+  if (!isNotificationsCapable) return;
   console.log('initializeNotifications: Starting initialization');
 
   try {

@@ -117,3 +117,16 @@
 - Build a single universal APK covering all four architectures present in public 1.0.0: `armeabi-v7a`, `arm64-v8a`, `x86`, and `x86_64`. Sign with the recovered original release key and verify package/version/signature continuity and in-place upgrade behavior.
 - Verify an in-place emulator upgrade of the original Android package without uninstalling it or clearing its data. Keep the separate experimental `au.com.bitcoininstitute.puritywallet` Android app/data untouched.
 - Keep Apple Bundle IDs/App Groups under `au.com.bitcoininstitute.puritywallet`, and preserve the GitHub organization `PurityWallet`.
+
+## REQ-018: Operate a BitcoinPurity notification service
+
+- Deploy the wallet notification backend on `ubuntu@node1` and expose it at `https://notifications.bitcoinpurity.org`.
+- Send push tokens and payment subscriptions only to the BitcoinPurity service, with no fallback to BlueWallet-operated notification endpoints.
+- Preserve the existing Ground Control registration, configuration, unsubscribe, and test-notification API contracts.
+- Observe the Purity chain and use the PurityWallet APNs topic `au.com.bitcoininstitute.puritywallet`.
+- Enable production iOS delivery only for this release; temporarily disable Android remote push registration and its settings entry until BitcoinPurity FCM credentials are available.
+- Keep the optional Ark payment-push endpoint disabled while Ark creation is unavailable and no BitcoinPurity equivalent is deployed.
+- Validate the deployed backend before rebuilding and submitting the iOS release; update the public privacy policy to match the actual service and retention behavior.
+- Align the in-app notification disclosure with the deployed retention rules: disabling delivery or uninstalling does not erase server records; unsubscribe removes the specified payment subscriptions, not existing logs. Describe delivery records (about 3 days), operational logs (about 7 days), startup cleanup of transaction-ID subscriptions older than about 90 days, and address/preferences retention until removal.
+- Maintain complete English, Simplified Chinese, and Traditional Chinese notification disclosures; other locales use the existing English fallback until their corrected translations are available. Preserve this disclosure when rebuilding the current release.
+- Align the backend APNs topic with REQ-016. Prior device-delivery evidence belongs to the old Apple identity; verify new Apple app records, profiles, credentials, and actual-device delivery before distributing the new identity. This source integration does not modify deployed services.

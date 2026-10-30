@@ -1,5 +1,11 @@
 # Migration report
 
+## October 30 local and remote integration
+
+Fast-forward master to origin/master and retain the local notification service, iOS-only client registration, privacy disclosures, privacy manifest, SceneDelegate startup, and build preparation. Keep the remote Apple Bundle IDs/App Group, public version 1.1.0, replay checks, and Coinbase spendability changes. Keep the Android package and preference namespace unchanged.
+
+Remote TASK-008/TASK-009 and REQ-007/REQ-008 retain their Coinbase meanings. The previous local iOS release record is archived as TASK-021, superseded for current identity by TASK-019/REQ-016. Local notification work becomes TASK-022/REQ-018. Existing deployment and TestFlight evidence remains historical; this merge performs no external deployment or Apple configuration changes. Integration verification passed 289 focused Jest tests, 12 backend tests (including the pinned-upstream cache regression), and 4 host-configuration tests. Full lint/TypeScript and Apple/Ruby syntax checks passed; lint retains three unrelated formatting warnings. See TASK-022 for coverage and release limits.
+
 ## Preserve the established Android upgrade path
 
 Supersede the Android portion of the identity unification: retain `org.bitcoinpurity.puritywallet` and `group.io.bluewallet.bluewallet`, restoring native/codegen/store/install configuration and existing preferences. Shared currency/privacy JavaScript selects the original Android preference group and the new Apple group per platform. Apple identifiers remain under `au.com.bitcoininstitute.puritywallet`. Increase the Android local version code to 2 and allow the release script to replace any numeric base code.
@@ -91,3 +97,13 @@ Run `40625679228` built successfully but failed UI tests because a SystemUI star
 ## E2E compatibility with Purity features
 
 The UI tests now use the existing default wallet type and obey the disabled wallet-type/Lightning flags. Per the user's explicit choice, three vault-creation cases are skipped until that UI is enabled. Historical Bitcoin multisig signatures move to offline cryptographic validation; native UR import and Send/Coin Control remain exercised on Purity. No application or wallet-data migration is needed. Funded Purity multisig cosign-screen E2E coverage remains a limitation.
+
+## BitcoinPurity notification ownership (historical deployment)
+
+The iOS release depends on a compatible notification backend on node1 at `notifications.bitcoinpurity.org`. Client registration moves from Ground Control's BlueWallet host to this BitcoinPurity endpoint. The optional Ark push endpoint stays empty while no BitcoinPurity equivalent is deployed. Existing subscription payload formats remain compatible; backend source is consumed without modifying the upstream dependency. APNs credentials, chain selection, HTTPS, provider responses, and the public privacy policy must be verified before rebuilding the release archive. Actual-device delivery is verified with that signed build before App Review submission.
+
+The backend now runs on node1 with verified HTTPS, renewal, API contracts, Purity RPC observation, and a topic-specific production APNs key. A synthetic push received Apple's expected `BadDeviceToken` response; the subsequent genuine-device test received Apple HTTP 200 and the user confirmed iPhone receipt. Android remote push is temporarily disabled by user decision while BitcoinPurity FCM credentials are unavailable. The public privacy policy has been updated to reflect the service and retention configuration.
+
+The notification privacy notice no longer promises automatic deletion when delivery is disabled or the wallet is uninstalled. It follows the verified retention policy, with complete English and Chinese copy and existing English fallback for other locales. This disclosure correction is available in TestFlight as iOS `1.0.0 (2)`; it does not alter the notification protocol or wallet data.
+
+The deployment and TestFlight results above concern APNs topic `org.bitcoinpurity.puritywallet`. During the October 30 source integration, Apple identifiers remain those selected by origin/master (`au.com.bitcoininstitute.puritywallet`), and the notification startup validation/example now require that matching topic. New topic credentials, provisioning profiles, app records, and actual-device delivery have not been deployed or verified by this integration.

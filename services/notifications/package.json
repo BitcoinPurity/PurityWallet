@@ -1,0 +1,11 @@
+{
+  "name": "puritywallet-notification-deployment",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.11.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}

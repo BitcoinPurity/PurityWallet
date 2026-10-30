@@ -8,7 +8,7 @@ The initial Android-only identity below is historical. TASK-020 restores this An
 
 - Publish Android PurityWallet as `org.bitcoinpurity.puritywallet` so it can coexist with BlueWallet.
 - Align Android native code packages, React Native codegen metadata, Firebase package metadata, and install/test scripts.
-- Keep iOS/macOS identifiers, shared storage key strings, protocols, and wallet formats unchanged.
+- Keep iOS/macOS URL schemes, shared storage key strings, protocols, and wallet formats unchanged; iOS application identifiers are defined by TASK-019.
 - Document that existing BlueWallet data requires backup/import rather than automatic migration.
 
 ## Verification

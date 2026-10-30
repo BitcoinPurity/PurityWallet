@@ -1,56 +1,18 @@
-PurityWallet is a radically simple, powerful and secure Bitcoin wallet. Store, send and receive Bitcoin while staying in full control — your keys, your coins.
+PurityWallet is a self-custody wallet for Bitcoin Purity (BTC1), for creating or restoring wallets, receiving funds, and making payments from your device.
 
-Free and open source, built by Bitcoin users for the community. Transact with anyone in the world and take charge of your money, right from your pocket. Create unlimited wallets for free or import an existing one — it's fast and simple.
+Create a standard wallet or import a supported wallet. Use watch-only and multisig setups to monitor funds or organize shared spending. Connect to an Electrum server, including the Bitcoin Purity network default, or configure your own.
 
-_____
+WALLET FEATURES
 
-SECURITY BY DESIGN
+• Create and restore a Bitcoin Purity wallet.
+• Receive, send, and review Bitcoin Purity transactions.
+• Choose transaction fees and manage UTXOs with coin control.
+• Import watch-only and multisig wallets, and use supported hardware-wallet workflows.
+• Connect to your own Electrum server.
+• Use device security options to help protect access to your wallet.
 
-Open source
-MIT licensed — audit it, build it and run it yourself. Made with React Native.
+No account or sign-in is required. Keep your recovery backup secure.
 
-Your keys, your coins
-Private keys (your seed) never leave your device. You are always in control.
+PurityWallet uses a separate app container from BlueWallet. Existing BlueWallet app data does not transfer automatically; back up your wallet and import it into PurityWallet.
 
-Multisig Vault
-The best security available on Bitcoin — multiple keys are required to spend, just like a real vault.
-
-Full encryption
-On top of the device encryption, everything is encrypted again with your own password.
-
-Plausible deniability
-Set a decoy password that opens fake wallets if you are ever forced to unlock.
-
-_____
-
-POWER AND CONTROL
-
-Modern wallets
-HD wallets with full support for Legacy, SegWit and Taproot addresses.
-
-Hardware wallets
-Pair Coldcard, Keystone and other PSBT signers, and keep your coins in cold storage.
-
-Watch-only wallets
-Keep an eye on your cold storage without ever exposing your private keys.
-
-Run your own node
-Connect to your own Bitcoin full node over Electrum, and route your connection through Tor.
-
-Coin control
-See, label and freeze your coins (UTXOs) to build transactions exactly the way you want.
-
-Flexible fees
-Set your own fee, down to 1 sat/vByte. Speed up stuck transactions with RBF or CPFP, or cancel them.
-
-_____
-
-LIGHTNING NETWORK
-
-Unfairly cheap and blazing fast payments with zero configuration. Pay and get paid with Lightning addresses and LNURL.
-
-_____
-
-Available on iOS, Android and macOS. Multiple currencies and languages. Dark mode. No accounts and no tracking — just Bitcoin.
-
-PurityWallet — own your Bitcoin.
+Lightning wallet creation and Lightning network settings are not available in this release.

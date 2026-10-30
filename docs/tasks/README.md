@@ -20,3 +20,5 @@
 - [TASK-018: Update the canonical GitHub repository to PurityWallet/PurityWallet](TASK-018.md)
 - [TASK-019: Unify Android and Apple application identities](TASK-019.md) — supersedes the initial identity in TASK-006.
 - [TASK-020: Preserve existing Android APK upgrades](TASK-020.md) — supersedes the Android identity changes in TASK-019; includes the four-ABI universal release.
+- [TASK-021: Independent iOS identity and historical release record](TASK-021.md) — prior local TASK-008; current Apple identity follows TASK-019.
+- [TASK-022: Deploy BitcoinPurity payment notifications](TASK-022.md) — REQ-018; prior local TASK-009, including retention disclosures and historical TestFlight verification.

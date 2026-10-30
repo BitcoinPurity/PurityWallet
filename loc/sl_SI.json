@@ -316,7 +316,6 @@
     "privacy_do_not_track": "Onemogoči analitiko",
     "privacy_do_not_track_explanation": "Informacije o zmogljivosti in zanesljivosti ne bodo poslane v analizo.",
     "rate": "Tečaj",
-    "push_notifications_explanation": "Z omogočanjem obvestil bo žeton vaše naprave poslan na strežnik, skupaj z naslovi denarnic in ID-ji transakcij za vse denarnice in transakcije, izvedene po omogočanju obvestil. Žeton naprave se uporablja za pošiljanje obvestil, podatki o denarnici pa nam omogočajo, da vas obvestimo o prejetih Bitcoinih ali potrditvah transakcij.\n\nPrenašajo se samo informacije od trenutka, ko omogočite obvestila — ničesar od prej se ne zbira.\n\nOnemogočanje obvestil bo iz strežnika odstranilo vse te informacije. Dodatno, brisanje denarnice iz aplikacije bo iz strežnika odstranilo tudi pripadajoče informacije.",
     "selfTest": "Samotestiranje",
     "save": "Shrani",
     "success_transaction_broadcasted": "Vaša transakcija je bila uspešno objavljena v omrežju!",
