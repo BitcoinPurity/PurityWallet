@@ -133,12 +133,18 @@ The Wallet Details Coins statistic counts all owned UTXOs, including immature, u
 
 The public multisig integration fixture validates its current balance against transaction-history accounting and retains its immutable historical funding assertion. A deterministic funded-to-empty refresh test preserves positive-balance coverage without requiring public funds to remain unspent. Lint, unit and integration jobs must pass in a clean Node 24 Linux container before this repair is committed and pushed; tests requiring unavailable secrets remain explicitly unverified.
 
-## Native CI and signed release scope
+## Native CI and release-build scope
 
-PRs use the existing iOS/Android E2E build workflows and lint/unit/integration checks. Signed iOS and Android release workflows run only for pushes to `master` or manual dispatch and continue to require real signing credentials. Android SDK setup explicitly installs `platform-tools`, avoiding the removed legacy `tools` default.
+PRs use the existing iOS/Android E2E build workflows and lint/unit/integration checks. Android and iOS release-build workflows run only for pushes to `master` or manual dispatch. Under REQ-019 they produce unsigned artifacts without release-signing credentials. Android SDK setup explicitly installs `platform-tools`, avoiding the removed legacy `tools` default.
 
 Android E2E preparation waits for boot broadcasts (at most 120 seconds) and closes stale system dialogs before starting Detox. API 36 and the complete test suite remain enabled. ANR/crash reporting and application dialogs during test execution remain unchanged.
 
 ## E2E feature compatibility (REQ-013)
 
 Default creation and entropy tests follow the preselected on-chain wallet type. Three vault-creation cases follow the production wallet-type flag; Lightning scan branches follow the Lightning flag. Multisig UR import and Send/Coin Control remain native UI checks. Historical Bitcoin hardware signatures are decoded, combined and cryptographically validated offline, without assuming Bitcoin funds exist on Purity. Production feature flags, endpoints and transaction rules remain unchanged.
+
+## Unsigned CI release artifacts (REQ-019)
+
+Android CI builds a Release APK without a keystore or post-build signing and uploads it as `unsigned-apk`. iOS CI archives the Release app for a generic physical iOS device with code signing disabled, then uploads the `.xcarchive` as a compressed `unsigned-ios-archive` artifact. Both preserve the app version and timestamp-based build number.
+
+CI performs no Apple keychain/provisioning setup, App Store IPA export, or TestFlight upload. Unsigned artifacts require appropriate signing for installation/distribution; local/manual signed-release tools remain available. Native PR E2E checks, wallet behavior, identities, and production upgrade-signature requirements remain unchanged.

@@ -1,5 +1,11 @@
 # Migration report
 
+## Unsigned Android and iOS CI builds
+
+REQ-019 / TASK-023 supersedes CI release-signing behavior in REQ-011 / TASK-013. Remove Android keystore/signing steps and Apple keychain/provisioning/export/TestFlight steps from the release workflows. Retain build-number progression and upload explicitly unsigned APK and compressed iOS archive artifacts. Existing identities, wallet data, local/manual signed-release tools, PR validation, and production signing/upgrade requirements remain unchanged. No service deployment or app-store change is performed.
+
+Six workflow regression cases failed before implementation and passed afterward, exercising the actual YAML scripts with stubbed native builders and no signing credentials. Both workflows passed actionlint, all 20 embedded shell scripts passed syntax checks, and full lint passed with three existing unrelated formatting warnings. Actual hosted native builds and installation/distribution remain unverified by these local checks.
+
 ## October 30 local and remote integration
 
 Fast-forward master to origin/master and retain the local notification service, iOS-only client registration, privacy disclosures, privacy manifest, SceneDelegate startup, and build preparation. Keep the remote Apple Bundle IDs/App Group, public version 1.1.0, replay checks, and Coinbase spendability changes. Keep the Android package and preference namespace unchanged.

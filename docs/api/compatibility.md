@@ -68,7 +68,7 @@ Wallet Details reads the existing `getUtxo(true)` complete-set contract for its 
 
 Multisig CI validation reconciles the existing wallet balance with transaction history using the same Electrum methods. This test-only repair does not change balance policy, RPC requirements, derivation, signing or stored wallet formats. See [wallet balance validation](../architecture/testing.md).
 
-Restricting signed-release workflows to `master` pushes/manual dispatch and overriding the Android SDK package list changes CI scheduling/setup only. Signing identities, publishing credentials, application protocols and wallet storage are unchanged; native E2E build checks remain enabled for PRs.
+Release-build workflows remain limited to `master` pushes/manual dispatch. Under REQ-019 CI produces unsigned Android APK and iOS archive artifacts without signing credentials or TestFlight upload. This changes build/distribution behavior only; local/manual signing, application identities, wallet APIs/storage, and native PR E2E checks remain unchanged. Unsigned artifacts are not production-signed updates.
 
 Android E2E boot preparation uses standard API 36 `am` shell commands before Detox starts. It changes no application APIs, permissions, wallet state, runtime dialog policy or test selection.
 

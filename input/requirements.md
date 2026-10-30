@@ -66,11 +66,11 @@
 - Retain fixed historical funding assertions and deterministic coverage of funded-to-empty balance refreshes.
 - Run the lint, unit and integration jobs in a clean Node 24 Linux container before committing and pushing the repair; retain existing secrets-related coverage limitations.
 
-## REQ-011: Separate native PR validation from signed releases
+## REQ-011: Separate native PR validation from release builds
 
-- Run iOS and Android signed-release workflows only on pushes to `master` or manual dispatch; PRs retain the existing native E2E build checks and lint/unit/integration checks.
+- Run iOS and Android release-build workflows only on pushes to `master` or manual dispatch; PRs retain the existing native E2E build checks and lint/unit/integration checks.
 - Explicitly request `platform-tools` from the Android SDK setup action rather than its removed default `tools` package.
-- Preserve production signing requirements; do not create substitute credentials or treat an unconfigured signed release as verified.
+- CI builds unsigned artifacts under REQ-019. Actual distribution still requires the correct production signing identity outside these CI workflows.
 
 ## REQ-012: Prepare Android emulator UI before E2E launch
 
@@ -130,3 +130,11 @@
 - Align the in-app notification disclosure with the deployed retention rules: disabling delivery or uninstalling does not erase server records; unsubscribe removes the specified payment subscriptions, not existing logs. Describe delivery records (about 3 days), operational logs (about 7 days), startup cleanup of transaction-ID subscriptions older than about 90 days, and address/preferences retention until removal.
 - Maintain complete English, Simplified Chinese, and Traditional Chinese notification disclosures; other locales use the existing English fallback until their corrected translations are available. Preserve this disclosure when rebuilding the current release.
 - Align the backend APNs topic with REQ-016. Prior device-delivery evidence belongs to the old Apple identity; verify new Apple app records, profiles, credentials, and actual-device delivery before distributing the new identity. This source integration does not modify deployed services.
+
+## REQ-019: Build Android and iOS CI artifacts without release signing
+
+- Keep the existing master-push/manual release-build triggers, app identities, public version, build-number progression, and PR E2E/test workflows.
+- Build and upload an explicitly unsigned Android Release APK without release keystores, signing passwords, or substitute signing keys.
+- Build and upload an unsigned iOS device archive with code signing disabled; do not create/import signing keychains, fetch provisioning profiles, export an App Store IPA, or upload to TestFlight in CI.
+- Remove CI dependencies on Android and Apple release-signing credentials. Retain local/manual signed-release tooling and production signing requirements outside these workflows.
+- Label CI artifacts as unsigned. They require appropriate signing before installation or distribution and do not verify a production release or upgrade.
