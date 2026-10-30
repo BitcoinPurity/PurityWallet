@@ -209,7 +209,6 @@ jobs:
           fi
           xcrun simctl boot "$UDID" 2>/dev/null || true
           xcrun simctl bootstatus "$UDID" -b
-          xcrun simctl launch "$UDID" com.apple.springboard >/dev/null 2>&1 || true
 
       # Cut animations so detox sync stays steady on slow CI VMs; Reduce Motion makes reanimated skip to final value.
       - name: Disable simulator animations
