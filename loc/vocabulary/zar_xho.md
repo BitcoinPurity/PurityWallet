@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | coin control | noun · ⚠️ NOT Title Case. · en passthrough (no upstream) |
 | Frozen | frozen | adj/state · ⚠️ NOT verb "to freeze". · en passthrough (no upstream) |
 | **_Security & storage_** | | |
+| Replay risk | umngcipheko wokuphindwa | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | indawo yokugcina enoguqulelo oluntsonkothileyo | ⚠️ NOT Title Case · en passthrough (no upstream). |
 | Plausible Deniability | ukuphika | ⚠️ NOT Title Case. Lit. "denial". |
 | Biometrics | biometrics | noun · en passthrough (no upstream) |

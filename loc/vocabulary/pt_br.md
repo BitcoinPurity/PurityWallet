@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | controle de moedas / controle de UTXO | noun, lowercase · mainstream / technical · ⚠️ NOT Title Case · Electrum pt_BR + Cake pt_BR. |
 | Frozen | congelado / congelada | adj · masculine / feminine agreement · ⚠️ NOT verb "congelar" · Electrum pt_BR + Cake pt_BR. |
 | **_Security & storage_** | | |
+| Replay risk | risco de repetição | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | armazenamento criptografado / criptografia de armazenamento | noun, lowercase · ⚠️ NOT Title Case. App ships both forms in different strings. |
 | Plausible Deniability | negação plausível | noun, lowercase · ⚠️ NOT Title Case. |
 | Biometrics | biometria | noun, lowercase · Cake pt_BR. |

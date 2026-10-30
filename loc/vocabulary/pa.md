@@ -77,6 +77,7 @@ Note: Punjabi (Gurmukhi, LTR) is not well covered by upstream Bitcoin/Lightning 
 | Coin Control | ਸਿੱਕਾ ਕੰਟਰੋਲ | noun · "coin control" (Gurmukhi has no casing). ⚠️ NOT Title Case. |
 | Frozen | ਜੰਮਿਆ | adj/state · "frozen". ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | ਮੁੜ ਚਲਾਏ ਜਾਣ ਦਾ ਜੋਖਮ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ਇਨਕ੍ਰਿਪਟ ਕੀਤੀ ਸਟੋਰੇਜ | noun · "encrypted storage" (transliteration). ⚠️ NOT Title Case. |
 | Plausible Deniability | ਸੰਭਾਵੀ ਇਨਕਾਰ | noun · "plausible denial" (no upstream wallet citation). ⚠️ NOT Title Case. |
 | Biometrics | ਬਾਇਓਮੈਟ੍ਰਿਕਸ | noun · transliteration (no upstream wallet citation). |

@@ -76,6 +76,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Frozen | 已凍結 / 凍結 | adj / verb · state form preferred · ⚠️ NOT verb "凍結"; for adj/state prefer `已凍結`. |
 | Immature | 未成熟 | Coinbase 獎勵尚未達到 100 次確認；狀態標籤，與凍結及無法核實鏈高不同。 |
 | **_Security & storage_** | | |
+| Replay risk | 重放風險 | A transaction may also spend the corresponding BTC on the Bitcoin Core chain; failed checks require acknowledgement of this uncertainty before continuing. |
 | Encrypted storage | 加密儲存空間 / 加密儲存 | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | 合理推諉 | noun · ⚠️ NOT Title Case · zh.wikipedia.org/wiki/合理推諉. |
 | Biometrics | 生物辨識 / 生物識別 | noun · Zeus zh-TW `生物辨識` (more idiomatic in zh-TW). |

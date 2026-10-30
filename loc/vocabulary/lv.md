@@ -77,6 +77,7 @@ Note: Bitcoin Core ships a partial Latvian locale (`bitcoin_lv.ts`) and Electrum
 | Coin Control | monētu kontrole / UTXO pārvaldība | noun · "coin control" / technical "UTXO management". ⚠️ NOT Title Case. |
 | Frozen | iesaldēts | adj/state · "frozen". ⚠️ NOT verb "iesaldēt" (to freeze). |
 | **_Security & storage_** | | |
+| Replay risk | atkārtotas izpildes risks | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | šifrēta krātuve | noun · "encrypted storage". ⚠️ NOT Title Case. |
 | Plausible Deniability | ticama noliedzamība | noun · "plausible deniability". ⚠️ NOT Title Case. |
 | Biometrics | biometrija | noun · standard Latvian. |

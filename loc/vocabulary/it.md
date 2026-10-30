@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | coin control / controllo delle monete | noun · technical (kept English in app) / mainstream · ⚠️ NOT Title Case in body text · Electrum it + Zeus it ("Controllo delle monete") + Cake it ("Controllo valute") + Trezor it ("Controllo coin"). |
 | Frozen | congelato / congelata | adj · masc / fem-agreement · ⚠️ NOT verb "congelare" · Electrum it + Zeus it + Cake it. |
 | **_Security & storage_** | | |
+| Replay risk | rischio di replay | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | archivio cifrato / cifratura dell'archivio | noun, lowercase · canonical (Encrypted Storage) / Storage Encryption sense · ⚠️ NOT Title Case · Electrum it ("Cifrato"). |
 | Plausible Deniability | negazione plausibile | noun, lowercase · ⚠️ NOT Title Case · Zeus it. |
 | Biometrics | dati biometrici / autenticazione biometrica | noun · short (shipped) / explanatory · Zeus it ("Biometrico") + Trezor it. |

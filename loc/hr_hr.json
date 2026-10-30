@@ -119,6 +119,10 @@
     "bip47_explanation": "Kodovi plaćanja su univerzalna adresa koja izbjegava otkrivanje adresa vašeg novčanika. Ne podržavaju ih sve usluge."
   },
   "send": {
+    "legacy_replay_title": "Rizik ponavljanja na mreži Bitcoin Core",
+    "legacy_replay_warning": "Svi ulazi postoje i kao nepotrošeni izlazi na lancu Bitcoin Core. Ova se transakcija može ponoviti na tom lancu i potrošiti odgovarajuće BTC. Nastavite samo ako razumijete i prihvaćate ovaj rizik.",
+    "legacy_replay_accept": "Razumijem i prihvaćam rizik — nastavi",
+    "legacy_check_failed": "Nije bilo moguće provjeriti sve ulaze na lancu Bitcoin Core putem usluge mempool.space. Rizik ponavljanja nije poznat; ova transakcija može potrošiti odgovarajuće BTC i na tom lancu. Pokušajte ponovno ili nastavite samo ako razumijete i prihvaćate ovaj rizik.",
     "provided_address_is_invoice": "Ova adresa izgleda kao Lightning faktura. Molimo otvorite svoj Lightning novčanik kako biste platili ovu fakturu.",
     "broadcastButton": "Objavi",
     "broadcastError": "Greška",
@@ -621,6 +625,9 @@
     "error": "Unos nije djelomična mnemonička fraza od 11 ili 23 riječi. Pokušajte ponovno."
   },
   "cc": {
+    "legacy_shared": "⚠ Rizik ponavljanja: nepotrošeno i na mreži Bitcoin Core",
+    "legacy_checking": "Provjera lanca Bitcoin Core…",
+    "legacy_unknown": "⚠ Provjera lanca Bitcoin Core nije uspjela",
     "change": "Ostatak",
     "coins_selected": "Odabrane kovanice ({number})",
     "selected_summ": "{value} odabrano",

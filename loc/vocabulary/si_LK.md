@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | කාසි පාලනය | noun. |
 | Frozen | කැටි කළ / නිශ්චල | adj · state form · ⚠️ NOT verb "කැටි කරන්න" (= to freeze). Shipped mixes verb + adj — keep adjective form. |
 | **_Security & storage_** | | |
+| Replay risk | නැවත ක්‍රියාත්මක වීමේ අවදානම | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | සංකේතනය කළ ගබඩාව | noun. |
 | Plausible Deniability | පිළිගතහැකි ප්‍රතික්ෂේප කිරීම | noun. |
 | Biometrics | ජෛවමිතික | noun. |

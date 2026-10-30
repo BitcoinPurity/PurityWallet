@@ -1,15 +1,15 @@
 import {
   dismissAlertByText,
+  enableOfflineMode,
   goBack,
   hashIt,
   helperDeleteWallet,
-  helperImportWallet,
   scanText,
   scrollUpOnHomeScreen,
-  sleep,
   tapHeaderMenuItem,
   waitForId,
   waitForKeyboardToClose,
+  waitForText,
 } from './helperz';
 
 // if loglevel is set to `error`, this kind of logging will still get through
@@ -40,29 +40,23 @@ describe('BlueWallet UI Tests - import Watch-only wallet (zpub)', () => {
       delete: true,
       permissions: { notifications: 'YES', camera: 'YES' },
     });
-    await helperImportWallet(
-      // MNEMONICS_KEYSTONE
-      'zpub6s2EvLxwvDpaHNVP5vfordTyi8cH1fR8usmEjz7RsSQjfTTGU2qA5VEcEyYYBxpZAyBarJoTraB4VRJKVz97Au9jRNYfLAeeHC5UnRZbz8Y',
-      'watchOnly',
-      'Imported Watch-only',
-      '0.0001',
-    );
-    // wait for transactions to be loaded
-    try {
-      await waitFor(element(by.id('NoTransactionsMessage')))
-        .not.toExist()
-        .withTimeout(14_000);
-      await sleep(1000);
-    } catch (_) {}
-
-    try {
-      // in case notification popup appeared early and is blocking taps
-      await element(by.text(`No, and do not ask me again.`)).tap();
-    } catch (_) {}
+    await enableOfflineMode();
+    await element(by.id('CreateAWallet')).tap();
+    await waitForId('ImportWallet');
+    await element(by.id('ImportWallet')).tap();
+    await waitForId('ScanImport');
+    await element(by.id('ScanImport')).tap();
+    await scanText('zpub6s2EvLxwvDpaHNVP5vfordTyi8cH1fR8usmEjz7RsSQjfTTGU2qA5VEcEyYYBxpZAyBarJoTraB4VRJKVz97Au9jRNYfLAeeHC5UnRZbz8Y');
+    await waitForText('OK');
+    await dismissAlertByText('OK');
+    await scrollUpOnHomeScreen();
+    await element(by.text('Imported Watch-only')).tap();
+    await waitForId('WalletBalance');
+    await expect(element(by.id('WalletBalance'))).toHaveText('0');
 
     await element(by.id('ReceiveButton')).tap();
     await expect(element(by.id('BitcoinAddressQRCode'))).toBeVisible();
-    await expect(element(by.label('bc1qgrhr5xc5774maph97d73ydrjlqqmg2v6jjlr29'))).toBeVisible();
+    await expect(element(by.label('bc1q8tart7tv6da6ylqauf2fde23vwgpsakxznkf7c'))).toBeVisible();
     await element(by.id('SetCustomAmountButton')).tap();
     await element(by.id('BitcoinAmountInput')).replaceText('1');
     await element(by.id('CustomAmountDescription')).typeText('Test');
@@ -74,7 +68,7 @@ describe('BlueWallet UI Tests - import Watch-only wallet (zpub)', () => {
 
     await expect(element(by.id('BitcoinAddressQRCode'))).toBeVisible();
 
-    await expect(element(by.label('bitcoin:BC1QGRHR5XC5774MAPH97D73YDRJLQQMG2V6JJLR29?amount=1&label=Test'))).toBeVisible();
+    await expect(element(by.label('bitcoin:BC1Q8TART7TV6DA6YLQAUF2FDE23VWGPSAKXZNKF7C?amount=1&label=Test'))).toBeVisible();
     await goBack();
     await element(by.id('SendButton')).tap();
     // Offline-signing prompt; liquid-glass OK often fails plain toBeVisible taps.
@@ -117,7 +111,7 @@ describe('BlueWallet UI Tests - import Watch-only wallet (zpub)', () => {
     await goBack();
     await scrollUpOnHomeScreen(); // on the ios we need to scroll up to the wallet list
 
-    await helperDeleteWallet('Imported Watch-only', '10000');
+    await helperDeleteWallet('Imported Watch-only');
 
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });

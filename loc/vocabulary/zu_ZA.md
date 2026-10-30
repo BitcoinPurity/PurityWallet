@@ -77,6 +77,7 @@ Note: upstream wallet projects (Bitcoin Core, Electrum, Phoenix, Zeus, Trezor, C
 | Coin Control | ukulawula izinhlamvu | noun · "control of coins". ⚠️ NOT Title Case (Zulu sentence case). |
 | Frozen | kuqandisiwe | adj/state · "has been frozen". ⚠️ NOT verb `qandisa` "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | ingozi yokuphindwa kokuthengiselana | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | isitoreji esibethelwe | noun · "encrypted storage" (`bethela` = encode/lock). ⚠️ NOT Title Case. |
 | Plausible Deniability | ukuphika okunokwenzeka | noun · "deniability that is plausible". ⚠️ NOT Title Case. |
 | Biometrics | i-biometrics | noun · kept Latin/transliteration; no native rendering. |

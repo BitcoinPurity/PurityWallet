@@ -119,6 +119,10 @@
     "bip47_explanation": "Les codes de paiement sont une adresse universelle qui évite de divulguer vos adresses de portefeuille. Tous les services ne les prennent pas en charge."
   },
   "send": {
+    "legacy_replay_title": "Risque de rejeu sur Bitcoin Core",
+    "legacy_replay_warning": "Toutes les entrées existent aussi comme sorties non dépensées sur la chaîne Bitcoin Core. Cette transaction pourrait y être rejouée et dépenser les BTC correspondants. Continuez uniquement si vous comprenez et acceptez ce risque.",
+    "legacy_replay_accept": "Je comprends et accepte le risque — continuer",
+    "legacy_check_failed": "Impossible de vérifier toutes les entrées sur la chaîne Bitcoin Core via mempool.space. Le risque de rejeu est inconnu ; cette transaction pourrait aussi dépenser les BTC correspondants sur cette chaîne. Vous pouvez réessayer ou continuer uniquement si vous comprenez et acceptez ce risque.",
     "provided_address_is_invoice": "Cette adresse semble correspondre à une facture Lightning. Veuillez utiliser votre portefeuille Lightning pour payer cette facture.",
     "broadcastButton": "Diffuser",
     "broadcastError": "erreur",
@@ -621,6 +625,9 @@
     "error": "L'entrée n'est pas un mnémonique partiel de 11 ou 23 mots. Veuillez réessayer."
   },
   "cc": {
+    "legacy_shared": "⚠ Risque de rejeu : également non dépensé sur Bitcoin Core",
+    "legacy_checking": "Vérification de la chaîne Bitcoin Core…",
+    "legacy_unknown": "⚠ Échec de la vérification de Bitcoin Core",
     "change": "monnaie rendue",
     "coins_selected": "UTXO sélectionnés ({number})",
     "selected_summ": "{value} sélectionné",

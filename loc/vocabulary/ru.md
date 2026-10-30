@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | управление UTXO / управление монетами | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. Shipped: `Управление монетами`. |
 | Frozen | заморожен / заморожено | adj · masc-agreement / state form · ⚠️ NOT verb "заморозить" · Electrum ru |
 | **_Security & storage_** | | |
+| Replay risk | риск повтора транзакции | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | шифрование хранилища / зашифрованное хранилище | noun, lowercase · process / state · ⚠️ NOT Title Case. |
 | Plausible Deniability | двойное дно | noun, lowercase · idiomatic Russian for "hidden compartment"; not a literal calque. Shipped: `Двойное дно`. |
 | Biometrics | биометрия | noun, lowercase. |

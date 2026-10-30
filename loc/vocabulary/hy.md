@@ -77,6 +77,7 @@ Note on sources: Bitcoin Core ships **no** Armenian locale (`bitcoin_hy.ts` 404s
 | Coin Control | UTXO-ների կառավարում / մետաղադրամների կառավարում | noun · technical UTXO form / "coin management" (no upstream wallet citation). ⚠️ NOT Title Case (Armenian has no Title Case). |
 | Frozen | սառեցված | adj/state · "frozen" (no upstream wallet citation). ⚠️ NOT verb "to freeze" (`սառեցնել`). |
 | **_Security & storage_** | | |
+| Replay risk | կրկնման վտանգ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | գաղտնագրված պահեստ | noun · ⚠️ NOT Title Case. "encrypt" = գաղտնագրել (Electrum hy uses `Ծածկագրել`, also valid). |
 | Plausible Deniability | ճշմարտանման ժխտում / հավանական ուրացում | noun · ⚠️ NOT Title Case. "plausible denial" — calque (no upstream wallet citation). |
 | Biometrics | բիոմետրիա / կենսաչափական նույնականացում | noun · transliteration / "biometric identification" (no upstream wallet citation). |

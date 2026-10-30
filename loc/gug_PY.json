@@ -119,6 +119,10 @@
     "bip47_explanation": "Código de pago haʼe peteĩ renda universal ani hag̃ua ojekuaa ne viru ryru renda. Ndahaʼéi opa servicio oñangarekóva hesekuéra."
   },
   "send": {
+    "legacy_replay_title": "Ñemoĩjey rehegua riesgo Bitcoin Core-pe",
+    "legacy_replay_warning": "Opa jeike oĩ avei ñesẽ ndojeporúiva ramo Bitcoin Core kadénape. Ko transaksión ikatu ojejapo jey upépe ha ojeporu umi BTC ojoajúva hese. Eho tenonde gotyo reikũmby ha remoneĩramo añoite ko riesgo.",
+    "legacy_replay_accept": "Aikũmby ha amoneĩ pe riesgo — eho tenonde gotyo",
+    "legacy_check_failed": "mempool.space rupive ndaikatúi ojehecha opa jeike Bitcoin Core kadénape. Ndojekuaái pe ñemoĩjey rehegua riesgo; ko transaksión ikatu avei oiporu umi BTC ojoajúva hese upe kadénape. Ikatu reñehaʼã jey, térã eho tenonde gotyo reikũmby ha remoneĩramo añoite ko riesgo.",
     "provided_address_is_invoice": "Ko renda ojohecha haʼeha peteĩ Lightning facturarã. Tereho ne Lightning viru ryrúpe ejapo hag̃ua jehepymeʼẽ ko facturarã.",
     "broadcastButton": "Emyasãi",
     "broadcastError": "Jejavy",
@@ -621,6 +625,9 @@
     "error": "Pe jeike ndahaʼéi peteĩ momanduʼaha mbytemi 11- térã 23-ñeʼẽva. Eñehaʼã jey."
   },
   "cc": {
+    "legacy_shared": "⚠ Ñemoĩjey rehegua riesgo: ndojeporúi avei Bitcoin Core-pe",
+    "legacy_checking": "Ojehecha hína Bitcoin Core kadéna…",
+    "legacy_unknown": "⚠ Bitcoin Core jehecha osẽ vai",
     "change": "Rembyre",
     "coins_selected": "Viru oñeiporavóva ({number})",
     "selected_summ": "{value} oñeiporavo",

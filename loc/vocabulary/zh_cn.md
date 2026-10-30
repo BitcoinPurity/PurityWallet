@@ -76,6 +76,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Frozen | 已冻结 | adj/state · ⚠️ NOT verb `冻结` (= to freeze). |
 | Immature | 未成熟 | Coinbase 奖励尚未达到 100 次确认；状态标签，与冻结和无法核实链高不同。 |
 | **_Security & storage_** | | |
+| Replay risk | 重放风险 | A transaction may also spend the corresponding BTC on the Bitcoin Core chain; failed checks require acknowledgement of this uncertainty before continuing. |
 | Encrypted storage | 存储加密 | noun · ⚠️ NOT Title Case · shipped `启用存储加密` includes verb `启用` (= enable); drop for bare noun. |
 | Plausible Deniability | 可合理否认 | noun · ⚠️ NOT Title Case. |
 | Biometrics | 生物识别认证 | noun. |

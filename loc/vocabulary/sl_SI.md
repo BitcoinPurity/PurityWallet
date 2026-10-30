@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | nadzor nad kovanci / upravljanje UTXO | noun, lowercase · mainstream / technical · ⚠️ NOT Title Case. |
 | Frozen | zamrznjen / zamrznjeno | adj · masc-agreement / state · ⚠️ NOT verb "zamrzniti". |
 | **_Security & storage_** | | |
+| Replay risk | tveganje ponovitve | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | šifrirana shramba | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | verodostojno zanikanje | noun, lowercase · ⚠️ NOT Title Case (app currently ships `Verodostojno Zanikanje`). |
 | Biometrics | biometrija | noun, lowercase. |

@@ -119,6 +119,10 @@
     "bip47_explanation": "결제 코드는 지갑 주소를 공개하지 않고도 사용할 수 있는 범용 주소입니다. 모든 서비스에서 지원되는 것은 아닙니다."
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core에서의 리플레이 위험",
+    "legacy_replay_warning": "모든 입력이 Bitcoin Core 체인에도 미사용 출력으로 존재합니다. 이 거래가 해당 체인에서 재실행되어 대응하는 BTC가 사용될 수 있습니다. 이 위험을 이해하고 수락하는 경우에만 계속하세요.",
+    "legacy_replay_accept": "위험을 이해하고 수락합니다 — 계속",
+    "legacy_check_failed": "mempool.space를 통해 Bitcoin Core 체인의 모든 입력을 확인하지 못했습니다. 리플레이 위험을 알 수 없으며, 이 거래가 해당 체인에서도 대응하는 BTC를 사용할 수 있습니다. 다시 시도하거나 이 위험을 이해하고 수락하는 경우에만 계속하세요.",
     "provided_address_is_invoice": "이 주소는 라이트닝 청구서로 보입니다. 지불하기 위해 라이트닝 지갑으로 가십시요.",
     "broadcastButton": "송신",
     "broadcastError": "오류",
@@ -627,6 +631,9 @@
     "error": "입력한 니모닉 문구가 11단어 또는 23단어가 아닙니다. 다시 시도해 주세요."
   },
   "cc": {
+    "legacy_shared": "⚠ 리플레이 위험: Bitcoin Core에서도 미사용",
+    "legacy_checking": "Bitcoin Core 체인 확인 중…",
+    "legacy_unknown": "⚠ Bitcoin Core 확인 실패",
     "change": "변경",
     "coins_selected": "선택 된 코인 ({number})",
     "selected_summ": "{value} 선택됨",

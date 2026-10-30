@@ -77,6 +77,7 @@ Note: upstream wallet projects (Bitcoin Core, Electrum, Phoenix, Zeus, Trezor, C
 | Coin Control | ಕಾಯಿನ್ ನಿಯಂತ್ರಣ | noun · "coin control"; Devanagari has casing but Kannada parallel keeps loanword. ⚠️ NOT Title Case (Kannada has no casing). |
 | Frozen | ಫ್ರೀಜ್ ಮಾಡಲಾಗಿದೆ | adj/state · "has been frozen" (no upstream wallet citation). ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | ಮರುಚಾಲನೆಯ ಅಪಾಯ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾದ ಸಂಗ್ರಹಣೆ | noun · ⚠️ NOT Title Case · shipped `_.storage_is_encrypted` uses ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ + ಸಂಗ್ರಹಣೆ. Existing kn.json `wallets.add_placeholder` value `ಎನ್‌ಕ್ರಿಪ್ಟ್ (ಸಂಗ್ರಹಣೆ)` is malformed. |
 | Plausible Deniability | TODO | ⚠️ NOT Title Case (Kannada has no casing). Abstract privacy concept — uncertain idiomatic Kannada rendering. |
 | Biometrics | ಬಯೋಮೆಟ್ರಿಕ್ಸ್ | noun · transliteration (no upstream wallet citation). |

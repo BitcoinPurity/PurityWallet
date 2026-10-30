@@ -3,6 +3,9 @@ import { useNavigation, RouteProp, useFocusEffect, useRoute } from '@react-navig
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Avatar from '../../components/Avatar';
 import Badge from '../../components/Badge';
+import LegacyReplayWarning from '../../components/LegacyReplayWarning';
+import { LegacyUtxoStatus } from '../../blue_modules/legacy-chain';
+import { useLegacyUtxoCheck } from '../../hooks/useLegacyUtxoCheck';
 import * as BlueElectrum from '../../blue_modules/BlueElectrum';
 import { getCoinbaseStatus, getUtxoSpendabilityReason } from '../../class/utxo-spendability';
 import Icon from '../../components/Icon';
@@ -99,6 +102,7 @@ type TOutputListProps = {
   frozen: boolean;
   immature: boolean;
   change: boolean;
+  legacyStatus: LegacyUtxoStatus | 'checking';
   onOpen: () => void;
   selected: boolean;
   selectionStarted: boolean;
@@ -113,6 +117,7 @@ const OutputList: React.FC<TOutputListProps> = ({
   frozen,
   immature,
   change,
+  legacyStatus,
   onOpen,
   selected,
   selectionStarted,
@@ -153,6 +158,7 @@ const OutputList: React.FC<TOutputListProps> = ({
         <Text testID="OutputMemoLabel" style={oStyles.memo} numberOfLines={1} ellipsizeMode="middle">
           {memo || address}
         </Text>
+        <LegacyReplayWarning status={legacyStatus} />
       </View>
       <View style={styles.badges}>
         {frozen && <FrozenBadge />}
@@ -205,6 +211,8 @@ const CoinControl: React.FC = () => {
   }, [sortDirection, sortType, wallet, frozen]);
   const [loading, setLoading] = useState<boolean>(true);
   const [selected, setSelected] = useState<string[]>([]);
+  const [legacyRefresh, setLegacyRefresh] = useState(0);
+  const legacyCheck = useLegacyUtxoCheck(loading ? [] : utxos, `${walletID}:${legacyRefresh}`);
 
   // save frozen status. Because effect called on each event, debounce it.
   const debouncedSaveFronen = useRef(
@@ -235,6 +243,7 @@ const CoinControl: React.FC = () => {
   useFocusEffect(
     useCallback(() => {
       if (!wallet) return;
+      setLegacyRefresh(value => value + 1);
       const refreshedFrozen = wallet
         .getUtxo(true)
         .filter(out => wallet.getUTXOMetadata(out.txid, out.vout).frozen)
@@ -316,6 +325,7 @@ const CoinControl: React.FC = () => {
         frozen={oFrozen}
         immature={spendability === 'immature_coinbase'}
         change={isChange}
+        legacyStatus={legacyCheck.checking ? 'checking' : (legacyCheck.results[key] ?? 'unknown')}
         onOpen={() => handleChoose(item)}
         selected={selected.includes(key)}
         selectionStarted={selectionStarted}

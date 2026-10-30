@@ -119,6 +119,10 @@
     "bip47_explanation": "Koodaaji njoɓdi ko adreesi kuuɓtidinɗo mo woɗɗintina hollitude adreesaaji boktoore maa. Wonaa golle fof njaɓata ɗum."
   },
   "send": {
+    "legacy_replay_title": "Caɗeele waɗtugol njuɓɓudi e Bitcoin Core",
+    "legacy_replay_warning": "Naatirɗe ɗee fof ina ngoodi kadi ko yaltirɗe ɗe njoɓaaka e calol Bitcoin Core. Njuɓɓudi ndii ina waawi waɗteede kadi toon, tawa BTC jokkondirɗi ɗii njoɓaama. Jokku tan so a faamii tee a jaɓii caɗeele ɗee.",
+    "legacy_replay_accept": "Mi faamii tee mi jaɓii caɗeele ɗee — jokku",
+    "legacy_check_failed": "mempool.space waawaani ƴeewtaade naatirɗe ɗee fof e calol Bitcoin Core. Caɗeele waɗtugol kadi anndaaka; njuɓɓudi ndii ina waawi njoɓde BTC jokkondirɗi ɗii e ngol calol kadi. A waawi etaade kadi, walla jokku tan so a faamii tee a jaɓii caɗeele ɗee.",
     "provided_address_is_invoice": "Oo adreesi ina wayi no wonande faktiir Lightning. Tiiɗno, yah e boktoore Lightning maa ngam waɗde njoɓdi wonande oo faktiir.",
     "broadcastButton": "Saaktu",
     "broadcastError": "Juumre",
@@ -621,6 +625,9 @@
     "error": "Ko naatnaa wonaa konngi ciftorɗi taƴaaɗi 11 maa 23. Tiiɗno eto kadi."
   },
   "cc": {
+    "legacy_shared": "⚠ Caɗeele waɗtugol kadi: njoɓaaka e Bitcoin Core kadi",
+    "legacy_checking": "Ina ƴeewtoo calol Bitcoin Core…",
+    "legacy_unknown": "⚠ Ƴeewtagol Bitcoin Core ronkii",
     "change": "Keddi",
     "coins_selected": "Koppe cuɓaaɗe ({number})",
     "selected_summ": "{value} suɓaama",

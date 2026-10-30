@@ -1,9 +1,9 @@
 # Define app identifiers once for reuse across lanes
 def app_identifiers
   [
-    "io.bluewallet.bluewallet",
-    "io.bluewallet.bluewallet.Stickers",
-    "io.bluewallet.bluewallet.MarketWidget"
+    "au.com.bitcoininstitute.puritywallet",
+    "au.com.bitcoininstitute.puritywallet.Stickers",
+    "au.com.bitcoininstitute.puritywallet.MarketWidget"
   ]
 end
 
@@ -759,8 +759,8 @@ platform :ios do
   # Only these targets support Mac Catalyst (watch/stickers do not)
   def catalyst_app_identifiers
     [
-      "io.bluewallet.bluewallet",
-      "io.bluewallet.bluewallet.MarketWidget"
+      "au.com.bitcoininstitute.puritywallet",
+      "au.com.bitcoininstitute.puritywallet.MarketWidget"
     ]
   end
 
@@ -856,8 +856,8 @@ platform :ios do
 
       # Only these targets support Mac Catalyst
       catalyst_identifiers = [
-        "io.bluewallet.bluewallet",
-        "io.bluewallet.bluewallet.MarketWidget"
+        "au.com.bitcoininstitute.puritywallet",
+        "au.com.bitcoininstitute.puritywallet.MarketWidget"
       ]
 
       has_signing_creds = ENV['CATALYST_SIGNING_IDENTITY'] && !ENV['CATALYST_SIGNING_IDENTITY'].empty? &&
@@ -897,7 +897,7 @@ platform :ios do
         catalyst_identifiers.each do |app_id|
           profile_name = "match AppStore #{app_id} catalyst"
           # Convert bundle ID to xcodebuild target setting key
-          # e.g., io.bluewallet.bluewallet -> PROVISIONING_PROFILE_SPECIFIER for that target
+          # e.g., au.com.bitcoininstitute.puritywallet -> PROVISIONING_PROFILE_SPECIFIER for that target
           xcargs_str += " PROVISIONING_PROFILE_SPECIFIER_#{app_id.gsub('.', '_')}=\"#{profile_name}\""
         end
 

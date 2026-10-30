@@ -77,6 +77,7 @@ Note: upstream wallet projects (Bitcoin Core, Electrum, Phoenix, Zeus, Trezor, C
 | Coin Control | taolo ya dikhoine | noun · "coin control" (no upstream wallet citation). |
 | Frozen | e kwetswe | adj/state · "is locked/frozen"; ⚠️ NOT verb "to freeze" (no upstream wallet citation). |
 | **_Security & storage_** | | |
+| Replay risk | kotsi ya ho pheta tshebetsano | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | polokelo e patilweng | noun · "encrypted/hidden storage" (no upstream wallet citation). |
 | Plausible Deniability | ho latola ho ka kgolwehang | noun · "believable denial"; abstract concept, uncertain idiomatic rendering (no upstream wallet citation). |
 | Biometrics | dibaeometriki | noun · transliteration (no upstream wallet citation). |

@@ -119,6 +119,10 @@
     "bip47_explanation": "支付代碼是一個通用地址，可避免洩露您的錢包地址。並非所有服務都支援此功能。"
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core 鏈重放風險",
+    "legacy_replay_warning": "所有輸入在 Bitcoin Core 鏈上也存在相同的未花費輸出。此交易可能在該鏈上被重放，並花費對應的 BTC。請僅在理解並接受此風險後繼續。",
+    "legacy_replay_accept": "我已知悉並接受風險，繼續",
+    "legacy_check_failed": "無法透過 mempool.space 檢查 Bitcoin Core 鏈上的所有輸入，無法判斷重放風險。此交易仍可能在該鏈上花費對應的 BTC。您可以重試，或在理解並接受此風險後繼續。",
     "provided_address_is_invoice": "此地址似乎是 Lightning 發票。請前往您的 Lightning 錢包來支付此發票。",
     "broadcastButton": "廣播",
     "broadcastError": "錯誤",
@@ -621,6 +625,9 @@
     "error": "輸入不是 11 字或 23 字的不完整助記詞。請再試一次。"
   },
   "cc": {
+    "legacy_shared": "⚠ 重放風險：Bitcoin Core 鏈上也未花費",
+    "legacy_checking": "正在檢查 Bitcoin Core 鏈…",
+    "legacy_unknown": "⚠ Bitcoin Core 鏈檢查失敗",
     "immature": "未成熟",
     "change": "找零",
     "coins_selected": "所選的幣（{number}）",

@@ -9,6 +9,10 @@ jest.mock('../../blue_modules/BlueElectrum', () => ({
   getSpendabilityHeight: jest.fn(),
 }));
 
+jest.mock('../../hooks/useLegacyUtxoCheck', () => ({
+  useLegacyUtxoCheck: () => ({ checking: false, results: { ['11'.repeat(32) + ':0']: 'shared' } }),
+}));
+
 const mockNavigation = { setParams: jest.fn(), navigate: jest.fn() };
 const mockRoute = { params: { walletID: 'wallet', hasUtxos: true } };
 jest.mock('@react-navigation/native', () => ({
@@ -89,6 +93,7 @@ describe('Coin Control immature Coinbase badge', () => {
     expect(screen.getByText('Immature')).toBeTruthy();
     expect(screen.getByTestId('FrozenBadge')).toBeTruthy();
     expect(screen.getByTestId('ChangeBadge')).toBeTruthy();
+    expect(screen.getByRole('alert').props.children).toBe(require('../../loc/en.json').cc.legacy_shared);
     expect(require('../../loc/zh_cn.json').cc.immature).toBe('未成熟');
     expect(require('../../loc/zh_tw.json').cc.immature).toBe('未成熟');
   });

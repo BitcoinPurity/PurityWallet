@@ -77,6 +77,7 @@ Note: Filipino/Tagalog (Latin script, LTR). Bitcoin Core ships a Filipino/Tagalo
 | Coin Control | kontrol ng barya | noun · native Filipino (*barya* = coins). ⚠️ NOT Title Case (Filipino has casing but ordinary nouns are lowercase). |
 | Frozen | naka-freeze / nagyelo | adj/state · borrowing / native "frozen". ⚠️ NOT the verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | panganib ng pag-ulit | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | naka-encrypt na storage | noun · borrowing (transliteration). ⚠️ NOT Title Case. |
 | Plausible Deniability | kapani-paniwalang pagtanggi | noun · "believable denial"; native Filipino. ⚠️ NOT Title Case. |
 | Biometrics | biometrics | noun · borrowing; gloss *biyometriko* (transliteration). |

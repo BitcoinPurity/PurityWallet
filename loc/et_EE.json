@@ -119,6 +119,10 @@
     "bip47_explanation": "Maksekoodid on universaalne aadress, mis ei avalda sinu rahakoti aadresse. Mitte kõik teenused ei toeta neid."
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core'i tehingu taasesitamise oht",
+    "legacy_replay_warning": "Kõik sisendid on ka Bitcoin Core'i ahelas kulutamata väljunditena olemas. Seda tehingut võidakse seal taasesitada ja vastavad BTC-d ära kulutada. Jätka ainult siis, kui mõistad ja aktsepteerid seda ohtu.",
+    "legacy_replay_accept": "Mõistan ja aktsepteerin ohtu — jätka",
+    "legacy_check_failed": "Kõiki Bitcoin Core'i ahela sisendeid ei saanud mempool.space'i kaudu kontrollida. Taasesitamise oht on teadmata; see tehing võib kulutada vastavad BTC-d ka selles ahelas. Võid uuesti proovida või jätkata ainult siis, kui mõistad ja aktsepteerid seda ohtu.",
     "provided_address_is_invoice": "See aadress näib olevat Lightning arve. Palun mine oma Lightningi rahakotti, et seda arvet maksta.",
     "broadcastButton": "Leviedasta",
     "broadcastError": "Viga",
@@ -621,6 +625,9 @@
     "error": "Sisend ei ole 11- või 23-sõnaline osaline mnemoonik. Palun proovi uuesti."
   },
   "cc": {
+    "legacy_shared": "⚠ Taasesitamise oht: ka Bitcoin Core'is kulutamata",
+    "legacy_checking": "Bitcoin Core'i ahela kontrollimine…",
+    "legacy_unknown": "⚠ Bitcoin Core'i kontroll ebaõnnestus",
     "change": "Vahetusraha",
     "coins_selected": "Valitud münte ({number})",
     "selected_summ": "{value} valitud",

@@ -45,7 +45,7 @@ const About: React.FC = () => {
   }, []);
 
   const handleOnGithubPress = useCallback(() => {
-    Linking.openURL('https://github.com/BitcoinPurity/PurityWallet');
+    Linking.openURL('https://github.com/PurityWallet/PurityWallet');
   }, []);
 
   const handleOnRatePress = useCallback(async () => {

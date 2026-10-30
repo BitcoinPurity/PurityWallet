@@ -119,6 +119,10 @@
     "bip47_explanation": "Mã thanh toán là một địa chỉ phổ quát giúp tránh tiết lộ các địa chỉ ví của bạn. Không phải tất cả các dịch vụ đều hỗ trợ chúng."
   },
   "send": {
+    "legacy_replay_title": "Rủi ro phát lại trên Bitcoin Core",
+    "legacy_replay_warning": "Tất cả đầu vào cũng tồn tại dưới dạng đầu ra chưa được chi tiêu trên chuỗi Bitcoin Core. Giao dịch này có thể bị phát lại ở đó và chi tiêu số BTC tương ứng. Chỉ tiếp tục nếu bạn hiểu và chấp nhận rủi ro này.",
+    "legacy_replay_accept": "Tôi hiểu và chấp nhận rủi ro — tiếp tục",
+    "legacy_check_failed": "Không thể kiểm tra tất cả đầu vào trên chuỗi Bitcoin Core qua mempool.space. Chưa xác định được rủi ro phát lại; giao dịch này cũng có thể chi tiêu số BTC tương ứng trên chuỗi đó. Bạn có thể thử lại hoặc chỉ tiếp tục nếu hiểu và chấp nhận rủi ro này.",
     "provided_address_is_invoice": "Địa chỉ này dường như là cho một hóa đơn Lightning. Vui lòng sử dụng ví Lightning của bạn để thanh toán hoá đơn này.",
     "broadcastButton": "Truyền",
     "broadcastError": "Lỗi",
@@ -621,6 +625,9 @@
     "error": "Đầu vào không phải là cụm từ ghi nhớ một phần gồm 11 hoặc 23 từ. Vui lòng thử lại."
   },
   "cc": {
+    "legacy_shared": "⚠ Rủi ro phát lại: cũng chưa được chi tiêu trên Bitcoin Core",
+    "legacy_checking": "Đang kiểm tra chuỗi Bitcoin Core…",
+    "legacy_unknown": "⚠ Kiểm tra Bitcoin Core thất bại",
     "change": "Tiền thừa",
     "coins_selected": "Coin đã chọn ({number})",
     "selected_summ": "{value} đã được chọn",

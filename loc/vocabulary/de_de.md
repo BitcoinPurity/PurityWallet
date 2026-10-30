@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | Münzkontrolle / Coin Control | noun · native compound preferred per master; loanword acceptable in technical contexts · Electrum de + Zeus de |
 | Frozen | eingefroren | adj/state · ⚠️ NOT verb `einfrieren` · Bitcoin Core de + Zeus de |
 | **_Security & storage_** | | |
+| Replay risk | Replay-Risiko | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | Speicherverschlüsselung | noun, single compound (avoid `verschlüsselte Speicherung`) · shipped `settings.encrypt_storage_explanation_headline` |
 | Plausible Deniability | glaubhafte Abstreitbarkeit / glaubhafte Täuschung | ⚠️ NOT Täuschung-as-deception · noun · canonical (matches Wikipedia de) / UI-friendly secondary · shipped uses `Glaubhafte Täuschung` · de.wikipedia.org/wiki/Plausible_Deniability |
 | Biometrics | Biometrie | noun · shipped `settings.biometrics` + Trezor de + Zeus de |

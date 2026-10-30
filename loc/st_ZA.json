@@ -119,6 +119,10 @@
     "bip47_explanation": "Dikhoutu tsa tefo ke aterese e akaretsang e qobang ho senola diaterese tsa sepache sa hao. Hase ditshebeletso tsohle tse tla di tshehetsa."
   },
   "send": {
+    "legacy_replay_title": "Kotsi ya ho pheta tshebetsano ho Bitcoin Core",
+    "legacy_replay_warning": "Tse kenang kaofela di teng hape e le tse tswang tse eso sebediswe ketaneng ya Bitcoin Core. Tshebetsano ena e ka phetwa moo mme ya sebedisa BTC tse tsamaellanang le tsona. Tswela pele feela haeba o utlwisisa mme o amohela kotsi ena.",
+    "legacy_replay_accept": "Ke utlwisisa mme ke amohela kotsi — tswela pele",
+    "legacy_check_failed": "Ha ho a kgoneha ho hlahloba tse kenang kaofela ketaneng ya Bitcoin Core ka mempool.space. Kotsi ya ho pheta tshebetsano ha e tsejwe; tshebetsano ena e ka sebedisa BTC tse tsamaellanang le tsona ketaneng eo hape. O ka leka hape, kapa wa tswela pele feela haeba o utlwisisa mme o amohela kotsi ena.",
     "provided_address_is_invoice": "Aterese ena e bonahala e le ya invoisi ya Lightning. Ka kopo, eya sepacheng sa hao sa Lightning ho lefa invoisi ena.",
     "broadcastButton": "Phatlalatsa",
     "broadcastError": "Phoso",
@@ -621,6 +625,9 @@
     "error": "Seo o se kentseng ha se polelwana ya peo e sa felletseng ya mantswe a 11 kapa a 23. Ka kopo leka hape."
   },
   "cc": {
+    "legacy_shared": "⚠ Kotsi ya ho pheta: ha e so sebediswe le ho Bitcoin Core",
+    "legacy_checking": "Ho hlahlojwa ketane ya Bitcoin Core…",
+    "legacy_unknown": "⚠ Tlhahlobo ya Bitcoin Core e hlolehile",
     "change": "Tjhelete e setseng",
     "coins_selected": "Dikhoine tse Kgethilweng ({number})",
     "selected_summ": "{value} e kgethilwe",

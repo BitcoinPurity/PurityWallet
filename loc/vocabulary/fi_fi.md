@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | UTXO:iden hallinta / kolikoiden hallinta | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. Bitcoin Core fi (`Kolikoiden valinta`). |
 | Frozen | jäädytetty | adj · ⚠️ NOT verb `jäädytä` (= "freeze!"). Zeus fi (`Jäädytetty`). |
 | **_Security & storage_** | | |
+| Replay risk | uudelleentoiston riski | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | salattu tallennustila / tallennustilan salaus | noun, lowercase · ⚠️ NOT Title Case · Bitcoin Core fi (`Salaa lompakko`). |
 | Plausible Deniability | uskottava kiistettävyys | noun, lowercase · ⚠️ NOT Title Case · en.wikipedia.org/wiki/Plausible_deniability. |
 | Biometrics | biometriikka / biometriset tiedot | noun, lowercase · short / full. |

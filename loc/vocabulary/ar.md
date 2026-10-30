@@ -79,6 +79,7 @@ RTL. Brand names appear in Latin inside Arabic text; the table below gives the A
 | Coin Control | التحكم في UTXO / التحكم في العملات | noun · ⚠️ NOT Title Case · technical / mainstream. |
 | Frozen | مجمدة | ⚠️ NOT تجميد (gerund "freezing") and NOT verb جمّد — use adj/state form. |
 | **_Security & storage_** | | |
+| Replay risk | خطر إعادة التشغيل | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | التخزين المشفر | Lit. "the encrypted storage". · Bitcoin Core ar (محفظة مشفرة) |
 | Plausible Deniability | الإنكار المقبول | noun · ⚠️ NOT Title Case. |
 | Biometrics | القياسات الحيوية | — |

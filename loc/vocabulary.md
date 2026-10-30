@@ -221,6 +221,7 @@ These rules apply to every per-language file. The English glossary below uses th
 
 | Term | POS | Meaning |
 |------|-----|---------|
+| **Replay risk** | noun | Risk that a transaction spending outputs shared with the legacy Bitcoin Core chain is replayed there and spends the corresponding BTC. Meaning follows the [Electrum fork guide](https://electrum.readthedocs.io/en/latest/hardfork.html); locale rows record the translated term. |
 | **Encrypted storage / Storage encryption** | noun | Whole-app encryption of the wallet store with a password. ⚠️ NOT Title Case in target locale. |
 | **Plausible Deniability** | noun | Feature creating a fake encrypted storage with a different password, to disclose under coercion. ⚠️ NOT Title Case in target locale. |
 | **Biometrics** | noun | Face ID / Touch ID / fingerprint unlock. |

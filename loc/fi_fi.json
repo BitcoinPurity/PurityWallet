@@ -119,6 +119,10 @@
     "bip47_explanation": "Maksukoodit ovat yleisosoitteita, jotka eivät paljasta lompakkosi osoitteita. Kaikki palvelut eivät tue niitä."
   },
   "send": {
+    "legacy_replay_title": "Uudelleentoiston riski Bitcoin Coressa",
+    "legacy_replay_warning": "Kaikki syötteet ovat myös käyttämättöminä tuotoksina Bitcoin Coren ketjussa. Tämä siirto voidaan toistaa siellä ja kuluttaa vastaavat BTC-varat. Jatka vain, jos ymmärrät ja hyväksyt tämän riskin.",
+    "legacy_replay_accept": "Ymmärrän ja hyväksyn riskin — jatka",
+    "legacy_check_failed": "Kaikkia Bitcoin Coren ketjun syötteitä ei voitu tarkistaa mempool.spacen avulla. Uudelleentoiston riskiä ei tunneta; tämä siirto voi kuluttaa vastaavat BTC-varat myös kyseisessä ketjussa. Voit yrittää uudelleen tai jatkaa vain, jos ymmärrät ja hyväksyt tämän riskin.",
     "provided_address_is_invoice": "Tämä osoite vaikuttaa olevan Salamalasku. Maksun suorittamiseksi, siirry Salamalompakkoosi.",
     "broadcastButton": "LÄHETÄ",
     "broadcastError": "virhe",
@@ -621,6 +625,9 @@
     "error": "Syöte ei ole 11 tai 23 sanan osittainen palautuslause. Yritä uudelleen."
   },
   "cc": {
+    "legacy_shared": "⚠ Uudelleentoiston riski: käyttämätön myös Bitcoin Coressa",
+    "legacy_checking": "Tarkistetaan Bitcoin Coren ketjua…",
+    "legacy_unknown": "⚠ Bitcoin Coren tarkistus epäonnistui",
     "change": "vaihto",
     "coins_selected": "Kolikoita valittu ({number})",
     "selected_summ": "{value} valittuna",

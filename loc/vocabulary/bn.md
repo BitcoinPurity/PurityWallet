@@ -77,6 +77,7 @@ Note: Bengali (বাংলা) uses the Bengali script and is written LTR. Beng
 | Coin Control | কয়েন কন্ট্রোল | noun · transliteration loanword. ⚠️ Bengali has no casing. |
 | Frozen | ফ্রিজ করা | adj/state · "frozen" (no upstream wallet citation). ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | পুনরায় কার্যকর হওয়ার ঝুঁকি | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | এনক্রিপ্ট করা স্টোরেজ | noun · Encrypt=এনক্রিপ্ট (Bitcoin Core bn) + storage transliteration. ⚠️ Bengali has no casing. |
 | Plausible Deniability | যুক্তিযুক্ত অস্বীকৃতি | noun · "reasonable denial" (no upstream wallet citation). ⚠️ Bengali has no casing. |
 | Biometrics | বায়োমেট্রিক্স | noun · transliteration (no upstream wallet citation). |

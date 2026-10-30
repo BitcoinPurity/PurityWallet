@@ -119,6 +119,10 @@
     "bip47_explanation": "Payment codes are a universal address that avoids disclosing your wallet addresses. Not all services will support them."
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core replay risk",
+    "legacy_replay_warning": "All inputs also exist as unspent outputs on the Bitcoin Core chain. This transaction may be replayed there and spend the corresponding BTC. Continue only if you understand and accept this risk.",
+    "legacy_replay_accept": "I understand the risk — continue",
+    "legacy_check_failed": "Could not check every input on the Bitcoin Core chain using mempool.space. Replay risk is unknown; this transaction may also spend the corresponding BTC on that chain. You can retry, or continue only if you understand and accept this risk.",
     "provided_address_is_invoice": "This address appears to be for a Lightning invoice. Please, go to your Lightning wallet in order to make a payment for this invoice.",
     "broadcastButton": "Broadcast",
     "broadcastError": "Error",
@@ -635,6 +639,9 @@
     "error": "The input is not an 11- or 23-word partial mnemonic. Please try again."
   },
   "cc": {
+    "legacy_shared": "⚠ Replay risk: also unspent on Bitcoin Core",
+    "legacy_checking": "Checking Bitcoin Core chain…",
+    "legacy_unknown": "⚠ Bitcoin Core check failed",
     "immature": "Immature",
     "change": "Change",
     "coins_selected": "Coins Selected ({number})",

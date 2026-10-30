@@ -119,6 +119,10 @@
     "bip47_explanation": "I codici di pagamento sono un indirizzo universale che evita di rivelare gli indirizzi del tuo portafoglio. Non tutti i servizi li supportano."
   },
   "send": {
+    "legacy_replay_title": "Rischio di replay su Bitcoin Core",
+    "legacy_replay_warning": "Tutti gli input esistono anche come output non spesi sulla catena Bitcoin Core. Questa transazione potrebbe essere ripetuta su quella catena e spendere i BTC corrispondenti. Continua solo se comprendi e accetti questo rischio.",
+    "legacy_replay_accept": "Comprendo e accetto il rischio — continua",
+    "legacy_check_failed": "Non è stato possibile verificare tutti gli input sulla catena Bitcoin Core tramite mempool.space. Il rischio di replay è sconosciuto; questa transazione potrebbe spendere i BTC corrispondenti anche su quella catena. Puoi riprovare oppure continuare solo se comprendi e accetti questo rischio.",
     "provided_address_is_invoice": "Questo indirizzo sembra essere associato ad una fattura Lightning. Apri il tuo portafoglio Lightning per effettuare il pagamento di questa fattura.",
     "broadcastButton": "Trasmetti",
     "broadcastError": "Errore",
@@ -621,6 +625,9 @@
     "error": "L'input non è una frase mnemonica parziale di 11 o 23 parole. Per favore riprova."
   },
   "cc": {
+    "legacy_shared": "⚠ Rischio di replay: non speso anche su Bitcoin Core",
+    "legacy_checking": "Verifica della catena Bitcoin Core…",
+    "legacy_unknown": "⚠ Verifica di Bitcoin Core non riuscita",
     "change": "Resto",
     "coins_selected": "Bitcoin selezionati ({number})",
     "selected_summ": "{value} selezionati",

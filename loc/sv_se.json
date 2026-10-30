@@ -119,6 +119,10 @@
     "bip47_explanation": "Betalningskoder är en universell adress som undviker att avslöja dina plånboksadresser. Alla tjänster har inte stöd för dem."
   },
   "send": {
+    "legacy_replay_title": "Risk för återuppspelning på Bitcoin Core",
+    "legacy_replay_warning": "Alla indata finns också som outnyttjade utdata på Bitcoin Core-kedjan. Den här transaktionen kan återuppspelas där och spendera motsvarande BTC. Fortsätt bara om du förstår och accepterar denna risk.",
+    "legacy_replay_accept": "Jag förstår och accepterar risken — fortsätt",
+    "legacy_check_failed": "Det gick inte att kontrollera alla indata på Bitcoin Core-kedjan via mempool.space. Risken för återuppspelning är okänd; den här transaktionen kan också spendera motsvarande BTC på den kedjan. Försök igen eller fortsätt bara om du förstår och accepterar denna risk.",
     "provided_address_is_invoice": "Den här adressen verkar vara för en Lightning-faktura. Vänligen gå till din Lightning-plånbok för att göra en betalning för denna faktura.",
     "broadcastButton": "SÄND",
     "broadcastError": "Fel",
@@ -621,6 +625,9 @@
     "error": "Indata är inte en partiell mnemonisk fras med 11 eller 23 ord. Försök igen."
   },
   "cc": {
+    "legacy_shared": "⚠ Risk för återuppspelning: outnyttjad även på Bitcoin Core",
+    "legacy_checking": "Kontrollerar Bitcoin Core-kedjan…",
+    "legacy_unknown": "⚠ Kontrollen av Bitcoin Core misslyckades",
     "change": "ändra",
     "coins_selected": "Valda mynt ({number})",
     "selected_summ": "{value} har valts",

@@ -6,6 +6,7 @@ import { element, waitFor } from 'detox';
 import {
   confirmPasswordDialog,
   dismissAlertByText,
+  enableOfflineMode,
   expectToBeVisible,
   extractTextFromElementById,
   goBack,
@@ -16,8 +17,11 @@ import {
   scanText,
   scanUrParts,
   scrollUpOnHomeScreen,
+  setCustomFeeRate,
   sleep,
   tapAndTapAgainIfElementIsNotVisible,
+  tapHeaderMenuAction,
+  tapHeaderMenuItem,
   tapIfTextPresent,
   waitForId,
   waitForKeyboardToClose,
@@ -113,7 +117,16 @@ describe('BlueWallet UI Tests - no wallets', () => {
     // change currency to ARS ($) and switch it back to USD ($)
     await element(by.id('Currency')).tap();
     await element(by.text('ARS ($)')).tap();
-    await expect(element(by.text('Rate is obtained from Yadio'))).toBeVisible();
+    await waitFor(element(by.text(/Rate is obtained from Yadio|.*Could not update rate for ARS from Yadio.*/s)))
+      .toExist()
+      .withTimeout(60_000);
+    try {
+      await expect(element(by.text('Rate is obtained from Yadio'))).toBeVisible();
+    } catch (_) {
+      await expect(element(by.text(/.*Could not update rate for ARS from Yadio.*/s))).toExist();
+      assert.strictEqual(await dismissAlertByText('OK'), true);
+      await expect(element(by.text('Rate is obtained from Kraken'))).toBeVisible();
+    }
     await element(by.text('USD ($)')).tap();
     await goBack();
 
@@ -211,7 +224,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
         if (dismissed1) {
           await sleep(500);
           await element(by.id('NotificationsSwitch')).tap();
-          await dismissAlertByText('OK', 10000);
+          notifDialogStuck = !(await dismissAlertByText('OK', 10000));
         } else {
           notifDialogStuck = true;
         }
@@ -276,7 +289,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await device.clearKeychain();
     await device.launchApp({ delete: true }); // reinstalling the app just for any case to clean up app's storage
     await waitForId('WalletsList');
-
+    await enableOfflineMode();
     await helperCreateWallet();
 
     await device.launchApp({ newInstance: true, permissions: { notifications: 'YES' } });
@@ -498,6 +511,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await device.clearKeychain();
     await device.launchApp({ delete: true }); // reinstalling the app just for any case to clean up app's storage
     await waitForId('WalletsList');
+    await enableOfflineMode();
     await helperCreateWallet();
     await element(by.id('SettingsButton')).tap();
     await element(by.id('SecurityButton')).tap();
@@ -650,7 +664,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     process.env.CI && require('fs').writeFileSync(lockFile, '1');
   });
 
-  it('can import multisig setup from UR and access Send and Coin Control', async () => {
+  it('can import multisig setup from UR and verify empty-wallet Send and Coin Control', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t6');
     if (process.env.CI) {
       if (require('fs').existsSync(lockFile)) return console.warn('skipping', JSON.stringify('t6'), 'as it previously passed on Travis');
@@ -694,6 +708,21 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await element(by.id('SendButton')).tap();
 
     await waitForId('AddressInput');
+    await element(by.id('AddressInput')).replaceText('bc1q063ctu6jhe5k4v8ka99qac8rcm2tzjjnuktyrl');
+    await element(by.id('BitcoinAmountInput')).replaceText('0.0005');
+    await element(by.id('BitcoinAmountInput')).tapReturnKey();
+    await waitForKeyboardToClose();
+
+    // setting fee rate:
+    await setCustomFeeRate(3);
+
+    await waitFor(element(by.id('CreateTransactionButton')))
+      .toBeVisible()
+      .withTimeout(15_000);
+    // RN Pressable's native UIView remains enabled on iOS even when presses are disabled.
+    await element(by.id('CreateTransactionButton')).tap();
+    await expect(element(by.id('AddressInput'))).toBeVisible();
+    await expect(element(by.id('PsbtWithHardwareScrollView'))).not.toExist();
     await waitForId('CoinControlButton');
     await element(by.id('CoinControlButton')).tap();
     await waitFor(element(by.id('AddressInput')))
@@ -887,6 +916,7 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await device.clearKeychain();
     await device.launchApp({ delete: true }); // reinstalling the app just for any case to clean up app's storage
     await waitForId('WalletsList');
+    await enableOfflineMode();
     await helperCreateWallet();
     // nop
     await helperDeleteWallet('cr34t3d');
@@ -913,9 +943,13 @@ describe('BlueWallet UI Tests - no wallets', () => {
     await element(by.id('WalletNameInput')).replaceText('entropy1');
 
     // header menu -> Provide entropy via dice rolls -> 12 words
-    await element(by.id('HeaderMenuButton')).tap();
-    await element(by.text('Provide entropy via dice rolls')).tap();
-    await element(by.text('12 words')).tap();
+    await tapHeaderMenuItem('Provide entropy via dice rolls', { actionId: 'entropy', restoreSynchronization: false });
+    try {
+      await tapHeaderMenuAction('12_words', '12 words');
+      await waitForId('Tab0');
+    } finally {
+      if (device.getPlatform() === 'ios') await device.enableSynchronization();
+    }
 
     // BIP39: each seed word encodes 11 bits, so two leading "abandon" words require the first 22 bits
     // of entropy to be zero. We provide 28 zero bits using the zero-value input of every tab: coin

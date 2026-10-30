@@ -119,6 +119,10 @@
     "bip47_explanation": "Misimbo ya malipo ni anwani ya matumizi yote inayoepuka kufichua anwani za pochi yako. Si huduma zote zitakazoiunga mkono."
   },
   "send": {
+    "legacy_replay_title": "Hatari ya kurudiwa kwenye Bitcoin Core",
+    "legacy_replay_warning": "Maingizo yote pia yapo kama matoleo ambayo hayajatumika kwenye mnyororo wa Bitcoin Core. Muamala huu unaweza kurudiwa huko na kutumia BTC zinazolingana. Endelea tu ikiwa unaelewa na kukubali hatari hii.",
+    "legacy_replay_accept": "Ninaelewa na kukubali hatari — endelea",
+    "legacy_check_failed": "Haikuwezekana kukagua maingizo yote kwenye mnyororo wa Bitcoin Core kupitia mempool.space. Hatari ya kurudiwa haijulikani; muamala huu unaweza pia kutumia BTC zinazolingana kwenye mnyororo huo. Unaweza kujaribu tena, au kuendelea tu ikiwa unaelewa na kukubali hatari hii.",
     "provided_address_is_invoice": "Anwani hii inaonekana ni ya ankra ya Lightning. Tafadhali, nenda kwenye pochi yako ya Lightning ili kufanya malipo ya ankra hii.",
     "broadcastButton": "Tangaza",
     "broadcastError": "Hitilafu",
@@ -621,6 +625,9 @@
     "error": "Ingizo si kifungu cha kumbukumbu cha maneno 11 au 23 kisichokamilika. Tafadhali jaribu tena."
   },
   "cc": {
+    "legacy_shared": "⚠ Hatari ya kurudiwa: haijatumika pia kwenye Bitcoin Core",
+    "legacy_checking": "Inakagua mnyororo wa Bitcoin Core…",
+    "legacy_unknown": "⚠ Ukaguzi wa Bitcoin Core umeshindwa",
     "change": "Chenji",
     "coins_selected": "Sarafu Zilizochaguliwa ({number})",
     "selected_summ": "{value} zilizochaguliwa",

@@ -77,6 +77,7 @@ Note: Amharic (አማርኛ) is written in the Geʽez/Ethiopic script and is lef
 | Coin Control | የኮይን ቁጥጥር | noun · "coin control" (no upstream wallet citation). ⚠️ NOT Title Case (Amharic has no casing). |
 | Frozen | የቀዘቀዘ / ቀዝቅዟል | adj/state · "frozen" (no upstream wallet citation). ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | የድጋሚ አፈጻጸም አደጋ | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | የተመሰጠረ ማከማቻ | noun · "encrypted storage" (no upstream wallet citation). ⚠️ NOT Title Case. |
 | Plausible Deniability | አሳማኝ ማስተባበያ | noun · "plausible denial" (no upstream wallet citation). ⚠️ NOT Title Case. |
 | Biometrics | ባዮሜትሪክስ | noun · transliteration (no upstream wallet citation). |

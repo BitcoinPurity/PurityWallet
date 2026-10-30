@@ -119,6 +119,10 @@
     "bip47_explanation": "Ang mga payment code ay isang unibersal na address na umiiwas sa pagbubunyag ng mga address ng iyong wallet. Hindi lahat ng serbisyo ay sumusuporta sa mga ito."
   },
   "send": {
+    "legacy_replay_title": "Panganib ng pag-ulit sa Bitcoin Core",
+    "legacy_replay_warning": "Ang lahat ng input ay mayroon ding katumbas na mga output na hindi pa nagagastos sa chain ng Bitcoin Core. Maaaring ulitin ang transaksyong ito roon at magastos ang katumbas na BTC. Magpatuloy lamang kung nauunawaan at tinatanggap mo ang panganib na ito.",
+    "legacy_replay_accept": "Nauunawaan at tinatanggap ko ang panganib — magpatuloy",
+    "legacy_check_failed": "Hindi masuri ang lahat ng input sa chain ng Bitcoin Core gamit ang mempool.space. Hindi matukoy ang panganib ng pag-ulit; maaari ring magastos ng transaksyong ito ang katumbas na BTC sa chain na iyon. Maaari mong subukang muli, o magpatuloy lamang kung nauunawaan at tinatanggap mo ang panganib na ito.",
     "provided_address_is_invoice": "Mukhang para sa isang Lightning invoice ang address na ito. Mangyaring pumunta sa iyong Lightning wallet upang magbayad para sa invoice na ito.",
     "broadcastButton": "I-broadcast",
     "broadcastError": "Error",
@@ -621,6 +625,9 @@
     "error": "Ang input ay hindi 11- o 23-salitang bahagyang mnemonic. Pakisubukang muli."
   },
   "cc": {
+    "legacy_shared": "⚠ Panganib ng pag-ulit: hindi pa rin nagagastos sa Bitcoin Core",
+    "legacy_checking": "Sinusuri ang chain ng Bitcoin Core…",
+    "legacy_unknown": "⚠ Nabigo ang pagsusuri sa Bitcoin Core",
     "change": "Sukli",
     "coins_selected": "Mga Piniling Coin ({number})",
     "selected_summ": "{value} ang napili",

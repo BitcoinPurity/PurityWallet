@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | διαχείριση UTXO / διαχείριση νομισμάτων | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. Bitcoin Core el: `δυνατοτήτων επιλογής κερμάτων`. |
 | Frozen | παγωμένη / δεσμευμένη | adj · feminine state agreement w/ έξοδος · ⚠️ NOT verb "πάγωσε". |
 | **_Security & storage_** | | |
+| Replay risk | κίνδυνος επανάληψης | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | κρυπτογραφημένη αποθήκευση | noun, lowercase · ⚠️ NOT Title Case · Bitcoin Core el: `κρυπτογράφηση του πορτοφολιού`. |
 | Plausible Deniability | εύλογη δυνατότητα άρνησης | noun, lowercase · shipped form is correct. |
 | Biometrics | βιομετρικά | noun, lowercase · matches shipped. |

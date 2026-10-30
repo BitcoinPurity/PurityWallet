@@ -77,6 +77,7 @@ Note: Hindi (हिन्दी), Devanagari script, LTR. Hindi has no letter-ca
 | Coin Control | सिक्का नियंत्रण / UTXO नियंत्रण | noun · "coin control" / technical UTXO form (no upstream wallet citation). Hindi has no casing. |
 | Frozen | फ्रोज़न / जमे हुए | adj/state · transliteration / native "frozen" (no upstream wallet citation). ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | रीप्ले का जोखिम | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | एन्क्रिप्टेड स्टोरेज | noun · transliteration (no upstream wallet citation). Hindi has no casing. |
 | Plausible Deniability | विश्वसनीय इनकार | noun · "credible denial" (no upstream wallet citation). Abstract privacy concept; Hindi has no casing. |
 | Biometrics | बायोमेट्रिक्स | noun · transliteration (no upstream wallet citation). |

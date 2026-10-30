@@ -77,6 +77,7 @@ Note: Bitcoin Core ships a partial Swahili locale (`bitcoin_sw.ts`) which is the
 | Coin Control | udhibiti wa sarafu | noun · "coin control". ⚠️ NOT Title Case (Swahili nouns lowercase mid-sentence) (no upstream wallet citation). |
 | Frozen | imegandishwa | adj/state · "has been frozen". ⚠️ NOT verb "to freeze" (ganda) (no upstream wallet citation). |
 | **_Security & storage_** | | |
+| Replay risk | hatari ya kurudiwa kwa muamala | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | hifadhi iliyosimbwa fiche | noun · "encrypted storage" (-simba fiche = encrypt). ⚠️ NOT Title Case (no upstream wallet citation). |
 | Plausible Deniability | ukanushaji unaowezekana | noun · "plausible deniability"; abstract concept, uncertain idiomatic rendering. ⚠️ NOT Title Case (no upstream wallet citation). |
 | Biometrics | baiometriki | noun · transliteration (no upstream wallet citation). |

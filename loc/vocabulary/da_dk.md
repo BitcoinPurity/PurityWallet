@@ -79,6 +79,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coins (Bitcoin coins / UTXO) | coins | noun, lowercase · English loanword preferred; avoid `mønter`. |
 | Frozen | frosset | adj · ⚠️ NOT verb "fryse". |
 | **_Security & storage_** | | |
+| Replay risk | risiko for genafspilning | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | krypteret lager | noun, lowercase · shipped da_dk.json · ⚠️ NOT Title Case. |
 | Plausible Deniability | sandsynlig benægtelse | noun, lowercase · shipped da_dk.json · ⚠️ NOT Title Case. |
 | Biometrics | biometri | noun, lowercase. |

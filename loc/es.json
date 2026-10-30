@@ -119,6 +119,10 @@
     "bip47_explanation": "Los códigos de pago son una dirección universal que evita revelar las direcciones de tu cartera. No todos los servicios los admiten."
   },
   "send": {
+    "legacy_replay_title": "Riesgo de repetición en Bitcoin Core",
+    "legacy_replay_warning": "Todas las entradas también existen como salidas sin gastar en la cadena de Bitcoin Core. Esta transacción podría repetirse allí y gastar los BTC correspondientes. Continúa solo si comprendes y aceptas este riesgo.",
+    "legacy_replay_accept": "Comprendo y acepto el riesgo — continuar",
+    "legacy_check_failed": "No se han podido comprobar todas las entradas en la cadena de Bitcoin Core mediante mempool.space. Se desconoce el riesgo de repetición; esta transacción también podría gastar los BTC correspondientes en esa cadena. Puedes volver a intentarlo o continuar solo si comprendes y aceptas este riesgo.",
     "provided_address_is_invoice": "Esta dirección parece ser para una factura Lightning. Por favor, ve a tu cartera Lightning para realizar el pago de esta factura.",
     "broadcastButton": "Emitir",
     "broadcastError": "Error",
@@ -621,6 +625,9 @@
     "error": "La entrada no es una frase mnemónica parcial de 11 o 23 palabras. Por favor, inténtalo de nuevo."
   },
   "cc": {
+    "legacy_shared": "⚠ Riesgo de repetición: también sin gastar en Bitcoin Core",
+    "legacy_checking": "Comprobando la cadena de Bitcoin Core…",
+    "legacy_unknown": "⚠ Ha fallado la comprobación de Bitcoin Core",
     "change": "Cambio",
     "coins_selected": "({number}) monedas (coins) seleccionadas",
     "selected_summ": "{value} seleccionado",

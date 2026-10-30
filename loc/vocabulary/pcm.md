@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | coin control | English-passthrough · lowercase. |
 | Frozen | dem freeze am | ⚠️ NOT verb "to freeze" · Pidgin paraphrase, no upstream · state form. |
 | **_Security & storage_** | | |
+| Replay risk | risk say transaction fit repeat | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | encrypted storage | English-passthrough · lowercase. |
 | Plausible Deniability | plausible deniability | English-passthrough · lowercase. |
 | Biometrics | biometrics | English-passthrough. |

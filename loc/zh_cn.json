@@ -119,6 +119,10 @@
     "bip47_explanation": "支付码是一种通用地址，可防止泄露您的钱包地址。但并非所有服务都支持支付码。"
   },
   "send": {
+    "legacy_replay_title": "Bitcoin Core 链重放风险",
+    "legacy_replay_warning": "所有输入在 Bitcoin Core 链上也存在相同的未花费输出。此交易可能在该链上被重放，并花费对应的 BTC。请仅在理解并接受此风险后继续。",
+    "legacy_replay_accept": "我已知晓并接受风险，继续",
+    "legacy_check_failed": "无法通过 mempool.space 检查 Bitcoin Core 链上的所有输入，无法判断重放风险。此交易仍可能在该链上花费对应的 BTC。您可以重试，或在理解并接受此风险后继续。",
     "provided_address_is_invoice": "该地址似乎对应一个闪电网络发票。请前往您的闪电网络钱包以支付此发票。",
     "broadcastButton": "广播",
     "broadcastError": "错误",
@@ -635,6 +639,9 @@
     "error": "输入的内容不是 11 或 23 个助记词的部分助记词，请重试。"
   },
   "cc": {
+    "legacy_shared": "⚠ 重放风险：Bitcoin Core 链上也未花费",
+    "legacy_checking": "正在检查 Bitcoin Core 链…",
+    "legacy_unknown": "⚠ Bitcoin Core 链检查失败",
     "immature": "未成熟",
     "change": "找零",
     "coins_selected": "已选择的币（{number}）",

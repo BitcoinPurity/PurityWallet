@@ -119,6 +119,10 @@
     "bip47_explanation": "Mae codau taliad yn gyfeiriad cyffredinol sy'n osgoi datgelu cyfeiriadau dy waled. Ni fydd pob gwasanaeth yn eu cefnogi."
   },
   "send": {
+    "legacy_replay_title": "Risg ailchwarae ar Bitcoin Core",
+    "legacy_replay_warning": "Mae pob mewnbwn hefyd yn bodoli fel allbwn heb ei wario ar gadwyn Bitcoin Core. Gallai'r trafodyn hwn gael ei ailchwarae yno a gwario'r BTC cyfatebol. Parhewch dim ond os ydych yn deall ac yn derbyn y risg hon.",
+    "legacy_replay_accept": "Rwy'n deall ac yn derbyn y risg — parhau",
+    "legacy_check_failed": "Ni fu modd gwirio pob mewnbwn ar gadwyn Bitcoin Core drwy mempool.space. Nid yw'r risg ailchwarae yn hysbys; gallai'r trafodyn hwn hefyd wario'r BTC cyfatebol ar y gadwyn honno. Gallwch roi cynnig arall arni, neu barhau dim ond os ydych yn deall ac yn derbyn y risg hon.",
     "provided_address_is_invoice": "Mae'r cyfeiriad hwn yn edrych fel anfoneb Mellten. Dos i dy waled Mellten er mwyn talu'r anfoneb hon.",
     "broadcastButton": "Darlledu",
     "broadcastError": "Camgymeriad",
@@ -621,6 +625,9 @@
     "error": "Nid yw'r mewnbwn yn ymadrodd cofiadwy rhannol o 11 nac 23 gair. Tria eto."
   },
   "cc": {
+    "legacy_shared": "⚠ Risg ailchwarae: heb ei wario ar Bitcoin Core hefyd",
+    "legacy_checking": "Yn gwirio cadwyn Bitcoin Core…",
+    "legacy_unknown": "⚠ Methodd gwiriad Bitcoin Core",
     "change": "Newid",
     "coins_selected": "Darnau Arian wedi'u Dewis ({number})",
     "selected_summ": "{value} wedi'i ddewis",

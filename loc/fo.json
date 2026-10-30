@@ -119,6 +119,10 @@
     "bip47_explanation": "BIP47 gjaldkotur eru algildar fastar adressur, ið avleiða serskildar og óbrúktar adressur millum tveir partar, uttan at avdúka aðrar adressur og ognir. Tó kann nýtsla av myntum í BIP47 avleiddum adressum, saman við myntum úr vanligum adressum í somu flyting, avdúka ognarskap. Ikki allar mappur og tænastur hava virkisføri fyri BIP47 gjaldkotum."
   },
   "send": {
+    "legacy_replay_title": "Vandi fyri endurspæling á Bitcoin Core",
+    "legacy_replay_warning": "Øll inntøk eru eisini til sum óbrúkt úttøk á Bitcoin Core-ketuni. Henda flytingin kann verða endurspæld har og brúka samsvarandi BTC. Halt bara fram, um tú skilir og góðtekur henda vandan.",
+    "legacy_replay_accept": "Eg skilji og góðtaki vandan — halt fram",
+    "legacy_check_failed": "Ikki bar til at kanna øll inntøk á Bitcoin Core-ketuni við mempool.space. Vandin fyri endurspæling er ókendur; henda flytingin kann eisini brúka samsvarandi BTC á teirri ketuni. Tú kanst royna aftur ella halda fram, um tú skilir og góðtekur henda vandan.",
     "provided_address_is_invoice": "Adressan tykist at vera ein Lightning gjaldsumbøn. Vinaliga far inná tína Lightning mappu fyri at rinda gjaldsumbønina.",
     "broadcastButton": "Útvarpa",
     "broadcastError": "Villa",
@@ -632,6 +636,9 @@
     "error": "Inntakið er ikki ein 11 ella 23 orð lutvís áminningarramsa. Vinaliga royn umaftur."
   },
   "cc": {
+    "legacy_shared": "⚠ Vandi fyri endurspæling: eisini óbrúkt á Bitcoin Core",
+    "legacy_checking": "Kannar Bitcoin Core-ketuna…",
+    "legacy_unknown": "⚠ Kanningin av Bitcoin Core miseydnaðist",
     "change": "Vekslipeningur",
     "coins_selected": "{number} myntir valdir",
     "selected_summ": "{value} valt",

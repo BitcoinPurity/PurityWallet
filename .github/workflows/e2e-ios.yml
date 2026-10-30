@@ -159,8 +159,28 @@ jobs:
           if-no-files-found: error
 
   test:
+    name: test (${{ matrix.id }})
     runs-on: macos-26
     needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { id: selftest, spec: bluewallet.spec.js, pattern: selftest passes }
+          - { id: settings, spec: bluewallet.spec.js, pattern: all settings screens work }
+          - { id: receive, spec: bluewallet.spec.js, pattern: 'can create wallet, reload app' }
+          - { id: plausible-deniability, spec: bluewallet.spec.js, pattern: with plausible deniability }
+          - { id: encrypted-storage, spec: bluewallet.spec.js, pattern: and decrypt storage works }
+          - { id: multisig-cosigners, spec: bluewallet.spec.js, pattern: can import 2of2 multisig }
+          - { id: multisig-ur, spec: bluewallet.spec.js, pattern: can import multisig setup from UR }
+          - { id: discovery, spec: bluewallet.spec.js, pattern: can discover wallet account }
+          - { id: scan-address, spec: bluewallet.spec.js, pattern: main screen SCAN button }
+          - { id: create-delete, spec: bluewallet.spec.js, pattern: can create wallet and delete wallet }
+          - { id: entropy, spec: bluewallet.spec.js, pattern: can provide dice entropy }
+          - { id: multisig-vault, spec: bluewallet.spec.js, pattern: can create 2of3 multisig vault }
+          - { id: wrapped-multisig, spec: bluewallet.spec.js, pattern: can create wrapped segwit 2of2 }
+          - { id: private-fixtures, spec: bluewallet2.spec.js, pattern: '.*' }
+          - { id: watch-only, spec: bluewallet3.spec.js, pattern: '.*' }
     env:
       HD_MNEMONIC: ${{ secrets.HD_MNEMONIC }}
       HD_MNEMONIC_BIP84: ${{ secrets.HD_MNEMONIC_BIP84 }}
@@ -205,7 +225,6 @@ jobs:
           fi
           xcrun simctl boot "$UDID" 2>/dev/null || true
           xcrun simctl bootstatus "$UDID" -b
-          xcrun simctl launch "$UDID" com.apple.springboard >/dev/null 2>&1 || true
 
       # Cut animations so detox sync stays steady on slow CI VMs; Reduce Motion makes reanimated skip to final value.
       - name: Disable simulator animations
@@ -218,7 +237,9 @@ jobs:
         timeout-minutes: 360
         run: |
           npm run e2e:test:ios-release -- \
-            --record-videos failing \
+            --runTestsByPath tests/e2e/${{ matrix.spec }} \
+            --testNamePattern '${{ matrix.pattern }}' \
+            --record-videos none \
             --record-logs failing \
             --take-screenshots failing \
             --headless \
@@ -229,5 +250,5 @@ jobs:
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: failure()
         with:
-          name: e2e-ios-videos
+          name: e2e-ios-${{ matrix.id }}
           path: ./artifacts/

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | správa UTXO / správa mincí | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | zmrazené / zmrazená | adj · state / fem-agreement · ⚠️ NOT verb "zmraziť" · Electrum sk_SK: "Adresa je zmrazená" |
 | **_Security & storage_** | | |
+| Replay risk | riziko opakovania transakcie | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | zašifrované úložisko | noun, lowercase · shipped matches. |
 | Plausible Deniability | hodnoverná popierateľnosť | noun, lowercase · ⚠️ shipped `Plausible deniability` is English passthrough; Slovak rendering exists per sk.wikipedia.org/wiki/Hodnoverná_popierateľnosť. |
 | Biometrics | biometria | noun, lowercase. |

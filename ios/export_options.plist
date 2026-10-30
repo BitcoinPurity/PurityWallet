@@ -18,12 +18,12 @@
       <string>export</string>
       <key>provisioningProfiles</key>
       <dict>
-          <key>io.bluewallet.bluewallet</key>
-          <string>match AppStore io.bluewallet.bluewallet</string>
-          <key>io.bluewallet.bluewallet.Stickers</key>
-          <string>match AppStore io.bluewallet.bluewallet.Stickers</string>
-          <key>io.bluewallet.bluewallet.MarketWidget</key>
-          <string>match AppStore io.bluewallet.bluewallet.MarketWidget</string>
+          <key>au.com.bitcoininstitute.puritywallet</key>
+          <string>match AppStore au.com.bitcoininstitute.puritywallet</string>
+          <key>au.com.bitcoininstitute.puritywallet.Stickers</key>
+          <string>match AppStore au.com.bitcoininstitute.puritywallet.Stickers</string>
+          <key>au.com.bitcoininstitute.puritywallet.MarketWidget</key>
+          <string>match AppStore au.com.bitcoininstitute.puritywallet.MarketWidget</string>
       </dict>
   </dict>
 </plist>

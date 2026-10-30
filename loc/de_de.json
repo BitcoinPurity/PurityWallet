@@ -119,6 +119,10 @@
     "bip47_explanation": "Zahlungscodes sind eine universelle Adresse. Sie vermeiden die Offenlegung der Wallet-Adressen, werden aber nicht durch alle Dienste unterstützt."
   },
   "send": {
+    "legacy_replay_title": "Replay-Risiko auf Bitcoin Core",
+    "legacy_replay_warning": "Alle Eingänge sind auch auf der Bitcoin Core-Blockchain als ungenutzte Ausgänge vorhanden. Diese Transaktion könnte dort wiederholt werden und die entsprechenden BTC ausgeben. Fahre nur fort, wenn du dieses Risiko verstehst und akzeptierst.",
+    "legacy_replay_accept": "Ich verstehe und akzeptiere das Risiko — weiter",
+    "legacy_check_failed": "Nicht alle Eingänge auf der Bitcoin Core-Blockchain konnten über mempool.space geprüft werden. Das Replay-Risiko ist unbekannt; diese Transaktion könnte auch die entsprechenden BTC auf dieser Blockchain ausgeben. Versuche es erneut oder fahre nur fort, wenn du dieses Risiko verstehst und akzeptierst.",
     "provided_address_is_invoice": "Diese Adresse ist für eine Lightning-Rechnung. Um diese Rechnung zu zahlen, ist eine Lightning-Wallet zu verwenden.",
     "broadcastButton": "Ins Netzwerk übertragen",
     "broadcastError": "Fehler",
@@ -621,6 +625,9 @@
     "error": "Die Eingabe ist keine unvollendete 11- oder 23-Wort-Phrase. Bitte erneut versuchen."
   },
   "cc": {
+    "legacy_shared": "⚠ Replay-Risiko: auch auf Bitcoin Core ungenutzt",
+    "legacy_checking": "Bitcoin Core-Blockchain wird geprüft…",
+    "legacy_unknown": "⚠ Prüfung von Bitcoin Core fehlgeschlagen",
     "change": "Ändern",
     "coins_selected": "Anz. gewählte Münzen ({number})",
     "selected_summ": "{value} ausgewählt",

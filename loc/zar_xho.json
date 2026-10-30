@@ -119,6 +119,10 @@
     "bip47_explanation": "Ii-payment codes yidilesi yendalo iphela ekugwema ukutyhilwa kweedilesi zengxowa yakho. Iinkonzo azizukuyixhasa zonke."
   },
   "send": {
+    "legacy_replay_title": "Umngcipheko wokuphindwa kwi-Bitcoin Core",
+    "legacy_replay_warning": "Onke amagalelo akhona nanjengeziphumo ezingekasetyenziswa kwityathanga le-Bitcoin Core. Le transaction inokuphindwa apho ize isebenzise i-BTC ehambelanayo. Qhubeka kuphela xa uwuqonda kwaye uwamkela lo mngcipheko.",
+    "legacy_replay_accept": "Ndiyawuqonda kwaye ndiyawamkela umngcipheko — qhubeka",
+    "legacy_check_failed": "Akukwazekanga ukujonga onke amagalelo kwityathanga le-Bitcoin Core nge-mempool.space. Umngcipheko wokuphindwa awaziwa; le transaction inokusebenzisa i-BTC ehambelanayo nakwelo tyathanga. Ungazama kwakhona, okanye uqhubeke kuphela xa uwuqonda kwaye uwamkela lo mngcipheko.",
     "provided_address_is_invoice": "Le dilesi ibonakala iyi-Lightning invoyisi. Nceda, yiya kwingxowa yakho ye-Lightning ukwenza intlawulo yale invoyisi.",
     "broadcastButton": "Sasazwa",
     "broadcastError": "Impazamo",
@@ -621,6 +625,9 @@
     "error": "Igalelo asilobinzana lembewu elinamagama ali-11 okanye angama-23. Nceda zama kwakhona."
   },
   "cc": {
+    "legacy_shared": "⚠ Umngcipheko wokuphindwa: ayikasetyenziswa nakwi-Bitcoin Core",
+    "legacy_checking": "Kujongwa ityathanga le-Bitcoin Core…",
+    "legacy_unknown": "⚠ Ukujonga i-Bitcoin Core akuphumelelanga",
     "change": "Tshintsha",
     "coins_selected": "Iicoins ezikhethiweyo ({number})",
     "selected_summ": "{value} ekhethiweyo",

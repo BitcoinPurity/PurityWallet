@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | مدیریت UTXO / مدیریت سکه‌ها | noun · ⚠️ NOT Title Case · borrowed from fa: مدیریت UTXO. |
 | Frozen | مسدۊد | adj/state · "blocked" · ⚠️ NOT verb · borrowed from fa: مسدودشده / مسدود. |
 | **_Security & storage_** | | |
+| Replay risk | خطر بازپخش | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | TODO | — |
 | Plausible Deniability | انکار مووجه | noun · ⚠️ NOT Title Case · borrowed from fa: انکار موجه. |
 | Biometrics | بیومتریک | — |

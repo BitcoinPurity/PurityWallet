@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>io.bluewallet.bluewallet.fetchTxsForWallet</string>
+		<string>au.com.bitcoininstitute.puritywallet.fetchTxsForWallet</string>
 		<string>com.transistorsoft.fetch</string>
 	</array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
@@ -193,8 +193,8 @@
 	<string>In order to import an image for scanning, we need your permission to access your photo library.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>io.bluewallet.bluewallet.receiveonchain</string>
-		<string>io.bluewallet.bluewallet.xpub</string>
+		<string>au.com.bitcoininstitute.puritywallet.receiveonchain</string>
+		<string>au.com.bitcoininstitute.puritywallet.xpub</string>
 	</array>
 	<key>RCTNewArchEnabled</key>
 	<true/>

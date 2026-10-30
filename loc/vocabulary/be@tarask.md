@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | кіраваньне UTXO / кіраваньне манэтамі | technical / mainstream · ⚠️ NOT Title Case · Tarask `-ньне` suffix, `э` in `манэта`. |
 | Frozen | замарожаны | ⚠️ NOT the verb "to freeze" (замарозіць) — must be adjective/state form. |
 | **_Security & storage_** | | |
+| Replay risk | рызыка паўтору трансакцыі | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | сховішча зашыфравана | shipped value · ⚠️ NOT Title Case · matches storage_is_encrypted in be@tarask.json. |
 | Plausible Deniability | праўдападобнае адмаўленьне | Tarask `-ньне` suffix; ⚠️ NOT Title Case · matches en.wikipedia.org/wiki/Plausible_deniability concept. |
 | Biometrics | біяметрыя | be-tarask.wikipedia.org spelling `Біяметрыя`. |

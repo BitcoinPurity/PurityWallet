@@ -77,6 +77,7 @@ Note: Hakka (客家話) is written here in Traditional Han characters following 
 | Coin Control | 錢幣控制 / UTXO 控制 | noun · mainstream / technical (Bitcoin Core zh_TW 錢幣控制). ⚠️ NOT Title Case. |
 | Frozen | 已凍結 / 凍結 | adj / verb · state form preferred. ⚠️ NOT bare verb 凍結. |
 | **_Security & storage_** | | |
+| Replay risk | 重放風險 | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | 加密儲存空間 / 加密儲存 | noun · ⚠️ NOT Title Case. |
 | Plausible Deniability | 合理推諉 | noun · ⚠️ NOT Title Case. |
 | Biometrics | 生物辨識 / 生物識別 | noun. |

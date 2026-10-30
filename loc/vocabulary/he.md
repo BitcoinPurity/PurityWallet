@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | ניהול UTXO / שליטת מטבעות | noun · technical / mainstream (shipped). |
 | Frozen | מוקפא / מוקפאת | adj · masc / fem · ⚠️ NOT verb "להקפיא". Shipped also uses noun הקפאה for the action. |
 | **_Security & storage_** | | |
+| Replay risk | סיכון לשידור חוזר | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | אחסון מוצפן / הצפנת אחסון | noun · shipped uses both forms. |
 | Plausible Deniability | יכולת הכחשה סבירה | noun · shipped · en.wikipedia.org/wiki/Plausible_deniability. |
 | Biometrics | זיהוי ביומטרי / ביומטריה | noun · shipped (long form). |

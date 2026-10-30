@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | myntkontroll | noun · master ships "Myntkontroll"; native preferred. |
 | Frozen | fryst | adj · ⚠️ NOT verb "frysa" · Electrum sv_SE "Adressen är frusen"; Zeus sv "Fryst". |
 | **_Security & storage_** | | |
+| Replay risk | risk för återuppspelning | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | krypterad lagring | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | trovärdigt förnekande | noun, lowercase. |
 | Biometrics | biometri / biometrisk identifiering | noun, lowercase · Zeus sv "Biometri". |

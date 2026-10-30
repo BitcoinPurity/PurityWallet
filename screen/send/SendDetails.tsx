@@ -41,6 +41,10 @@ import presentAlert from '../../components/Alert';
 import * as AmountInput from '../../components/AmountInput';
 import Button from '../../components/Button';
 import CoinsSelected from '../../components/CoinsSelected';
+import LegacyReplayWarning from '../../components/LegacyReplayWarning';
+import { getLegacyReplayStatus } from '../../blue_modules/legacy-chain';
+import { useLegacyUtxoCheck } from '../../hooks/useLegacyUtxoCheck';
+import { confirmLegacyReplayRisk } from './confirmLegacyReplayRisk';
 import { DismissKeyboardInputAccessory, DismissKeyboardInputAccessoryViewID } from '../../components/DismissKeyboardInputAccessory';
 import InputAccessoryAllFunds, { InputAccessoryAllFundsAccessoryViewID } from '../../components/InputAccessoryAllFunds';
 import { createEllipsisHeaderMenuOptions } from '../../components/headerMenuOptions';
@@ -109,6 +113,10 @@ const SendDetails = () => {
   const [feePrecalc, setFeePrecalc] = useState<IFee>({ current: null, slowFee: null, mediumFee: null, fastestFee: null });
   const [changeAddress, setChangeAddress] = useState<string | null>(null);
   const [dumb, setDumb] = useState(false);
+  const creationInFlight = useRef(false);
+  const transactionVersion = useRef(0);
+  const [legacyRefresh, setLegacyRefresh] = useState(0);
+  const legacyCheck = useLegacyUtxoCheck(wallet ? (utxos ?? []) : [], `${wallet?.getID()}:${legacyRefresh}`);
   const { isEditable } = routeParams;
   // if utxo is limited we use it to calculate available balance
   const balance: number = utxos ? utxos.reduce((prev, curr) => prev + curr.value, 0) : (wallet?.getBalance() ?? 0);
@@ -394,10 +402,17 @@ const SendDetails = () => {
   useFocusEffect(
     useCallback(() => {
       setIsLoading(false);
+      setLegacyRefresh(value => value + 1);
       setDumb(v => !v);
-      return () => {};
+      return () => {
+        transactionVersion.current++;
+      };
     }, []),
   );
+
+  useEffect(() => {
+    transactionVersion.current++;
+  }, [wallet, utxos, addresses, feeRate, isTransactionReplaceable]);
 
   const handleLayout = (event: any) => {
     const { width, height } = event.nativeEvent.layout;
@@ -504,6 +519,7 @@ const SendDetails = () => {
   );
 
   const createTransaction = async () => {
+    if (creationInFlight.current) return;
     assert(wallet, 'Internal error: wallet is not set');
     Keyboard.dismiss();
     setIsLoading(true);
@@ -581,6 +597,8 @@ const SendDetails = () => {
       }
     }
 
+    if (creationInFlight.current) return;
+    creationInFlight.current = true;
     try {
       await createPsbtTransaction();
     } catch (Err: any) {
@@ -588,6 +606,9 @@ const SendDetails = () => {
       presentAlert({ title: loc.errors.error, message: Err.message });
       console.log(Err);
       triggerHapticFeedback(HapticFeedbackTypes.NotificationError);
+    } finally {
+      creationInFlight.current = false;
+      setIsLoading(false);
     }
   };
   const navigateToQRCodeScanner = useCallback(() => {
@@ -598,10 +619,11 @@ const SendDetails = () => {
 
   const createPsbtTransaction = async () => {
     if (!wallet) return;
+    const version = transactionVersion.current;
     const change = await getChangeAddressAsync();
     assert(change, 'Could not get change address');
     const requestedSatPerByte = Number(feeRate);
-    const lutxo: CreateTransactionUtxo[] = utxos || (wallet?.getUtxo() ?? []);
+    const lutxo: CreateTransactionUtxo[] = (utxos || wallet.getUtxo()).map(coin => ({ ...coin }));
     console.log({ requestedSatPerByte, lutxo: lutxo.length });
 
     const targets: CreateTransactionTarget[] = [];
@@ -623,6 +645,13 @@ const SendDetails = () => {
 
     const targetsOrig = JSON.parse(JSON.stringify(targets));
     // preserving original since it will be mutated
+
+    const { inputs } = wallet.coinselect(lutxo, targets, requestedSatPerByte);
+    const isCurrent = () => version === transactionVersion.current && navigation.isFocused();
+    if (!(await confirmLegacyReplayRisk(inputs, isCurrent)) || !isCurrent()) {
+      setIsLoading(false);
+      return;
+    }
 
     // without forcing `HDSegwitBech32Wallet` i had a weird ts error, complaining about last argument (fp)
     const { tx, outputs, psbt, fee } = (wallet as HDSegwitBech32Wallet)?.createTransaction(
@@ -1339,6 +1368,7 @@ const SendDetails = () => {
               setParams({ utxos: null });
             }}
           />
+          <LegacyReplayWarning detailed status={legacyCheck.checking ? 'checking' : getLegacyReplayStatus(utxos, legacyCheck.results)} />
         </View>
       );
     }

@@ -119,6 +119,10 @@
     "bip47_explanation": "Akatua koodu yɛ address a ɛwɔ baabiara a ɛmma wo sika kotokuo address ho nna adi. Ɛnyɛ adwumayɛbea nyinaa na ɛbɛgye atom."
   },
   "send": {
+    "legacy_replay_title": "Asiane a ɛwɔ nsesaeɛ no san yɛ mu wɔ Bitcoin Core",
+    "legacy_replay_warning": "Deɛ ɛba mu no nyinaa nso wɔ Bitcoin Core nkɔnsɔnkɔnsɔn no so sɛ deɛ ɛfiri adi a wɔnnya nsɛeeɛ. Wobetumi asan ayɛ nsesaeɛ yi wɔ hɔ na wɔasɛe BTC a ɛne no hyia no. Toa so sɛ wote asiane yi ase na wogye tom nko ara a.",
+    "legacy_replay_accept": "Mete asiane no ase na megye tom — toa so",
+    "legacy_check_failed": "Wɔantumi amfa mempool.space anhwehwɛ deɛ ɛba mu no nyinaa wɔ Bitcoin Core nkɔnsɔnkɔnsɔn no so. Wonnim asiane a ɛwɔ san yɛ mu; nsesaeɛ yi nso betumi asɛe BTC a ɛne no hyia wɔ saa nkɔnsɔnkɔnsɔn no so. Wubetumi asɔ ahwɛ bio, anaa woatoa so sɛ wote asiane yi ase na wogye tom nko ara a.",
     "provided_address_is_invoice": "Ɛyɛ sɛ address yi yɛ Lightning ka krataa. Yɛsrɛ wo, kɔ wo Lightning sika kotokuo mu na tua ka krataa yi ho ka.",
     "broadcastButton": "Bɔ dawuro",
     "broadcastError": "Mfomsoɔ",
@@ -621,6 +625,9 @@
     "error": "Deɛ wode hyɛ mu no nyɛ nkaeɛ nsɛmfua a ɛyɛ nsɛmfua 11 anaa 23 a ɛnnwiei. Yɛsrɛ wo, sɔ hwɛ bio."
   },
   "cc": {
+    "legacy_shared": "⚠ San yɛ asiane: wɔnsɛeeɛ wɔ Bitcoin Core nso",
+    "legacy_checking": "Wɔrehwehwɛ Bitcoin Core nkɔnsɔnkɔnsɔn no mu…",
+    "legacy_unknown": "⚠ Bitcoin Core nhwehwɛmu no anyɛ yie",
     "change": "Sika a aka",
     "coins_selected": "Sika a Wɔapaw ({number})",
     "selected_summ": "Wɔapaw {value}",

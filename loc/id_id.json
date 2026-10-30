@@ -119,6 +119,10 @@
     "bip47_explanation": "Kode pembayaran adalah alamat universal yang menghindari pengungkapan alamat dompet Anda. Tidak semua layanan mendukungnya."
   },
   "send": {
+    "legacy_replay_title": "Risiko pemutaran ulang di Bitcoin Core",
+    "legacy_replay_warning": "Semua masukan juga ada sebagai keluaran yang belum dibelanjakan di rantai Bitcoin Core. Transaksi ini dapat diputar ulang di sana dan membelanjakan BTC yang bersesuaian. Lanjutkan hanya jika Anda memahami dan menerima risiko ini.",
+    "legacy_replay_accept": "Saya memahami dan menerima risikonya — lanjutkan",
+    "legacy_check_failed": "Tidak semua masukan di rantai Bitcoin Core dapat diperiksa melalui mempool.space. Risiko pemutaran ulang tidak diketahui; transaksi ini juga dapat membelanjakan BTC yang bersesuaian di rantai tersebut. Anda dapat mencoba lagi, atau melanjutkan hanya jika memahami dan menerima risiko ini.",
     "provided_address_is_invoice": "Alamat ini tampaknya untuk sebuah faktur Lightning. Silakan ke dompet Lightning Anda untuk membayar faktur ini.",
     "broadcastButton": "Siarkan",
     "broadcastError": "Kesalahan",
@@ -621,6 +625,9 @@
     "error": "Input bukan frasa mnemonik 11 atau 23 kata. Harap coba lagi."
   },
   "cc": {
+    "legacy_shared": "⚠ Risiko pemutaran ulang: juga belum dibelanjakan di Bitcoin Core",
+    "legacy_checking": "Memeriksa rantai Bitcoin Core…",
+    "legacy_unknown": "⚠ Pemeriksaan Bitcoin Core gagal",
     "change": "Ubah",
     "coins_selected": "Koin Terpilih ({number})",
     "selected_summ": "{value} terpilih",

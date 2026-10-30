@@ -77,6 +77,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | Para kontrolü / Coin Control | noun · native compound preferred; loanword acceptable. |
 | Frozen | donmuş | adj/state · ⚠️ NOT verb `dondur` (= to freeze) · Electrum tr |
 | **_Security & storage_** | | |
+| Replay risk | işlemin tekrarlanması riski | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | şifreli depolama | noun · ⚠️ NOT Title Case · shipped `_.storage_is_encrypted` uses `Depolama alanınız şifrelenmiş`. |
 | Plausible Deniability | makul ret / makul inkâr edilebilirlik | noun · ⚠️ NOT Title Case · shipped / canonical · tr.wikipedia.org/wiki/Makul_inkar_edilebilirlik |
 | Biometrics | biyometrikler / biyometrik doğrulama | noun · shipped `settings.biometrics` · Phoenix tr (`Biyometrik doğrulama`) |

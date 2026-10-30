@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | upravljanje UTXO-ima / upravljanje kovanicama | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | zamrznuto | adj · state form · ⚠️ NOT verb `zamrznuti`. |
 | **_Security & storage_** | | |
+| Replay risk | rizik ponavljanja | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | šifrirani spremnik | noun, lowercase · Bitcoin Core hr (`Šifrirani novčanik`). Shipped `spremnik je kriptiran` is a full sentence — prefer noun form. |
 | Plausible Deniability | uvjerljivo poricanje | noun, lowercase. ⚠️ Shipped `Fejk volet` is slang ("fake wallet") — replace. |
 | Biometrics | biometrija | noun, lowercase. |

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | contrôle des UTXO / contrôle des pièces | noun, lowercase · technical / mainstream · Zeus fr (`Contrôle des pièces`) + Cake fr · ⚠️ NOT Title Case · ⚠️ FIX shipped `Controle des UTXO` → `Contrôle des UTXO`. |
 | Frozen | gelé / gelée | adj · masc / fem-agreement · Zeus fr · ⚠️ NOT verb "geler". |
 | **_Security & storage_** | | |
+| Replay risk | risque de rejeu | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | stockage chiffré / chiffrement du stockage | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | déni plausible | noun, lowercase · ⚠️ NOT Title Case. |
 | Biometrics | biométrie / authentification biométrique | noun, lowercase · compact / explanatory · Cake fr + Green fr |

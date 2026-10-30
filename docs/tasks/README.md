@@ -15,3 +15,8 @@
 - [TASK-013: Repair native release CI triggers and Android SDK setup](TASK-013.md)
 - [TASK-014: Clear Android boot dialogs before E2E launch](TASK-014.md)
 - [TASK-015: Align E2E with Purity feature flags and hardware fixtures](TASK-015.md)
+- [TASK-016: Warn about legacy-chain UTXOs and gate signing on replay acknowledgement](TASK-016.md) — includes acknowledged continuation after failed checks and localization in all supported languages.
+- [TASK-017: Align app release metadata to version 1.1.0](TASK-017.md)
+- [TASK-018: Update the canonical GitHub repository to PurityWallet/PurityWallet](TASK-018.md)
+- [TASK-019: Unify Android and Apple application identities](TASK-019.md) — supersedes the initial identity in TASK-006.
+- [TASK-020: Preserve existing Android APK upgrades](TASK-020.md) — supersedes the Android identity changes in TASK-019; includes the four-ABI universal release.

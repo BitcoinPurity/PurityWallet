@@ -119,6 +119,10 @@
     "bip47_explanation": "Payment codes na universal address wey no go show your wallet addresses. No be every service go support am."
   },
   "send": {
+    "legacy_replay_title": "Risk say transaction fit repeat for Bitcoin Core",
+    "legacy_replay_warning": "All di inputs still dey as outputs wey dem never spend for Bitcoin Core chain too. Dem fit repeat dis transaction for dat chain and spend di matching BTC. Continue only if you understand and accept dis risk.",
+    "legacy_replay_accept": "I understand and accept di risk — continue",
+    "legacy_check_failed": "We no fit check all di inputs for Bitcoin Core chain through mempool.space. We no know di replay risk; dis transaction fit still spend di matching BTC for dat chain. You fit try again, or continue only if you understand and accept dis risk.",
     "provided_address_is_invoice": "This address look like say na Lightning invoice. Abeg, go your Lightning wallet make you pay this invoice.",
     "broadcastButton": "Broadcast am",
     "broadcastError": "Wahala",
@@ -621,6 +625,9 @@
     "error": "The input no be 11- or 23-word partial mnemonic. Abeg try again."
   },
   "cc": {
+    "legacy_shared": "⚠ Replay risk: dem never spend am for Bitcoin Core too",
+    "legacy_checking": "Dey check Bitcoin Core chain…",
+    "legacy_unknown": "⚠ Bitcoin Core check fail",
     "change": "Change wey remain",
     "coins_selected": "Coins Wey You Select ({number})",
     "selected_summ": "You don pick {value}",

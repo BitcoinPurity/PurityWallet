@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | správa UTXO / správa mincí | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case · Bitcoin Core cs uses `Ovládání mincí`. |
 | Frozen | zmrazeno / zmrazený | adj · state / masc-agreement · ⚠️ NOT verb "zmrazit" · Bitcoin Core cs (`Zmrazeno`). |
 | **_Security & storage_** | | |
+| Replay risk | riziko opakování transakce | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | šifrované úložiště / šifrování úložiště | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | věrohodná popiratelnost | noun, lowercase · ⚠️ NOT Title Case · cs.wikipedia.org/wiki/Věrohodná_popiratelnost. |
 | Biometrics | biometrie | noun, lowercase · Electrum cs |

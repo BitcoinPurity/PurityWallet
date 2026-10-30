@@ -119,6 +119,10 @@
     "bip47_explanation": "Kody płatności to uniwersalne adresy, które chronią prywatność Twojego portfela. Nie wszystkie usługi je obsługują."
   },
   "send": {
+    "legacy_replay_title": "Ryzyko powtórzenia w Bitcoin Core",
+    "legacy_replay_warning": "Wszystkie wejścia istnieją również jako niewydane wyjścia w łańcuchu Bitcoin Core. Ta transakcja może zostać tam powtórzona i wydać odpowiadające im BTC. Kontynuuj tylko wtedy, gdy rozumiesz i akceptujesz to ryzyko.",
+    "legacy_replay_accept": "Rozumiem i akceptuję ryzyko — kontynuuj",
+    "legacy_check_failed": "Nie udało się sprawdzić wszystkich wejść w łańcuchu Bitcoin Core za pomocą mempool.space. Ryzyko powtórzenia jest nieznane; ta transakcja może wydać odpowiadające im BTC również w tym łańcuchu. Spróbuj ponownie lub kontynuuj tylko wtedy, gdy rozumiesz i akceptujesz to ryzyko.",
     "provided_address_is_invoice": "Ten adres wygląda na fakturę Lightning. Przejdź do swojego portfela Lightning aby ją opłacić.",
     "broadcastButton": "Rozgłoś",
     "broadcastError": "Błąd",
@@ -627,6 +631,9 @@
     "error": "Wprowadzone dane nie są 11- lub 23-wyrazowym częściowym mnemonikiem. Proszę spróbować ponownie."
   },
   "cc": {
+    "legacy_shared": "⚠ Ryzyko powtórzenia: niewydane również w Bitcoin Core",
+    "legacy_checking": "Sprawdzanie łańcucha Bitcoin Core…",
+    "legacy_unknown": "⚠ Sprawdzenie Bitcoin Core nie powiodło się",
     "change": "Reszta",
     "coins_selected": "Wybrano monet ({number})",
     "selected_summ": "Wybrana kwota {value}",

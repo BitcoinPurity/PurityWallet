@@ -166,6 +166,24 @@ export async function helperImportWallet(importText, walletType, expectedWalletL
   await expect(element(by.id('WalletBalance'))).toHaveText(expectedBalance);
 }
 
+export async function enableOfflineMode() {
+  await waitForId('WalletsList');
+  await element(by.id('SettingsButton')).tap();
+  await waitForId('NetworkSettings');
+  await element(by.id('NetworkSettings')).tap();
+  await waitForId('ElectrumSettings');
+  await element(by.id('ElectrumSettings')).tap();
+  await waitForId('ElectrumConnectionEnabledSwitch');
+  if (!(await getSwitchValue('ElectrumConnectionEnabledSwitch'))) {
+    await element(by.id('ElectrumConnectionEnabledSwitch')).tap();
+  }
+  await waitForSwitchValue('ElectrumConnectionEnabledSwitch', true);
+  await goBack();
+  await goBack();
+  await goBack();
+  await waitForId('WalletsList');
+}
+
 export async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -366,12 +384,18 @@ export async function dismissAlertByText(text, timeoutMs = 10000) {
       // by.text — works on pre–iOS 26 and some iOS 26 alerts
       try {
         await element(by.text(text)).atIndex(0).tap();
+        await waitFor(element(by.text(text)))
+          .not.toExist()
+          .withTimeout(1000);
         dismissed = true;
         break;
       } catch (_) {}
       // by.label — accessibility label, works when text matching differs
       try {
         await element(by.label(text)).atIndex(0).tap();
+        await waitFor(element(by.label(text)))
+          .not.toExist()
+          .withTimeout(1000);
         dismissed = true;
         break;
       } catch (_) {}

@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms and the mea
 | Coin Control | myntkontroll | noun, lowercase · Bitcoin Core nb · ⚠️ NOT Title Case. |
 | Frozen | fryst | adj · Zeus nb · ⚠️ NOT verb `fryse`. Shipped uses `frosne` (plural); canonical singular is `fryst`. |
 | **_Security & storage_** | | |
+| Replay risk | risiko for gjentakelse | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | kryptert lagring | noun, lowercase · ⚠️ NOT Title Case (shipped `Kryptert Lagring`). |
 | Plausible Deniability | plausibel fornektelse | noun, lowercase · ⚠️ NOT Title Case (shipped `Plausibel Fornektelse`). |
 | Biometrics | biometri | noun, lowercase · ⚠️ shipped `Biometrics` is English passthrough — fix to `biometri`. |

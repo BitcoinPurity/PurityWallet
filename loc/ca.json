@@ -119,6 +119,10 @@
     "bip47_explanation": "Els codis de pagament són una adreça universal que evita revelar les adreces del vostre moneder. No tots els serveis els admeten."
   },
   "send": {
+    "legacy_replay_title": "Risc de repetició a Bitcoin Core",
+    "legacy_replay_warning": "Totes les entrades també existeixen com a sortides no gastades a la cadena de Bitcoin Core. Aquesta transacció es podria repetir en aquella cadena i gastar els BTC corresponents. Continueu només si enteneu i accepteu aquest risc.",
+    "legacy_replay_accept": "Entenc i accepto el risc — continua",
+    "legacy_check_failed": "No s'han pogut comprovar totes les entrades a la cadena de Bitcoin Core mitjançant mempool.space. No es pot determinar el risc de repetició; aquesta transacció també podria gastar els BTC corresponents en aquella cadena. Podeu tornar-ho a provar o continuar només si enteneu i accepteu aquest risc.",
     "provided_address_is_invoice": "Aquesta adreça sembla ser per a una factura Lightning. Si us plau, aneu al vostre moneder Lightning per realitzar un pagament d'aquesta factura.",
     "broadcastButton": "Enviar",
     "broadcastError": "Error",
@@ -621,6 +625,9 @@
     "error": "L'entrada no és una mnemònica parcial d'11 o 23 paraules. Si us plau, torneu-ho a provar."
   },
   "cc": {
+    "legacy_shared": "⚠ Risc de repetició: també sense gastar a Bitcoin Core",
+    "legacy_checking": "S'està comprovant la cadena de Bitcoin Core…",
+    "legacy_unknown": "⚠ La comprovació de Bitcoin Core ha fallat",
     "change": "Canvi",
     "coins_selected": "Monedes seleccionades ({number})",
     "selected_summ": "{value} seleccionat",

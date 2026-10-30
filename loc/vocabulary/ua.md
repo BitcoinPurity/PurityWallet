@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | керування UTXO / керування монетами | noun, lowercase · technical / mainstream · ⚠️ NOT Title Case. |
 | Frozen | заморожено / заморожений | adj · state / masc-agreement · ⚠️ NOT verb "заморозити". |
 | **_Security & storage_** | | |
+| Replay risk | ризик повторення транзакції | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | зашифроване сховище | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | правдоподібне заперечення / можливість правдоподібного заперечення | noun, lowercase · short / full. |
 | Biometrics | біометрія | noun, lowercase. |

@@ -119,6 +119,10 @@
     "bip47_explanation": "A fizetési kódok olyan univerzális címek, amelyek elkerülik a tárcacímek felfedését. Nem minden szolgáltatás támogatja őket."
   },
   "send": {
+    "legacy_replay_title": "Újrajátszási kockázat a Bitcoin Core láncán",
+    "legacy_replay_warning": "Az összes bemenet a Bitcoin Core láncán is létezik el nem költött kimenetként. Ez a tranzakció ott is újrajátszható, és elköltheti a megfelelő BTC-t. Csak akkor folytasd, ha megérted és elfogadod ezt a kockázatot.",
+    "legacy_replay_accept": "Megértem és elfogadom a kockázatot — folytatás",
+    "legacy_check_failed": "Nem sikerült minden bemenetet ellenőrizni a Bitcoin Core láncán a mempool.space segítségével. Az újrajátszás kockázata ismeretlen; ez a tranzakció azon a láncon is elköltheti a megfelelő BTC-t. Próbáld újra, vagy csak akkor folytasd, ha megérted és elfogadod ezt a kockázatot.",
     "provided_address_is_invoice": "Ez a cím Lightning számlának tűnik. Kérem, menjen be a Lightning tárcájába és ott próbálkozzon ezen számla fizetésével.",
     "broadcastButton": "Küldés",
     "broadcastError": "Hiba",
@@ -621,6 +625,9 @@
     "error": "A bevitel nem 11 vagy 23 szavas részleges mnemonikus kifejezés. Kérlek, próbáld újra."
   },
   "cc": {
+    "legacy_shared": "⚠ Újrajátszási kockázat: a Bitcoin Core láncán is elköltetlen",
+    "legacy_checking": "A Bitcoin Core láncának ellenőrzése…",
+    "legacy_unknown": "⚠ A Bitcoin Core ellenőrzése sikertelen",
     "change": "Váltás",
     "coins_selected": "Érmék kiválasztva ({number})",
     "selected_summ": "{value} kijelölve",

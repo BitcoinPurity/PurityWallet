@@ -77,6 +77,7 @@ Note: upstream Bitcoin/Lightning wallet projects (Bitcoin Core, Electrum, Phoeni
 | Coin Control | njiimaandi koppe | noun · "coin control" (`njiimaandi` control/governance + `koppe` coins) (no upstream wallet citation). ⚠️ NOT Title Case. |
 | Frozen | jaangaama | adj/state · "has been frozen" (from `jaangude` to be cold/freeze) (no upstream wallet citation). ⚠️ NOT verb "to freeze". |
 | **_Security & storage_** | | |
+| Replay risk | caɗeele waɗtugol njuɓɓudi kadi | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | mooftirde wirniinde | noun · "encrypted storage" (`mooftirde` store + `wirnude` to conceal) (no upstream wallet citation). ⚠️ NOT Title Case. |
 | Plausible Deniability | suuɗgol gaandiingol | noun · "concealment that is deniable / believable" — best-effort abstract rendering (no upstream wallet citation). ⚠️ NOT Title Case. |
 | Biometrics | biyometrii | noun · transliteration (no upstream wallet citation). |

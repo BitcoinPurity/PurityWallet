@@ -75,6 +75,7 @@ See [`../vocabulary.md`](../vocabulary.md) for the glossary of terms, vocabulary
 | Coin Control | control de monedes / gestió d'UTXO | noun, lowercase · mainstream / technical · ⚠️ NOT Title Case · Bitcoin Core ca uses `control de les monedes`. |
 | Frozen | congelada / bloquejada | adj · state, fem-agreement (sortida/moneda) · ⚠️ NOT verb "congelar". |
 | **_Security & storage_** | | |
+| Replay risk | risc de repetició | noun · Cross-chain transaction replay; failed checks leave the risk unknown and require explicit acceptance before continuing. |
 | Encrypted storage | emmagatzematge xifrat | noun, lowercase · ⚠️ NOT Title Case. |
 | Plausible Deniability | negació plausible | noun, lowercase · ⚠️ NOT Title Case. ca.json ships `Negació plausible`. |
 | Biometrics | biometria | noun, lowercase. |

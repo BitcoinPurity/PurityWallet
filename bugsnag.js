@@ -1,7 +1,8 @@
+import { Platform } from 'react-native';
 import Bugsnag from '@bugsnag/react-native';
 import DefaultPreference from 'react-native-default-preference';
 
-const GROUP_IO_BLUEWALLET = 'group.io.bluewallet.bluewallet';
+const GROUP_IO_BLUEWALLET = Platform.OS === 'android' ? 'group.io.bluewallet.bluewallet' : 'group.au.com.bitcoininstitute.puritywallet';
 const DO_NOT_TRACK_KEY = 'donottrack';
 
 (async () => {
